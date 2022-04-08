@@ -1,0 +1,10 @@
+{{ $css := resources.Get "css/tw.css" | postCSS}}
+    {{ if hugo.IsProduction }}
+    {{ $css = $css | minify | fingerprint | resources.PostProcess }}
+    <link rel="stylesheet" href="{{$css.RelPermalink}}"  type="text/css" integrity="{{$css.Data.Integrity}}"/>
+    {{ else if (and (.Site.IsServer) (fileExists "hugo_stats.json"))  }}
+    {{- $stats_hash := getJSON "hugo_stats.json" | printf "%v" | sha256 }}
+    {{ $css = $css | resources.ExecuteAsTemplate (printf "css/tw.%v.css" $stats_hash) . }}
+    <link rel="stylesheet" href="{{$css.RelPermalink}}" type="text/css" />
+    {{ end }}
+

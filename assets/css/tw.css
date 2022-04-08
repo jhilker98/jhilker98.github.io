@@ -1,0 +1,41 @@
+@import url("/fonts/josevka-sans.css");
+@import url("/fonts/josevka-book.css");
+
+@import "tailwindcss/base";
+@import "tailwindcss/utilities";
+@import "tailwindcss/components";
+
+@layer base {
+    body {
+        @apply min-h-screen antialiased bg-slate-100 dark:bg-navy-900 scrollbar-thin;
+    }
+
+    details.cventry summary {
+        @apply after:content-['\25b8'];
+    }
+
+    details.cventry[open] summary {
+        @apply after:content-['\25be'];
+    }
+
+}
+
+@layer components {
+ .sidebar-overlay {
+        @apply fixed inset-0 z-10 flex flex-col items-center duration-150 transform shadow-lg w-72 lg:invisible;
+    }
+
+
+    .cvwrapper {
+        @apply pl-5 border-l-2 border-gray-400;
+    }
+
+    .btn-primary {
+        @apply text-white transition-colors duration-150 transform bg-royal-600 hover:bg-royal-700 dark:hover:bg-royal-400 no-underline;
+    }
+
+    .btn-secondary {
+        @apply text-white transition-colors duration-150 transform bg-brown-600 hover:bg-brown-700 dark:hover:bg-brown-400 no-underline;
+    }
+
+}

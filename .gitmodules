@@ -1,0 +1,3 @@
+[submodule "themes/omniscient"]
+	path = themes/omniscient
+	url = https://github.com/jhilker1/hugo-omniscient.git

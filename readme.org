@@ -1,0 +1,3 @@
+#+title: jhilker.gitlab.io
+
+My personal website, built with ox-hugo, tailwindcss, and Iosevka.

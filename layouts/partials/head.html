@@ -1,0 +1,27 @@
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>{{ if .IsHome }} Home | {{ else }}{{ if .Page.Title}} {{ .Page.Title}} | {{end}}{{end}}{{.Site.Title}}</title>
+
+    {{ partialCached "css" .}}
+  <!-- FontAwesome -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"
+    integrity="sha512-iBBXm8fW90+nuLcSKlbmrPcLa0OT92xO1BIsZ+ywDWZCvqsWgccV3gFoRBv0z+8dLJgyAHIhR35VZc2oM/gI1w=="
+    crossorigin="anonymous" />
+  <!--  DevIcons -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/devicons/devicon@v2.10.1/devicon.min.css">
+  <title>{{ if .IsHome }} Home | {{ else }}{{ if .Page.Title}} {{ .Page.Title}} | {{end}}{{end}}{{.Site.Title}}</title>
+  <!-- AlpineJS -->
+  <script defer src="https://unpkg.com/alpinejs@3.x.x/dist/cdn.min.js"></script>
+   <!-- Dark Mode -->
+  <script>
+    if (localStorage.darkMode === 'true' || (!('darkMode' in localStorage) && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
+      document.documentElement.classList.add('dark')
+    } else {
+      document.documentElement.classList.remove('dark')
+    }
+  </script>
+  {{ $mainJs := resources.Get "js/main.js"}}
+  <script src="{{$mainJs.RelPermalink}}"></script>
+
+</head>
