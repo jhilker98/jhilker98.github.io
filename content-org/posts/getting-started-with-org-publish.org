@@ -1,0 +1,19 @@
+:PROPERTIES:
+:ID:       b0f9d8c6-3a86-42a2-9e5c-d6dd5f11501f
+:NAMESPACE: Blog Post
+:END:
+#+title: Getting Started with Ox-publish
+#+date: [2021-10-27 Wed]
+
+#+hugo_section: blog
+#+hugo_type: post
+#+hugo_draft: true
+#+hugo_custom_front_matter: :featured true :enableToc false 
+#+hugo_slug: building-sites-org-publish
+#+hugo_bundle: building-a-site-with-org-publish
+#+filetags: 
+#+hugo_tags: 
+#+hugo_categories: 
+#+export_file_name: index.md
+
+While I love Hugo as a static site generator, I realize that some people might not want to have any Markdown artifacts. Luckily, Emacs allows us to build static websites with org-mode's built in publishing system, =ox-publish=.

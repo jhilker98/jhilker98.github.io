@@ -1,0 +1,4 @@
+#+title: Jacob's Blog
+#+hugo_layout: blog
+#+hugo_section: blog
+#+export_file_name: _index

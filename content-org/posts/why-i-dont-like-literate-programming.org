@@ -1,0 +1,18 @@
+:PROPERTIES:
+:ID:       a716149a-90ac-4e87-97ea-cc095634aed9
+:NAMESPACE: Blog Post
+:END:
+#+title: Why I Don't Like Literate Programming
+#+date: [2021-11-28 Sun 10:41]
+#+hugo_section: blog
+#+hugo_type: post
+#+hugo_draft: true
+#+hugo_custom_front_matter: :featured false :enableToc false
+#+hugo_slug: why-i-dont-like-literate-programming
+#+filetags:
+#+hugo_tags: 
+#+hugo_categories:
+#+hugo_bundle: why-i-dont-like-literate-programming
+#+export_file_name: index.md
+
+Lorem ipsum dolor sit amet, consectetuer adipiscing elit.  Donec hendrerit tempor tellus.  Donec pretium posuere tellus.  Proin quam nisl, tincidunt et, mattis eget, convallis nec, purus.  Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus.  Nulla posuere.  Donec vitae dolor.  Nullam tristique diam non turpis.  Cras placerat accumsan nulla.  Nullam rutrum.  Nam vestibulum accumsan nisl.

@@ -1,0 +1,5 @@
+#+title: Blog Archive
+#+hugo_layout: archive
+#+hugo_section: /
+#+hugo_bundle: archive
+#+export_file_name: _index

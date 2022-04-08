@@ -1,0 +1,16 @@
+:PROPERTIES:
+:ID:       392d59dc-fe78-459b-a826-bca913bf8813
+:NAMESPACE: Blog Post
+:END:
+#+title: Building Infoboxes with TailwindCSS
+#+date: [2021-11-21 Sun 12:31]
+#+hugo_section: blog
+#+hugo_type: post
+#+hugo_draft: true
+#+hugo_custom_front_matter: :featured false :enableToc false :series "Building Wikis with Hugo and Org-Roam"
+#+hugo_slug: building-infoboxes-with-tailwindcss
+#+hugo_bundle: building-infoboxes-with-tailwindcss
+#+filetags: :TailwindCSS:@WebDev:
+#+export_file_name: index.md
+
+Arguably the most important part of a wiki is an "infobox",or

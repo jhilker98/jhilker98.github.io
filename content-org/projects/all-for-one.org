@@ -1,0 +1,12 @@
+#+title: All for One
+#+filetags: :HTML:CSS:JavaScript:Hugo:
+#+hugo_type: project
+#+hugo_section: projects
+#+hugo_bundle: all-for-one
+#+hugo_draft: false
+#+export_file_name: index
+#+hugo_custom_front_matter: :featured true :status "Available Now" :projectsite https://jhilker1.github.io/hugo-all-for-one
+#+hugo_custom_front_matter+: :repo '(("link" . "https://github.com/jhilker1/hugo-all-for-one")("icon" . "devicon-github-plain")("name" . "Github"))
+#+hugo_weight: 2
+
+All for One is a Hugo theme that covers several uses for a personal website - a blog, portfolio, and CV.

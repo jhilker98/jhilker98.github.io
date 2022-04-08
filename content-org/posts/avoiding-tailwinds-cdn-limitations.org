@@ -1,0 +1,19 @@
+:PROPERTIES:
+:ID:       ff44a7be-5941-47bd-bfcf-882bc49e610a
+:NAMESPACE: Blog Post
+:END:
+#+title: Avoiding Tailwind's CDN Limitations
+#+date: [2021-10-25 Mon]
+#+hugo_section: blog
+#+hugo_type: post
+#+hugo_draft: true
+#+hugo_custom_front_matter: :featured false :enableToc false
+#+hugo_slug: avoiding-tailwinds-cdn-limitations
+#+hugo_bundle: avoiding-tailwinds-cdn-limitations
+#+filetags: 
+#+hugo_tags: TailwindCSS
+#+hugo_categories: TailwindCSS 
+#+export_file_name: index.md
+
+I've recently been playing around with [[https://tailwindcss.com][Tailwind CSS]] to just try it, and I've quickly found that I like it, even if I have to do things in more of a "manual sort of way" (e.g. I can't just say =<div class = 'navbar'>= for a navigation bar on a website - I have to go in and manually design it). However, for just playing around with a design (such as in [[https://codepen.io][CodePen]]), you need to use the CDN, rather than the full build system. I don't have a problem with this, but it does tend to take away some of the best features of Tailwind, such as the ability to customize breakpoints, colors, and animations, being able to use =@apply= with a list of the tailwind classes to any custom class you decide (such as =navbar= or =sidebar=), as well as the many, many plugins that can extended Tailwind (such as the [[github:savvywombat/tailwindcss-grid-areas][tailwindcss-grid-areas]]) plugin for setting up grid-template areas with CSS Grid.
+

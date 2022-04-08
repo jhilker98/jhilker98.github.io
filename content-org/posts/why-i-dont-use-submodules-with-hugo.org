@@ -1,0 +1,5 @@
+#+TITLE: Why I Don't Use Git Submodules With Hugo
+#+date: <2022-03-30 Wed>
+#+hugo_section: blog
+#+hugo_type: post
+#+hugo_draft: t

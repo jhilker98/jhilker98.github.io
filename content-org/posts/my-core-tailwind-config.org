@@ -1,0 +1,18 @@
+:PROPERTIES:
+:ID:       ce3c354e-f2e6-4646-973b-1adab8496b5e
+:NAMESPACE: Blog Post
+:END:
+#+title: My Core Tailwind Config
+#+date: [2021-11-21 Sun 12:32]
+#+hugo_section: blog
+#+hugo_type: post
+#+hugo_draft: true
+#+hugo_custom_front_matter: :featured false :enableToc true
+#+hugo_slug: my-core-tailwind-config
+#+hugo_bundle: my-core-tailwind-config
+#+filetags: 
+#+hugo_tags: 
+#+hugo_categories: 
+#+export_file_name: index.md
+
+

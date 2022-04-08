@@ -1,0 +1,19 @@
+:PROPERTIES:
+:ID:       782cf22d-809c-4fbd-8428-219238e51489
+:NAMESPACE: Blog Post
+:END:
+#+title: My Tips for Working with TailwindCSS
+#+date: [2021-10-25 Mon]
+
+#+hugo_section: blog
+#+hugo_type: post
+#+hugo_draft: t
+#+hugo_custom_front_matter: :featured false :enableToc false
+#+hugo_slug: my-tips-for-tailwind
+#+hugo_bundle: my-tips-for-working-with-tailwindcss
+#+filetags: 
+#+hugo_tags: TailwindCSS
+#+hugo_categories: TailwindCSS
+#+export_file_name: index.md
+
+

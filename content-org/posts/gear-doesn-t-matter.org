@@ -1,0 +1,17 @@
+:PROPERTIES:
+:ID:       16a50ef7-c7eb-4adf-8966-1ab873b5fb80
+:NAMESPACE: Blog Post
+:END:
+#+title: Gear Doesn't Matter
+#+date: [2021-10-24 Sun]
+#+hugo_section: blog
+#+hugo_type: post
+#+hugo_draft: true
+#+hugo_custom_front_matter: :featured false :enableToc false
+#+hugo_bundle: gear-doesnt-matter
+#+filetags: sounddesign audioengineering
+#+hugo_tags: "Audio Engineering" "Sound Design"
+#+hugo_categories: "Audio Engineering" "Sound Design"
+#+export_file_name: index.md
+
+I've

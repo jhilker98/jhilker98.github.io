@@ -1,0 +1,23 @@
+#+title: Chronicler
+#+filetags: Python CLI_App
+#+hugo_section: projects
+#+hugo_type: project
+#+hugo_bundle: chronicler
+#+hugo_weight: 1
+#+hugo_custom_front_matter: :featured true :status "In Development" :projectsite "https://chronicler.readthedocs.io/en/dev/"
+#+export_file_name: index
+
+#+begin_src yaml :front_matter_extra t
+socials:
+  - name: Trello
+    icon: "fab fa-trello"
+    link: "https://trello.com/b/Eg26cb6w/chronicler-for-ck3"
+  - name: Discord
+    icon: "fab fa-discord"
+    link: "https://discord.gg/SewRkyur3Q"
+  - name: Gitter.fm Chat
+    icon: "fas fa-comment-alt"
+    link: https://gitter.im/chronicler-app/chronicler
+#+end_src
+
+Chronicler is a terminal application for managing after-action reports (AARs) for Crusader Kings 3.

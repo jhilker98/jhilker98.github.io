@@ -1,0 +1,17 @@
+:PROPERTIES:
+:ID:       78d8931a-5e24-4f39-b46b-8fbe234e993a
+:NAMESPACE: Blog Post
+:END:
+#+title: A PSA for my Org-Roam Hydra
+#+date: [2021-08-23 Mon 23:49]
+#+hugo_section: blog
+#+hugo_type: post
+#+hugo_draft: false
+#+hugo_custom_front_matter: :featured true :enableToc false
+#+hugo_bundle: my-org-roam-hydra-psa
+#+filetags: 
+#+hugo_tags: Emacs Programming Org-mode
+#+hugo_categories: Emacs Programming Org-mode
+#+export_file_name: index.md
+
+As you might have heard by now, [[github:org-roam/org-roam][Org-roam]] recently updated to version 2, which allows you to set an ID for a post and a headline, and then link by those IDs. However, several functions were renamed to be more consistnt with the rst of the org-roam. This is a PSA to anyone using that you will need to edit those functions slighly for functionality. In =jh/find-org-roam-file=, you will need to replace =org-roam-find-file= with =org-roam-node-find=, and in =jh/org-roam-insert=, replace =org-roam-insert= with =org-roam-node-insert=. Although it's a minor change, you wil need to run =org-roam-db-clear= and =org-roam-db-sync= for each directory in your hydra, just to make sure everything is up to date. While not ideal, I wanted to make sure it would work.

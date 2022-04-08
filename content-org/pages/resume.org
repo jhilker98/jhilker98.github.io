@@ -1,0 +1,172 @@
+#+title: Full-Stack Engineer
+#+position: Full-Stack Engineer
+#+author: Jacob Hilker
+#+city: Crozet, VA
+#+mobile: 434-409-3789
+#+email: jacob.hilker2@gmail.com
+#+github: jhilker1
+#+gitlab: jhilker
+#+OPTIONS: email:t
+#+startup: fold
+#+hugo_section: resume
+#+hugo_layout: resume
+#+hugo_custom_front_matter: :title "Resumé"
+#+hugo_custom_front_matter: :skills '(Python "Bash/ZSH Scripts" Java HTML/CSS JavaScript PostgreSQL Org-mode Groff)
+#+hugo_custom_front_matter: :soft_skills '("Problem Solving" "Critical Thinking" Creativity Adaptability)
+#+hugo_custom_front_matter: :interests '("Audio Engineering" "Sound Design" Worldbuilding Songwriting )
+#+export_file_name: index
+#+cvcolor: blue
+#+cvstyle: banking
+#+latex_class_options: [a4paper,10pt,sans]
+#+latex_class: moderncv
+#+latex_header: \usepackage[scale=0.8]{geometry}
+#+latex_header: \recomputelengths
+#+latex_header: \usepackage[scaled=0.92]{helvet}
+#+latex_header: \usepackage{enumitem}
+#+latex_header: \setitemize{nosep,leftmargin=0.2in}
+#+latex_header: \pdfgentounicode=1
+#+macro: wrapperstart @@hugo:<div class="cvwrapper">@@
+#+macro: wrapperend @@hugo:</div>@@
+
+* Profile :orgonly:
+{{{wrapperstart}}}
+Inquisitive, energetic software developer pursuing a position in software development. Skilled in multiple languages, but especially enjoys writing in Python.
+{{{wrapperend}}}
+
+* Education
+{{{wrapperstart}}}
+
+** B.Sc., Computer Science
+:PROPERTIES:
+:CV_ENV: cventry
+:FROM:     <2017-08-22 Tue>
+:TO: <2021-05-09 Sun>
+:EMPLOYER: University of Mary Washington
+:LOCATION: Fredericksburg, VA
+:END:
+
+- Minor in Cybersecurity
+- Dean's List, Spring 2021
+- 2.99 GPA
+- *_Relevant Coursework_*
+  - Applications of Databases
+  - Data Science
+  - Artificial Neural Networks
+  - Software Security
+
+{{{wrapperend}}}
+
+* Experience
+{{{wrapperstart}}}
+*** Freelance Web Developer
+:PROPERTIES:
+:CV_ENV:   cventry
+:FROM: <2022-01-28 Fri>
+:LOCATION: Remote
+:EMPLOYER: Freelance
+:END:
+- Assisted a philosophy student with deploying a blog using [[github:kashualmodi/ox-hugo][Ox-hugo]].
+- Designed and deployed static websites for multiple clients using the Hugo static site generator.
+
+{{{wrapperend}}}
+
+
+* Volunteer Work
+{{{wrapperstart}}}
+
+*** Library Volunteer
+:PROPERTIES:
+:CV_ENV:   cventry
+:FROM:     <2014-07-14 Mon>
+:TO:       <2017-07-17 Mon>
+:EMPLOYER: Crozet Library
+:LOCATION: Crozet, VA
+:END:
+- Shelved books by subject according to Dewey Decimal System.
+- Performed basic book reshelving and obtained items from book drop.
+- Assembled requested library and loaned materials for users.
+*** Impact Richmond
+:PROPERTIES:
+:CV_ENV:   cventry
+:FROM:     <2012-07-07 Sat>
+:TO: <2017-07-15 Sat>
+:EMPLOYER: Impact Richmond
+:LOCATION: Richmond, VA
+:END:
+- Participated in week-long volunteer sessions to refurbish homes in disadvantaged neighborhoods in Richmond, VA.
+{{{wrapperend}}}
+
+
+
+* Projects :texonly:
+** All For One
+:PROPERTIES:
+:CV_ENV: cvproj
+:FROM: <2021-04-07 Wed>
+:LANGS: Halfmoon CSS, HTML
+:LINK: https://github.com/jhilker1/hugo-all-for-one
+:ICON: \faGithub
+:REPO: jhilker1/hugo-all-for-one
+:END:
+ - Developed a mobile-responsive Hugo theme with Halfmoon CSS base for an online blog, portfolio, and resume
+\vspace{5pt}
+** Chronicler
+:PROPERTIES:
+:CV_ENV: cvproj
+:FROM: <2021-04-07 Wed>
+:LANGS: Python
+:LINK: https://gitlab.com/jhilker/chronicler
+:ICON: \faGitlab
+:REPO: jhilker/chronicler
+:END:
+- Developed a terminal application for tracking characters in a particular playthrough of a Paradox game independently outside of class
+- Collaborated with users to find bugs, gather feedback, and suggest features for the application
+\vspace{5pt}
+** Pyronsworn
+:PROPERTIES:
+:CV_ENV: cvproj
+:FROM: <2021-04-07 Wed>
+:LANGS: Python
+:LINK: https://gitlab.com/jhilker/pyronsworn
+:ICON: \faGitlab
+:REPO: jhilker/pyronsworn
+:END:
+- Developed a python module for assisting developers for creating applications for the tabletop role-playing game [[https://ironswornrpg.com][Ironsworn]].
+\vspace{5pt}
+
+
+* Skills :texonly:
+\begin{itemize}[label={}]
+    \small{\item{
+     \textbf{Languages: }{Python, HTML/CSS, Java, SQL (Postgres), JavaScript} \\
+     \textbf{Frameworks: }{React, Node.js, Halfmoon CSS} \\
+     \textbf{Developer Tools: }{ Git, Google Cloud Platform, Vim, Emacs} \\
+     \textbf{Libraries: }{ pandas, NumPy, Matplotlib} \\
+     \textbf{Misc.: }{ Hugo, Org-mode, Vim, Emacs} \\
+     \textbf{Soft Skills: }{Teamwork and Collaboration, Verbal and Written Communication, Critical Thinking, Problem Solving}}}
+ \end{itemize}
+
+
+* Code :noexport:
+** Latex
+#+begin_src emacs-lisp :results silent
+(let((org-export-exclude-tags '("noexport" "orgonly"))
+     (org-latex-logfiles-extensions '("aux" "bbl" "bcf" "blg" "fdb_latexmk" "fls" "figlist" "idx" "log" "nav" "out" "ptc" "run.xml" "snm" "toc" "vrb" "xdv")))
+    (org-export-to-file 'moderncv "jhilker_cv.tex")
+    (org-latex-compile "jhilker_cv.tex")
+    (dolist (cv_file '("jhilker_cv.tex" "jhilker_cv.pdf"))
+      (with-current-buffer (find-file-noselect cv_file)
+        (copy-file cv_file "~/Projects/sites/jhilker.gitlab.io/static/uploads/" t))))
+#+end_src
+
+** Org
+#+begin_src emacs-lisp :results silent
+(let((org-export-exclude-tags '("noexport" "texonly"))
+     (org-export-with-tags nil))
+  (org-export-to-file 'hugocv "~/Projects/sites/jhilker.gitlab.io/content/resume/index.md"))
+;;  (with-current-buffer "resume.org" (copy-file "resume.org" "~/Projects/sites/jhilker.gitlab.io/content-org/resume.org" t)))
+#+end_src
+
+# Local Variables:
+# eval: (org-hugo-auto-export-mode -1)
+# End:
