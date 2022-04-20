@@ -1,4 +1,4 @@
-% Created 2022-04-10 Sun 14:13
+% Created 2022-04-20 Wed 15:34
 % Intended LaTeX compiler: pdflatex
 \documentclass[a4paper,10pt,sans]{moderncv}
 \usepackage[utf8]{inputenc}
@@ -24,8 +24,7 @@
 \email{jacob.hilker2@gmail.com}
 \phone[mobile]{434-409-3789}
 \homepage{jhilker.com}
-\social[github]{jhilker1}
-\social[gitlab]{jhilker}
+\address{5724 St George Ave.}{Crozet, VA 22932}
 \date{\today}
 \title{Full-Stack Engineer}
 \hypersetup{
@@ -35,20 +34,26 @@
  pdfsubject={},
  pdfcreator={Emacs 27.2 (Org mode 9.6)}, 
  pdflang={English}}
-\usepackage{biblatex}
+\renewcommand*{\addresssymbol}  {}
+        \renewcommand*{\mobilephonesymbol}   {}
+        \renewcommand*{\fixedphonesymbol}    {}
+        \renewcommand*{\faxphonesymbol}      {}
+        \renewcommand*{\emailsymbol}         {}
+        \renewcommand*{\homepagesymbol}      {}
+        \renewcommand*{\linkedinsocialsymbol}{}
+        \renewcommand*{\twittersocialsymbol} {}
+        \renewcommand*{\githubsocialsymbol}  {}\usepackage{biblatex}
 
 \begin{document}
 
 \maketitle
 
+
 \section{Education}
-\label{sec:org9674bc8}
+\label{sec:org8f7025a}
 
-
-\cventry{\textbf{Aug 2017 -- May 2021}}{B.Sc., Computer Science}{University of Mary Washington}{Fredericksburg, VA}{}{\begin{itemize}
-\item Minor in Cybersecurity
+\cventry{{}}{University of Mary Washington}{B.Sc., Computer Science, Minor in Cybersecurity}{ 2017 --  2021}{}{\begin{itemize}
 \item Dean's List, Spring 2021
-\item 2.99 GPA
 \item \textbf{\uline{Relevant Coursework}}
 \begin{itemize}
 \item Applications of Databases
@@ -60,58 +65,48 @@
 }
 
 \section{Experience}
-\label{sec:org8625802}
+\label{sec:org279eaa3}
 
-\cventry{\textbf{Jan 2022 -- Present}}{Freelance Web Developer}{Freelance}{Remote}{}{\begin{itemize}
-\item Assisted a philosophy student with deploying a blog using \href{https://github.com/kashualmodi/ox-hugo}{Ox-hugo}.
+\cventry{{}}{Freelance}{Freelance Web Developer}{ 2022 -- Present}{}{\begin{itemize}
 \item Designed and deployed static websites for multiple clients using the Hugo static site generator.
 \end{itemize}
 }
 
+\subsection{Volunteer}
+\label{sec:org1a8111d}
 
-\section{Volunteer Work}
-\label{sec:orgb150205}
 
-
-\cventry{\textbf{Jul 2014 -- Jul 2017}}{Library Volunteer}{Crozet Library}{Crozet, VA}{}{\begin{itemize}
-\item Shelved books by subject according to Dewey Decimal System.
-\item Performed basic book reshelving and obtained items from book drop.
-\item Assembled requested library and loaned materials for users.
+\cventry{{}}{Crozet Library}{Library Volunteer}{ 2014 --  2017}{}{\begin{itemize}
+\item Organized and re-shelved books in their proper places
+\item Retrieved books from shelves to fulfill holds
 \end{itemize}
 }
-\cventry{\textbf{Jul 2012 -- Jul 2017}}{Impact Richmond}{Impact Richmond}{Richmond, VA}{}{\begin{itemize}
-\item Participated in week-long volunteer sessions to refurbish homes in disadvantaged neighborhoods in Richmond, VA.
-\end{itemize}
-}
-
-
 
 \section{Projects}
-\label{sec:org55018b4}
-\cventry{\textbf{Apr 2021 -- Present}}{Halfmoon CSS, HTML}{All For One}{\href{https://github.com/jhilker1/hugo-all-for-one}{\faGithub\space jhilker1/hugo-all-for-one}}{}{\begin{itemize}
-\item Developed a mobile-responsive Hugo theme with Halfmoon CSS base for an online blog, portfolio, and resume
+\label{sec:org43612b8}
+\cventry{\textbf{ 2021 -- Present}}{Halfmoon CSS, HTML}{All For One}{\href{https://github.com/jhilker1/hugo-all-for-one}{\faGithub\space jhilker1/hugo-all-for-one}}{}{\begin{itemize}
+\item Designed a mobile-responsive Hugo theme with Halfmoon CSS base for an online blog, portfolio, and resume
+\vspace{3pt}
 \end{itemize}
 }
-\cventry{\textbf{Apr 2021 -- Present}}{Python}{Chronicler}{\href{https://gitlab.com/jhilker/chronicler}{\faGitlab\space jhilker/chronicler}}{}{\begin{itemize}
+\cventry{\textbf{ 2021 -- Present}}{Python}{Chronicler}{\href{https://gitlab.com/jhilker/chronicler}{\faGitlab\space jhilker/chronicler}}{}{\begin{itemize}
 \item Developed a terminal application for tracking characters in a particular playthrough of a Paradox game independently outside of class
 \item Collaborated with users to find bugs, gather feedback, and suggest features for the application
+\vspace{3pt}
 \end{itemize}
 }
-\cventry{\textbf{Apr 2021 -- Present}}{Python}{Pyronsworn}{\href{https://gitlab.com/jhilker/pyronsworn}{\faGitlab\space jhilker/pyronsworn}}{}{\begin{itemize}
-\item Developed a python module for assisting developers for creating applications for the tabletop role-playing game \href{https://ironswornrpg.com}{Ironsworn}.
+\cventry{\textbf{ 2021 -- Present}}{Python}{Pyronsworn}{\href{https://gitlab.com/jhilker/pyronsworn}{\faGitlab\space jhilker/pyronsworn}}{}{\begin{itemize}
+\item Created a python module for assisting developers for creating applications for the tabletop role-playing game \href{https://ironswornrpg.com}{Ironsworn}.
 \end{itemize}
 }
-
 
 \section{Skills}
-\label{sec:org14b51f2}
+\label{sec:org4498a2b}
 \begin{itemize}[label={}]
     \small{\item{
-     \textbf{Languages: }{Python, HTML/CSS, Java, Postgres, JavaScript} \\
-     \textbf{Frameworks: }{React, Node.js, Halfmoon CSS, Tailwind CSS} \\
-     \textbf{Developer Tools: }{Git, Google Cloud Platform, Vim, Emacs} \\
-     \textbf{Libraries: }{Pandas, NumPy, Matplotlib} \\
-     \textbf{Miscellaneous: }{Hugo, Org-mode, Vim, Emacs} \\
-     \textbf{Soft Skills: }{Teamwork and Collaboration, Verbal and Written Communication, Critical Thinking, Problem Solving}}}
- \end{itemize}
+     \textbf {Languages: }{Python, HTML/CSS, Java, SQL (Postgres), JavaScript} \\
+     \textbf{Frameworks: }{React, Next.js, Node.js, Halfmoon CSS, Tailwind CSS} \\
+     \textbf{Libraries: }{ pandas, NumPy, Matplotlib} \\
+     \textbf{Dev Tools: }{Git, Vim, Emacs, Google Cloud Platform} \\
+     \textbf{Miscellaneous: }{Hugo, Org-mode, Object-oriented Design}}}
 \end{document}

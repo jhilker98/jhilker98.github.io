@@ -6,18 +6,24 @@
   <aside class="border-l-[1px] border-gray-400 dark:border-gray-700 mobile:hidden">
         <div class="ml-5">
             <h3 class="!mt-5 !font-normal !text-2xl !mb-0 !pb-0">Skills</h3>
-            <strong class="text-[14px] font-bold underline">Technical</strong>
-            {{ range .Page.Params.skills}}
-            <li class="!ml-2 list-none">{{.}}</li>
-            {{ end }}
+            {{ if .Page.Params.skills }}
+              <strong class="text-[14px] font-bold underline">Technical</strong>
 
+            {{ range .Page.Params.skills}}
+            <li class="!ml-2 text-sm">{{.}}</li>
+            {{ end }}
+            {{ end }}
+            {{ if .Page.Params.soft_skills }}
             <strong class="text-[14px] font-bold underline">Professional</strong>
             {{ range .Page.Params.soft_skills}}
-            <li class="!ml-2 list-none">{{.}}</li>
+            <li class="!ml-2 text-sm">{{.}}</li>
             {{ end }}
+            {{ end }}
+            {{ if .Page.Params.interests }}
             <h3 class="!mt-5 !font-normal !text-2xl !pb-0 !mb-0">Interests</h3>
             {{ range .Page.Params.interests}}
-            <li class="!ml-2 list-none">{{.}}</li>
+            <li class="!ml-2 text-sm">{{.}}</li>
+            {{ end }}
             {{ end }}
 
         </div>

@@ -4,9 +4,7 @@ author: ["Jacob Hilker"]
 layout: "resume"
 draft: false
 title: "Resumé"
-skills: ["Python", "Bash/ZSH Scripts", "Java", "HTML/CSS", "JavaScript", "PostgreSQL", "Org-mode", "Groff"]
-soft_skills: ["Problem Solving", "Critical Thinking", "Creativity", "Adaptability"]
-interests: ["Audio Engineering", "Sound Design", "Worldbuilding", "Songwriting"]
+skills: ["Python", "Shell Scripts (Bash/ZSH) ", "Java", "HTML/CSS", "JavaScript", "PostgreSQL", "Object-oriented design"]
 ---
 
 <div class="flex justify-between mb-1.5">
@@ -29,17 +27,15 @@ Inquisitive, energetic software developer pursuing a position in software develo
 
 
 
-{{<cventry title="B.Sc., Computer Science" start="2017-08-22" end="2021-05-09" employer="University of Mary Washington" location="Fredericksburg, VA">}}
--   Minor in Cybersecurity
+{{<cventry title="B.Sc., Computer Science, Minor in Cybersecurity" start="2017-08-22" end="2021-05-09" employer="University of Mary Washington" location="Fredericksburg, VA">}}
 -   Dean's List, Spring 2021
--   2.99 GPA
 -   **<span class="underline">Relevant Coursework</span>**
     -   Applications of Databases
     -   Data Science
     -   Artificial Neural Networks
     -   Software Security
 
-</div>
+        </div>
 
 
 {{</cventry>}}
@@ -52,7 +48,6 @@ Inquisitive, energetic software developer pursuing a position in software develo
 
 
 {{<cventry title="Freelance Web Developer" start="2022-01-28" end="" employer="Freelance" location="Remote">}}
--   Assisted a philosophy student with deploying a blog using [Ox-hugo](https://github.com/kashualmodi/ox-hugo).
 -   Designed and deployed static websites for multiple clients using the Hugo static site generator.
 
 </div>
@@ -61,26 +56,17 @@ Inquisitive, energetic software developer pursuing a position in software develo
 {{</cventry>}}
 
 
-## Volunteer Work {#volunteer-work}
+### Volunteer {#volunteer}
 
 <div class="cvwrapper">
 
 
 
 {{<cventry title="Library Volunteer" start="2014-07-14" end="2017-07-17" employer="Crozet Library" location="Crozet, VA">}}
--   Shelved books by subject according to Dewey Decimal System.
--   Performed basic book reshelving and obtained items from book drop.
--   Assembled requested library and loaned materials for users.
+-   Organized and re-shelved books in their proper places
+-   Retrieved books from shelves to fulfill holds
 
-
-{{</cventry>}}
-
-
-
-{{<cventry title="Impact Richmond" start="2012-07-07" end="2017-07-15" employer="Impact Richmond" location="Richmond, VA">}}
--   Participated in week-long volunteer sessions to refurbish homes in disadvantaged neighborhoods in Richmond, VA.
-
-</div>
+    </div>
 
 
 {{</cventry>}}

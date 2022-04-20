@@ -1,19 +1,19 @@
 #+title: Full-Stack Engineer
 #+position: Full-Stack Engineer
 #+author: Jacob Hilker
-#+city: Crozet, VA
+#+CITY: Crozet, VA
+#+ADDRESS: 5724 St George Ave.
+#+ADDRESS:  Crozet, VA 22932
 #+mobile: 434-409-3789
 #+email: jacob.hilker2@gmail.com
-#+github: jhilker1
-#+gitlab: jhilker
+#+homepage: jhilker.com
 #+OPTIONS: email:t
 #+startup: fold
 #+hugo_section: resume
 #+hugo_layout: resume
 #+hugo_custom_front_matter: :title "Resumé"
-#+hugo_custom_front_matter: :skills '(Python "Bash/ZSH Scripts" Java HTML/CSS JavaScript PostgreSQL Org-mode Groff)
-#+hugo_custom_front_matter: :soft_skills '("Problem Solving" "Critical Thinking" Creativity Adaptability)
-#+hugo_custom_front_matter: :interests '("Audio Engineering" "Sound Design" Worldbuilding Songwriting )
+#+hugo_custom_front_matter: :skills '(Python "Shell Scripts (Bash/ZSH) " Java HTML/CSS JavaScript PostgreSQL "Object-oriented design")
+# #+hugo_custom_front_matter: :interests '("Audio Engineering" "Sound Design" Worldbuilding Songwriting )
 #+export_file_name: index
 #+cvcolor: blue
 #+cvstyle: banking
@@ -28,15 +28,16 @@
 #+macro: wrapperstart @@hugo:<div class="cvwrapper">@@
 #+macro: wrapperend @@hugo:</div>@@
 
+
 * Profile :orgonly:
 {{{wrapperstart}}}
 Inquisitive, energetic software developer pursuing a position in software development. Skilled in multiple languages, but especially enjoys writing in Python.
 {{{wrapperend}}}
 
+
 * Education
 {{{wrapperstart}}}
-
-** B.Sc., Computer Science
+** B.Sc., Computer Science, Minor in Cybersecurity
 :PROPERTIES:
 :CV_ENV: cventry
 :FROM:     <2017-08-22 Tue>
@@ -44,36 +45,31 @@ Inquisitive, energetic software developer pursuing a position in software develo
 :EMPLOYER: University of Mary Washington
 :LOCATION: Fredericksburg, VA
 :END:
-
-- Minor in Cybersecurity
 - Dean's List, Spring 2021
-- 2.99 GPA
 - *_Relevant Coursework_*
   - Applications of Databases
   - Data Science
   - Artificial Neural Networks
   - Software Security
 
-{{{wrapperend}}}
+    {{{wrapperend}}}
 
 * Experience
 {{{wrapperstart}}}
-*** Freelance Web Developer
+** Freelance Web Developer
 :PROPERTIES:
 :CV_ENV:   cventry
 :FROM: <2022-01-28 Fri>
 :LOCATION: Remote
 :EMPLOYER: Freelance
 :END:
-- Assisted a philosophy student with deploying a blog using [[github:kashualmodi/ox-hugo][Ox-hugo]].
 - Designed and deployed static websites for multiple clients using the Hugo static site generator.
 
 {{{wrapperend}}}
 
+** Volunteer
 
-* Volunteer Work
 {{{wrapperstart}}}
-
 *** Library Volunteer
 :PROPERTIES:
 :CV_ENV:   cventry
@@ -82,21 +78,18 @@ Inquisitive, energetic software developer pursuing a position in software develo
 :EMPLOYER: Crozet Library
 :LOCATION: Crozet, VA
 :END:
-- Shelved books by subject according to Dewey Decimal System.
-- Performed basic book reshelving and obtained items from book drop.
-- Assembled requested library and loaned materials for users.
-*** Impact Richmond
+- Organized and re-shelved books in their proper places
+- Retrieved books from shelves to fulfill holds
+
+  {{{wrapperend}}}
+*** Impact Richmond :noexport:
 :PROPERTIES:
 :CV_ENV:   cventry
 :FROM:     <2012-07-07 Sat>
 :TO: <2017-07-15 Sat>
 :EMPLOYER: Impact Richmond
-:LOCATION: Richmond, VA
 :END:
 - Participated in week-long volunteer sessions to refurbish homes in disadvantaged neighborhoods in Richmond, VA.
-{{{wrapperend}}}
-
-
 
 * Projects :texonly:
 ** All For One
@@ -108,8 +101,8 @@ Inquisitive, energetic software developer pursuing a position in software develo
 :ICON: \faGithub
 :REPO: jhilker1/hugo-all-for-one
 :END:
- - Developed a mobile-responsive Hugo theme with Halfmoon CSS base for an online blog, portfolio, and resume
-\vspace{5pt}
+ - Designed a mobile-responsive Hugo theme with Halfmoon CSS base for an online blog, portfolio, and resume
+  \vspace{3pt}
 ** Chronicler
 :PROPERTIES:
 :CV_ENV: cvproj
@@ -121,7 +114,7 @@ Inquisitive, energetic software developer pursuing a position in software develo
 :END:
 - Developed a terminal application for tracking characters in a particular playthrough of a Paradox game independently outside of class
 - Collaborated with users to find bugs, gather feedback, and suggest features for the application
-\vspace{5pt}
+  \vspace{3pt}
 ** Pyronsworn
 :PROPERTIES:
 :CV_ENV: cvproj
@@ -131,26 +124,26 @@ Inquisitive, energetic software developer pursuing a position in software develo
 :ICON: \faGitlab
 :REPO: jhilker/pyronsworn
 :END:
-- Developed a python module for assisting developers for creating applications for the tabletop role-playing game [[https://ironswornrpg.com][Ironsworn]].
-\vspace{5pt}
-
+- Created a python module for assisting developers for creating applications for the tabletop role-playing game [[https://ironswornrpg.com][Ironsworn]].
 
 * Skills :texonly:
+#+begin_export latex
 \begin{itemize}[label={}]
     \small{\item{
-     \textbf{Languages: }{Python, HTML/CSS, Java, SQL (Postgres), JavaScript} \\
-     \textbf{Frameworks: }{React, Node.js, Halfmoon CSS} \\
-     \textbf{Developer Tools: }{ Git, Google Cloud Platform, Vim, Emacs} \\
+     \textbf {Languages: }{Python, HTML/CSS, Java, SQL (Postgres), JavaScript} \\
+     \textbf{Frameworks: }{React, Next.js, Node.js, Halfmoon CSS, Tailwind CSS} \\
      \textbf{Libraries: }{ pandas, NumPy, Matplotlib} \\
-     \textbf{Misc.: }{ Hugo, Org-mode, Vim, Emacs} \\
-     \textbf{Soft Skills: }{Teamwork and Collaboration, Verbal and Written Communication, Critical Thinking, Problem Solving}}}
- \end{itemize}
-
+     \textbf{Dev Tools: }{Git, Vim, Emacs, Google Cloud Platform} \\
+     \textbf{Miscellaneous: }{Hugo, Org-mode, Object-oriented Design}}}
+#+end_export
 
 * Code :noexport:
 ** Latex
 #+begin_src emacs-lisp :results silent
+(load-file "~/Projects/emacs/org-cv/ox-moderncv.el")
+
 (let((org-export-exclude-tags '("noexport" "orgonly"))
+     (org-export-with-tags nil)
      (org-latex-logfiles-extensions '("aux" "bbl" "bcf" "blg" "fdb_latexmk" "fls" "figlist" "idx" "log" "nav" "out" "ptc" "run.xml" "snm" "toc" "vrb" "xdv")))
     (org-export-to-file 'moderncv "jhilker_cv.tex")
     (org-latex-compile "jhilker_cv.tex")
@@ -163,8 +156,8 @@ Inquisitive, energetic software developer pursuing a position in software develo
 #+begin_src emacs-lisp :results silent
 (let((org-export-exclude-tags '("noexport" "texonly"))
      (org-export-with-tags nil))
-  (org-export-to-file 'hugocv "~/Projects/sites/jhilker.gitlab.io/content/resume/index.md"))
-;;  (with-current-buffer "resume.org" (copy-file "resume.org" "~/Projects/sites/jhilker.gitlab.io/content-org/resume.org" t)))
+  (org-export-to-file 'hugocv "~/Projects/sites/jhilker.gitlab.io/content/resume/index.md")
+  (with-current-buffer "resume.org" (copy-file "resume.org" "~/Projects/sites/jhilker.gitlab.io/content-org/pages/resume.org" t)))
 #+end_src
 
 # Local Variables:

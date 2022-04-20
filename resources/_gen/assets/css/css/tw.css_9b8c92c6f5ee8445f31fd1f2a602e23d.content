@@ -1738,10 +1738,6 @@ details.cventry[open] summary::after{
   --tw-bg-opacity: 1;
   background-color: rgb(188 149 100 / var(--tw-bg-opacity));
 }
-.before\:ml-1::before{
-  content: var(--tw-content);
-  margin-left: 0.25rem;
-}
 .last\:border-0:last-child{
   border-width: 0px;
 }

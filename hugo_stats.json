@@ -194,6 +194,7 @@
       "min-w-full",
       "ml-0.5",
       "ml-1",
+      "ml-2",
       "ml-3",
       "ml-5",
       "ml-auto",
@@ -302,7 +303,7 @@
       "recent-posts",
       "resume",
       "the-base-hydra-finding-files",
-      "volunteer-work"
+      "volunteer"
     ]
   }
 }

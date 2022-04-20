@@ -5,13 +5,13 @@
         {{.Get "title"}}
             </span>
             <span class="hidden lg:inline lg:float-right">
-                {{dateFormat "Jan 2006" (.Get "start")}} - {{if .Get "end"}}{{ dateFormat "Jan 2006" (.Get
+                {{dateFormat "2006" (.Get "start")}} - {{if .Get "end"}}{{ dateFormat "2006" (.Get
                 "end")}}{{else}}Present{{end}}
             </span>
         </summary>
 
             <span class="lg:hidden">
-                {{dateFormat "Jan 2006" (.Get "start")}} - {{if .Get "end"}}{{ dateFormat "Jan 2006" (.Get
+                {{dateFormat "2006" (.Get "start")}} - {{if .Get "end"}}{{ dateFormat "2006" (.Get
                 "end")}}{{else}}Present{{end}}
             </span>
             <span class="block mt-2">

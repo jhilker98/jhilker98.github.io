@@ -619,9 +619,6 @@ details.cventry[open] summary::after{
 .mt-0{
   margin-top: 0px;
 }
-.ml-4{
-  margin-left: 1rem;
-}
 .block{
   display: block;
 }
@@ -1738,9 +1735,9 @@ details.cventry[open] summary::after{
   --tw-bg-opacity: 1;
   background-color: rgb(188 149 100 / var(--tw-bg-opacity));
 }
-.before\:ml-1::before{
+.before\:\!ml-4::before{
   content: var(--tw-content);
-  margin-left: 0.25rem;
+  margin-left: 1rem !important;
 }
 .last\:border-0:last-child{
   border-width: 0px;
