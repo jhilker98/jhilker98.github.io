@@ -2,8 +2,7 @@
 #+position: Full-Stack Engineer
 #+author: Jacob Hilker
 #+CITY: Crozet, VA
-#+ADDRESS: 5724 St George Ave.
-#+ADDRESS:  Crozet, VA 22932
+#+ADDRESS:  Crozet, VA
 #+mobile: 434-409-3789
 #+email: jacob.hilker2@gmail.com
 #+homepage: jhilker.com
@@ -63,7 +62,7 @@ Inquisitive, energetic software developer pursuing a position in software develo
 :LOCATION: Remote
 :EMPLOYER: Freelance
 :END:
-- Designed and deployed static websites for multiple clients using the Hugo static site generator.
+- Designed and deployed static websites for multiple clients using the Hugo static site generator
 
 {{{wrapperend}}}
 
@@ -89,7 +88,7 @@ Inquisitive, energetic software developer pursuing a position in software develo
 :TO: <2017-07-15 Sat>
 :EMPLOYER: Impact Richmond
 :END:
-- Participated in week-long volunteer sessions to refurbish homes in disadvantaged neighborhoods in Richmond, VA.
+- Participated in week-long volunteer sessions to refurbish homes in disadvantaged neighborhoods in Richmond, VA
 
 * Projects :texonly:
 ** All For One
@@ -99,9 +98,9 @@ Inquisitive, energetic software developer pursuing a position in software develo
 :LANGS: Halfmoon CSS, HTML
 :LINK: https://github.com/jhilker1/hugo-all-for-one
 :ICON: \faGithub
-:REPO: jhilker1/hugo-all-for-one
+:REPO: github.com/jhilker1/hugo-all-for-one
 :END:
- - Designed a mobile-responsive Hugo theme with Halfmoon CSS base for an online blog, portfolio, and resume
+ - Independently designed a mobile-responsive Hugo theme with Halfmoon CSS base for an online blog, portfolio, and resume
   \vspace{3pt}
 ** Chronicler
 :PROPERTIES:
@@ -110,7 +109,7 @@ Inquisitive, energetic software developer pursuing a position in software develo
 :LANGS: Python
 :LINK: https://gitlab.com/jhilker/chronicler
 :ICON: \faGitlab
-:REPO: jhilker/chronicler
+:REPO: gitlab.com/jhilker/chronicler
 :END:
 - Developed a terminal application for tracking characters in a particular playthrough of a Paradox game independently outside of class
 - Collaborated with users to find bugs, gather feedback, and suggest features for the application
@@ -122,9 +121,21 @@ Inquisitive, energetic software developer pursuing a position in software develo
 :LANGS: Python
 :LINK: https://gitlab.com/jhilker/pyronsworn
 :ICON: \faGitlab
-:REPO: jhilker/pyronsworn
+:REPO: github.com/jhilker/pyronsworn
 :END:
-- Created a python module for assisting developers for creating applications for the tabletop role-playing game [[https://ironswornrpg.com][Ironsworn]].
+- Created a python module for assisting developers for creating applications for the tabletop role-playing game [[https://ironswornrpg.com][Ironsworn]]
+  \vspace{3pt}
+** This Week In Destiny :noexport:
+:PROPERTIES:
+:CV_ENV: cvproj
+:FROM: <2022-04-25 Mon>
+:LANGS: Tailwind CSS, Flask
+:LINK: https://gitlab.com/jhilker/pyronsworn
+:ICON: \faGitlab
+:REPO: github.com/jhilker/pyronsworn
+:END:
+- Independently learned the Bungie API for Destiny 2 and Flask
+- Deployed a site using Flask and the Bungie API to get an overview of the weekly reset of the Bungie game Destiny 2
 
 * Skills :texonly:
 #+begin_export latex
@@ -134,7 +145,7 @@ Inquisitive, energetic software developer pursuing a position in software develo
      \textbf{Frameworks: }{React, Next.js, Node.js, Halfmoon CSS, Tailwind CSS} \\
      \textbf{Libraries: }{ pandas, NumPy, Matplotlib} \\
      \textbf{Dev Tools: }{Git, Vim, Emacs, Google Cloud Platform} \\
-     \textbf{Miscellaneous: }{Hugo, Org-mode, Object-oriented Design}}}
+     \textbf{Miscellaneous: }{Hugo Static Site Generator, Org-mode, Object-oriented Design}}}
 #+end_export
 
 * Code :noexport:
@@ -150,6 +161,7 @@ Inquisitive, energetic software developer pursuing a position in software develo
     (dolist (cv_file '("jhilker_cv.tex" "jhilker_cv.pdf"))
       (with-current-buffer (find-file-noselect cv_file)
         (copy-file cv_file "~/Projects/sites/jhilker.gitlab.io/static/uploads/" t))))
+
 #+end_src
 
 ** Org

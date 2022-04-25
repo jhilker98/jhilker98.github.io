@@ -48,7 +48,7 @@ Inquisitive, energetic software developer pursuing a position in software develo
 
 
 {{<cventry title="Freelance Web Developer" start="2022-01-28" end="" employer="Freelance" location="Remote">}}
--   Designed and deployed static websites for multiple clients using the Hugo static site generator.
+-   Designed and deployed static websites for multiple clients using the Hugo static site generator
 
 </div>
 
