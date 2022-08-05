@@ -1,0 +1,73 @@
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Jacob's Website</title><link>https://jhilker1.github.io/categories/webdev/</link><description> Recent Content on Webdev</description><generator>Hugo -- gohugo.io</generator><language>en-us</language><lastBuildDate>Fri, 12 Mar 2021 17:47:00 -0500</lastBuildDate><atom:link href="https://jhilker1.github.io/categories/webdev/feed.xml" rel="self" type="application/rss+xml"/><item><title>Using a Makefile With My Website</title><link>https://jhilker1.github.io/blog/2021/03/makefile-website/</link><pubDate>Fri, 12 Mar 2021 17:47:00 -0500</pubDate><guid>https://jhilker1.github.io/blog/2021/03/makefile-website/</guid><description>&lt;p>It shouldn&amp;rsquo;t be a surprise that I use Hugo as a static site generator. Not only is it fast, but it is also incredibly customizable, which is something that I find useful considering my website has so much stuff on it. In addition, being able to create shortcodes to avoid reusing code on certain pages is such a helpful tool for wikis. Finally, having support for Emacs&amp;rsquo; &lt;a href="https://orgmode.org/">Org-Mode&lt;/a> is what initially drew me to Hugo in the first place. I had tried using org-publish to try and set up a website, but had so many little issues with it that I decided to scrap it and keep looking around for a better way to set up a website. That was when I found Hugo, and decided to try it out.&lt;/p>
+&lt;p>Ultimately, I found that when I was starting to create layouts and templates, typing the full &lt;code>hugo server -D --navigateToChanged&lt;/code> was just long to type (yes, lazy, I know), especially when I was debugging an error with my shortcodes and templates. Being able just to type &lt;code>make server&lt;/code> makes it much faster for me to debug code but also to get previews of code.&lt;/p>
+&lt;h2 id="not-just-for-debugging">Not Just For Debugging&lt;/h2>
+&lt;p>Hugo also allows for content to be created with a certain &lt;a href="https://gohugo.io/content-management/archetypes/">archetype&lt;/a> - by default, this matches the directory you are creating the content for. As an example, if I had an archetype called &lt;code>project.org&lt;/code>, if I ran &lt;code>hugo new project/hello-world.org&lt;/code> the file &lt;code>content/project/hello-world.org&lt;/code> would be created, with all the content needed for a blog post. Here&amp;rsquo;s what my org-mode project archetype looks like:&lt;/p>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt"> 1
+&lt;/span>&lt;span class="lnt"> 2
+&lt;/span>&lt;span class="lnt"> 3
+&lt;/span>&lt;span class="lnt"> 4
+&lt;/span>&lt;span class="lnt"> 5
+&lt;/span>&lt;span class="lnt"> 6
+&lt;/span>&lt;span class="lnt"> 7
+&lt;/span>&lt;span class="lnt"> 8
+&lt;/span>&lt;span class="lnt"> 9
+&lt;/span>&lt;span class="lnt">10
+&lt;/span>&lt;span class="lnt">11
+&lt;/span>&lt;span class="lnt">12
+&lt;/span>&lt;span class="lnt">13
+&lt;/span>&lt;span class="lnt">14
+&lt;/span>&lt;span class="lnt">15
+&lt;/span>&lt;span class="lnt">16
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-org" data-lang="org">&lt;span class="line">&lt;span class="cl">&lt;span class="cs">#+title&lt;/span>&lt;span class="c">: {{ replace .Name &amp;#34;-&amp;#34; &amp;#34; &amp;#34; | title }}&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="cs">#+draft&lt;/span>&lt;span class="c">: true&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="cs">#+srclang&lt;/span>&lt;span class="c">:&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="cs">#+srcicon&lt;/span>&lt;span class="c">:&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="cs">#+summary&lt;/span>&lt;span class="c">:&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="cs">#+type&lt;/span>&lt;span class="c">: project&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="cs">#+featured&lt;/span>&lt;span class="c">:&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="cs">#+layout&lt;/span>&lt;span class="c">: single&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="cs">#+percDone&lt;/span>&lt;span class="c">: 0&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="cs">#+lastUpdated&lt;/span>&lt;span class="c">:&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="cs">#+docs&lt;/span>&lt;span class="c">:&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="cs">#+projectSite&lt;/span>&lt;span class="c">:&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="cs">#+gitlab&lt;/span>&lt;span class="c">:&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="cs">#+github&lt;/span>&lt;span class="c">:&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="cs">#+bitbucket&lt;/span>&lt;span class="c">:&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="cs">#+readmore&lt;/span>&lt;span class="c">: false&lt;/span>
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;p>Obviously that&amp;rsquo;s a lot of custom parameters, so I&amp;rsquo;ll try to go through line-by-line and explain what&amp;rsquo;s going on.&lt;/p>
+&lt;p>The &lt;code>title&lt;/code>, &lt;code>draft&lt;/code>, &lt;code>layout&lt;/code>, &lt;code>type&lt;/code>, and &lt;code>featured&lt;/code> parameters are all easy enough to understand, I feel like. The &lt;code>srclang&lt;/code> represents the language or languages the project is written in - for my pyronsworn project, as an example, it&amp;rsquo;s written in python. The &lt;code>srcicon&lt;/code> is the icon to use to display next to the source language - it must be one of the languages or icons listed at &lt;a href="https://devicon.dev/">devicon.dev&lt;/a>. The &lt;code>percDone&lt;/code> is used to fill the progress bar across from the source language - it represents how much is approximately done on the latest release of the project. The last 4 parameters are all different links to places where the project lives - additionally, you can set up a trello link, add a trello parameter to the project frontmatter, and you can see the link to the roadmap, though that isn&amp;rsquo;t required. The &lt;code>readmore&lt;/code> variable is used to provide a way to read a little bit more about the project before trying out the project.&lt;/p>
+&lt;p>While setting up a snippet could be useful for this, Hugo has the tools to do it automatically. However, the one thing I hadn&amp;rsquo;t had much luck with was using the &lt;code>read&lt;/code> command in a Makefile. Ultimately, I figured out the answer through an answer on &lt;a href="https://unix.stackexchange.com/questions/322517/read-command-not-working-in-a-makefile">the Unix StackExchange&lt;/a> which ultimately allowed me to read in user input when I ran a &lt;code>Make&lt;/code> command. So now, instead of having to run &lt;code>hugo new projects/some-project.org -k project&lt;/code>, I can just run &lt;code>make project&lt;/code> and immediately get the template set up. While not a perfect setup, it&amp;rsquo;s much easier to get going rather than using the full command or even creating an empty file in the right directory. And while I could set up different file formats in the Makefile, such as &lt;code>post.org&lt;/code>, I feel like getting the initial functionality down is much more important than bonus features.&lt;/p>
+&lt;p>Here is my current Makefile for the website.&lt;/p>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt"> 1
+&lt;/span>&lt;span class="lnt"> 2
+&lt;/span>&lt;span class="lnt"> 3
+&lt;/span>&lt;span class="lnt"> 4
+&lt;/span>&lt;span class="lnt"> 5
+&lt;/span>&lt;span class="lnt"> 6
+&lt;/span>&lt;span class="lnt"> 7
+&lt;/span>&lt;span class="lnt"> 8
+&lt;/span>&lt;span class="lnt"> 9
+&lt;/span>&lt;span class="lnt">10
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-makefile" data-lang="makefile">&lt;span class="line">&lt;span class="cl">&lt;span class="nf">.PHONY&lt;/span>&lt;span class="o">:&lt;/span> &lt;span class="n">server&lt;/span> &lt;span class="n">post&lt;/span> &lt;span class="n">project&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="nf">server&lt;/span>&lt;span class="o">:&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="err">@hugo&lt;/span> &lt;span class="err">server&lt;/span> &lt;span class="err">-D&lt;/span> &lt;span class="err">--navigateToChanged&lt;/span> &lt;span class="err">--verbose&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="nf">post&lt;/span>&lt;span class="o">:&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="nf">@echo &amp;#34;Enter the file name (include the suffix)&lt;/span>&lt;span class="o">:&lt;/span> &amp;#34; &amp;amp;&amp;amp; &lt;span class="n">read&lt;/span> &lt;span class="n">filename&lt;/span>; &lt;span class="n">hugo&lt;/span> &lt;span class="n">new&lt;/span> &lt;span class="n">blog&lt;/span>/$$&lt;span class="n">filename&lt;/span> -&lt;span class="n">k&lt;/span> &lt;span class="n">post&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="nf">project&lt;/span>&lt;span class="o">:&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="nf">@echo &amp;#34;Enter the file name (include the suffix)&lt;/span>&lt;span class="o">:&lt;/span> &amp;#34; &amp;amp;&amp;amp; &lt;span class="n">read&lt;/span> &lt;span class="n">filename&lt;/span>; &lt;span class="n">hugo&lt;/span> &lt;span class="n">new&lt;/span> &lt;span class="n">projects&lt;/span>/$$&lt;span class="n">filename&lt;/span> -&lt;span class="n">k&lt;/span> &lt;span class="n">project&lt;/span>
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div></description></item></channel></rss>

@@ -1,0 +1,294 @@
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Jacob's Website</title><link>https://jhilker1.github.io/categories/org-mode/</link><description> Recent Content on Org-mode</description><generator>Hugo -- gohugo.io</generator><language>en-us</language><lastBuildDate>Mon, 20 Sep 2021 17:21:00 -0400</lastBuildDate><atom:link href="https://jhilker1.github.io/categories/org-mode/feed.xml" rel="self" type="application/rss+xml"/><item><title>Building A Website From Our Notes</title><link>https://jhilker1.github.io/blog/2021/09/building-a-website-from-our-notes/</link><pubDate>Mon, 20 Sep 2021 17:21:00 -0400</pubDate><guid>https://jhilker1.github.io/blog/2021/09/building-a-website-from-our-notes/</guid><description>&lt;p>Although the last post in the series assumed you had already set up a hugo site, I wanted to quickly go over setting up a website so that you can quickly get your wiki deployed.&lt;/p>
+&lt;p>Before anything, make sure you &lt;strong>BACK UP YOUR NOTES&lt;/strong>. This is the most important part of the process, since you will be using those notes later on. I would recommend Nextcloud, since, although some tiers require payment, some are free, and since your files are just plaintext, they are fairly small compared to images, videos, or music files. However, Dropbox also works well for this sort of thing - the choice is up to you. Just make sure you back up your notes.&lt;/p>
+&lt;p>Now, once you&amp;rsquo;ve gotten your notes backed up, you will want to clear the database.&lt;/p>
+&lt;p>&lt;em>&amp;lsquo;But why? Didn&amp;rsquo;t I spend all those time capturing notes with that hydra we made for nothing? What will happen now?&amp;rsquo;&lt;/em>&lt;/p>
+&lt;p>Great question! You&amp;rsquo;ve backed up your notes now, so you have a copy you can revert to, if you need to. Open up a scratch buffer (or make an empty elisp file) and then evaluate this code:&lt;/p>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;span class="lnt">2
+&lt;/span>&lt;span class="lnt">3
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-elisp" data-lang="elisp">&lt;span class="line">&lt;span class="cl">&lt;span class="p">(&lt;/span>&lt;span class="nb">let*&lt;/span> &lt;span class="p">((&lt;/span>&lt;span class="nv">org-roam-directory&lt;/span> &lt;span class="s">&amp;#34;/path/to/org/docs/&amp;#34;&lt;/span>&lt;span class="p">)&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="p">(&lt;/span>&lt;span class="nv">org-roam-db-location&lt;/span> &lt;span class="p">(&lt;/span>&lt;span class="nf">concat&lt;/span> &lt;span class="nv">org-roam-directory&lt;/span> &lt;span class="s">&amp;#34;org-roam.db&amp;#34;&lt;/span>&lt;span class="p">)))&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="p">(&lt;/span>&lt;span class="nv">org-roam-db-clear-all&lt;/span>&lt;span class="p">))&lt;/span>
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;p>By now, the let statement should be pretty familiar, since that&amp;rsquo;s the core of our functionality for the hydras. The function &lt;code>org-roam-db-clear-all&lt;/code> clears all the entries in the database in your org-roam-directory, Since you have your notes backed up, it&amp;rsquo;s not going to be a huge deal to clear the database. Once you&amp;rsquo;ve done that, remove your old notes. You want to do this so that you can create a website with your notes.&lt;/p>
+&lt;p>Finally, the core of actually setting up a website will need you to run this command:&lt;/p>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-bash" data-lang="bash">&lt;span class="line">&lt;span class="cl">hugo new site .
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;p>This command essentially says &amp;ldquo;Hey Hugo, I want to make a website in this folder&amp;rdquo;. Hugo will then create the necessary directories for your site in there. After that, go ahead and create a directory from your hugo base directory called &lt;code>content-org&lt;/code> (or &lt;code>org&lt;/code>, or whatever you want to call it, really) - this will allow you to keep your org documents separate from the markdown in the regular &lt;code>content&lt;/code> directory.&lt;sup id="fnref:1">&lt;a href="#fn:1" class="footnote-ref" role="doc-noteref">1&lt;/a>&lt;/sup> Go ahead and &lt;code>cd&lt;/code> into &lt;code>hugo-site-base-directory/content&lt;/code>, because we will need to create 2 small markdown files there, since we don&amp;rsquo;t want them to be a part of our main org-roam notes. One needs to be called &lt;code>_index.md&lt;/code>, directly in the &lt;code>content&lt;/code> directory, while one is in a folder called &lt;code>wiki&lt;/code> (or whatever you want to call it - I just went with wiki). After that, you can go ahead and start recapturing your notes using the hydra we created in the last post, though. However, we want to also add these lines to the top of each org file, since it is metadata that &lt;a href="https://github.com/kaushalmodi/ox-hugo">ox-hugo&lt;/a> uses to determine things such as the base directory of your site, the section that hugo should put the file into, etc. :&lt;/p>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;span class="lnt">2
+&lt;/span>&lt;span class="lnt">3
+&lt;/span>&lt;span class="lnt">4
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-text" data-lang="text">&lt;span class="line">&lt;span class="cl">#+hugo_base_dir: ../
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">#+hugo_section: wiki #(or whatever you called it)
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">#+hugo_bundle: (whatever the title is)
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">#+export_file_name: index.md
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;p>Why would we do this? The first 2 lines are required for ox-hugo to handle exporting your org-mode files to the markdown that hugo uses. The line &lt;code>#+hugo_bundle&lt;/code> is used to hold the relevant files for a page (such as the main content, and any relevant images, if needed), and the line &lt;code>export_file_name&lt;/code> is used for exporting the relevant file to &lt;code>index.md&lt;/code> in the bundle you set.&lt;/p>
+&lt;p>After that, you should go to &lt;a href="https:themes.gohugo.io">themes.gohugo.io&lt;/a> and look around for a theme that suits your needs. Later in the series, we will actually be developing our own theme with Tailwind CSS, but for now, just choose a theme you like, and follow its installation instructions.&lt;/p>
+&lt;p>Finally, just &lt;code>git commit&lt;/code> your files, and then push them to your repository on Github or Gitlab, or your provider of choice. In the next post, we will be deploying our website with Gitlab Pages and Github Pages, though make sure to read the relevant documentation for your provider of choice.&lt;/p>
+&lt;div class="footnotes" role="doc-endnotes">
+&lt;hr>
+&lt;ol>
+&lt;li id="fn:1">
+&lt;p>Although Hugo does have arbitrary support for org-mode, some things (such as no multi-word tags, as an example) are unsupported due to the library that hugo uses for parsing org-mode. This is why I use &lt;a href="https://github.com/kaushalmodi/ox-hugo">ox-hugo&lt;/a> with it.&amp;#160;&lt;a href="#fnref:1" class="footnote-backref" role="doc-backlink">&amp;#x21a9;&amp;#xfe0e;&lt;/a>&lt;/p>
+&lt;/li>
+&lt;/ol>
+&lt;/div></description></item><item><title>A PSA for my Org-Roam Hydra</title><link>https://jhilker1.github.io/blog/2021/08/a-psa-for-my-org-roam-hydra/</link><pubDate>Mon, 23 Aug 2021 23:49:00 -0400</pubDate><guid>https://jhilker1.github.io/blog/2021/08/a-psa-for-my-org-roam-hydra/</guid><description>&lt;p>As you might have heard by now, &lt;a href="https://github.com/org-roam/org-roam">Org-roam&lt;/a> recently updated to version 2, which allows you to set an ID for a post and a headline, and then link by those IDs. However, several functions were renamed to be more consistnt with the rst of the org-roam. This is a PSA to anyone using that you will need to edit those functions slighly for functionality. In &lt;code>jh/find-org-roam-file&lt;/code>, you will need to replace &lt;code>org-roam-find-file&lt;/code> with &lt;code>org-roam-node-find&lt;/code>, and in &lt;code>jh/org-roam-insert&lt;/code>, replace &lt;code>org-roam-insert&lt;/code> with &lt;code>org-roam-node-insert&lt;/code>. Although it&amp;rsquo;s a minor change, you wil need to run &lt;code>org-roam-db-clear&lt;/code> and &lt;code>org-roam-db-sync&lt;/code> for each directory in your hydra, just to make sure everything is up to date. While not ideal, I wanted to make sure it would work.&lt;/p></description></item><item><title>Building Hydras for Org-roam</title><link>https://jhilker1.github.io/blog/2021/06/building-hydras-for-org-roam/</link><pubDate>Mon, 14 Jun 2021 22:43:00 -0400</pubDate><guid>https://jhilker1.github.io/blog/2021/06/building-hydras-for-org-roam/</guid><description>&lt;p>I&amp;rsquo;ve recently been playing around with &lt;a href="https://github.com/org-roam/org-roam">Org-roam&lt;/a>, a note-taking package for Emacs and Org-mode based on the &lt;a href="https://en.wikipedia.org/wiki/Zettelkasten">Zettelkasten&lt;/a> method of taking notes, and interconnecting those notes by means of backlinks, and one place this style of note-taking is very common on is the &lt;a href="https://roamresearch.com">Roam Research&lt;/a> website. In the little bit of time that I&amp;rsquo;ve gotten to try this line of research, I&amp;rsquo;ve found it much more helpful with regards to actually remembering things rather than my old method of just writing it down in a notebook - having backlinks where I can go back and reference any information I&amp;rsquo;ve gotten is very helpful. Despite my love of this way of keeping myself organized, I wanted to be able to quickly capture ideas for any worldbuilding ideas I had - something which I feel like would fall into one of the worldbuilding wikis I maintain for myself, rather than the notes I use by default (for things such as software or any books I&amp;rsquo;ve read). I wanted to try and do more with Emacs-lisp, and so I found that trying to write a hydra for it might be a good place to start. Although I had found that the idea in the documentation of creating a &lt;code>.dir-locals.el&lt;/code> in the directory where I needed a roam database was a good place to start, I found that it ultimately forced me to have to be in that directory to capture an idea if I suddenly came up with one, which I feel like sort of goes against the entire workflow I have set up at this point. I knew that I needed to do three things with my &amp;ldquo;Roam hydra&amp;rdquo;:&lt;/p>
+&lt;ul>
+&lt;li>quickly capture ideas for my worldbuilding projects.&lt;/li>
+&lt;li>insert links to those files in any other wiki files, if I had to.&lt;/li>
+&lt;li>quickly find files for the wiki, if I needed to update them.&lt;/li>
+&lt;/ul>
+&lt;p>And so, I decided to set up my first hydra for finding files. I figured I didn&amp;rsquo;t want to set one up where I could add a file, but finding a file seemed like a good place to start.&lt;/p>
+&lt;h2 id="the-base-hydra-finding-files">The Base Hydra - Finding Files&lt;/h2>
+&lt;p>I figured fairly early on that once I had one function and hydra down, I would effectively have all three down, but I would just need to update the function I needed to call (such as &lt;code>org-roam-node-find&lt;/code> or &lt;code>org-roam-capture&lt;/code>). I started by looking over the code from the excellent blog post on &lt;a href="https://mollermara.com/blog/Fast-refiling-in-org-mode-with-hydras/">refiling Org-mode items with a hydra&lt;/a>. Spoilers - I&amp;rsquo;m not very good at Elisp, so when I saw his macro with all the backticks and commas, I found it fairly hard to follow along, at least until I found a cheatsheet for elisp earlier today. I first overwrote the function with a simple &lt;code>(let*)&lt;/code> before I called &lt;code>org-roam-find-file&lt;/code> and ran it in a simple scratch buffer. I was using the wiki I have for my alt-history setting &lt;a href="https://brokenthrones.jhilker.com">Broken Thrones&lt;/a> as an example, since that has become one of my main passion projects in my off-time, but feel free to use any hugo-site with &lt;a href="https://github.com/kaushalmodi/ox-hugo">Ox-Hugo&lt;/a> set up as an example. I am using a directory called &lt;code>content-org&lt;/code> in that hugo site, but use whatever you want.&lt;/p>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;span class="lnt">2
+&lt;/span>&lt;span class="lnt">3
+&lt;/span>&lt;span class="lnt">4
+&lt;/span>&lt;span class="lnt">5
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-emacs-lisp" data-lang="emacs-lisp">&lt;span class="line">&lt;span class="cl">&lt;span class="p">(&lt;/span>&lt;span class="nb">defun&lt;/span> &lt;span class="nv">jh/find-org-roam-file&lt;/span> &lt;span class="p">(&lt;/span>&lt;span class="nv">directory&lt;/span>&lt;span class="p">)&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="s">&amp;#34;Sets the org-roam directory and database and finds file.&amp;#34;&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="p">(&lt;/span>&lt;span class="nb">let*&lt;/span> &lt;span class="p">((&lt;/span>&lt;span class="nv">org-roam-directory&lt;/span> &lt;span class="p">(&lt;/span>&lt;span class="nf">concat&lt;/span> &lt;span class="nv">directory&lt;/span> &lt;span class="s">&amp;#34;content-org/&amp;#34;&lt;/span>&lt;span class="p">))&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="p">(&lt;/span>&lt;span class="nv">org-roam-db-location&lt;/span> &lt;span class="p">(&lt;/span>&lt;span class="nf">concat&lt;/span> &lt;span class="nv">directory&lt;/span> &lt;span class="s">&amp;#34;org-roam.db&amp;#34;&lt;/span>&lt;span class="p">)))&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="p">(&lt;/span>&lt;span class="nv">org-roam-node-find&lt;/span>&lt;span class="p">)))&lt;/span>
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;p>After evaluating that in a scratch buffer, now I knew that I had enough for a basic hydra. Here is my final configuration for this base hydra after I did some UI tweaks for the help menu, but if anything the UI isn&amp;rsquo;t as important as functionality, at least when first setting it up.&lt;/p>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt"> 1
+&lt;/span>&lt;span class="lnt"> 2
+&lt;/span>&lt;span class="lnt"> 3
+&lt;/span>&lt;span class="lnt"> 4
+&lt;/span>&lt;span class="lnt"> 5
+&lt;/span>&lt;span class="lnt"> 6
+&lt;/span>&lt;span class="lnt"> 7
+&lt;/span>&lt;span class="lnt"> 8
+&lt;/span>&lt;span class="lnt"> 9
+&lt;/span>&lt;span class="lnt">10
+&lt;/span>&lt;span class="lnt">11
+&lt;/span>&lt;span class="lnt">12
+&lt;/span>&lt;span class="lnt">13
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-emacs-lisp" data-lang="emacs-lisp">&lt;span class="line">&lt;span class="cl">&lt;span class="p">(&lt;/span>&lt;span class="nv">defhydra&lt;/span> &lt;span class="nv">jh/find-org-roam-file-hydra&lt;/span> &lt;span class="p">(&lt;/span>&lt;span class="nb">:hint&lt;/span> &lt;span class="no">nil&lt;/span> &lt;span class="nb">:exit&lt;/span> &lt;span class="no">t&lt;/span>&lt;span class="p">)&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="s">&amp;#34;
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="s">^Default^ ^Conworlds^ ^Campaigns^
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="s">^^^^^^^^------------------------------------------------------------
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="s">_d_: Default _b_: Broken Thrones _e_: Ere Break of Day
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="s">_q_: Quit _s_: Shattered Skies ^ ^
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="s">&amp;#34;&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="p">(&lt;/span>&lt;span class="s">&amp;#34;d&amp;#34;&lt;/span> &lt;span class="p">(&lt;/span>&lt;span class="nv">jh/find-org-roam-file&lt;/span> &lt;span class="s">&amp;#34;~/org/roam/&amp;#34;&lt;/span>&lt;span class="p">))&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="p">(&lt;/span>&lt;span class="s">&amp;#34;b&amp;#34;&lt;/span> &lt;span class="p">(&lt;/span>&lt;span class="nv">jh/find-org-roam-file&lt;/span> &lt;span class="s">&amp;#34;~/Projects/conworlds/brokenThrones/&amp;#34;&lt;/span>&lt;span class="p">))&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="p">(&lt;/span>&lt;span class="s">&amp;#34;s&amp;#34;&lt;/span> &lt;span class="p">(&lt;/span>&lt;span class="nv">jh/find-org-roam-file&lt;/span> &lt;span class="s">&amp;#34;~/Projects/conworlds/shatteredSkies/&amp;#34;&lt;/span>&lt;span class="p">))&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="p">(&lt;/span>&lt;span class="s">&amp;#34;e&amp;#34;&lt;/span> &lt;span class="p">(&lt;/span>&lt;span class="nv">jh/find-org-roam-file&lt;/span> &lt;span class="s">&amp;#34;~/Projects/campaigns/mirkwoodCampaign/&amp;#34;&lt;/span>&lt;span class="p">))&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="p">(&lt;/span>&lt;span class="s">&amp;#34;q&amp;#34;&lt;/span> &lt;span class="no">nil&lt;/span>&lt;span class="p">))&lt;/span>
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;p>Once I had that, I knew I could just replace &lt;code>org-roam-find-file&lt;/code> with &lt;code>org-roam-capture&lt;/code> or whatever I needed to call. Although I am reusing a lot of code for this, in time I will try to clean it up. If you need the other hydras I use on a daily basis for roam notes, here they are.&lt;/p>
+&lt;p>To actually use the hydra, bind &lt;code>jh/find-org-roam-file-hydra/body&lt;/code> to a keybinding (I use &lt;code>SPC n r f&lt;/code>) in my configs for both vanilla Emacs and Doom Emacs, and you should be set.&lt;/p>
+&lt;h2 id="capturing-hydra">Capturing Hydra&lt;/h2>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt"> 1
+&lt;/span>&lt;span class="lnt"> 2
+&lt;/span>&lt;span class="lnt"> 3
+&lt;/span>&lt;span class="lnt"> 4
+&lt;/span>&lt;span class="lnt"> 5
+&lt;/span>&lt;span class="lnt"> 6
+&lt;/span>&lt;span class="lnt"> 7
+&lt;/span>&lt;span class="lnt"> 8
+&lt;/span>&lt;span class="lnt"> 9
+&lt;/span>&lt;span class="lnt">10
+&lt;/span>&lt;span class="lnt">11
+&lt;/span>&lt;span class="lnt">12
+&lt;/span>&lt;span class="lnt">13
+&lt;/span>&lt;span class="lnt">14
+&lt;/span>&lt;span class="lnt">15
+&lt;/span>&lt;span class="lnt">16
+&lt;/span>&lt;span class="lnt">17
+&lt;/span>&lt;span class="lnt">18
+&lt;/span>&lt;span class="lnt">19
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-emacs-lisp" data-lang="emacs-lisp">&lt;span class="line">&lt;span class="cl">&lt;span class="p">(&lt;/span>&lt;span class="nb">defun&lt;/span> &lt;span class="nv">jh/org-roam-capture&lt;/span> &lt;span class="p">(&lt;/span>&lt;span class="nv">directory&lt;/span>&lt;span class="p">)&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="s">&amp;#34;Sets the org-roam directory and database and captures to file.&amp;#34;&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="p">(&lt;/span>&lt;span class="nb">let*&lt;/span> &lt;span class="p">((&lt;/span>&lt;span class="nv">org-roam-directory&lt;/span> &lt;span class="p">(&lt;/span>&lt;span class="nf">concat&lt;/span> &lt;span class="nv">directory&lt;/span> &lt;span class="s">&amp;#34;content-org/&amp;#34;&lt;/span>&lt;span class="p">))&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="p">(&lt;/span>&lt;span class="nv">org-roam-db-location&lt;/span> &lt;span class="p">(&lt;/span>&lt;span class="nf">concat&lt;/span> &lt;span class="nv">directory&lt;/span> &lt;span class="s">&amp;#34;org-roam.db&amp;#34;&lt;/span>&lt;span class="p">)))&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="p">(&lt;/span>&lt;span class="nv">org-roam-capture&lt;/span>&lt;span class="p">)))&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="p">(&lt;/span>&lt;span class="nv">defhydra&lt;/span> &lt;span class="nv">jh/org-roam-capture-hydra&lt;/span> &lt;span class="p">(&lt;/span>&lt;span class="nb">:hint&lt;/span> &lt;span class="no">nil&lt;/span> &lt;span class="nb">:exit&lt;/span> &lt;span class="no">t&lt;/span>&lt;span class="p">)&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="s">&amp;#34;
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="s">^Default^ ^Conworlds^ ^Campaigns^
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="s">^^^^^^^^------------------------------------------------------------
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="s">_d_: Default _b_: Broken Thrones _e_: Ere Break of Day
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="s">_q_: Quit _s_: Shattered Skies ^ ^
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="s">&amp;#34;&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="p">(&lt;/span>&lt;span class="s">&amp;#34;d&amp;#34;&lt;/span> &lt;span class="p">(&lt;/span>&lt;span class="nv">jh/org-roam-capture&lt;/span> &lt;span class="s">&amp;#34;~/org/roam/&amp;#34;&lt;/span>&lt;span class="p">))&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="p">(&lt;/span>&lt;span class="s">&amp;#34;b&amp;#34;&lt;/span> &lt;span class="p">(&lt;/span>&lt;span class="nv">jh/org-roam-capture&lt;/span> &lt;span class="s">&amp;#34;~/Projects/conworlds/brokenThrones/&amp;#34;&lt;/span>&lt;span class="p">))&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="p">(&lt;/span>&lt;span class="s">&amp;#34;s&amp;#34;&lt;/span> &lt;span class="p">(&lt;/span>&lt;span class="nv">jh/org-roam-capture&lt;/span> &lt;span class="s">&amp;#34;~/Projects/conworlds/shatteredSkies/&amp;#34;&lt;/span>&lt;span class="p">))&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="p">(&lt;/span>&lt;span class="s">&amp;#34;e&amp;#34;&lt;/span> &lt;span class="p">(&lt;/span>&lt;span class="nv">jh/org-roam-capture&lt;/span> &lt;span class="s">&amp;#34;~/Projects/campaigns/mirkwoodCampaign/&amp;#34;&lt;/span>&lt;span class="p">))&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="p">(&lt;/span>&lt;span class="s">&amp;#34;q&amp;#34;&lt;/span> &lt;span class="no">nil&lt;/span>&lt;span class="p">))&lt;/span>
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;h2 id="insertion-hydra">Insertion Hydra&lt;/h2>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt"> 1
+&lt;/span>&lt;span class="lnt"> 2
+&lt;/span>&lt;span class="lnt"> 3
+&lt;/span>&lt;span class="lnt"> 4
+&lt;/span>&lt;span class="lnt"> 5
+&lt;/span>&lt;span class="lnt"> 6
+&lt;/span>&lt;span class="lnt"> 7
+&lt;/span>&lt;span class="lnt"> 8
+&lt;/span>&lt;span class="lnt"> 9
+&lt;/span>&lt;span class="lnt">10
+&lt;/span>&lt;span class="lnt">11
+&lt;/span>&lt;span class="lnt">12
+&lt;/span>&lt;span class="lnt">13
+&lt;/span>&lt;span class="lnt">14
+&lt;/span>&lt;span class="lnt">15
+&lt;/span>&lt;span class="lnt">16
+&lt;/span>&lt;span class="lnt">17
+&lt;/span>&lt;span class="lnt">18
+&lt;/span>&lt;span class="lnt">19
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-emacs-lisp" data-lang="emacs-lisp">&lt;span class="line">&lt;span class="cl">&lt;span class="p">(&lt;/span>&lt;span class="nb">defun&lt;/span> &lt;span class="nv">jh/org-roam-insert&lt;/span> &lt;span class="p">(&lt;/span>&lt;span class="nv">directory&lt;/span>&lt;span class="p">)&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="s">&amp;#34;Sets the org-roam directory and database and inserts link to file.&amp;#34;&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="p">(&lt;/span>&lt;span class="nb">let*&lt;/span> &lt;span class="p">((&lt;/span>&lt;span class="nv">org-roam-directory&lt;/span> &lt;span class="p">(&lt;/span>&lt;span class="nf">concat&lt;/span> &lt;span class="nv">directory&lt;/span> &lt;span class="s">&amp;#34;content-org/&amp;#34;&lt;/span>&lt;span class="p">))&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="p">(&lt;/span>&lt;span class="nv">org-roam-db-location&lt;/span> &lt;span class="p">(&lt;/span>&lt;span class="nf">concat&lt;/span> &lt;span class="nv">directory&lt;/span> &lt;span class="s">&amp;#34;org-roam.db&amp;#34;&lt;/span>&lt;span class="p">)))&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="p">(&lt;/span>&lt;span class="nv">org-roam-node-insert&lt;/span>&lt;span class="p">)))&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="p">(&lt;/span>&lt;span class="nv">defhydra&lt;/span> &lt;span class="nv">jh/org-roam-insert-hydra&lt;/span> &lt;span class="p">(&lt;/span>&lt;span class="nb">:hint&lt;/span> &lt;span class="no">nil&lt;/span> &lt;span class="nb">:exit&lt;/span> &lt;span class="no">t&lt;/span>&lt;span class="p">)&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="s">&amp;#34;
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="s">^Default^ ^Conworlds^ ^Campaigns^
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="s">^^^^^^^^------------------------------------------------------------
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="s">_d_: Default _b_: Broken Thrones _e_: Ere Break of Day
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="s">_q_: Quit _s_: Shattered Skies ^ ^
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="s">&amp;#34;&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="p">(&lt;/span>&lt;span class="s">&amp;#34;d&amp;#34;&lt;/span> &lt;span class="p">(&lt;/span>&lt;span class="nv">jh/org-roam-insert&lt;/span> &lt;span class="s">&amp;#34;~/org/roam/&amp;#34;&lt;/span>&lt;span class="p">))&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="p">(&lt;/span>&lt;span class="s">&amp;#34;b&amp;#34;&lt;/span> &lt;span class="p">(&lt;/span>&lt;span class="nv">jh/org-roam-insert&lt;/span> &lt;span class="s">&amp;#34;~/Projects/conworlds/brokenThrones/&amp;#34;&lt;/span>&lt;span class="p">))&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="p">(&lt;/span>&lt;span class="s">&amp;#34;s&amp;#34;&lt;/span> &lt;span class="p">(&lt;/span>&lt;span class="nv">jh/org-roam-insert&lt;/span> &lt;span class="s">&amp;#34;~/Projects/conworlds/shatteredSkies/&amp;#34;&lt;/span>&lt;span class="p">))&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="p">(&lt;/span>&lt;span class="s">&amp;#34;e&amp;#34;&lt;/span> &lt;span class="p">(&lt;/span>&lt;span class="nv">jh/org-roam-insert&lt;/span> &lt;span class="s">&amp;#34;~/Projects/campaigns/mirkwoodCampaign/&amp;#34;&lt;/span>&lt;span class="p">))&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="p">(&lt;/span>&lt;span class="s">&amp;#34;q&amp;#34;&lt;/span> &lt;span class="no">nil&lt;/span>&lt;span class="p">))&lt;/span>
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div></description></item><item><title>My Org-Mode Workflow</title><link>https://jhilker1.github.io/blog/2021/06/my-org-mode-workflow/</link><pubDate>Sat, 12 Jun 2021 20:46:00 -0400</pubDate><guid>https://jhilker1.github.io/blog/2021/06/my-org-mode-workflow/</guid><description>&lt;p>Although I briefly describe my workflows in the &lt;a href="https://braindump.jhilker.com">notes section&lt;/a> of my website, I wanted to go far more in-depth here on my blog vs. in the notes file. I think of it this way - a note is a quick reminder of something, while something like an article or post is more in-depth.&lt;/p>
+&lt;p>I use org-mode for most of my stuff now - if I am writing a README as an example (or writing generally), I&amp;rsquo;ll use org-mode where I can, including in emails. In addition, I&amp;rsquo;ll use it for my actually organizing my day or week, although I am using Google Calendar just for better integration with my phone. (I&amp;rsquo;m still working on my orgzly configuration). I am keeping my primary org-mode files in Dropbox so that I can sync them to any device.&lt;/p>
+&lt;p>The best feature of all this is my extensive use of capturing ideas, tasks, and events with &lt;code>org-capture&lt;/code>. This way, I can still heavily focus on the current task I&amp;rsquo;m working on, while still getting ideas down if I need them.&lt;/p>
+&lt;h2 id="my-agenda-workflow">My Agenda Workflow&lt;/h2>
+&lt;p>One of the nicest features of org-mode is the ability to create custom agenda commands for different views. And in these views, you can have different files for different sections of an agenda, or for each individual agenda view. I currently have a few org-mode files in my dropbox that I use as agenda files.&lt;/p>
+&lt;div class="ox-hugo-table table-outer-bordered">
+&lt;table>
+&lt;thead>
+&lt;tr>
+&lt;th>Filename&lt;/th>
+&lt;th>Purpose&lt;/th>
+&lt;/tr>
+&lt;/thead>
+&lt;tbody>
+&lt;tr>
+&lt;td>&lt;code>inbox.org&lt;/code>&lt;/td>
+&lt;td>Where any ideas I have come in.&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>&lt;code>orgzly.org&lt;/code>&lt;/td>
+&lt;td>Same as &lt;code>inbox.org&lt;/code>, but for any ideas I have on my phone.&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>&lt;code>todo.org&lt;/code>&lt;/td>
+&lt;td>Keeping track of general todo items.&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>&lt;code>gcal.org&lt;/code>&lt;/td>
+&lt;td>My personal calendar events.&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>&lt;code>projects.org&lt;/code>&lt;/td>
+&lt;td>Where I manage small to medium size personal projects.&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>&lt;code>work.org&lt;/code>&lt;/td>
+&lt;td>My work-related todo list.&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>&lt;code>work-gcal.org&lt;/code>&lt;/td>
+&lt;td>My work-related calendar.&lt;/td>
+&lt;/tr>
+&lt;/tbody>
+&lt;/table>
+&lt;/div>
+&lt;p>As an example, I currently have a custom agenda view that I call a dashboard - although I don&amp;rsquo;t include any projects in it, I give my projects their own dashboard since some of them can get quite big for a solo project. Excuse the windows laptop, my Linux machine is currently being repaired.&lt;/p>
+&lt;figure>&lt;img src="img/org-mode-workflow-dashboard.png" width="80%"/>
+&lt;/figure>
+&lt;p>This is my &amp;ldquo;daily dashboard&amp;rdquo; view - everything at the top is everything with a date for today. Underneath that, I have a list of the inbox items I need to review. Underneath that, I have anything I need to follow up or read from my email, and lastly, I have a list of general todo items. Although GTD normally has you set deadlines for every little item, I feel like if I set an arbitrary deadline for something where it wouldn&amp;rsquo;t be necessary, it&amp;rsquo;s much easier for me to ignore that deadline, which in turn makes it easier for me to ignore all my deadlines. I&amp;rsquo;d rather something take longer and eventually get finished, rather than me forcing arbitrary dates on myself and eventually ignoring that date.&lt;/p>
+&lt;h2 id="for-tasks">For Tasks&lt;/h2>
+&lt;p>As far as actually organizing myself, my workflow is a mix of both Getting Things Done, the Pomodoro method, and my own thing, although I use both GTD and Pomodoro for slightly different reasons. I used to be more of a &amp;ldquo;just get it done, don&amp;rsquo;t worry about logging it&amp;rdquo; sort of person, but now I feel like it&amp;rsquo;s a lot easier for me to just record a task or an idea if something comes up.&lt;/p>
+&lt;ol>
+&lt;li>Capture a task using &lt;code>org-capture&lt;/code> and save it to the inbox.&lt;/li>
+&lt;li>Continue working for the duration of the currently running timer.&lt;/li>
+&lt;li>During a break, quickly glance over the inbox.&lt;/li>
+&lt;li>At the end of the day, review the inbox, and refile with a &lt;a href="https://mollermara.com/blog/Fast-refiling-in-org-mode-with-hydras/">hydra&lt;/a> as appropriate.&lt;/li>
+&lt;/ol>
+&lt;p>I mostly use it like this because I have had trouble focusing in the past, and now I can quickly get an idea into my head and into a file so that I can get back to work and review it later. Other than that, I&amp;rsquo;ll set a pomodoro timer, clock in the task, and get to work.&lt;/p>
+&lt;h2 id="for-note-taking">For Note-Taking&lt;/h2>
+&lt;p>This, along with the task management system I described above, is what makes classes easier, although I&amp;rsquo;m disappointed that I didn&amp;rsquo;t implement org-mode sooner until now. I am currently using &lt;a href="https://github.com/org-roam/org-roam/">org-roam&lt;/a> to get a similar setup to what I had in &lt;a href="https://notion.so/">Notion&lt;/a> or &lt;a href="https://obsidian.md/">Obsidian&lt;/a> so that I can connect notes to past information I&amp;rsquo;ve learned. Although this is still currently in progress (mainly trying to figure out campaign notes with a similar system to what I have for my primary note-taking system), I will update this when I get something working.&lt;/p>
+&lt;h2 id="for-writing">For Writing&lt;/h2>
+&lt;p>Org-mode, in addition to being an excellent productivity tool, is also a very nice markup language. This means that it&amp;rsquo;s not too difficult to write something in org-mode, and export to something like a Word document or a PDF with \(\LaTeX\) or Groff if you need a manuscript.&lt;/p>
+&lt;h3 id="for-the-blog">For The Blog&lt;/h3>
+&lt;p>I have a few capture templates set up for various things on my site - namely, a blog post and a potential project. I am currently using &lt;a href="https://github.com/kaushalmodi/ox-hugo">Ox-Hugo&lt;/a> for publishing my org-mode files to the relevant Hugo Markdown files in the correct directory. Inside my website folder for org-files, I have two separate files for handling different parts of my site.&lt;/p>
+&lt;table>
+&lt;thead>
+&lt;tr>
+&lt;th>Filename&lt;/th>
+&lt;th>Purpose&lt;/th>
+&lt;/tr>
+&lt;/thead>
+&lt;tbody>
+&lt;tr>
+&lt;td>&lt;code>blog.org&lt;/code>&lt;/td>
+&lt;td>For any completed blog posts.&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>&lt;code>projects.org&lt;/code>&lt;/td>
+&lt;td>For my portfolio.&lt;/td>
+&lt;/tr>
+&lt;/tbody>
+&lt;/table>
+&lt;p>Overall, my workflow looks a little something like this.&lt;/p>
+&lt;ol>
+&lt;li>Capture an idea for a blog post, and save that to &lt;code>blog.org&lt;/code> in my dropbox.&lt;/li>
+&lt;li>Add a TODO item to my todo list to finish that post.&lt;/li>
+&lt;li>Finish writing the blog post, and refile with a hydra as appropriate.&lt;/li>
+&lt;li>Publish the post with &lt;code>org-export&lt;/code>.&lt;/li>
+&lt;li>Commit the changes, and push to my gitlab.&lt;/li>
+&lt;/ol>
+&lt;h2 id="for-outlining-longer-works--campaigns-novels-etc--dot">For Outlining Longer Works (Campaigns, Novels, etc).&lt;/h2>
+&lt;p>Although I am not a very good writer, I do enjoy worldbuilding and writing campaign ideas. This is still very much in progress, but the idea is to capture an idea to a file called &lt;code>writing.org&lt;/code> in my Dropbox which acts as a sort of inbox for any writing ideas I have. It&amp;rsquo;s not perfect at all, but I am still figuring out the right workflow to have for this sort of thing. It acts fairly similarly to the way my task system does, where I review it at the end of the week and apply it to any relevant worldbuilding or writing projects I&amp;rsquo;m working on. I might try something with capturing into the current buffer I&amp;rsquo;m in, but I&amp;rsquo;m not entirely sure, though.&lt;/p></description></item></channel></rss>
