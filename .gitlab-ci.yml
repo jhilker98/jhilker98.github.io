@@ -25,7 +25,7 @@ test:
   script:
     # - hugo --enableGitInfo -b "https://jhilker.gitlab.io"
     - npm ci --cache .npm --prefer-offline
-    - hugo --minify
+    - hugo --minify -b "https://jhilker.gitlab.io"
   except:
     - main
 
@@ -37,7 +37,7 @@ pages:
   script:
     # - hugo --enableGitInfo -b "https://jhilker.gitlab.io"
     - npm ci --cache .npm --prefer-offline
-    - hugo --minify
+    - hugo --minify -b "https://jhilker.gitlab.io"
   artifacts:
     paths:
       - public
