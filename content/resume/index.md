@@ -1,5 +1,5 @@
 ---
-title: "Full-Stack Engineer"
+title: "Software Engineer"
 author: ["Jacob Hilker"]
 layout: "resume"
 draft: false
@@ -16,26 +16,18 @@ skills: ["Python", "Shell Scripts (Bash/ZSH) ", "Java", "HTML/CSS", "JavaScript"
 
 ## Profile {#profile}
 
-<div class="cvwrapper">
-Inquisitive, energetic software developer pursuing a position in software development. Skilled in multiple languages, but especially enjoys writing in Python.
-</div>
-
 
 ## Education {#education}
 
-<div class="cvwrapper">
 
 
-
-{{<cventry title="B.Sc., Computer Science, Minor in Cybersecurity" start="2017-08-22" end="2021-05-09" employer="University of Mary Washington" location="Fredericksburg, VA">}}
--   Dean's List, Spring 2021
--   **<span class="underline">Relevant Coursework</span>**
+{{<cventry title="BS, Computer Science" start="2017-08-22" end="2021-05-09" employer="University of Mary Washington" location="Fredericksburg, VA">}}
+-   GPA: 2.99/4.00
+-   Relevant Courses:
     -   Applications of Databases
     -   Data Science
     -   Artificial Neural Networks
     -   Software Security
-
-        </div>
 
 
 {{</cventry>}}
@@ -43,30 +35,45 @@ Inquisitive, energetic software developer pursuing a position in software develo
 
 ## Experience {#experience}
 
-<div class="cvwrapper">
 
 
-
-{{<cventry title="Freelance Web Developer" start="2022-01-28" end="" employer="Freelance" location="Remote">}}
--   Designed and deployed static websites for multiple clients using the Hugo static site generator
-
-</div>
+{{<cventry title="Web Developer" start="2022-01-28" end="" employer="Freelance" location="Remote">}}
+-   Designed static websites for multiple clients using Hugo and Tailwind CSS
+-   Deployed sites to Github using Github Actions for CI/CD
 
 
 {{</cventry>}}
 
 
-### Volunteer {#volunteer}
-
-<div class="cvwrapper">
+## Activities {#activities}
 
 
 
-{{<cventry title="Library Volunteer" start="2014-07-14" end="2017-07-17" employer="Crozet Library" location="Crozet, VA">}}
+{{<cventry title="DataThon" date="April 2021" employer="University of Mary Washington" location="Remote">}}
+-   Conducted exploratory analysis of large data sets in a 24-hour period in teams of 3
+
+{{</cventry>}}
+
+
+
+{{<cventry title="Hackathon" date="March 2021" employer="University of Mary Washington" location="Remote">}}
+-   Started writing a Python module for assisting developers writing tools for the tabletop role-playing game [Ironsworn](https://ironswornrpg.com)
+
+{{</cventry>}}
+
+
+
+{{<cventry title="DataFest" date="Spring 2019" employer="University of Mary Washington" location="Fredericksburg, VA">}}
+-   Conducted exploratory analysis of large data sets in a 24-hour period in teams of 3
+-   Investigated and plotted any relationships in the data using Matplotlib
+
+{{</cventry>}}
+
+
+
+{{<cventry title="Volunteer" start="2014-07-14" end="2017-07-17" employer="Crozet Library" location="Crozet, VA">}}
 -   Organized and re-shelved books in their proper places
 -   Retrieved books from shelves to fulfill holds
-
-    </div>
 
 
 {{</cventry>}}

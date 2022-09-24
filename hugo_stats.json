@@ -82,7 +82,6 @@
       "chroma",
       "clear-both",
       "cventry",
-      "cvwrapper",
       "dark",
       "dark:!text-slate-300",
       "dark:bg-gray-800",
@@ -281,6 +280,7 @@
     "ids": [
       "TableOfContents",
       "about-me",
+      "activities",
       "capturing-hydra",
       "education",
       "experience",
@@ -300,8 +300,7 @@
       "profile",
       "recent-posts",
       "resume",
-      "the-base-hydra-finding-files",
-      "volunteer"
+      "the-base-hydra-finding-files"
     ]
   }
 }

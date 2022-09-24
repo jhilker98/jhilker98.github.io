@@ -4,16 +4,17 @@
             <span class="text-xl text-gray-900 dark:text-gray-100 font-serif my-5">
         {{.Get "title"}}
             </span>
+            {{ if .Get "date" }}
+            <span class="hidden lg:inline lg:float-right">
+                {{.Get "date"}}
+            </span>
+            {{ else }}
             <span class="hidden lg:inline lg:float-right">
                 {{dateFormat "2006" (.Get "start")}} - {{if .Get "end"}}{{ dateFormat "2006" (.Get
                 "end")}}{{else}}Present{{end}}
             </span>
+        {{ end }}
         </summary>
-
-            <span class="lg:hidden">
-                {{dateFormat "2006" (.Get "start")}} - {{if .Get "end"}}{{ dateFormat "2006" (.Get
-                "end")}}{{else}}Present{{end}}
-            </span>
             <span class="block mt-2">
                 {{ with .Get "employer" }}{{ . }} {{ end }} -
                 {{ with .Get "location" }} {{ . }} {{ end }}

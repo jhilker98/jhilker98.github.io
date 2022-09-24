@@ -1,42 +1,48 @@
-#+title: Full-Stack Engineer
-#+position: Full-Stack Engineer
+:PROPERTIES:
+:ID:       e0c7da30-c509-49e7-917a-7c33934f9f36
+:NAMESPACE: Resume
+:END:
+#+title: Software Engineer
 #+author: Jacob Hilker
 #+CITY: Crozet, VA
 #+ADDRESS:  Crozet, VA
 #+mobile: 434-409-3789
 #+email: jacob.hilker2@gmail.com
 #+homepage: jhilker.com
+#+github: jhilker1
 #+OPTIONS: email:t
 #+startup: fold
+#+cvcolor: blue
+#+cvstyle: classic
+#+latex_class_options:[a4paper,11pt,sans]
+#+latex_header: \usepackage[scale=0.85]{geometry}
+# ## Project Command - All But Banking
+#+latex_header: \newcommand*{\cvproject}[7][0.25em]{
+#+latex_header: \cventry[#1]{#2}{#3}{#4}{#5}{\href{https://#6}{#6}}{#7}}
+# ## Banking Project Command
+# #+latex_header: \cventry[#1]{#4}{#3}{#2}{#5}{\href{https://#6}{#6.}}{#7}}
+#+latex_header: \setlength{\hintscolumnwidth}{3cm}
+#+latex_header: \definecolor{accent1}{rgb}{0.22,0.45,0.70} % light blue
+# #+latex_header: \recomputelengths
+#+latex_header: \usepackage{helvet}
+#+latex_header: \usepackage{enumitem}
+#+latex_header: \setitemize{nosep,leftmargin=0.3in}
+#+latex_header: \setlist[itemize,1]{label=\scriptsize\color{accent1}{$\bullet$}}
+#+latex_header: \pdfgentounicode=1
+#+latex_compiler: pdflatex
 #+hugo_section: resume
 #+hugo_layout: resume
 #+hugo_custom_front_matter: :title "Resumé"
 #+hugo_custom_front_matter: :skills '(Python "Shell Scripts (Bash/ZSH) " Java HTML/CSS JavaScript PostgreSQL "Object-oriented design")
 # #+hugo_custom_front_matter: :interests '("Audio Engineering" "Sound Design" Worldbuilding Songwriting )
-#+export_file_name: index
-#+cvcolor: blue
-#+cvstyle: banking
-#+latex_class_options: [a4paper,10pt,sans]
-#+latex_class: moderncv
-#+latex_header: \usepackage[scale=0.8]{geometry}
-#+latex_header: \recomputelengths
-#+latex_header: \usepackage[scaled=0.92]{helvet}
-#+latex_header: \usepackage{enumitem}
-#+latex_header: \setitemize{nosep,leftmargin=0.2in}
-#+latex_header: \pdfgentounicode=1
 #+macro: wrapperstart @@hugo:<div class="cvwrapper">@@
 #+macro: wrapperend @@hugo:</div>@@
 
+@@latex:\vspace{-1cm}@@
 
 * Profile :orgonly:
-{{{wrapperstart}}}
-Inquisitive, energetic software developer pursuing a position in software development. Skilled in multiple languages, but especially enjoys writing in Python.
-{{{wrapperend}}}
-
-
 * Education
-{{{wrapperstart}}}
-** B.Sc., Computer Science, Minor in Cybersecurity
+** BS, Computer Science
 :PROPERTIES:
 :CV_ENV: cventry
 :FROM:     <2017-08-22 Tue>
@@ -44,32 +50,101 @@ Inquisitive, energetic software developer pursuing a position in software develo
 :EMPLOYER: University of Mary Washington
 :LOCATION: Fredericksburg, VA
 :END:
-- Dean's List, Spring 2021
-- *_Relevant Coursework_*
+- GPA: 2.99/4.00
+- Relevant Courses:
   - Applications of Databases
   - Data Science
   - Artificial Neural Networks
   - Software Security
 
-    {{{wrapperend}}}
+** Advanced Diploma :noexport:
+:PROPERTIES:
+:CV_ENV: cventry
+:FROM:     <2013-08-18 Sun>
+:TO: <2017-06-03 Sat>
+:EMPLOYER: Western Albemarle High School
+:LOCATION: Crozet, VA
+:END:
 
+* Projects :texonly:
+** Chronicler
+:PROPERTIES:
+:CV_ENV:   cvproject
+:FROM: <2021-04-07 Wed>
+:ROLE: Developer
+:LINK: github.com/jhilker1/chronicler
+:TYPE: TUI Application
+:TOOLS: Python
+:END:
+
+- Developed a terminal application for tracking characters in a playthrough of a Paradox game
+- Collaborated with users to find bugs, gather feedback, and implement suggested features
+
+** Personal Site
+:PROPERTIES:
+:CV_ENV:   cvproject
+:FROM: <2021-04-07 Wed>
+:ROLE: Developer \& Author
+:LINK: github.com/jhilker1/jhilker1.github.io
+:TYPE: Website
+:TOOLS: Hugo, Org-mode, Tailwind CSS, JavaScript
+:END:
+
+- Designed a multipurpose personal website with Tailwind CSS out of class
+- Authored articles and posts using Emacs' Org-mode on the software I use
+
+
+** This Week In Destiny :noexport:
+:PROPERTIES:
+:CV_ENV: cvproject
+:FROM: <2022-04-25 Mon>
+:TOOLS: Tailwind CSS, Flask
+:LINK: github.com/jhilker1/this-week-in-destiny
+:END:
+
+- Independently learned the Bungie API for Destiny 2 and Flask
+- Deployed a site using Flask and the Bungie API to get an overview of the weekly reset of the Bungie game Destiny 2
 * Experience
-{{{wrapperstart}}}
-** Freelance Web Developer
+** Web Developer
 :PROPERTIES:
 :CV_ENV:   cventry
 :FROM: <2022-01-28 Fri>
 :LOCATION: Remote
 :EMPLOYER: Freelance
 :END:
-- Designed and deployed static websites for multiple clients using the Hugo static site generator
+- Designed static websites for multiple clients using Hugo and Tailwind CSS
+- Deployed sites to Github using Github Actions for CI/CD
 
-{{{wrapperend}}}
+* Activities
+** DataThon
+:PROPERTIES:
+:CV_ENV:   cvactivity
+:FROM: April 2021
+:EMPLOYER: University of Mary Washington
+:LOCATION: Remote
+:END:
+- Conducted exploratory analysis of large data sets in a 24-hour period in teams of 3
+# - basically a more formal version of DataFest
+** Hackathon
+:PROPERTIES:
+:CV_ENV:   cvactivity
+:EMPLOYER: University of Mary Washington
+:LOCATION: Remote
+:FROM: March 2021
+:END:
+    - Started writing a Python module for assisting developers writing tools for the tabletop role-playing game [[https://ironswornrpg.com][Ironsworn]]
+
+** DataFest
+:PROPERTIES:
+:CV_ENV:   cvactivity
+:EMPLOYER: University of Mary Washington
+:LOCATION: Fredericksburg, VA
+:FROM:     Spring 2019
+:END:
+    - Conducted exploratory analysis of large data sets in a 24-hour period in teams of 3
+    - Investigated and plotted any relationships in the data using Matplotlib
 
 ** Volunteer
-
-{{{wrapperstart}}}
-*** Library Volunteer
 :PROPERTIES:
 :CV_ENV:   cventry
 :FROM:     <2014-07-14 Mon>
@@ -80,8 +155,8 @@ Inquisitive, energetic software developer pursuing a position in software develo
 - Organized and re-shelved books in their proper places
 - Retrieved books from shelves to fulfill holds
 
-  {{{wrapperend}}}
-*** Impact Richmond :noexport:
+
+** Impact Richmond :noexport:
 :PROPERTIES:
 :CV_ENV:   cventry
 :FROM:     <2012-07-07 Sat>
@@ -89,87 +164,98 @@ Inquisitive, energetic software developer pursuing a position in software develo
 :EMPLOYER: Impact Richmond
 :END:
 - Participated in week-long volunteer sessions to refurbish homes in disadvantaged neighborhoods in Richmond, VA
+** Other Interests :noexport:
+*** Worldbuilding
+:PROPERTIES:
+:CV_ENV:   cvitem
+:END:
+The art of creating fictional worlds for media. See: Middle-Earth, Westeros, etc
 
-* Projects :texonly:
-** All For One
+*** Sound Design
 :PROPERTIES:
-:CV_ENV: cvproj
-:FROM: <2021-04-07 Wed>
-:LANGS: Halfmoon CSS, HTML
-:LINK: https://github.com/jhilker1/hugo-all-for-one
-:ICON: \faGithub
-:REPO: github.com/jhilker1/hugo-all-for-one
+:CV_ENV:   cvitem
 :END:
- - Independently designed a mobile-responsive Hugo theme with Halfmoon CSS base for an online blog, portfolio, and resume
-  \vspace{3pt}
-** Chronicler
+Creating sounds for use in media, whether music, games, etc
+
+*** Music
 :PROPERTIES:
-:CV_ENV: cvproj
-:FROM: <2021-04-07 Wed>
-:LANGS: Python
-:LINK: https://gitlab.com/jhilker/chronicler
-:ICON: \faGitlab
-:REPO: gitlab.com/jhilker/chronicler
+:CV_ENV:   cvitem
 :END:
-- Developed a terminal application for tracking characters in a particular playthrough of a Paradox game independently outside of class
-- Collaborated with users to find bugs, gather feedback, and suggest features for the application
-  \vspace{3pt}
-** Pyronsworn
-:PROPERTIES:
-:CV_ENV: cvproj
-:FROM: <2021-04-07 Wed>
-:LANGS: Python
-:LINK: https://gitlab.com/jhilker/pyronsworn
-:ICON: \faGitlab
-:REPO: github.com/jhilker/pyronsworn
-:END:
-- Created a python module for assisting developers for creating applications for the tabletop role-playing game [[https://ironswornrpg.com][Ironsworn]]
-  \vspace{3pt}
-** This Week In Destiny :noexport:
-:PROPERTIES:
-:CV_ENV: cvproj
-:FROM: <2022-04-25 Mon>
-:LANGS: Tailwind CSS, Flask
-:LINK: https://gitlab.com/jhilker/pyronsworn
-:ICON: \faGitlab
-:REPO: github.com/jhilker/pyronsworn
-:END:
-- Independently learned the Bungie API for Destiny 2 and Flask
-- Deployed a site using Flask and the Bungie API to get an overview of the weekly reset of the Bungie game Destiny 2
+Played drums since 6th grade, guitar since 11th, and bass since junior year of college
 
 * Skills :texonly:
-#+begin_export latex
-\begin{itemize}[label={}]
-    \small{\item{
-     \textbf {Languages: }{Python, HTML/CSS, Java, SQL (Postgres), JavaScript} \\
-     \textbf{Frameworks: }{React, Next.js, Node.js, Halfmoon CSS, Tailwind CSS} \\
-     \textbf{Libraries: }{ pandas, NumPy, Matplotlib} \\
-     \textbf{Dev Tools: }{Git, Vim, Emacs, Google Cloud Platform} \\
-     \textbf{Miscellaneous: }{Hugo Static Site Generator, Org-mode, Object-oriented Design}}}
-#+end_export
+** *Languages*
+:PROPERTIES:
+:CV_ENV:   cvitem
+:END:
+Python, HTML/CSS, Java, SQL (Postgres), JavaScript (Node.js)
+
+** *Frameworks*
+:PROPERTIES:
+:CV_ENV:   cvitem
+:END:
+React, Next.js, Tailwind CSS
+
+** *Libraries*
+:PROPERTIES:
+:CV_ENV:   cvitem
+:END:
+pandas, NumPy, Matplotlib
+** *Dev Tools*
+:PROPERTIES:
+:CV_ENV:   cvitem
+:END:
+Git, Vim, Emacs, Hugo, Google Cloud Platform
+** *Miscellaneous*
+:PROPERTIES:
+:CV_ENV:   cvitem
+:END:
+Org-mode, Object-oriented Design
+
 
 * Code :noexport:
 ** Latex
+*** Europa (HP Envy)
 #+begin_src emacs-lisp :results silent
+(load-file "~/Devel/emacs/org-cv/org-cv-utils.el")
+(load-file "~/Devel/emacs/org-cv/ox-moderncv.el")
+
+(let((org-export-exclude-tags '("noexport" "orgonly"))
+     (org-export-with-tags nil)
+     (org-latex-logfiles-extensions '("aux" "bbl" "bcf" "blg" "fdb_latexmk" "fls" "figlist" "idx" "log" "nav" "out" "ptc" "run.xml" "snm" "toc" "vrb" "xdv")))
+    (org-export-to-file 'moderncv "jhilker_cv.tex")
+    (org-latex-compile "jhilker_cv.tex"))
+;    (dolist (cv_file '("jhilker_cv.tex" "jhilker_cv.pdf"))
+;      (with-current-buffer (find-file-noselect cv_file)
+;        (copy-file cv_file "~/Projects/sites/jhilker.gitlab.io/static/uploads/" t))))
+#+end_src
+
+*** Old Windows Laptop
+#+begin_src emacs-lisp :results silent
+(load-file "~/Projects/emacs/org-cv/org-cv-utils.el")
 (load-file "~/Projects/emacs/org-cv/ox-moderncv.el")
 
 (let((org-export-exclude-tags '("noexport" "orgonly"))
      (org-export-with-tags nil)
      (org-latex-logfiles-extensions '("aux" "bbl" "bcf" "blg" "fdb_latexmk" "fls" "figlist" "idx" "log" "nav" "out" "ptc" "run.xml" "snm" "toc" "vrb" "xdv")))
     (org-export-to-file 'moderncv "jhilker_cv.tex")
-    (org-latex-compile "jhilker_cv.tex")
-    (dolist (cv_file '("jhilker_cv.tex" "jhilker_cv.pdf"))
-      (with-current-buffer (find-file-noselect cv_file)
-        (copy-file cv_file "~/Projects/sites/jhilker.gitlab.io/static/uploads/" t))))
+    (org-latex-compile "jhilker_cv.tex"))
+;    (dolist (cv_file '("jhilker_cv.tex" "jhilker_cv.pdf"))
+;      (with-current-buffer (find-file-noselect cv_file)
+;        (copy-file cv_file "~/Projects/sites/jhilker.gitlab.io/static/uploads/" t))))
 
 #+end_src
 
 ** Org
+*** Europa
 #+begin_src emacs-lisp :results silent
+(load-file "~/Devel/emacs/org-cv/org-cv-utils.el")
+(load-file "~/Devel/emacs/org-cv/ox-hugocv.el")
+
 (let((org-export-exclude-tags '("noexport" "texonly"))
      (org-export-with-tags nil))
-  (org-export-to-file 'hugocv "~/Projects/sites/jhilker.gitlab.io/content/resume/index.md")
-  (with-current-buffer "resume.org" (copy-file "resume.org" "~/Projects/sites/jhilker.gitlab.io/content-org/pages/resume.org" t)))
+  (org-export-to-file 'hugocv "~/Devel/sites/personal/content/resume/index.md")
+  (with-current-buffer "resume.org" (copy-file "resume.org" "~/Devel/sites/personal/content-org/pages/resume.org" t)))
 #+end_src
 
 # Local Variables:
