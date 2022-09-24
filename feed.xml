@@ -8,46 +8,30 @@
 &lt;a href="mailto:jacob.hilker2@gmail.com" class="!no-underline !text-slate-700 dark:!text-slate-300 hover:!text-royal-600 dark:hover:!text-royal-400">&lt;span class="mr-3">&lt;i class="fas fa-envelope">&lt;/i>&amp;nbsp;&amp;nbsp;jacob.hilker2@gmail.com&lt;/span>&lt;/li>&lt;/a>
 &lt;/div>
 &lt;h2 id="profile">Profile&lt;/h2>
-&lt;div class="cvwrapper">
-Inquisitive, energetic software developer pursuing a position in software development. Skilled in multiple languages, but especially enjoys writing in Python.
-&lt;/div>
 &lt;h2 id="education">Education&lt;/h2>
-&lt;div class="cvwrapper">
 &lt;div class="my-2.5 py-2.5 last:border-0 border-b-2 border-gray-300 dark:border-gray-700">
 &lt;details class="cventry">
 &lt;summary class="list-none">
 &lt;span class="text-xl text-gray-900 dark:text-gray-100 font-serif my-5">
-B.Sc., Computer Science, Minor in Cybersecurity
+BS, Computer Science
 &lt;/span>
 &lt;span class="hidden lg:inline lg:float-right">
 2017 - 2021
 &lt;/span>
 &lt;/summary>
-&lt;span class="lg:hidden">
-2017 - 2021
-&lt;/span>
 &lt;span class="block mt-2">
 University of Mary Washington -
 Fredericksburg, VA
 &lt;/span>
 &lt;div class="mt-3">
 &lt;ul>
-&lt;li>Dean&amp;rsquo;s List, Spring 2021&lt;/li>
-&lt;li>&lt;strong>&lt;span class="underline">Relevant Coursework&lt;/span>&lt;/strong>
+&lt;li>GPA: 2.99/4.00&lt;/li>
+&lt;li>Relevant Courses:
 &lt;ul>
-&lt;li>
-&lt;p>Applications of Databases&lt;/p>
-&lt;/li>
-&lt;li>
-&lt;p>Data Science&lt;/p>
-&lt;/li>
-&lt;li>
-&lt;p>Artificial Neural Networks&lt;/p>
-&lt;/li>
-&lt;li>
-&lt;p>Software Security&lt;/p>
-&lt;/div>
-&lt;/li>
+&lt;li>Applications of Databases&lt;/li>
+&lt;li>Data Science&lt;/li>
+&lt;li>Artificial Neural Networks&lt;/li>
+&lt;li>Software Security&lt;/li>
 &lt;/ul>
 &lt;/li>
 &lt;/ul>
@@ -55,60 +39,111 @@ Fredericksburg, VA
 &lt;/details>
 &lt;/div>
 &lt;h2 id="experience">Experience&lt;/h2>
-&lt;div class="cvwrapper">
 &lt;div class="my-2.5 py-2.5 last:border-0 border-b-2 border-gray-300 dark:border-gray-700">
 &lt;details class="cventry">
 &lt;summary class="list-none">
 &lt;span class="text-xl text-gray-900 dark:text-gray-100 font-serif my-5">
-Freelance Web Developer
+Web Developer
 &lt;/span>
 &lt;span class="hidden lg:inline lg:float-right">
 2022 - Present
 &lt;/span>
 &lt;/summary>
-&lt;span class="lg:hidden">
-2022 - Present
-&lt;/span>
 &lt;span class="block mt-2">
 Freelance -
 Remote
 &lt;/span>
 &lt;div class="mt-3">
 &lt;ul>
-&lt;li>Designed and deployed static websites for multiple clients using the Hugo static site generator&lt;/li>
+&lt;li>Designed static websites for multiple clients using Hugo and Tailwind CSS&lt;/li>
+&lt;li>Deployed sites to Github using Github Actions for CI/CD&lt;/li>
 &lt;/ul>
-&lt;/div>
 &lt;/div>
 &lt;/details>
 &lt;/div>
-&lt;h3 id="volunteer">Volunteer&lt;/h3>
-&lt;div class="cvwrapper">
+&lt;h2 id="activities">Activities&lt;/h2>
 &lt;div class="my-2.5 py-2.5 last:border-0 border-b-2 border-gray-300 dark:border-gray-700">
 &lt;details class="cventry">
 &lt;summary class="list-none">
 &lt;span class="text-xl text-gray-900 dark:text-gray-100 font-serif my-5">
-Library Volunteer
+DataThon
+&lt;/span>
+&lt;span class="hidden lg:inline lg:float-right">
+April 2021
+&lt;/span>
+&lt;/summary>
+&lt;span class="block mt-2">
+University of Mary Washington -
+Remote
+&lt;/span>
+&lt;div class="mt-3">
+&lt;ul>
+&lt;li>Conducted exploratory analysis of large data sets in a 24-hour period in teams of 3&lt;/li>
+&lt;/ul>
+&lt;/div>
+&lt;/details>
+&lt;/div>
+&lt;div class="my-2.5 py-2.5 last:border-0 border-b-2 border-gray-300 dark:border-gray-700">
+&lt;details class="cventry">
+&lt;summary class="list-none">
+&lt;span class="text-xl text-gray-900 dark:text-gray-100 font-serif my-5">
+Hackathon
+&lt;/span>
+&lt;span class="hidden lg:inline lg:float-right">
+March 2021
+&lt;/span>
+&lt;/summary>
+&lt;span class="block mt-2">
+University of Mary Washington -
+Remote
+&lt;/span>
+&lt;div class="mt-3">
+&lt;ul>
+&lt;li>Started writing a Python module for assisting developers writing tools for the tabletop role-playing game &lt;a href="https://ironswornrpg.com">Ironsworn&lt;/a>&lt;/li>
+&lt;/ul>
+&lt;/div>
+&lt;/details>
+&lt;/div>
+&lt;div class="my-2.5 py-2.5 last:border-0 border-b-2 border-gray-300 dark:border-gray-700">
+&lt;details class="cventry">
+&lt;summary class="list-none">
+&lt;span class="text-xl text-gray-900 dark:text-gray-100 font-serif my-5">
+DataFest
+&lt;/span>
+&lt;span class="hidden lg:inline lg:float-right">
+Spring 2019
+&lt;/span>
+&lt;/summary>
+&lt;span class="block mt-2">
+University of Mary Washington -
+Fredericksburg, VA
+&lt;/span>
+&lt;div class="mt-3">
+&lt;ul>
+&lt;li>Conducted exploratory analysis of large data sets in a 24-hour period in teams of 3&lt;/li>
+&lt;li>Investigated and plotted any relationships in the data using Matplotlib&lt;/li>
+&lt;/ul>
+&lt;/div>
+&lt;/details>
+&lt;/div>
+&lt;div class="my-2.5 py-2.5 last:border-0 border-b-2 border-gray-300 dark:border-gray-700">
+&lt;details class="cventry">
+&lt;summary class="list-none">
+&lt;span class="text-xl text-gray-900 dark:text-gray-100 font-serif my-5">
+Volunteer
 &lt;/span>
 &lt;span class="hidden lg:inline lg:float-right">
 2014 - 2017
 &lt;/span>
 &lt;/summary>
-&lt;span class="lg:hidden">
-2014 - 2017
-&lt;/span>
 &lt;span class="block mt-2">
 Crozet Library -
 Crozet, VA
 &lt;/span>
 &lt;div class="mt-3">
 &lt;ul>
-&lt;li>
-&lt;p>Organized and re-shelved books in their proper places&lt;/p>
-&lt;/li>
-&lt;li>
-&lt;p>Retrieved books from shelves to fulfill holds&lt;/p>
-&lt;/div>
-&lt;/li>
+&lt;li>Organized and re-shelved books in their proper places&lt;/li>
+&lt;li>Retrieved books from shelves to fulfill holds&lt;/li>
 &lt;/ul>
 &lt;/div>
 &lt;/details>
