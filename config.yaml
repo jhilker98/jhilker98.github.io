@@ -113,3 +113,11 @@ outputFormats:
   RSS:
     baseName: feed
     mediatype: "application/rss+xml"
+
+outputs:
+  home:
+    - html
+    - rss
+    - json
+  page:
+    - html
