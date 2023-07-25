@@ -22,6 +22,9 @@
     "@savvywombat/tailwindcss-grid-areas": "^3.1.0",
     "@tailwindcss/typography": "^0.5.9",
     "daisyui": "^3.4.0",
+    "prettier": "^3.0.0",
+    "prettier-plugin-astro": "^0.11.0",
+    "prettier-plugin-tailwindcss": "^0.4.1",
     "tailwind-scrollbar": "^3.0.4"
   }
 }
