@@ -21,7 +21,11 @@
   "devDependencies": {
     "@savvywombat/tailwindcss-grid-areas": "^3.1.0",
     "@tailwindcss/typography": "^0.5.9",
+    "@typescript-eslint/eslint-plugin": "^6.2.0",
+    "@typescript-eslint/parser": "^6.2.0",
     "daisyui": "^3.4.0",
+    "eslint": "^8.45.0",
+    "eslint-plugin-astro": "^0.27.2",
     "prettier": "^3.0.0",
     "prettier-plugin-astro": "^0.11.0",
     "prettier-plugin-tailwindcss": "^0.4.1",
