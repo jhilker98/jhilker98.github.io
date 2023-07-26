@@ -17,7 +17,7 @@ interface SiteConfig {
   socialLinks?: SocialLink[];
 }
 
-export const NAV_LINKS: NavLink[] = [];
+export const NAV_LINKS: NavLink[] = [{ href: "/", name: "Home" }];
 
 export const SITE_META: SiteConfig = {
   title: "Jacob's Website",
