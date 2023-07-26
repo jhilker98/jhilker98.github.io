@@ -1,18 +1,14 @@
 ---
-import BaseLayout from "./BaseLayout.astro";
+import BaseLayout from "@layouts/BaseLayout.astro";
 import PostHeader from "@components/PostHeader.astro";
-import type { MarkdownLayoutProps } from "astro";
-
-type Props = MarkdownLayoutProps<{
-  title: string;
-  pubDate: Date;
-}>;
-const { frontmatter } = Astro.props as Props;
+const { frontmatter } = Astro.props;
+const { title, pubDate, lastModDate = pubDate } = frontmatter;
+console.log(frontmatter);
 ---
 
-<BaseLayout title={frontmatter.title}>
-  <article class="prose max-w-[80ch] p-2 lg:mx-auto prose-headings:font-serif">
-    <PostHeader title={frontmatter.title} pubDate={frontmatter.pubDate} />
+<BaseLayout title={title}>
+  <article class="p-2 prose lg:mx-auto max-w-[80ch] prose-headings:font-serif">
+    <PostHeader title={title} pubDate={pubDate} lastModDate={lastModDate} />
     <slot />
   </article>
 </BaseLayout>

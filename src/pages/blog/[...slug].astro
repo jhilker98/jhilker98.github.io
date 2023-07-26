@@ -7,9 +7,7 @@ export async function getStaticPaths() {
   const posts = await getCollection("blog");
   return posts.map((post) => {
     return {
-      params: {
-        slug: `${slugifyPostDate(post.data.pubDate)}/${post.slug}`,
-      },
+      params: { slug: `${slugifyPostDate(post.data.pubDate)}/${post.slug}` },
       props: { post },
     };
   });
@@ -20,6 +18,7 @@ interface Props {
 }
 
 const { post } = Astro.props;
+
 const { Content } = await post.render();
 ---
 
