@@ -4,29 +4,29 @@ import Header from "@components/Header.astro";
 import { SITE_META } from "@consts";
 import "@fontsource/ibm-plex-sans";
 
-
 interface Props {
-    title: string
+  title: string;
 }
 const { title } = Astro.props;
 ---
+
 <html lang="en">
-	<head>
-		<meta charset="utf-8" />
-		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-		<meta name="viewport" content="width=device-width" />
-		<meta name="generator" content={Astro.generator} />
-		<title>{title} - {SITE_META.title}</title>
-	</head>
-	<body class="min-h-screen  bg-branding-white">
+  <head>
+    <meta charset="utf-8" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <meta name="viewport" content="width=device-width" />
+    <meta name="generator" content={Astro.generator} />
+    <title>{title} - {SITE_META.title}</title>
+  </head>
+  <body class="min-h-screen bg-branding-white">
     <div
       class="h-screen grid grid-cols-layout grid-rows-layout grid-areas-mobile lg:grid-areas-desktop"
       data-role="site-container">
-      <Header/>
-      <FixedSidebar/>
+      <Header />
+      <FixedSidebar />
       <main class="grid-in-main overflow-y-scroll scrollbar-thin">
-        <slot/>
+        <slot />
       </main>
-        </div>
-	</body>
+    </div>
+  </body>
 </html>

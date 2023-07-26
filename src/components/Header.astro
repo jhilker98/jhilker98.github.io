@@ -37,12 +37,10 @@ const currentPath = pathname.slice(1); // remove the first "/"
                   "hover:backdrop-brightness-75",
                   "transition-all",
                   `${
-                    isNavLinkActive(
-                      url, currentPath.split("/")[0]
-                    )
-                     ? "border-b-2 border-blue-500"
+                    isNavLinkActive(url, currentPath.split("/")[0])
+                      ? "border-b-2 border-blue-500"
                       : ""
-                  }`
+                  }`,
                 ]}>
                 {link.name}
               </a>

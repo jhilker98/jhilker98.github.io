@@ -2,21 +2,24 @@
 import BaseLayout from "@layouts/BaseLayout.astro";
 import "@fontsource/ibm-plex-serif/700.css";
 import { SITE_META } from "@consts";
+import Hero from "@assets/Hero.jpeg";
+import { Image } from "astro:assets";
+
 const title = "Home";
 ---
 
 <BaseLayout title="Home">
-    <section class="min-h-screen hero">
-        <div class="hero-content flex-col lg:flex-row-reverse">
-            <div class="text-center lg:text-justify">
-                 <h1 class="text-5xl font-bold font-serif uppercase text-branding-black">
+  <section class="min-h-screen hero">
+    <div class="hero-content flex-col lg:flex-row-reverse">
+      <div class="text-center lg:text-justify">
+        <h1 class="text-5xl font-bold font-serif uppercase text-branding-black">
           Hi, I'm
           <span class="text-branding-navy-500">Jacob</span>
         </h1>
         <h2 class="text-3xl font-bold my-4 lg:my-6 text-branding-text/90">
           Freelance Web Developer
         </h2>
-         <p
+        <p
           class="-mt-4 lg:mt-0 py-3 lg:py-6 max-w-[80ch] text-branding-text/75">
           I create accessible, performant, and easy-to-use websites using free
           and open-source technologies such as TailwindCSS, Hugo, and Astro.
@@ -32,7 +35,7 @@ const title = "Home";
           >
           <button class="btn btn-secondary">Who Am I?</button>
         </div>
-            </div>
-        </div>
-    </section>
+      </div>
+    </div>
+  </section>
 </BaseLayout>
