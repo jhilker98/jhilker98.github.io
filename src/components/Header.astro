@@ -1,6 +1,6 @@
 ---
 import { NAV_LINKS } from "@consts";
-
+import { isNavLinkActive } from "@lib/utils";
 import { Icon } from "astro-icon";
 const pathname = new URL(Astro.request.url).pathname;
 const currentPath = pathname.slice(1); // remove the first "/"
@@ -15,7 +15,7 @@ const currentPath = pathname.slice(1); // remove the first "/"
       x-on:click="mobileOpen = !mobileOpen">
       <Icon name="fa:bars" class="h-3 w-3" />
     </button>
-    <nav class="hidden ml-4 lg:flex items-center space-x-4">
+    <nav class="hidden lg:flex items-center space-x-4">
       {
         NAV_LINKS.map((link) => {
           //console.log(Astro.url.origin);
@@ -35,6 +35,13 @@ const currentPath = pathname.slice(1); // remove the first "/"
                   "font-sans",
                   "hover:backdrop-brightness-75",
                   "transition-all",
+                  `${
+                    isNavLinkActive(
+                      url, currentPath.split("/")[0]
+                    )
+                     ? "border-b-2 border-blue-500"
+                      : ""
+                  }`
                 ]}>
                 {link.name}
               </a>
