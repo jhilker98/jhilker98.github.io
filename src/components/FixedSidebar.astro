@@ -1,0 +1,25 @@
+---
+//import { SITE_META } from "@lib/utils";
+//import { Icon } from "astro-icon";
+import { Image } from "astro:assets";
+---
+
+<aside
+  class="hidden lg:block drawer lg:drawer-open bg-branding-navy text-white grid-in-sidebar">
+  <div class="drawer-content flex flex-col items-center">
+    <h2 class="p-2 font-semibold uppercase">Jacob's Website</h2>
+    <div class="drawer-content">
+      <div
+        class="mt-3 rounded-full bg-branding-gray-400 w-40 h-40 overflow-hidden mx-auto">
+        <Image
+          src="https://avataaars.io/?avatarStyle=Transparent&topType=ShortHairShortFlat&accessoriesType=Prescription02&hairColor=Black&facialHairType=Blank&clotheType=ShirtCrewNeck&clotheColor=Black&eyeType=Default&eyebrowType=DefaultNatural&mouthType=Smile&skinColor=Light"
+          alt="My personal avatar"
+          width="500"
+          height="550"
+        />
+      </div>
+
+      
+    </div>
+  </div>
+</aside>
