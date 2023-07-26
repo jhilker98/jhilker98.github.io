@@ -1,0 +1,20 @@
+---
+interface Props {
+  title: string;
+  pubDate: Date;
+  lastModDate?: Date;
+}
+
+import { formatPostDate } from "@lib/utils";
+import { Icon } from "astro-icon";
+const { title, pubDate } = Astro.props;
+---
+
+<header class="align-baseline">
+  <h1>{title}</h1>
+  <Icon name="mdi:calendar" class="w-5 mb-1 inline-block" />
+  <span class="font-bold">Posted:</span>
+  <time class="inline">
+    {formatPostDate(pubDate)}
+  </time>
+</header>

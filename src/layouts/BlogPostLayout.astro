@@ -1,9 +1,18 @@
 ---
 import BaseLayout from "./BaseLayout.astro";
-import PostHeader from "@components/blog/PostHeader.astro";
-const { frontmatter } = Astro.props;
+import PostHeader from "@components/PostHeader.astro";
+import type { MarkdownLayoutProps } from "astro";
+
+type Props = MarkdownLayoutProps<{
+  title: string;
+  pubDate: Date;
+}>;
+const { frontmatter } = Astro.props as Props;
 ---
 
 <BaseLayout title={frontmatter.title}>
-  <slot />
+  <article class="prose max-w-[80ch] p-2 lg:mx-auto prose-headings:font-serif">
+    <PostHeader title={frontmatter.title} pubDate={frontmatter.pubDate} />
+    <slot />
+  </article>
 </BaseLayout>
