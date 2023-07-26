@@ -1,3 +1,26 @@
 ---
-
+import FixedSidebar from "@components/FixedSidebar.astro";
+interface Props {
+    title: string
+}
+const { title } = Astro.props;
 ---
+<html lang="en">
+	<head>
+		<meta charset="utf-8" />
+		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+		<meta name="viewport" content="width=device-width" />
+		<meta name="generator" content={Astro.generator} />
+		<title>{title}</title>
+	</head>
+	<body class="min-h-screen  bg-branding-white">
+        <div
+      class="h-screen grid grid-cols-layout grid-rows-layout grid-areas-mobile lg:grid-areas-desktop"
+      data-role="site-container">
+      <FixedSidebar/>
+      <main class="grid-in-main">
+        <slot/>
+      </main>
+        </div>
+	</body>
+</html>
