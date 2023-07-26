@@ -1,5 +1,7 @@
 /** @type {import('tailwindcss').Config} */
 import type { Config } from "tailwindcss";
+import defaultTheme from "tailwindcss/defaultTheme";
+
 export default {
   content: ["./src/**/*.{astro,html,js,jsx,md,mdx,svelte,ts,tsx,vue}"],
   theme: {
@@ -12,6 +14,10 @@ export default {
       ],
     },
     extend: {
+      fontFamily: {
+        sans: ['"IBM Plex Sans"', ...defaultTheme.fontFamily.sans],
+        serif: ['"IBM Plex Serif"', ...defaultTheme.fontFamily.serif],
+      },
       gridTemplateColumns: {
         layout: "0.7fr 2.3fr 1fr",
       },
@@ -65,9 +71,29 @@ export default {
       },
     },
   },
+  daisyui: {
+    base: false,
+    // styled: false,
+    themes: [
+      {
+        mytheme: {
+          primary: "#1e4c7b",
+          secondary: "#d1d3d7",
+          accent: "#86694b",
+          neutral: "#020203",
+          "base-100": "#f1f2f3",
+          info: "#216dca",
+          success: "#287128",
+          warning: "#fbbd23",
+          error: "#aa2727",
+        },
+      },
+    ],
+  },
   plugins: [
     require("@savvywombat/tailwindcss-grid-areas"),
     require("@tailwindcss/typography"),
+    require("tailwind-scrollbar"),
     require("daisyui"),
   ],
 } satisfies Config;

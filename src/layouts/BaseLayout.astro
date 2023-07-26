@@ -14,11 +14,11 @@ const { title } = Astro.props;
 		<title>{title}</title>
 	</head>
 	<body class="min-h-screen  bg-branding-white">
-        <div
+    <div
       class="h-screen grid grid-cols-layout grid-rows-layout grid-areas-mobile lg:grid-areas-desktop"
       data-role="site-container">
       <FixedSidebar/>
-      <main class="grid-in-main">
+      <main class="grid-in-main overflow-y-scroll scrollbar-thin">
         <slot/>
       </main>
         </div>
