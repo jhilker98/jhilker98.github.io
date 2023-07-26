@@ -1,5 +1,8 @@
 ---
 import FixedSidebar from "@components/FixedSidebar.astro";
+import Header from "@components/Header.astro";
+import { SITE_META } from "@consts";
+
 interface Props {
     title: string
 }
@@ -11,12 +14,13 @@ const { title } = Astro.props;
 		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
 		<meta name="viewport" content="width=device-width" />
 		<meta name="generator" content={Astro.generator} />
-		<title>{title}</title>
+		<title>{title} - {SITE_META.title}</title>
 	</head>
 	<body class="min-h-screen  bg-branding-white">
     <div
       class="h-screen grid grid-cols-layout grid-rows-layout grid-areas-mobile lg:grid-areas-desktop"
       data-role="site-container">
+      <Header/>
       <FixedSidebar/>
       <main class="grid-in-main overflow-y-scroll scrollbar-thin">
         <slot/>

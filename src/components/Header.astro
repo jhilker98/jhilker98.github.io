@@ -1,0 +1,67 @@
+---
+import { NAV_LINKS } from "@consts";
+
+import { Icon } from "astro-icon";
+const pathname = new URL(Astro.request.url).pathname;
+const currentPath = pathname.slice(1); // remove the first "/"
+---
+
+<header
+  class="z-10 items-center grid-in-header bg-secondary"
+  x-data="{mobileOpen: false}">
+  <div class="flex h-[52px] 2xl:h-[62px]">
+    <button
+      class="h-full p-3 hover:bg-blue-300 lg:hidden"
+      x-on:click="mobileOpen = !mobileOpen">
+      <Icon name="fa:bars" class="h-3 w-3" />
+    </button>
+    <nav class="hidden ml-4 lg:flex items-center space-x-4">
+      {
+        NAV_LINKS.map((link) => {
+          //console.log(Astro.url.origin);
+          let url = link.href.split("/")[1];
+          // console.log(link);
+          if (!link.children) {
+            return (
+              <a
+                href={link.href}
+                class:list={[
+                  "bg-transparent",
+                  "text-branding-text",
+                  "h-full",
+                  "p-3",
+                  "duration-150",
+                  "border-0",
+                  "font-sans",
+                  "hover:backdrop-brightness-75",
+                  "transition-all",
+                ]}>
+                {link.name}
+              </a>
+            );
+          }
+        })
+      }
+    </nav>
+
+    <button
+      class="h-full p-4 hover:bg-blue-300 lg:hidden justify-end ml-auto mr-0"
+      x-on:click="mobileOpen = !mobileOpen">
+      <Icon name="fa:bars" class="h-3 w-3" />
+    </button>
+  </div>
+  <!-- TODO: Add Mobile Menu -->
+  <nav
+  class="text-right lg:hidden bg-red-200 z-10 shadow-sm rounded-sm h-fit"
+  x-show="mobileOpen === true"
+  x-class="{'hidden': mobileOpen !== true}"
+  x-transition>
+  {
+    NAV_LINKS.map((link) => (
+      <a href={link.href} class:list={["block", "px-4", "py-2", "text-sm"]}>
+        {link.name}
+      </a>
+    ))
+  }
+</nav>
+</header>
