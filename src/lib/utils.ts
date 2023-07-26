@@ -4,12 +4,16 @@ export function isNavLinkActive(p1: string, p2: string): boolean {
 }
 
 export function formatPostDate(date: Date) {
-  return new Date(date).toLocaleDateString("en-GB", {
-    timeZone: "UTC",
-    day: "numeric",
-    month: "short",
-    year: "numeric",
-  });
+  const dateString = new Date(date)
+    .toLocaleDateString("en-GB", {
+      timeZone: "UTC",
+      day: "numeric",
+      month: "short",
+      year: "numeric",
+    })
+    .split(" ");
+
+  return `${dateString[0]} ${dateString[1]}. ${dateString[2]}`;
 }
 
 export function slugifyPostDate(d: Date) {
