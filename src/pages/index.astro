@@ -4,13 +4,20 @@ import "@fontsource/ibm-plex-serif/700.css";
 import { SITE_META } from "@consts";
 import Hero from "@assets/Hero.jpeg";
 import { Image } from "astro:assets";
-
-const title = "Home";
 ---
 
 <BaseLayout title="Home">
   <section class="min-h-screen hero">
     <div class="hero-content flex-col lg:flex-row-reverse">
+      <Image
+        src={Hero}
+        class="max-w-sm rounded-sm object-cover h-full"
+        format="webp"
+        width="300"
+        height="500"
+        aspectRatio="16:9"
+        alt="Myself leaning on a tree."
+      />
       <div class="text-center lg:text-justify">
         <h1 class="text-5xl font-bold font-serif uppercase text-branding-black">
           Hi, I'm

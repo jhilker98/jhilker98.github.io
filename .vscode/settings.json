@@ -3,7 +3,8 @@
     "javascript",
     "javascriptreact",
     "typescript",
-    "typescriptreact"
+    "typescriptreact",
+    "astro"
   ],
   "editor.codeActionsOnSave": {
     "source.fixAll.eslint": true
