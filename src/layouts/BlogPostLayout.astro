@@ -3,7 +3,6 @@ import BaseLayout from "@layouts/BaseLayout.astro";
 import PostHeader from "@components/PostHeader.astro";
 const { frontmatter } = Astro.props;
 const { title, pubDate, lastModDate = pubDate } = frontmatter;
-console.log(frontmatter);
 ---
 
 <BaseLayout title={title}>
