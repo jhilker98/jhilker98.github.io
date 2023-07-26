@@ -1,4 +1,5 @@
 ---
+import MobileMenu from "./MobileMenu.astro";
 import { NAV_LINKS } from "@consts";
 import { isNavLinkActive } from "@lib/utils";
 import { Icon } from "astro-icon";
@@ -58,17 +59,5 @@ const currentPath = pathname.slice(1); // remove the first "/"
     </button>
   </div>
   <!-- TODO: Add Mobile Menu -->
-  <nav
-  class="text-right lg:hidden bg-red-200 z-10 shadow-sm rounded-sm h-fit"
-  x-show="mobileOpen === true"
-  x-class="{'hidden': mobileOpen !== true}"
-  x-transition>
-  {
-    NAV_LINKS.map((link) => (
-      <a href={link.href} class:list={["block", "px-4", "py-2", "text-sm"]}>
-        {link.name}
-      </a>
-    ))
-  }
-</nav>
+  <MobileMenu />
 </header>
