@@ -1,0 +1,17 @@
+---
+import BaseLayout from "@layouts/BaseLayout.astro";
+import { getCollection } from "astro:content";
+const posts = await getCollection("blog");
+---
+
+<BaseLayout title="Blog">
+  <section class="p-3 divide-y-2 divide-gray-400">
+    {
+      posts.map((post) => (
+        <article class="prose prose-sm prose-h2:mb-1 lg:prose-base prose-slate max-w-none">
+          <h2>{post.data.title}</h2>
+        </article>
+      ))
+    }
+  </section>
+</BaseLayout>
