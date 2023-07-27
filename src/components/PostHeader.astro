@@ -8,7 +8,6 @@ interface Props {
 import { formatPostDate } from "@lib/utils";
 import { Icon } from "astro-icon";
 const { title, pubDate, lastModDate = pubDate } = Astro.props;
-console.log(lastModDate);
 ---
 
 <header class="align-baseline">
@@ -18,4 +17,15 @@ console.log(lastModDate);
   <time class="inline">
     {formatPostDate(pubDate)}
   </time>
+  {
+    lastModDate.getTime() > pubDate.getTime() ? (
+      <div class="inline ml-8">
+        <Icon name="mdi:calendar" class="w-5 mb-1 inline-block" />
+        <span class="font-bold">Last Updated:</span>
+        <time class="inline">{formatPostDate(lastModDate)}</time>
+      </div>
+    ) : (
+      ""
+    )
+  }
 </header>
