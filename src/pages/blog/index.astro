@@ -9,7 +9,7 @@ const posts = await getCollection("blog");
   <section class="p-3 divide-y-2 divide-gray-400">
     {
       posts.map((post) => (
-        <article class="prose prose-sm prose-h2:mb-1 lg:prose-base prose-slate max-w-none prose-headings:font-serif">
+        <article class="prose prose-sm prose-h2:mb-1 lg:prose-base prose-slate max-w-none prose-headings:font-serif prose-a:text-branding-navy">
           <h2>{post.data.title}</h2>
           <time datetime={post.data.pubDate.toISOString()}>
             {formatPostDate(post.data.pubDate)}
