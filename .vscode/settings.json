@@ -22,5 +22,10 @@
     "vue",
     "markdown",
     "astro"
-  ]
+  ],
+  "terminal.integrated.automationProfile.linux": {
+    "shell": {
+      "path": "/home/jhilker/.nix-profile/bin/zsh"
+    }
+  }
 }
