@@ -16,7 +16,7 @@
     "@iconify/json": "^2.2.95",
     "@types/alpinejs": "^3.7.2",
     "alpinejs": "^3.12.3",
-    "astro": "^2.9.2",
+    "astro": "^2.9.5",
     "tailwindcss": "^3.3.3"
   },
   "devDependencies": {
@@ -28,8 +28,8 @@
     "@typescript-eslint/eslint-plugin": "^6.2.0",
     "@typescript-eslint/parser": "^6.2.0",
     "astro-icon": "https://gitpkg.now.sh/stramel/astro-icon/packages/core?main",
-    "daisyui": "^3.4.0",
-    "eslint": "^8.45.0",
+    "daisyui": "^3.5.0",
+    "eslint": "^8.46.0",
     "eslint-plugin-astro": "^0.27.2",
     "eslint-plugin-jsx-a11y": "^6.7.1",
     "prettier": "^3.0.0",
