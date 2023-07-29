@@ -1,36 +1,19 @@
 ---
-import BaseLayout from "@layouts/BaseLayout.astro";
-import { formatPostDate } from "@lib/utils";
+import BaseLayout  from "@layouts/BaseLayout.astro";
+import PostInfo from "@components/blog/PostInfo.astro";
 import { getCollection } from "astro:content";
-import { Icon} from "astro-icon";
 const posts = await getCollection("blog");
-import "@fontsource/ibm-plex-sans/600.css";
-const wordLimit = 50;
 ---
 
 <BaseLayout title="Blog">
 <section class="text-gray-600 body-font overflow-hidden">
   <div class="container px-5  mx-auto">
     <div class="divide-y-2 divide-gray-300">
-      {
-        posts.map((post) => (
-        <article class="py-4 flex flex-wrap md:flex-nowrap">
-        <div class="md:w-72 md:mb-0 mb-6 align-baseline">
-          <Icon name="mdi:calendar" class="inline-block -mt-px text-sm w-4 h-4"/>
-          <time datetime={post.data.pubDate.toISOString()} class="font-semibold text-sm text-gray-700">{formatPostDate(post.data.pubDate)}</time>
-        </div>
-        <div class="md:flex-grow">
-          <h2 class="text-2xl font-medium text-gray-900 title-font mb-2 font-serif">{post.data.title}</h2>
-          <p class="leading-relaxed prose max-w-[80ch]">
-            {`${post.body.split(" ").slice(0, wordLimit + 1).join(" ")}...`}
-            </p>
-        </div>
-      </article>
-        ))
-      }
-     </div>
-    </div> 
-      
-      
-</section>
-</BaseLayout>
+        {
+            posts.map((post) => (
+                <PostInfo post={post} wordCount={50}/>
+
+            ))
+        }
+    </div>
+    </BaseLayout>
