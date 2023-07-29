@@ -1,21 +1,36 @@
 ---
 import BaseLayout from "@layouts/BaseLayout.astro";
-import { getCollection } from "astro:content";
 import { formatPostDate } from "@lib/utils";
+import { getCollection } from "astro:content";
+import { Icon} from "astro-icon";
 const posts = await getCollection("blog");
+import "@fontsource/ibm-plex-sans/600.css";
+
 ---
 
 <BaseLayout title="Blog">
-  <section class="p-3 divide-y-2 divide-gray-400">
-    {
-      posts.map((post) => (
-        <article class="prose prose-sm prose-h2:mb-1 lg:prose-base prose-slate max-w-none prose-headings:font-serif prose-a:text-branding-navy">
-          <h2>{post.data.title}</h2>
-          <time datetime={post.data.pubDate.toISOString()}>
-            {formatPostDate(post.data.pubDate)}
-          </time>
-        </article>
-      ))
-    }
-  </section>
+<section class="text-gray-600 body-font overflow-hidden">
+  <div class="container px-5  mx-auto">
+    <div class="divide-y-2 divide-gray-300">
+      {
+        posts.map((post) => (
+        <article class="py-4 flex flex-wrap md:flex-nowrap">
+        <div class="md:w-72 md:mb-0 mb-6 align-baseline">
+          <Icon name="mdi:calendar" class="inline-block -mt-px text-sm w-4 h-4"/>
+          <time datetime={post.data.pubDate.toISOString()} class="font-semibold text-sm text-gray-700">{formatPostDate(post.data.pubDate)}</time>
+        </div>
+        <div class="md:flex-grow">
+          <h2 class="text-2xl font-medium text-gray-900 title-font mb-2 font-serif">{post.data.title}</h2>
+          <p class="leading-relaxed prose max-w-[80ch]">
+            {`${post.body.split(" ").slice(0, 50).join(" ")}...`}
+            </p>
+        </div>
+      </article>
+        ))
+      }
+     </div>
+    </div> 
+      
+      
+</section>
 </BaseLayout>
