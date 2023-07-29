@@ -5,7 +5,7 @@ import { getCollection } from "astro:content";
 import { Icon} from "astro-icon";
 const posts = await getCollection("blog");
 import "@fontsource/ibm-plex-sans/600.css";
-const wordLimit: int = 50;
+const wordLimit = 50;
 ---
 
 <BaseLayout title="Blog">
