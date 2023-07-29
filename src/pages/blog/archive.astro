@@ -1,0 +1,15 @@
+---
+import BaseLayout from "@layouts/BaseLayout.astro";
+import { getCollection } from "astro:content";
+const posts = await getCollection("blog");
+---
+
+<BaseLayout title="Blog Archive">
+  <section class="p-3">
+    {
+      posts.map((post) => (
+        <article class="prose font-mono">{JSON.stringify(post)}</article>
+      ))
+    }
+  </section>
+</BaseLayout>
