@@ -14,6 +14,7 @@
     "@astrojs/mdx": "^0.19.7",
     "@astrojs/tailwind": "^4.0.0",
     "@iconify/json": "^2.2.95",
+    "@philnash/astro-pagination": "^0.2.0",
     "@types/alpinejs": "^3.7.2",
     "alpinejs": "^3.12.3",
     "astro": "^2.9.6",
