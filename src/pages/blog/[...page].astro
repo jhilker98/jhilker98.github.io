@@ -1,7 +1,6 @@
 ---
 import BaseLayout  from "@layouts/BaseLayout.astro";
 import PostInfo from "@components/blog/PostInfo.astro";
-import Pagination from "@components/Pagination.astro";
 import { getCollection } from "astro:content";
 
 export async function getStaticPaths({paginate}) {
@@ -9,6 +8,9 @@ export async function getStaticPaths({paginate}) {
     return paginate(posts, { pageSize: 1 });
 }
 
+type Props = {
+  page: Page<CollectionEntry<"blog">>;
+};
 const { page } = Astro.props;
 //console.log(page);
 ---
@@ -24,6 +26,5 @@ const { page } = Astro.props;
         }
     </div>
 </div>
-<Pagination prevUrl={page.url.prev} nextUrl={page.url.next}/> 
 </section>
 </BaseLayout>
