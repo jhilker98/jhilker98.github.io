@@ -1,0 +1,21 @@
+---
+// component imports
+import {Icon } from "astro-icon";
+
+const { prevUrl, nextUrl } = Astro.props;
+---
+
+<nav aria-label="Blog pages" class="join w-[28rem] mx-auto bg-blue-300">
+   {
+        prevUrl && (
+            <a href={prevUrl} class="btn align-baseline">
+            <Icon name="heroicons:backward-20-solid" class="inline w-5 h-5"/>
+                Previous</a>
+        )  
+   } 
+   {
+        nextUrl && (
+            <a href={nextUrl}>Next</a>
+        )  
+   }
+</nav>
