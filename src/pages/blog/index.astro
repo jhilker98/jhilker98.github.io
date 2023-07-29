@@ -5,7 +5,7 @@ import { getCollection } from "astro:content";
 import { Icon} from "astro-icon";
 const posts = await getCollection("blog");
 import "@fontsource/ibm-plex-sans/600.css";
-
+const wordLimit: int = 50;
 ---
 
 <BaseLayout title="Blog">
@@ -22,7 +22,7 @@ import "@fontsource/ibm-plex-sans/600.css";
         <div class="md:flex-grow">
           <h2 class="text-2xl font-medium text-gray-900 title-font mb-2 font-serif">{post.data.title}</h2>
           <p class="leading-relaxed prose max-w-[80ch]">
-            {`${post.body.split(" ").slice(0, 50).join(" ")}...`}
+            {`${post.body.split(" ").slice(0, wordLimit + 1).join(" ")}...`}
             </p>
         </div>
       </article>
