@@ -13,13 +13,4 @@ const { page } = Astro.props;
 //console.log(page);
 ---
 
-<BaseLayout title="Blog">
-  <section class="text-gray-600 overflow-hidden h-full">
-    <div class="container px-5 mx-auto h-full">
-      <div class="divide-y-2 divide-gray-300">
-        {page.data.map((post) => <PostInfo post={post} wordCount={50} />)}
-      </div>
-      <Pagination prevUrl={page.url.prev} nextUrl={page.url.next} />
-    </div>
-  </section>
-</BaseLayout>
+<BaseLayout title="Blog" />
