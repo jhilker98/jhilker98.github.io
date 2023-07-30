@@ -1,21 +1,29 @@
 ---
 // component imports
-import {Icon } from "astro-icon";
+import { Icon } from "astro-icon";
 
 const { prevUrl, nextUrl } = Astro.props;
 ---
 
-<nav aria-label="Blog pages" class="join w-[28rem] mx-auto bg-blue-300">
-   {
-        prevUrl && (
-            <a href={prevUrl} class="btn align-baseline">
-            <Icon name="heroicons:backward-20-solid" class="inline w-5 h-5"/>
-                Previous</a>
-        )  
-   } 
-   {
-        nextUrl && (
-            <a href={nextUrl}>Next</a>
-        )  
-   }
+<nav aria-label="Blog pages" class="container mx-auto justify-between flex">
+  {
+    prevUrl && (
+      <a
+        href={prevUrl}
+        class="align-baseline p-2 bg-branding-navy text-white uppercase rounded justify-start mr-auto ml-0">
+        <Icon name="heroicons:backward-20-solid" class="inline w-5 h-5" />
+        Previous
+      </a>
+    )
+  }
+  {
+    nextUrl && (
+      <a
+        href={nextUrl}
+        class="align-baseline p-2 bg-branding-navy text-white uppercase rounded justify-end ml-auto mr-0">
+        <Icon name="heroicons:forward-20-solid" class="inline w-5 h-5" />
+        Next
+      </a>
+    )
+  }
 </nav>

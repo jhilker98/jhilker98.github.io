@@ -1,30 +1,25 @@
 ---
-import BaseLayout  from "@layouts/BaseLayout.astro";
+import BaseLayout from "@layouts/BaseLayout.astro";
 import PostInfo from "@components/blog/PostInfo.astro";
 import { getCollection } from "astro:content";
+import Pagination from "@components/Pagination.astro";
 
-export async function getStaticPaths({paginate}) {
-    const posts = await getCollection("blog");
-    return paginate(posts, { pageSize: 1 });
+export async function getStaticPaths({ paginate }) {
+  const posts = await getCollection("blog");
+  return paginate(posts, { pageSize: 1 });
 }
 
-type Props = {
-  page: Page<CollectionEntry<"blog">>;
-};
 const { page } = Astro.props;
 //console.log(page);
 ---
 
 <BaseLayout title="Blog">
-    <section class="text-gray-600 overflow-hidden h-full">
-  <div class="container px-5  mx-auto">
-    <div class="divide-y-2 divide-gray-300">
-        {
-            page.data.map((post) => (
-                <PostInfo post={post} wordCount={50}/>
-            ))
-        }
+  <section class="text-gray-600 overflow-hidden h-full">
+    <div class="container px-5 mx-auto">
+      <div class="divide-y-2 divide-gray-300">
+        {page.data.map((post) => <PostInfo post={post} wordCount={50} />)}
+      </div>
+      <Pagination prevUrl={page.url.prev} nextUrl={page.url.next} />
     </div>
-</div>
-</section>
+  </section>
 </BaseLayout>
