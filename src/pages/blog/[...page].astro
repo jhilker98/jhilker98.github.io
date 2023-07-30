@@ -1,12 +1,18 @@
 ---
 import BaseLayout from "@layouts/BaseLayout.astro";
-import PostInfo from "@components/blog/PostInfo.astro";
+//import PostInfo from "@components/blog/PostInfo.astro";
 import { getCollection } from "astro:content";
-import Pagination from "@components/Pagination.astro";
+//import Pagination from "@components/Pagination.astro";
+import type { Page } from "astro";
 
-export async function getStaticPaths({ paginate }) {
+// eslint-disable-next-line @typescript-eslint/no-explicit-any
+export async function getStaticPaths({ paginate }: any) {
   const posts = await getCollection("blog");
   return paginate(posts, { pageSize: 2 });
+}
+
+interface Props {
+  page: Page;
 }
 
 const { page } = Astro.props;
