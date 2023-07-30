@@ -6,7 +6,7 @@ import Pagination from "@components/Pagination.astro";
 
 export async function getStaticPaths({ paginate }) {
   const posts = await getCollection("blog");
-  return paginate(posts, { pageSize: 1 });
+  return paginate(posts, { pageSize: 2 });
 }
 
 const { page } = Astro.props;
