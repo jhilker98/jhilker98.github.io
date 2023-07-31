@@ -42,7 +42,7 @@ export default {
             900: "#1f1c22",
           },
           navy: {
-            DEFAULT: "#134c7b",
+            DEFAULT: "#1e4c7b",
             50: "#f5f9fa",
             100: "#dff1fa",
             200: "#bae0f5",
