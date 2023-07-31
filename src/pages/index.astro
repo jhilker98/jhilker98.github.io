@@ -1,6 +1,7 @@
 ---
 import BaseLayout from "@layouts/BaseLayout.astro";
 import "@fontsource/ibm-plex-serif/700.css";
+import "@fontsource/ibm-plex-sans/700.css";
 import { SITE_META } from "@consts";
 import Hero from "@assets/Hero.jpeg";
 import { Image } from "astro:assets";
@@ -20,7 +21,7 @@ import { Image } from "astro:assets";
       <div class="text-center lg:text-justify">
         <h1 class="text-5xl font-bold font-serif uppercase text-branding-black">
           Hi, I'm
-          <span class="text-branding-navy-500">Jacob</span>
+          <span class="text-branding-navy-600">Jacob</span>
         </h1>
         <h2 class="text-3xl font-bold my-4 lg:my-6 text-branding-text/90">
           Freelance Web Developer
@@ -37,7 +38,8 @@ import { Image } from "astro:assets";
         </p>
         <div class="space-x-3">
           <button
-            class="daisy-btn daisy-btn-sm bg-branding-navy text-white p-2 transition duration-200"
+            class="daisy-btn bg-branding-navy hover:bg-branding-navy-800 ease-out text-white p-2 transition duration-200 font-bold h-12 uppercase"
+            style="-webkit-text-stroke-width: 2px; -webkit-text-stroke-color: black; paint-order: stroke fill"
             >Contact Me</button
           >
         </div>
