@@ -73,7 +73,8 @@ export default {
   },
   daisyui: {
     base: false,
-    // styled: false,
+    styled: false,
+    prefix: "daisy-",
     themes: [
       {
         mytheme: {
@@ -94,6 +95,6 @@ export default {
     require("@savvywombat/tailwindcss-grid-areas"),
     require("@tailwindcss/typography"),
     require("tailwind-scrollbar"),
-    require("daisyui")
+    require("daisyui"),
   ],
 } satisfies Config;

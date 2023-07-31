@@ -7,10 +7,8 @@ import { Image } from "astro:assets";
 ---
 
 <BaseLayout title="Home">
-  <section
-    class="min-h-screen w-full grid place-items-center [&>*]:col-start-1 [&>*]:row-start-1">
-    <div
-      class="z-0 flex items-center justify-center flex-col mt-8 mb-auto lg:flex-row-reverse">
+  <section class="min-h-screen daisy-hero">
+    <div class="daisy-hero-content flex-col lg:flex-row-reverse mb-auto mt-8">
       <Image
         src={Hero}
         format="webp"
