@@ -7,12 +7,14 @@ import { Image } from "astro:assets";
 ---
 
 <BaseLayout title="Home">
-  <section class="min-h-screen daisy-hero">
-    <div class="hero-content flex-col lg:flex-row-reverse">
+  <section
+    class="min-h-screen w-full grid place-items-center [&>*]:col-start-1 [&>*]:row-start-1">
+    <div
+      class="z-0 flex items-center justify-center flex-col mt-8 mb-auto lg:flex-row-reverse">
       <Image
         src={Hero}
-        class="max-w-sm rounded-sm object-cover h-full"
         format="webp"
+        class="aspect-square object-cover rounded-sm"
         width="300"
         height="500"
         alt="Myself leaning on a tree."
@@ -26,7 +28,7 @@ import { Image } from "astro:assets";
           Freelance Web Developer
         </h2>
         <p
-          class="-mt-4 lg:mt-0 py-3 lg:py-6 max-w-[80ch] text-branding-text/75">
+          class="-mt-4 lg:mt-0 py-3 lg:py-6 max-w-[80ch] text-branding-text/75 mr-8">
           I create accessible, performant, and easy-to-use websites using free
           and open-source technologies such as TailwindCSS, Hugo, and Astro.
           {
@@ -35,12 +37,6 @@ import { Image } from "astro:assets";
               : ""
           }
         </p>
-        <div class="space-x-3">
-          <button class="btn btn-primary text-branding-gray-50"
-            >Contact Me</button
-          >
-          <button class="btn btn-secondary">Who Am I?</button>
-        </div>
       </div>
     </div>
   </section>
