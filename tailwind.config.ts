@@ -71,9 +71,29 @@ export default {
       },
     },
   },
+  daisyui: {
+    base: false,
+    // styled: false,
+    themes: [
+      {
+        mytheme: {
+          primary: "#1e4c7b",
+          secondary: "#d1d3d7",
+          accent: "#86694b",
+          neutral: "#020203",
+          "base-100": "#f1f2f3",
+          info: "#216dca",
+          success: "#287128",
+          warning: "#fbbd23",
+          error: "#aa2727",
+        },
+      },
+    ],
+  },
   plugins: [
     require("@savvywombat/tailwindcss-grid-areas"),
     require("@tailwindcss/typography"),
     require("tailwind-scrollbar"),
+    require("daisyui")
   ],
 } satisfies Config;
