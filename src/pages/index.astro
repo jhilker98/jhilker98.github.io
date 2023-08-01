@@ -9,7 +9,8 @@ import { Image } from "astro:assets";
 
 <BaseLayout title="Home">
   <section class="min-h-screen daisy-hero">
-    <div class="daisy-hero-content flex-col lg:flex-row-reverse mb-auto mt-8">
+    <div
+      class="daisy-hero-content flex-col lg:flex-row-reverse mb-auto mt-8 mx-auto lg:mx-0">
       <Image
         src={Hero}
         format="webp"
@@ -27,7 +28,7 @@ import { Image } from "astro:assets";
           Freelance Web Developer
         </h2>
         <p
-          class="-mt-4 lg:mt-0 py-3 lg:py-6 max-w-[80ch] text-branding-text/75 mr-8">
+          class="-mt-4 lg:mt-0 py-3 lg:py-6 max-w-[80ch] text-branding-text/75 mx-auto lg:mr-8">
           I create accessible, performant, and easy-to-use websites using free
           and open-source technologies such as TailwindCSS, Hugo, and Astro.
           {
