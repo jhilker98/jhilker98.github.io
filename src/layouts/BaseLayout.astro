@@ -10,8 +10,9 @@ import "@fontsource/iosevka";
 
 interface Props {
   title: string;
+  description: string;
 }
-const { title } = Astro.props;
+const { title, description } = Astro.props;
 ---
 
 <html lang="en">
@@ -20,6 +21,7 @@ const { title } = Astro.props;
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     <meta name="viewport" content="width=device-width" />
     <meta name="generator" content={Astro.generator} />
+    <meta name="description" content={description} />
     <title>{title} - {SITE_META.title}</title>
   </head>
   <body class="min-h-screen bg-branding-white">

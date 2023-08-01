@@ -7,7 +7,7 @@ import Hero from "@assets/Hero.jpeg";
 import { Image } from "astro:assets";
 ---
 
-<BaseLayout title="Home">
+<BaseLayout title="Home" description={SITE_META.description}>
   <section class="min-h-screen daisy-hero">
     <div
       class="daisy-hero-content flex-col lg:flex-row-reverse mb-auto mt-8 mx-auto lg:mx-0">
