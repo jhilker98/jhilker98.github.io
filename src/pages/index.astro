@@ -10,7 +10,7 @@ import { Image } from "astro:assets";
 <BaseLayout title="Home" description={SITE_META.description}>
   <section class="min-h-screen daisy-hero">
     <div
-      class="daisy-hero-content flex-col lg:flex-row-reverse mb-auto mt-8 mx-auto lg:mx-0">
+      class="daisy-hero-content flex-col lg:flex-row-reverse lg:mb-auto lg:mt-8 mx-auto lg:mx-0">
       <Image
         src={Hero}
         format="webp"
@@ -39,6 +39,7 @@ import { Image } from "astro:assets";
         </p>
         <div class="space-x-3">
           <button
+            name="Contact Me"
             class="daisy-btn bg-branding-navy hover:bg-branding-navy-800 ease-out text-white p-2 transition duration-200 font-bold h-12 uppercase"
             >Contact Me</button
           >
