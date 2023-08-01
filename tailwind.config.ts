@@ -17,6 +17,7 @@ export default {
       fontFamily: {
         sans: ['"IBM Plex Sans"', ...defaultTheme.fontFamily.sans],
         serif: ['"IBM Plex Serif"', ...defaultTheme.fontFamily.serif],
+        mono: ['"Iosevka"', ...defaultTheme.fontFamily.mono],
       },
       gridTemplateColumns: {
         layout: "0.7fr 2.3fr 1fr",
