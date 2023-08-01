@@ -1,5 +1,5 @@
 {
-  "name": "",
+  "name": "personal-site",
   "type": "module",
   "version": "0.0.1",
   "scripts": {
@@ -7,7 +7,9 @@
     "start": "astro dev",
     "build": "astro build",
     "preview": "astro preview",
-    "astro": "astro"
+    "astro": "astro",
+    "update:check": "npx npm-check-updates",
+    "update:install": "npx npm-check-updates -u"
   },
   "dependencies": {
     "@astrojs/alpinejs": "^0.2.2",
