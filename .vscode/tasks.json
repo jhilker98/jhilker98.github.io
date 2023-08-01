@@ -14,6 +14,20 @@
         }
       },
       "isBackground": true
+    },
+    {
+      "type": "npm",
+      "script": "preview",
+      "problemMatcher": [],
+      "label": "npm: preview",
+      "detail": "astro preview",
+      "options": {
+        "shell": {
+          //"executable": "/home/jhilker/.nix-profile/bin/zsh",
+          "args": ["-i", "-c"]
+        }
+      },
+      "isBackground": true
     }
   ]
 }
