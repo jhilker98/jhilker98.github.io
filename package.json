@@ -24,6 +24,7 @@
   "devDependencies": {
     "@fontsource/ibm-plex-sans": "^5.0.5",
     "@fontsource/ibm-plex-serif": "^5.0.5",
+    "@playwright/test": "^1.36.2",
     "@savvywombat/tailwindcss-grid-areas": "^3.1.0",
     "@tailwindcss/typography": "^0.5.9",
     "@types/node": "^20.4.5",
