@@ -13,10 +13,10 @@
     "@astrojs/alpinejs": "^0.2.2",
     "@astrojs/mdx": "^0.19.7",
     "@astrojs/tailwind": "^4.0.0",
-    "@iconify/json": "^2.2.95",
+    "@iconify/json": "^2.2.96",
     "@types/alpinejs": "^3.7.2",
     "alpinejs": "^3.12.3",
-    "astro": "^2.9.6",
+    "astro": "^2.9.7",
     "tailwindcss": "^3.3.3"
   },
   "devDependencies": {
@@ -25,8 +25,8 @@
     "@savvywombat/tailwindcss-grid-areas": "^3.1.0",
     "@tailwindcss/typography": "^0.5.9",
     "@types/node": "^20.4.5",
-    "@typescript-eslint/eslint-plugin": "^6.2.0",
-    "@typescript-eslint/parser": "^6.2.0",
+    "@typescript-eslint/eslint-plugin": "^6.2.1",
+    "@typescript-eslint/parser": "^6.2.1",
     "astro-icon": "https://gitpkg.now.sh/stramel/astro-icon/packages/core?main",
     "daisyui": "^3.5.0",
     "eslint": "^8.46.0",
