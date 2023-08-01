@@ -9,8 +9,7 @@
     "preview": "astro preview",
     "astro": "astro",
     "update:check": "npm-check-updates",
-    "update:install": "npm-check-updates -u",
-    "cy:open": "cypress open"
+    "update:install": "npm-check-updates -u"
   },
   "dependencies": {
     "@astrojs/alpinejs": "^0.2.2",
@@ -23,7 +22,6 @@
     "tailwindcss": "^3.3.3"
   },
   "devDependencies": {
-    "@cypress-audit/lighthouse": "^1.4.2",
     "@fontsource/ibm-plex-sans": "^5.0.5",
     "@fontsource/ibm-plex-serif": "^5.0.5",
     "@playwright/test": "^1.36.2",
@@ -34,7 +32,6 @@
     "@typescript-eslint/eslint-plugin": "^6.2.1",
     "@typescript-eslint/parser": "^6.2.1",
     "astro-icon": "https://gitpkg.now.sh/stramel/astro-icon/packages/core?main",
-    "cypress": "^12.17.2",
     "daisyui": "^3.5.0",
     "eslint": "^8.46.0",
     "eslint-plugin-astro": "^0.28.0",
