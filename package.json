@@ -8,8 +8,8 @@
     "build": "astro build",
     "preview": "astro preview",
     "astro": "astro",
-    "update:check": "npx npm-check-updates",
-    "update:install": "npx npm-check-updates -u"
+    "update:check": "npm-check-updates",
+    "update:install": "npm-check-updates -u"
   },
   "dependencies": {
     "@astrojs/alpinejs": "^0.2.2",
