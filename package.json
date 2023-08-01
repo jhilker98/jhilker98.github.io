@@ -36,6 +36,7 @@
     "eslint-plugin-astro": "^0.28.0",
     "eslint-plugin-jsx-a11y": "^6.7.1",
     "npm-check-updates": "^16.10.17",
+    "playwright-lighthouse": "^3.1.0",
     "prettier": "^3.0.0",
     "prettier-plugin-astro": "^0.11.0",
     "prettier-plugin-tailwindcss": "^0.4.1",
