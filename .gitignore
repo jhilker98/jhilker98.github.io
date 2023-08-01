@@ -23,3 +23,5 @@ pnpm-debug.log*
 /playwright-report/
 /playwright/.cache/
 .envrc
+cypress/videos
+cypress/screenshots
