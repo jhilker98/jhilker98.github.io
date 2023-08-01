@@ -5,6 +5,7 @@ lastmod: 2022-04-07T17:11:58-04:00
 draft: false
 featured: true
 enableToc: true
+description: "I currently use org-mode for a lot of things. This is how I use it."
 ---
 
 Although I briefly describe my workflows in the [notes section](https://braindump.jhilker.com) of my website, I wanted to go far more in-depth here on my blog vs. in the notes file. I think of it this way - a note is a quick reminder of something, while something like an article or post is more in-depth.
