@@ -9,7 +9,8 @@
     "preview": "astro preview",
     "astro": "astro",
     "update:check": "npm-check-updates",
-    "update:install": "npm-check-updates -u"
+    "update:install": "npm-check-updates -u",
+    "cy:open": "cypress open"
   },
   "dependencies": {
     "@astrojs/alpinejs": "^0.2.2",
