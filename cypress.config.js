@@ -6,14 +6,17 @@ export default defineConfig({
   e2e: {
     supportFile: false,
     baseUrl: "http://localhost:3000",
-    setupNodeEvents(on, config) {
-      on("before:browser:launch", (browser = {}, launchOptions) => {
-        prepareAudit(launchOptions);
-      });
-      on("task", {
-        lighthouse: lighthouse(),
-        // pa11y: pa11y(console.log.bind(console)),
-      });
+    setupNodeEvents(on, config) { // eslint-disable-line
+
+
+      // on("before:browser:launch", (browser = {}, launchOptions) => { // eslint-disable-line
+      // prepareAudit(launchOptions);
+      // });
+
+      // on("task", {
+      // lighthouse: lighthouse(),
+      // });
+      // },
     },
   },
 });
