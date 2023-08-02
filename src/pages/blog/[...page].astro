@@ -8,6 +8,10 @@ import type { Page } from "astro";
 // eslint-disable-next-line @typescript-eslint/no-explicit-any
 export async function getStaticPaths({ paginate }: any) {
   const posts = await getCollection("blog");
+  posts.sort(
+    (a: CollectionEntry<"blog">, b: CollectionEntry<"blog">) =>
+      b.data.pubDate - a.data.pubDate,
+  );
   return paginate(posts, { pageSize: 4 });
 }
 

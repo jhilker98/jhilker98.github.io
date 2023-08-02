@@ -13,11 +13,21 @@ const { post, wordCount } = Astro.props as Props;
 <article class="py-4 flex flex-wrap md:flex-nowrap">
   <div class="md:w-72 md:mb-0 -mb-2 align-baseline">
     <Icon name="mdi:calendar" class="inline-block -mt-px text-sm w-4 h-4" />
+    <span class="font-bold text-sm text-gray-700">Posted:</span>
     <time
       datetime={post.data.pubDate.toISOString()}
       class="font-semibold text-sm text-gray-700"
       >{formatPostDate(post.data.pubDate)}</time
     >
+    {
+      post.data.draft ? (
+        <div class="block bg-branding-navy text-white daisy-badge mt-2">
+          Draft
+        </div>
+      ) : (
+        ""
+      )
+    }
   </div>
   <div class="md:flex-grow">
     <h2 class="text-2xl font-medium text-gray-900 title-font mb-2 font-serif">
