@@ -34,8 +34,6 @@ const { post, wordCount } = Astro.props as Props;
       {post.data.title}
     </h2>
     <p class="prose max-w-[80ch]">
-      <!-- {`${post.body.split(" ").slice(0, wordCount + 1).join(" ")}...`} -->
-
       {
         `${post.body
           .split(" ")
