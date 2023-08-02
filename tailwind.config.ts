@@ -70,6 +70,15 @@ export default {
           },
         },
       },
+      typography: (theme) => ({
+        site: {
+          css: {
+            a: {
+              color: theme("colors.branding.navy.600"),
+            },
+          },
+        },
+      }),
     },
   },
   daisyui: {

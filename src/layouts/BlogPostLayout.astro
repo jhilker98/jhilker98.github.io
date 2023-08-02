@@ -6,7 +6,8 @@ const { title, pubDate, lastModDate = pubDate } = frontmatter;
 ---
 
 <BaseLayout title={title}>
-  <article class="p-2 prose lg:mx-auto max-w-[80ch] prose-headings:font-serif">
+  <article
+    class="p-2 prose mx-auto max-w-[80ch] prose-headings:font-serif prose-site">
     <PostHeader title={title} pubDate={pubDate} lastModDate={lastModDate} />
     <slot />
   </article>
