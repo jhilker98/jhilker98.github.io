@@ -28,10 +28,10 @@ const blogCollection = defineCollection({
     description: z
       .string({
         required_error:
-          "All posts must have a brief description of 160 characters explaining what the post is about.",
+          "All posts must have a brief description of 120 characters explaining what the post is about.",
         invalid_type_error: "A description should always be a string.",
       })
-      .max(160),
+      .max(120),
   }),
 });
 
