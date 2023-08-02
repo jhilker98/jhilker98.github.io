@@ -37,10 +37,10 @@ const { post, wordCount } = Astro.props as Props;
       <!-- {`${post.body.split(" ").slice(0, wordCount + 1).join(" ")}...`} -->
 
       {
-        `${post.data.description
+        `${post.body
           .split(" ")
           .slice(0, wordCount + 1)
-          .join(" ")}`
+          .join(" ")}...`
       }
     </p>
   </div>
