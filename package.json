@@ -41,10 +41,12 @@
     "eslint-plugin-astro": "^0.28.0",
     "eslint-plugin-cypress": "^2.13.3",
     "eslint-plugin-jsx-a11y": "^6.7.1",
+    "mdast-util-to-string": "^4.0.0",
     "npm-check-updates": "^16.10.17",
     "prettier": "^3.0.0",
     "prettier-plugin-astro": "^0.11.0",
     "prettier-plugin-tailwindcss": "^0.4.1",
+    "reading-time": "^1.5.0",
     "tailwind-scrollbar": "^3.0.4"
   }
 }
