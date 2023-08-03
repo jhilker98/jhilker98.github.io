@@ -6,8 +6,8 @@ const { prevUrl, nextUrl } = Astro.props;
 ---
 
 <nav
-  aria-label="Blog pages"
-  class="container mx-auto justify-between flex mt-[27.5%]">
+  aria-label="Blog Posts"
+  class="container mx-auto justify-between flex h-10 my-auto">
   {
     prevUrl && (
       <a
@@ -18,6 +18,7 @@ const { prevUrl, nextUrl } = Astro.props;
       </a>
     )
   }
+
   {
     nextUrl && (
       <a
