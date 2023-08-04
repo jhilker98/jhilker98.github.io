@@ -16,20 +16,26 @@ const {
 } = Astro.props;
 ---
 
-<details class="group mr-8 max-w-full container">
+<details class="group mr-12 max-w-full container [&>div">
   <summary
-    class="list-none after:content-['▸'] after:transform group-open:after:rotate-90 after:transition-all duration-100 after:inline-block lg:flex after:ml-1">
-    <span class="font-serif text-xl">{title}</span>
+    class="list-none after:content-['▸'] after:transform group-open:after:rotate-90 after:transition-all duration-100 after:inline-block lg:flex lg:after:ml-1">
+    <span class="font-serif text-xl text-branding-black">{title}</span>
     <span class="hidden lg:inline lg:ml-auto"
       >{new Date(startDate).getFullYear()} &mdash; {
         endDate != "Present" ? new Date(endDate).getFullYear() : endDate
       }</span
     >
   </summary>
+  <p class="block lg:hidden">
+    {new Date(startDate).getFullYear()} &mdash; {
+      endDate != "Present" ? new Date(endDate).getFullYear() : endDate
+    }
+  </p>
+  <span class="block mt-1">
+    {employer} &mdash; {location}
+  </span>
+
   <div class="prose">
-    <span class="block mt-1">
-      {employer} &mdash; {location}
-    </span>
     <slot />
   </div>
 </details>
