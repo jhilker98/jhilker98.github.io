@@ -7,3 +7,18 @@ interface Props {
 
 const { title, startDate, endDate = "Present" } = Astro.props;
 ---
+
+<details class="group mr-8 max-w-full container">
+  <summary
+    class="list-none after:content-['▸'] after:transform group-open:after:rotate-90 after:transition-all duration-100 after:inline-block lg:flex">
+    <span class="font-serif text-xl">{title}</span>
+    <span class="hidden lg:inline lg:ml-auto"
+      >{new Date(startDate).getFullYear()} &mdash; {
+        endDate != "Present" ? new Date(endDate).getFullYear() : endDate
+      }</span
+    >
+  </summary>
+  <div class="prose">
+    <slot />
+  </div>
+</details>
