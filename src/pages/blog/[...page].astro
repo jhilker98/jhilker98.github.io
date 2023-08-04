@@ -26,9 +26,7 @@ const { page } = Astro.props;
       <div class="divide-y-2 divide-gray-500">
         {page.data.map((post) => <PostInfo {post} wordCount={50} />)}
       </div>
-      <div
-        data-role="nav-container"
-        class="h-fit  grid place-items-center">
+      <div data-role="nav-container" class="h-fit grid place-items-center">
         <Pagination prevUrl={page.url.prev} nextUrl={page.url.next} />
       </div>
     </div>

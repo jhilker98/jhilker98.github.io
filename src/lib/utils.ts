@@ -24,3 +24,10 @@ export function slugifyPostDate(d: Date) {
 
   return `${f.year.format(d)}/${f.month.format(d)}`;
 }
+
+import getReadingTime from "reading-time";
+
+// eslint-disable-next-line @typescript-eslint/no-explicit-any
+export function calcReadingTime(article: string): string {
+  return getReadingTime(article.trim()).text;
+}
