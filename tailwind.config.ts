@@ -107,5 +107,6 @@ export default {
     require("@tailwindcss/typography"),
     require("tailwind-scrollbar"),
     require("daisyui"),
+    require("tailwindcss-animated"),
   ],
 } satisfies Config;

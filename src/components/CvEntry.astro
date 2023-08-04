@@ -1,0 +1,18 @@
+---
+interface Props {
+  title: string;
+  startDate: string;
+  endDate?: string;
+}
+
+const { title, startDate, endDate = "Present" } = Astro.props;
+---
+
+<details class="mr-8 group transition-all">
+  <summary>{title}</summary>
+  <div class="prose -translate-y-full group-open:translate-y-2 duration-200">
+    Lorem ipsum dolor sit amet consectetur adipisicing elit. Eum harum sapiente
+    modi sequi molestias nesciunt nobis tenetur suscipit soluta ab at totam
+    minus cum odit, dolor quae deserunt, pariatur aut.
+  </div>
+</details>
