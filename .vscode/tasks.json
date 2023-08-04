@@ -3,10 +3,10 @@
   "tasks": [
     {
       "type": "npm",
-      "script": "dev",
+      "script": "dev:drafts",
       "problemMatcher": [],
       "label": "npm: dev",
-      "detail": "astro dev",
+      "detail": "astro dev --drafts",
       "options": {
         "shell": {
           //"executable": "/home/jhilker/.nix-profile/bin/zsh",
