@@ -4,15 +4,18 @@ import CvEntry from "@components/CvEntry.astro";
 ---
 
 <BaseLayout title="Resumé" description="My Personal Resume">
-  <div class="w-full grid grid-cols-4">
+  <div
+    class="w-full grid grid-cols-4 prose first:prose-h2:mt-0 max-w-none prose-neutral">
     <article class="col-span-3 p-3 text-justify">
       <h2>Experience</h2>
-      <CvEntry title="Freelance Web Developer" startDate="2021-03-06">
-        Lorem ipsum dolor sit amet consectetur adipisicing elit. Cupiditate
-        nesciunt tenetur adipisci expedita. Tenetur, nisi fuga? Nisi minus dicta
-        assumenda provident voluptas inventore, error vero voluptatibus dolore
-        cupiditate a temporibus.
-      </CvEntry>
+      <div class="border-l border-gray-500 pl-2">
+        <CvEntry title="Freelance Web Developer" startDate="2021-03-06">
+          Lorem ipsum dolor sit amet consectetur adipisicing elit. Cupiditate
+          nesciunt tenetur adipisci expedita. Tenetur, nisi fuga? Nisi minus
+          dicta assumenda provident voluptas inventore, error vero voluptatibus
+          dolore cupiditate a temporibus.
+        </CvEntry>
+      </div>
     </article>
     <aside class="col-span-1 col-start-4">
       <h2>Skills</h2>

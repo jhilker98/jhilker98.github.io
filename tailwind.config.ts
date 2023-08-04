@@ -82,6 +82,7 @@ export default {
       }),
     },
   },
+
   daisyui: {
     base: false,
     styled: false,
