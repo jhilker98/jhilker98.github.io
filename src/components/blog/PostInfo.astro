@@ -1,7 +1,7 @@
 ---
 import type { CollectionEntry } from "astro:content";
 import { Icon } from "astro-icon";
-import { formatPostDate, calcReadingTime } from "@lib/utils";
+import { formatPostDate, calcReadingTime, slugifyPostDate } from "@lib/utils";
 
 interface Props {
   post: CollectionEntry<"blog">;
@@ -47,5 +47,10 @@ const postBody = marked.parse(body, { mangle: false, headerIds: false });
       {post.data.title}
     </h2>
     <div class="prose prose-site max-w-[80ch]" set:html={postBody} />
+    <a
+      href={`/${slugifyPostDate(post.data.pubDate)}/${post.slug}`}
+      class="block rounded-sm text-sm bg-branding-navy-600 w-fit text-white h-fit px-2 py-1 mt-1"
+      >Read More</a
+    >
   </div>
 </article>
