@@ -9,7 +9,6 @@
       "detail": "astro dev --drafts",
       "options": {
         "shell": {
-          //"executable": "/home/jhilker/.nix-profile/bin/zsh",
           "args": ["-i", "-c"]
         }
       },
@@ -23,7 +22,6 @@
       "detail": "astro dev",
       "options": {
         "shell": {
-          //"executable": "/home/jhilker/.nix-profile/bin/zsh",
           "args": ["-i", "-c"]
         }
       },
@@ -37,11 +35,26 @@
       "detail": "astro preview",
       "options": {
         "shell": {
-          //"executable": "/home/jhilker/.nix-profile/bin/zsh",
           "args": ["-i", "-c"]
         }
       },
       "isBackground": true
+    },
+    {
+      "type": "npm",
+      "script": "build",
+      "group": {
+        "kind": "build",
+        "isDefault": true
+      },
+      "problemMatcher": [],
+      "label": "npm: build",
+      "detail": "astro build",
+      "options": {
+        "shell": {
+          "args": ["-i", "-c"]
+        }
+      }
     }
   ]
 }
