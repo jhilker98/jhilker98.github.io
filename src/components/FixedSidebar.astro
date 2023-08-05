@@ -18,25 +18,26 @@ import { Image } from "astro:assets";
           height="550"
         />
       </div>
-
       <p class="p-2 mx-auto mt-2 text-sm text-center text-branding-white/80">
         {SITE_META.tagline}
         {SITE_META.availableForHire ? "Currently available for hire." : ""}
       </p>
-      <div class="flex mx-auto space-x-3 p-3 -mt-1 w-fit">
-        {
-          SITE_META.socialLinks.map((link: SocialLink) => (
-            <a
-              href={link.href}
-              class="text-branding-white hover:text-blue-400 transition-colors duration-75 group">
-              <Icon
-                name={link.icon}
-                class="h-5 w-5 fill-branding-white hover:fill-blue-400"
-              />
-            </a>
-          ))
-        }
-      </div>
+      {
+        SITE_META.socialLinks && SITE_META.socialLinks.length > 0 && (
+          <div class="mx-auto space-x-3 p-3 -mt-1 w-fit flex">
+            {SITE_META.socialLinks.map((link: SocialLink) => (
+              <a
+                href={link.href}
+                class="text-branding-white hover:text-blue-400 transition-colors duration-75 group">
+                <Icon
+                  name={link.icon}
+                  class="h-5 w-5 fill-branding-white hover:fill-blue-400"
+                />
+              </a>
+            ))}
+          </div>
+        )
+      }
     </div>
   </div>
 </aside>
