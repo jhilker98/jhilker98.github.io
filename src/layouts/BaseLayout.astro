@@ -3,8 +3,7 @@
 
 import FixedSidebar from "@components/FixedSidebar.astro";
 import Header from "@components/Header.astro";
-import { SITE_META } from "@consts";
-import { SEO } from "astro-seo";
+import SiteSEO from "@components/SiteSEO.astro";
 import "@fontsource/ibm-plex-sans";
 import "@fontsource/ibm-plex-serif";
 import "@fontsource/iosevka";
@@ -18,21 +17,7 @@ const { title, description } = Astro.props;
 
 <html lang="en">
   <head>
-    <SEO
-      title={title}
-      titleFormat=`%s - ${SITE_META.title}`
-      charset="utf-8"
-      description={description}
-      extend={{
-        meta: [
-          { name: "generator", content: Astro.generator },
-          {
-            name: "viewport",
-            content: "width=device-width, initial-scale=1.0",
-          },
-        ],
-      }}
-    />
+    <SiteSEO title={title} description={description} />
   </head>
   <body class="min-h-screen bg-branding-white">
     <div

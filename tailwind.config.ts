@@ -74,7 +74,7 @@ export default {
       typography: (theme: PluginAPI["theme"]) => ({
         site: {
           css: {
-           "--tw-prose-links": theme('colors.branding.navy[600]')
+            "--tw-prose-links": theme("colors.branding.navy[600]"),
           },
         },
       }),
@@ -101,6 +101,10 @@ export default {
       },
     ],
   },
+  variants: {
+    fill: ["hover", "focus"], // this line does the trick
+  },
+
   plugins: [
     require("@savvywombat/tailwindcss-grid-areas"),
     require("@tailwindcss/typography"),

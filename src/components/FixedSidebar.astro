@@ -1,14 +1,14 @@
 ---
-//import { SITE_META } from "@lib/utils";
-//import { Icon } from "astro-icon";
+import { SITE_META, SocialLink } from "@consts";
+import { Icon } from "astro-icon";
 import { Image } from "astro:assets";
 ---
 
 <aside
-  class="hidden lg:block drawer lg:drawer-open bg-branding-navy text-white grid-in-sidebar">
-  <div class="drawer-content flex flex-col items-center">
+  class="hidden lg:block daisy-drawer lg:daisy-drawer-open bg-branding-navy text-white grid-in-sidebar">
+  <div class="daisy-drawer-content flex flex-col items-center">
     <h2 class="p-2 font-semibold uppercase">Jacob's Website</h2>
-    <div class="drawer-content">
+    <div class="daisy-drawer-content">
       <div
         class="mt-3 rounded-full bg-branding-gray-400 w-40 h-40 overflow-hidden mx-auto">
         <Image
@@ -17,6 +17,25 @@ import { Image } from "astro:assets";
           width="500"
           height="550"
         />
+      </div>
+
+      <p class="p-2 mx-auto mt-2 text-sm text-center text-branding-white/80">
+        {SITE_META.tagline}
+        {SITE_META.availableForHire ? "Currently available for hire." : ""}
+      </p>
+      <div class="flex mx-auto space-x-3 p-3 -mt-1 w-fit">
+        {
+          SITE_META.socialLinks.map((link: SocialLink) => (
+            <a
+              href={link.href}
+              class="text-branding-white hover:text-blue-400 transition-colors duration-75 group">
+              <Icon
+                name={link.icon}
+                class="h-5 w-5 fill-branding-white hover:fill-blue-400"
+              />
+            </a>
+          ))
+        }
       </div>
     </div>
   </div>
