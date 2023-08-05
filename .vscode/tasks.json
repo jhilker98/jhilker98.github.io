@@ -3,9 +3,9 @@
   "tasks": [
     {
       "type": "npm",
-      "script": "dev:drafts",
+      "script": "dev",
       "problemMatcher": [],
-      "label": "npm: dev",
+      "label": "npm: dev (with drafts)",
       "detail": "astro dev --drafts",
       "options": {
         "shell": {
