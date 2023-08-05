@@ -11,7 +11,7 @@ export async function getStaticPaths({ paginate }: any) {
     (a: CollectionEntry<"blog">, b: CollectionEntry<"blog">) =>
       b.data.pubDate.getTime() - a.data.pubDate.getTime(),
   );
-  return paginate(posts, { pageSize: 4 });
+  return paginate(posts, { pageSize: 3 });
 }
 
 interface Props {
