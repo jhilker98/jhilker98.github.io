@@ -37,6 +37,7 @@
     "@typescript-eslint/eslint-plugin": "^6.2.1",
     "@typescript-eslint/parser": "^6.2.1",
     "astro-icon": "https://gitpkg.now.sh/stramel/astro-icon/packages/core?main",
+    "astro-seo": "^0.7.5",
     "cypress": "^12.17.3",
     "daisyui": "^3.5.1",
     "eslint": "^8.46.0",
