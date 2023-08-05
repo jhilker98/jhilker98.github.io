@@ -37,16 +37,15 @@ const postBody = marked.parse(body, { mangle: false, headerIds: false });
       )
     }
 
-    
-  <span class="block mt-1 text-gray-600 text-sm font-semibold">
-    <Icon name="mdi:clock-outline" class="inline-block w-4 h-4 -mt-1"/>
-    {calcReadingTime(post.body)}
-  </span>
+    <span class="block mt-1 text-gray-600 text-sm font-semibold">
+      <Icon name="mdi:clock-outline" class="inline-block w-4 h-4 -mt-1" />
+      {calcReadingTime(post.body)}
+    </span>
   </div>
   <div class="md:flex-grow">
     <h2 class="text-2xl font-medium text-gray-900 title-font mb-2 font-serif">
       {post.data.title}
     </h2>
-    <div class="prose max-w-[80ch]" set:html={postBody} />
+    <div class="prose prose-site max-w-[80ch]" set:html={postBody} />
   </div>
 </article>
