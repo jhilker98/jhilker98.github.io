@@ -74,9 +74,7 @@ export default {
       typography: (theme: PluginAPI["theme"]) => ({
         site: {
           css: {
-            a: {
-              color: theme("colors.branding.navy.600"),
-            },
+           "--tw-prose-links": theme('colors.branding.navy[600]')
           },
         },
       }),
