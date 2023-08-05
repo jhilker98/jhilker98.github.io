@@ -17,6 +17,20 @@
     },
     {
       "type": "npm",
+      "script": "dev:prod",
+      "problemMatcher": [],
+      "label": "npm: dev (production preview)",
+      "detail": "astro dev",
+      "options": {
+        "shell": {
+          //"executable": "/home/jhilker/.nix-profile/bin/zsh",
+          "args": ["-i", "-c"]
+        }
+      },
+      "isBackground": true
+    },
+    {
+      "type": "npm",
       "script": "preview",
       "problemMatcher": [],
       "label": "npm: preview",
