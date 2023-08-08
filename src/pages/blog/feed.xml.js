@@ -17,7 +17,7 @@ export async function get(context) {
             pubDate: post.data.pubDate,
             description: post.data.description,
             link: `/blog/${slugifyPostDate(post.data.pubDate)}/${post.slug}`,
-            content: sanitizeHtml(marked.parse(post.body))
+            content: sanitizeHtml(marked.parse(post.body, { headerIds: false, mangle: false }))
         }))
     });
 }
