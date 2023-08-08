@@ -2,6 +2,10 @@ import rss from '@astrojs/rss';
 import { getCollection } from "astro:content";
 import { SITE_META } from "@consts"
 import { slugifyPostDate } from '@lib/utils';
+import { marked } from "marked";
+import sanitizeHtml from "sanitize-html";
+
+
 export async function get(context) {
     const posts = await getCollection("blog");
     return rss({
@@ -12,7 +16,8 @@ export async function get(context) {
             title: post.data.title,
             pubDate: post.data.pubDate,
             description: post.data.description,
-            link: `/blog/${slugifyPostDate(post.data.pubDate)}/${post.slug}`
+            link: `/blog/${slugifyPostDate(post.data.pubDate)}/${post.slug}`,
+            content: sanitizeHtml(marked.parse(post.body))
         }))
     });
 }
