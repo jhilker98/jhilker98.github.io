@@ -53,9 +53,9 @@ const SOCIAL_LINKS: SocialLink[] = [
     href: "https://codepen.io/hilkerj/",
   },
   {
-    icon: "fa6-brands:linkedin-in",
-    name: "LinkedIn",
-    href: "https://linked.com/in/jhilker/",
+    icon: "ps:rss",
+    name: "RSS Feed",
+    href: "/blog/feed.xml",
   },
 ];
 
