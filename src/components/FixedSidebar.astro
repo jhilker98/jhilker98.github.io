@@ -39,5 +39,8 @@ import { Image } from "astro:assets";
         )
       }
     </div>
+    <p class="absolute bottom-4 before:content-['©'] text-sm">
+      {`2021 - ${new Date().getFullYear()} ${SITE_META.author}`}
+    </p>
   </div>
 </aside>
