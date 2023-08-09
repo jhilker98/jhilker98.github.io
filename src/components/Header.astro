@@ -50,12 +50,14 @@ const currentPath = pathname.slice(1); // remove the first "/"
       }
     </nav>
 
-    <button
-      class="h-full p-4 hover:bg-blue-300 lg:hidden justify-end ml-auto mr-0"
-      x-on:click="mobileOpen = !mobileOpen">
-      <Icon name="fa:bars" class="h-3 w-3" />
-    </button>
+    <div class="flex items-center h-full my-auto space-x-4 ml-auto">
+      <button
+        class="h-full p-3 hover:bg-gray-400"
+        @click="darkMode = !darkMode">
+        <Icon name="heroicons:sun-solid" class="h-5 w-5 fill-black" />
+      </button>
+    </div>
+    <!-- TODO: Add Mobile Menu -->
   </div>
-  <!-- TODO: Add Mobile Menu -->
   <MobileMenu />
 </header>
