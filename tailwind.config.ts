@@ -5,6 +5,7 @@ import type { PluginAPI } from "tailwindcss/types/config";
 
 export default {
   content: ["./src/**/*.{astro,html,js,jsx,md,mdx,svelte,ts,tsx,vue}"],
+  darkMode: ["class", "[data-theme='dark']"],
   theme: {
     gridTemplateAreas: {
       mobile: ["header header header", "main main main", "main main main"],
