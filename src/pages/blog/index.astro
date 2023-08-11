@@ -15,7 +15,7 @@ posts.sort(
   <section class="min-h-screen text-gray-600">
     <div class="container mx-auto px-5 h-screen">
       <div class="divide-y-2 divide-gray-500">
-        {posts.map((post) => <PostInfo {post} wordCount={50} />)}
+        {posts.slice(0, 10).map((post) => <PostInfo {post} wordCount={50} />)}
       </div>
     </div>
   </section>
