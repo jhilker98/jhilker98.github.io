@@ -15,6 +15,7 @@ export default defineConfig({
   integrations: [mdx(), tailwind(), alpinejs()],
   experimental: {
     assets: true,
+    viewTransitions: true,
   },
   markdown: {
     drafts: true,
