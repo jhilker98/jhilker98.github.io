@@ -21,10 +21,12 @@ const postBody = marked.parse(body, { mangle: false, headerIds: false });
 <article class="py-4 flex flex-wrap md:flex-nowrap">
   <div class="md:w-72 md:mb-0 -mb-2 align-baseline">
     <Icon name="mdi:calendar" class="inline-block -mt-px text-sm w-4 h-4" />
-    <span class="font-bold text-sm text-gray-700">Posted:</span>
+    <span class="font-bold text-sm text-gray-700 dark:text-gray-400"
+      >Posted:</span
+    >
     <time
       datetime={post.data.pubDate.toISOString()}
-      class="font-semibold text-sm text-gray-700"
+      class="font-semibold text-sm text-gray-700 dark:text-gray-400"
       >{formatPostDate(post.data.pubDate)}</time
     >
     {
@@ -43,10 +45,11 @@ const postBody = marked.parse(body, { mangle: false, headerIds: false });
     </span>
   </div>
   <div class="md:flex-grow">
-    <h2 class="text-2xl font-medium text-gray-900 title-font mb-2 font-serif">
+    <h2
+      class="text-2xl font-medium text-gray-900 title-font mb-2 font-serif dark:text-gray-100">
       {post.data.title}
     </h2>
-    <div class="prose prose-site max-w-[80ch]" set:html={postBody} />
+    <div class="prose prose-site dark:prose-invert max-w-[80ch]" set:html={postBody} />
     <a
       href={`/blog/${slugifyPostDate(post.data.pubDate)}/${post.slug}`}
       class="block rounded-sm text-sm bg-branding-navy-600 w-fit text-white h-fit px-2 py-1 mt-1"
