@@ -46,10 +46,13 @@ const postBody = marked.parse(body, { mangle: false, headerIds: false });
   </div>
   <div class="md:flex-grow">
     <h2
-      class="text-2xl font-medium text-gray-900 title-font mb-2 font-serif dark:text-gray-100">
+      class="text-2xl font-medium text-gray-900 title-font mb-2 font-serif dark:text-white">
       {post.data.title}
     </h2>
-    <div class="prose prose-site dark:prose-invert max-w-[80ch]" set:html={postBody} />
+    <div
+      class="prose prose-site dark:prose-invert max-w-[80ch]"
+      set:html={postBody}
+    />
     <a
       href={`/blog/${slugifyPostDate(post.data.pubDate)}/${post.slug}`}
       class="block rounded-sm text-sm bg-branding-navy-600 w-fit text-white h-fit px-2 py-1 mt-1"
