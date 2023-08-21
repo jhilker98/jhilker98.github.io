@@ -3,7 +3,14 @@ import BaseLayout from "@layouts/BaseLayout.astro";
 import PostInfo from "@components/blog/PostInfo.astro";
 import { getCollection, CollectionEntry } from "astro:content";
 
-const posts: CollectionEntry<"blog">[] = await getCollection("blog");
+const posts: CollectionEntry<"blog">[] = await getCollection(
+  "blog",
+  ({ data }) => {
+    const prod = import.meta.env.MODE === "production";
+    const dev = import.meta.env.MODE === "development";
+    return dev || (prod && !data.draft);
+  },
+);
 
 posts.sort(
   (a: CollectionEntry<"blog">, b: CollectionEntry<"blog">) =>
