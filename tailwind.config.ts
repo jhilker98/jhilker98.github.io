@@ -58,7 +58,7 @@ export default {
           },
           gray: {
             DEFAULT: "#d1d3d7",
-            "50": "#f8f9f8",
+            "50": "#f3f7fc",
             "100": "#eeeff1",
             "200": "#d1d3d7",
             "300": "#b8b8c3",
@@ -67,7 +67,7 @@ export default {
             "600": "#5e5462",
             "700": "#48404b",
             "800": "#322c34",
-            "900": "#1f1c22",
+            "900": "#091725",
           },
           brown: {
             DEFAULT: "#86694b",
@@ -138,7 +138,10 @@ export default {
       typography: (theme: PluginAPI["theme"]) => ({
         site: {
           css: {
+            "--tw-prose-body": theme("colors.branding.gray[700]"),
+            "--tw-prose-invert-body": theme("colors.branding.gray[300]"),
             "--tw-prose-links": theme("colors.branding.navy[600]"),
+            "--tw-prose-invert-links": theme("colors.branding.navy[400]"),
           },
         },
       }),
