@@ -39,7 +39,8 @@ const postBody = marked.parse(body, { mangle: false, headerIds: false });
       )
     }
 
-    <span class="block mt-1 text-branding-gray-600 dark:text-branding-gray-400 text-sm font-semibold">
+    <span
+      class="block mt-1 text-branding-gray-600 dark:text-branding-gray-400 text-sm font-semibold">
       <Icon name="mdi:clock-outline" class="inline-block w-4 h-4 -mt-1" />
       {calcReadingTime(post.body)}
     </span>
@@ -55,7 +56,7 @@ const postBody = marked.parse(body, { mangle: false, headerIds: false });
     />
     <a
       href={`/blog/${slugifyPostDate(post.data.pubDate)}/${post.slug}`}
-      class="block rounded-sm text-sm bg-branding-navy-600 w-fit text-white h-fit px-2 py-1 mt-1"
+      class="block rounded-sm text-sm bg-branding-navy-600 w-fit text-white h-fit px-2 py-1 mt-1 dark:hover:bg-branding-navy-500 duration-100 transition-colors hover:bg-branding-navy-700"
       >Read More</a
     >
   </div>
