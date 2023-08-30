@@ -15,14 +15,14 @@
     "cy:open": "cypress open --browser firefox"
   },
   "dependencies": {
-    "@astrojs/alpinejs": "^0.2.2",
-    "@astrojs/mdx": "^0.19.7",
-    "@astrojs/rss": "^2.4.4",
-    "@astrojs/tailwind": "^4.0.0",
-    "@iconify/json": "^2.2.107",
+    "@astrojs/alpinejs": "^0.3.0",
+    "@astrojs/mdx": "^1.0.0",
+    "@astrojs/rss": "^3.0.0",
+    "@astrojs/tailwind": "^5.0.0",
+    "@iconify/json": "^2.2.108",
     "@types/alpinejs": "^3.7.2",
     "alpinejs": "^3.13.0",
-    "astro": "^2.10.15",
+    "astro": "^3.0.2",
     "tailwindcss": "^3.3.3"
   },
   "devDependencies": {
@@ -40,7 +40,7 @@
     "astro-icon": "https://gitpkg.now.sh/stramel/astro-icon/packages/core?main",
     "astro-seo": "^0.8.0",
     "cypress": "^13.0.0",
-    "daisyui": "^3.6.3",
+    "daisyui": "^3.6.4",
     "eslint": "^8.48.0",
     "eslint-plugin-astro": "^0.29.0",
     "eslint-plugin-cypress": "^2.14.0",
