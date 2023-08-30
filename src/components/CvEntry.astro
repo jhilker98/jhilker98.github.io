@@ -16,20 +16,21 @@ const {
 } = Astro.props;
 ---
 
-<details class="group mr-12 max-w-full container [&>div">
+<details class="group mr-12 max-w-full container p-2">
   <summary
     class="list-none after:content-['▸'] after:transform group-open:after:rotate-90 after:transition-all duration-100 after:inline-block lg:flex lg:after:ml-1 dark:after:text-neutral-400 transition-[margin] group-open:mb-2 mb-0">
     <span
       class="font-serif text-xl text-branding-black dark:text-branding-white"
       >{title}</span
     >
-    <span class="hidden lg:inline lg:ml-auto dark:text-neutral-400"
+    <span
+      class="hidden lg:inline lg:ml-auto dark:text-neutral-300 text-neutral-600"
       >{new Date(startDate).getFullYear()} &mdash; {
         endDate != "Present" ? new Date(endDate).getFullYear() : endDate
       }</span
     >
   </summary>
-  <p class="block lg:hidden dark:text-neutral-400">
+  <p class="block lg:hidden dark:text-neutral-300 text-neutral-600">
     {new Date(startDate).getFullYear()} &mdash; {
       endDate != "Present" ? new Date(endDate).getFullYear() : endDate
     }
