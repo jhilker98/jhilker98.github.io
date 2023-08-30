@@ -27,5 +27,11 @@
     "shell": {
       "path": "/home/jhilker/.nix-profile/bin/zsh"
     }
+  },
+  "[markdown]": {
+    "editor.formatOnSave": false
+  },
+  "[mdx]": {
+    "editor.formatOnSave": false
   }
 }
