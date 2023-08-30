@@ -1,0 +1,15 @@
+---
+import BaseLayout from "@layouts/BaseLayout.astro";
+---
+
+<BaseLayout title="Resumé" description="My Personal Resume">
+  <div
+    class="w-full grid grid-cols-4 prose first:prose-h2:mt-0 max-w-none prose-neutral dark:prose-invert h-full">
+    <article class="col-span-3 p-3 text-justify">
+      <slot />
+    </article>
+    <aside class="col-span-1 bg-branding-blue-100 dark:bg-branding-navy-900">
+      <h2 class="text-center">Skills</h2>
+    </aside>
+  </div>
+</BaseLayout>
