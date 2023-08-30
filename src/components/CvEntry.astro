@@ -18,7 +18,7 @@ const {
 
 <details class="group mr-12 max-w-full container [&>div">
   <summary
-    class="list-none after:content-['▸'] after:transform group-open:after:rotate-90 after:transition-all duration-100 after:inline-block lg:flex lg:after:ml-1 dark:after:text-neutral-400">
+    class="list-none after:content-['▸'] after:transform group-open:after:rotate-90 after:transition-all duration-100 after:inline-block lg:flex lg:after:ml-1 dark:after:text-neutral-400 transition-[margin] group-open:mb-2 mb-0">
     <span
       class="font-serif text-xl text-branding-black dark:text-branding-white"
       >{title}</span
@@ -34,7 +34,7 @@ const {
       endDate != "Present" ? new Date(endDate).getFullYear() : endDate
     }
   </p>
-  <span class="block mt-1 dark:text-neutral-400">
+  <span class="block my-1 dark:text-neutral-400">
     {employer} &mdash; {location}
   </span>
 
