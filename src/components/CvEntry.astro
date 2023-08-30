@@ -18,18 +18,18 @@ const {
 
 <details class="group mr-12 max-w-full container [&>div">
   <summary
-    class="list-none after:content-['▸'] after:transform group-open:after:rotate-90 after:transition-all duration-100 after:inline-block lg:flex lg:after:ml-1 dark:after:text-neutral-300">
+    class="list-none after:content-['▸'] after:transform group-open:after:rotate-90 after:transition-all duration-100 after:inline-block lg:flex lg:after:ml-1 dark:after:text-neutral-400">
     <span
       class="font-serif text-xl text-branding-black dark:text-branding-white"
       >{title}</span
     >
-    <span class="hidden lg:inline lg:ml-auto dark:text-neutral-300"
+    <span class="hidden lg:inline lg:ml-auto dark:text-neutral-400"
       >{new Date(startDate).getFullYear()} &mdash; {
         endDate != "Present" ? new Date(endDate).getFullYear() : endDate
       }</span
     >
   </summary>
-  <p class="block lg:hidden dark:text-neutral-300">
+  <p class="block lg:hidden dark:text-neutral-400">
     {new Date(startDate).getFullYear()} &mdash; {
       endDate != "Present" ? new Date(endDate).getFullYear() : endDate
     }
