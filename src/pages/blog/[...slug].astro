@@ -1,5 +1,5 @@
 ---
-import {
+import type {
   InferGetStaticParamsType,
   InferGetStaticPropsType,
   GetStaticPaths,
@@ -18,10 +18,12 @@ export const getStaticPaths = (async () => {
   });
 }) satisfies GetStaticPaths;
 
+type Params = InferGetStaticParamsType<typeof getStaticPaths>;
 type Props = InferGetStaticPropsType<typeof getStaticPaths>;
 
+// eslint-disable-next-line
+const { slug } = Astro.params as Params;
 const { post } = Astro.props;
-
 const { Content } = await post.render();
 ---
 

@@ -13,10 +13,7 @@ import { rehypeAccessibleEmojis } from 'rehype-accessible-emojis';
 export default defineConfig({
   site: "https://jhilker.com",
   integrations: [mdx(), tailwind(), alpinejs()],
-  experimental: {
-    assets: true,
-    viewTransitions: true,
-  },
+
   markdown: {
     drafts: true,
     rehypePlugins: [
