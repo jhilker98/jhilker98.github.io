@@ -11,8 +11,8 @@ const { title, pubDate, lastModDate = pubDate } = Astro.props;
 ---
 
 <header class="align-baseline">
-  <h1>{title}</h1>
-  <Icon name="mdi:calendar" class="w-5 mb-1 inline-block" />
+  <h1 class="mt-1" style="text-wrap: balance;">{title}</h1>
+  <Icon name="mdi:calendar" class="w-5 mb-1 mr-1 inline-block" />
   <span class="font-bold mr-1">Posted:</span>
   <time class="inline">
     {formatPostDate(pubDate)}
