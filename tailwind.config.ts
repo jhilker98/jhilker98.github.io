@@ -26,6 +26,7 @@ export default {
       },
       gridTemplateRows: {
         layout: "0.2fr 2.6fr 0.2fr",
+        "0": "0fr",
       },
       colors: {
         branding: {
@@ -145,6 +146,22 @@ export default {
           },
         },
       }),
+      transitionProperty: {
+        gridRows: "grid-template-rows",
+      },
+      keyframes: {
+        slideIn: {
+          from: {
+            "grid-template-rows": "0fr",
+          },
+          to: {
+            "grid-template-rows": "1fr",
+          },
+        },
+      },
+      animation: {
+        slideIn: "slideIn 0.15s 0s 1 normal forwards",
+      },
     },
   },
 

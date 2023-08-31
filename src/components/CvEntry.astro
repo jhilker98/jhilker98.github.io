@@ -18,44 +18,21 @@ const {
 } = Astro.props;
 ---
 
-<div
-  class="my-2.5 pb-2 border-b border-gray-300 dark:border-gray-700 last:border-0">
-  <details
-    class="group mr-12 max-w-full container pl-5 border-l-2 border-gray-300 dark:border-gray-700">
-    <summary
-      class="list-none after:content-['▸'] after:transform group-open:after:rotate-90 after:transition-all duration-100 after:inline-block lg:flex lg:after:ml-1 dark:after:text-neutral-400 transition-[margin] group-open:mb-2 mb-0">
-      <span
-        class="font-serif text-xl text-branding-black dark:text-branding-white"
-        >{title}</span
-      >
-
-      <span
-        class="hidden lg:inline lg:ml-auto dark:text-neutral-300 text-neutral-600">
-        {
-          isSingle === true
-            ? new Date(startDate).getFullYear()
-            : new Date(startDate).getFullYear()
-        } &mdash; {
-          endDate != "Present" ? new Date(endDate).getFullYear() : endDate
-        }
-      </span>
-    </summary>
-    <p class="block lg:hidden dark:text-neutral-300 text-neutral-600">
-      {
-        isSingle === true
-          ? new Date(startDate).getFullYear()
-          : new Date(startDate).getFullYear()
-      } &mdash; {
-        endDate != "Present" ? new Date(endDate).getFullYear() : endDate
-      }
-    </p>
-
-    <span class="block my-1 dark:text-neutral-400">
-      {employer} &mdash; {location}
-    </span>
-
-    <div class="prose prose-neutral dark:prose-invert prose-blue">
+<details class="group [&>div]:transition-[all_500ms_ease-in-out]">
+  <summary class="list-none">
+    <div
+      class="flex items-center after:content-['▸'] after:transform group-open:after:rotate-90 after:transition-all">
+      <h3
+        class="inline m-0 font-serif text-xl font-bold text-branding-black dark:text-branding-white">
+        {title}
+      </h3>
+    </div>
+  </summary>
+  <div
+    class="group-open:animate-slideIn grid grid-rows-0 transition-gridRows duration-500 ease-in-out">
+    <div
+      class="overflow-hidden prose-neutral prose-blue dark:prose-invert max-w-[80ch]">
       <slot />
     </div>
-  </details>
-</div>
+  </div>
+</details>
