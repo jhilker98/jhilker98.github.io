@@ -174,8 +174,9 @@ export default {
 
   plugins: [
     require("@savvywombat/tailwindcss-grid-areas"),
+    require("daisyui"),
+    require("@tailwindcss/forms"),
     require("@tailwindcss/typography"),
     require("tailwind-scrollbar"),
-    require("daisyui"),
   ],
 } satisfies Config;
