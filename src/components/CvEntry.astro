@@ -5,7 +5,7 @@ interface Props {
   endDate?: string;
   employer: string;
   location: string;
-  eventType?: "single" | "repeated";
+  isSingle?: boolean;
 }
 
 const {
@@ -14,7 +14,7 @@ const {
   endDate = "Present",
   employer,
   location,
-  eventType,
+  isSingle = false,
 } = Astro.props;
 ---
 
@@ -29,22 +29,20 @@ const {
         >{title}</span
       >
 
-      {
-        eventType === "single" ? (
-          <span class="hidden lg:inline lg:ml-auto dark:text-neutral-300 text-neutral-600">
-            {new Date(startDate).getFullYear()}
-          </span>
-        ) : (
-          <span class="hidden lg:inline lg:ml-auto dark:text-neutral-300 text-neutral-600">
-            {new Date(startDate).getFullYear()} &mdash;{" "}
-            {endDate != "Present" ? new Date(endDate).getFullYear() : endDate}
-          </span>
-        )
-      }
+      <span
+        class="hidden lg:inline lg:ml-auto dark:text-neutral-300 text-neutral-600">
+        {
+          isSingle === true
+            ? new Date(startDate).getFullYear()
+            : new Date(startDate).getFullYear()
+        } &mdash; {
+          endDate != "Present" ? new Date(endDate).getFullYear() : endDate
+        }
+      </span>
     </summary>
     <p class="block lg:hidden dark:text-neutral-300 text-neutral-600">
       {
-        eventType === "single"
+        isSingle === true
           ? new Date(startDate).getFullYear()
           : new Date(startDate).getFullYear()
       } &mdash; {
