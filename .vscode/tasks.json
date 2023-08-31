@@ -1,5 +1,10 @@
 {
   "version": "2.0.0",
+  "options": {
+    "shell": {
+      "args": ["-i", "-c"]
+    }
+  },
   "tasks": [
     {
       "type": "npm",
@@ -55,6 +60,19 @@
           "args": ["-i", "-c"]
         }
       }
+    },
+    {
+      "type": "npm",
+      "script": "update",
+      "problemMatcher": [],
+      "label": "npm: update packages",
+      "detail": "npm run update",
+      "options": {
+        "shell": {
+          "args": ["-i", "-c"]
+        }
+      },
+      "isBackground": true
     }
   ]
 }
