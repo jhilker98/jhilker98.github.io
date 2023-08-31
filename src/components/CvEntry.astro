@@ -32,11 +32,13 @@ const {
         </h3>
         <span class="ml-auto dark:text-neutral-300 text-neutral-600">
           {
-            isSingle === true
-              ? new Date(startDate).getFullYear()
+            isSingle === false
+              ? `${new Date(startDate).getFullYear()} — ${
+                  endDate != "Present"
+                    ? new Date(endDate).getFullYear()
+                    : endDate
+                }`
               : new Date(startDate).getFullYear()
-          } &mdash; {
-            endDate != "Present" ? new Date(endDate).getFullYear() : endDate
           }
         </span>
       </div>
