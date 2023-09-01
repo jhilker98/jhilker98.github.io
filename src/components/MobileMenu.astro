@@ -1,5 +1,8 @@
 ---
 import { NAV_LINKS } from "@consts";
+import { isNavLinkActive } from "@lib/utils";
+const pathname = new URL(Astro.request.url).pathname;
+const currentPath = pathname.slice(1);
 ---
 
 <nav
@@ -12,10 +15,16 @@ import { NAV_LINKS } from "@consts";
   x-transition:leave="transition linear duration-200"
   x-transition:leave-end="opacity-0 transform -translate-y-2">
   {
-    NAV_LINKS.map((link) => (
-      <a href={link.href} class:list={["block", "px-4", "py-2", "text-sm"]}>
-        {link.name}
-      </a>
-    ))
+    NAV_LINKS.map((link) => {
+      if (!link.children) {
+        return (
+          <a
+            href={link.href}
+            class="block px-4 py-2 text-sm hover:text-branding-blue-600 dark:hover:text-branding-blue-400 dark:text-branding-white transition-colors duration-75">
+            {link.name}
+          </a>
+        );
+      }
+    })
   }
 </nav>
