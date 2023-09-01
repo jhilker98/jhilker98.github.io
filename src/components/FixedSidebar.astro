@@ -1,5 +1,6 @@
 ---
-import { SITE_META, SocialLink } from "@consts";
+import { SITE_META } from "@consts";
+import type { SocialLink } from "@consts";
 import { Icon } from "astro-icon";
 import { Image } from "astro:assets";
 ---
@@ -7,7 +8,7 @@ import { Image } from "astro:assets";
 <aside
   class="hidden lg:block daisy-drawer lg:daisy-drawer-open bg-branding-navy text-white grid-in-sidebar">
   <div class="daisy-drawer-content flex flex-col items-center">
-    <h2 class="p-2 font-semibold uppercase">Jacob's Website</h2>
+    <h2 class="p-2 font-semibold uppercase">{SITE_META.title}</h2>
     <div class="daisy-drawer-content">
       <div
         class="mt-3 rounded-full bg-branding-gray-400 w-40 h-40 overflow-hidden mx-auto">
@@ -20,7 +21,7 @@ import { Image } from "astro:assets";
       </div>
       <p class="p-2 mx-auto mt-2 text-sm text-center text-branding-white/80">
         {SITE_META.tagline}
-        {SITE_META.availableForHire ? "Currently available for hire." : ""}
+        {SITE_META.availableForHire ? " Currently available for hire." : ""}
       </p>
       {
         SITE_META.socialLinks && SITE_META.socialLinks.length > 0 && (
