@@ -1,3 +1,5 @@
+import { z } from "astro/zod";
+
 type Link = {
   name: string;
   href: string;
