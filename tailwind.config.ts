@@ -84,6 +84,7 @@ export default {
             "900": "#2a180e",
           },
           blue: {
+            DEFAULT: "#216dca",
             "50": "#f5f9fa",
             "100": "#dff1fc",
             "200": "#badef9",
