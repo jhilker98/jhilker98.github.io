@@ -8,7 +8,7 @@ const currentPath = pathname.slice(1); // remove the first "/"
 ---
 
 <header
-  class="z-10 items-center grid-in-header bg-secondary"
+  class="z-10 items-center grid-in-header bg-branding-gray dark:bg-branding-neutral-800"
   x-data="{mobileOpen: false}">
   <div class="flex h-[52px] 2xl:h-[62px]">
     <button
@@ -29,6 +29,7 @@ const currentPath = pathname.slice(1); // remove the first "/"
                 class:list={[
                   "bg-transparent",
                   "text-branding-black",
+                  "dark:text-branding-white",
                   "h-full",
                   "p-3",
                   "duration-150",
@@ -38,7 +39,7 @@ const currentPath = pathname.slice(1); // remove the first "/"
                   "transition-all",
                   `${
                     isNavLinkActive(url, currentPath.split("/")[0])
-                      ? "border-b-2 border-branding-navy"
+                      ? "border-b-2 border-branding-navy dark:border-branding-navy-500"
                       : ""
                   }`,
                 ]}>
@@ -52,9 +53,16 @@ const currentPath = pathname.slice(1); // remove the first "/"
 
     <div class="flex items-center h-full my-auto space-x-4 ml-auto">
       <button
-        class="h-full p-3 hover:bg-gray-400"
+        class="h-full p-3 duration-75 hover:backdrop-brightness-75 inline-flex place-items-center dark:hover:backdrop-brightness-125"
         @click="darkMode = !darkMode">
-        <Icon name="heroicons:sun-solid" class="h-5 w-5 fill-black" />
+        <Icon
+          name="heroicons:sun-solid"
+          class="text-branding-white hidden dark:inline-block w-5 h-5"
+        />
+        <Icon
+          name="heroicons:moon-solid"
+          class="text-branding-black dark:hidden inline-block w-5 h-5"
+        />
       </button>
     </div>
     <!-- TODO: Add Mobile Menu -->
