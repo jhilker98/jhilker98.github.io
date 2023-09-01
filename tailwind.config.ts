@@ -186,9 +186,6 @@ export default {
       },
     ],
   },
-  variants: {
-    fill: ["hover", "focus"], // this line does the trick
-  },
 
   plugins: [
     require("@savvywombat/tailwindcss-grid-areas"),
