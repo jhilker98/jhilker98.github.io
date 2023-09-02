@@ -1,5 +1,6 @@
 ---
-import MobileMenu from "./MobileMenu.astro";
+import MobileMenu from "@components/MobileMenu.astro";
+import NavLink from "@components/NavLink.astro";
 import { NAV_LINKS } from "@consts";
 import { isNavLinkActive } from "@lib/utils";
 import type { Link } from "@consts";
@@ -57,28 +58,8 @@ const currentPath = pathname.slice(1); // remove the first "/"
             } else {
               let url = link.href.split("/")[1];
               return (
-              <a
-                href={link.href}
-                class:list={[
-                  "bg-transparent",
-                  "text-branding-black",
-                  "dark:text-branding-white",
-                  "h-full",
-                  "p-3",
-                  "duration-150",
-                  "border-0",
-                  "font-sans",
-                  "hover:backdrop-brightness-75",
-                  "transition-all",
-                  `${
-                    isNavLinkActive(url, currentPath.split("/")[0])
-                      ? "border-b-2 border-branding-navy dark:border-branding-navy-500"
-                      : ""
-                  }`,
-                ]}>
-                {link.name}
-              </a>
-            );
+              <NavLink name={link.name} href={link.href} active={isNavLinkActive(url, currentPath.split("/")[0])}/>
+              );
             }
           })
         }
