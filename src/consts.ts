@@ -1,15 +1,19 @@
-type Link = {
+interface LinkProps {
   name: string;
+  children?: undefined;
   href: string;
-};
-
-interface NavLink extends Link {
-  children?: Link[];
+}
+interface ContainerProps {
+  name: string;
+  children: LinkProps[];
+  href?: undefined;
 }
 
-export interface SocialLink extends Link {
+export type Link = LinkProps | ContainerProps;
+
+export type SocialLink = Link & {
   icon: string;
-}
+};
 
 interface SiteConfig {
   title: string;
@@ -20,10 +24,10 @@ interface SiteConfig {
   socialLinks?: SocialLink[];
 }
 
-export const NAV_LINKS: NavLink[] = [
+export const NAV_LINKS: Link[] = [
   { href: "/", name: "Home" },
   { href: "/resume/", name: "Resumé" },
-  { href: "/blog/", name: "Blog" },
+  { name: "Blog", children: [{ href: "/blog/", name: "Recent Posts" }] },
 ];
 
 const SOCIAL_LINKS: SocialLink[] = [
