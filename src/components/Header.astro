@@ -1,6 +1,7 @@
 ---
 import MobileMenu from "@components/MobileMenu.astro";
 import NavLink from "@components/NavLink.astro";
+import DropDown from "@components/DropDown.astro";
 import { NAV_LINKS } from "@consts";
 import { isNavLinkActive } from "@lib/utils";
 import type { Link } from "@consts";
@@ -25,40 +26,20 @@ const currentPath = pathname.slice(1); // remove the first "/"
             if (link.children) {
               let url = link.children[0].href.split("/")[1];
               return (
-                <li
-                  class="relative inline-block h-full items-center p-3 hover:backdrop-brightness-75 text-branding-black dark:text-branding-white"
-                  class:list={[`${
-                    isNavLinkActive(url, currentPath.split("/")[0])
-                      ? "border-b-2 border-branding-navy dark:border-branding-navy-500"
-                      : ""
-                  }`]}
-                  x-data="{ open: false }">
-                  <button
-                    @click="open = !open"
-                    class="inline-flex items-center">
-                    {link.name}
-                    <Icon name="heroicons:chevron-right-20-solid" class="h-5 w-5 transition-transform duration-200 mt-0.5" :class="{'rotate-90': open === true}"/>
-                  </button>
-                  <nav
-                    class="absolute mt-2 bg-gray-200 rounded shadow-xl l-0 dark:bg-gray-800 w-36 duration-75 hover:backdrop-brightness-75 text-branding-black dark:text-branding-white"
-                    x-show="open"
-                    x-transition:enter="transition-transform transition-opacity ease-out duration-200"
-                    x-transition:enter-start="opacity-0 transform -translate-y-2"
-                    x-transition:enter-end="opacity-100 transform translate-y-0"
-                    x-transition:leave="transition ease-in-out duration-200"
-                    x-transition:leave-end="opacity-0 transform -translate-y-3">
-                    {link.children.map((child: Link) => (
-                      <a href={child.href} class="block px-2 py-1">
-                        {child.name}
-                      </a>
-                    ))}
-                  </nav>
-                </li>
-              )
+                <DropDown
+                  name={link.name}
+                  active={isNavLinkActive(url, currentPath.split("/")[0])}
+                  children={link.children}
+                />
+              );
             } else {
               let url = link.href.split("/")[1];
               return (
-              <NavLink name={link.name} href={link.href} active={isNavLinkActive(url, currentPath.split("/")[0])}/>
+                <NavLink
+                  name={link.name}
+                  href={link.href}
+                  active={isNavLinkActive(url, currentPath.split("/")[0])}
+                />
               );
             }
           })

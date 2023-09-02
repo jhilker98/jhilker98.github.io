@@ -1,0 +1,54 @@
+---
+import type { Link } from "@consts";
+interface Props {
+  name: string;
+  active?: boolean;
+  children: Link[];
+}
+
+const { name, active = false, children } = Astro.props;
+import { Icon } from "astro-icon";
+---
+
+<li
+  class:list={[
+    "relative",
+    "inline-block",
+    "h-full",
+    "items-center",
+    "p-3",
+    "hover:backdrop-brightness-75",
+    "text-branding-black",
+    "dark:text-branding-white",
+    { "border-b-2 border-branding-navy dark:border-branding-navy-500": active },
+  ]}
+  x-data="{ open: false }">
+  <button @click="open = !open" class="inline-flex items-center">
+    {name}
+    <Icon
+      name="heroicons:chevron-right-20-solid"
+      class="h-5 w-5 transition-transform duration-200 mt-0.5"
+      :class="{'rotate-90': open === true}"
+    />
+  </button>
+  <nav
+    class="absolute mt-2 bg-gray-200 rounded shadow-xl l-0 dark:bg-gray-800 w-36 duration-75 hover:backdrop-brightness-75 text-branding-black dark:text-branding-white"
+    x-show="open"
+    x-transition:enter="transition-transform transition-opacity ease-out duration-200"
+    x-transition:enter-start="opacity-0 transform -translate-y-2"
+    x-transition:enter-end="opacity-100 transform translate-y-0"
+    x-transition:leave="transition ease-in-out duration-200"
+    x-transition:leave-end="opacity-0 transform -translate-y-3">
+    <ul>
+      {
+        children.map((child: Link) => (
+          <a
+            href={child.href}
+            class="block px-2 py-1 hover:text-branding-navy dark:hover:text-branding-navy-500 transition-colors duration-75">
+            {child.name}
+          </a>
+        ))
+      }
+    </ul>
+  </nav>
+</li>
