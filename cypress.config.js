@@ -5,7 +5,7 @@ import { lighthouse, prepareAudit } from "@cypress-audit/lighthouse";
 export default defineConfig({
   e2e: {
     supportFile: false,
-    baseUrl: "http://localhost:3000/",
+    baseUrl: "http://localhost:4321/",
     setupNodeEvents(on, config) { // eslint-disable-line
 
 
