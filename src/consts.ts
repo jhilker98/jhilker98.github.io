@@ -48,3 +48,5 @@ export const SITE_META: SiteConfig = {
     "A front-end developer, who enjoys using Emacs, Hugo, Python, and Tailwind.",
   socialLinks: SOCIAL_LINKS,
 };
+
+export const RECENT_POST_COUNT: number = 5;
