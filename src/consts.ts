@@ -1,4 +1,4 @@
-import type { Link, SocialLink, SiteConfig } from "@types;";
+import type { Link, SocialLink, SiteConfig } from "@types";
 
 export const NAV_LINKS: Link[] = [
   { href: "/", name: "Home" },
