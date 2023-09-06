@@ -1,28 +1,4 @@
-interface LinkProps {
-  name: string;
-  children?: undefined;
-  href: string;
-}
-interface ContainerProps {
-  name: string;
-  children: LinkProps[];
-  href?: undefined;
-}
-
-export type Link = LinkProps | ContainerProps;
-
-export type SocialLink = Link & {
-  icon: string;
-};
-
-interface SiteConfig {
-  title: string;
-  description: string;
-  author: string;
-  availableForHire: boolean;
-  tagline: string;
-  socialLinks?: SocialLink[];
-}
+import type { Link, SocialLink, SiteConfig } from "@types;";
 
 export const NAV_LINKS: Link[] = [
   { href: "/", name: "Home" },
