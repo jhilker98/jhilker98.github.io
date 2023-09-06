@@ -1,6 +1,6 @@
 import { z, defineCollection } from "astro:content";
 
-const blogCollection = defineCollection({
+const blogSchema = defineCollection({
   type: "content",
   schema: z.object({
     title: z.string({ required_error: "A title is required for a blog post." }),
@@ -35,7 +35,9 @@ const blogCollection = defineCollection({
   }),
 });
 
-const projectCollection = defineCollection({
+export type BlogPost = z.infer<typeof blogSchema>;
+
+const projectSchema = defineCollection({
   type: "content",
   schema: z.object({
     title: z.string({ required_error: "A title is required for a project." }),
@@ -46,6 +48,6 @@ const projectCollection = defineCollection({
 });
 
 export const collections = {
-  blog: blogCollection,
-  projects: projectCollection,
+  blog: blogSchema,
+  projects: projectSchema,
 };
