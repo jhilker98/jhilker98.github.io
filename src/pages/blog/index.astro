@@ -26,7 +26,6 @@ posts.sort(
       <div class="divide-y-2 divide-gray-500">
         {
           posts
-            .slice(0, RECENT_POST_COUNT)
             .map((post) => <PostInfo post={post} wordCount={50} />)
         }
       </div>
