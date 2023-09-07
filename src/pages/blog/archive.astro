@@ -1,0 +1,15 @@
+---
+import { type CollectionEntry, getCollection } from "astro:content";
+const allPosts: CollectionEntry<"blog">[] = await getCollection("blog");
+allPosts.sort(
+  (a, b) => b.data.pubDate.getFullYear() - a.data.pubDate.getFullYear(),
+);
+
+const posts = allPosts.reduce((x, y) => {
+  (x[new Date(y.data.pubDate).getFullYear()] = // eslint-disable
+    x[new Date(y.data.pubDate).getFullYear()] || []).push(y); // eslint-disable
+
+  return x;
+}, {});
+import BaseLayout from "@layouts/BaseLayout.astro";
+---
