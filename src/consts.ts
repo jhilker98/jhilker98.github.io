@@ -3,7 +3,13 @@ import type { Link, SocialLink, SiteConfig } from "@types";
 export const NAV_LINKS: Link[] = [
   { href: "/", name: "Home" },
   { href: "/resume/", name: "Resumé" },
-  { href: "/blog/", name: "Blog" },
+  {
+    name: "Blog",
+    children: [
+      { name: "Recent Posts", href: "/blog/" },
+      { name: "Blog Archive", href: "/blog/archive/" },
+    ],
+  },
 ];
 
 const SOCIAL_LINKS: SocialLink[] = [
