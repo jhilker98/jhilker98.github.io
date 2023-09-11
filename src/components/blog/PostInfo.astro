@@ -29,15 +29,6 @@ const postBody = marked.parse(body, { mangle: false, headerIds: false });
       class="font-semibold text-sm text-gray-700 dark:text-gray-400"
       >{formatPostDate(post.data.pubDate)}</time
     >
-    {
-      post.data.draft ? (
-        <div class="block bg-branding-navy text-white daisy-badge mt-2">
-          Draft
-        </div>
-      ) : (
-        ""
-      )
-    }
 
     <span
       class="block mt-1 text-branding-gray-600 dark:text-branding-gray-400 text-sm font-semibold">
