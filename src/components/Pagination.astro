@@ -13,7 +13,7 @@ const { prevUrl, nextUrl } = Astro.props;
       <a
         href={prevUrl}
         class="align-baseline p-2 bg-branding-navy text-white uppercase rounded justify-start mr-auto ml-0">
-        <Icon name="heroicons:backward-20-solid" class="inline w-5 h-5" />
+        <Icon name="heroicons:backward-20-solid" class="inline w-5 h-5 mb-1" />
         Previous
       </a>
     )
@@ -24,8 +24,8 @@ const { prevUrl, nextUrl } = Astro.props;
       <a
         href={nextUrl}
         class="align-baseline p-2 bg-branding-navy text-white uppercase rounded justify-end ml-auto mr-0">
-        <Icon name="heroicons:forward-20-solid" class="inline w-5 h-5" />
         Next
+        <Icon name="heroicons:forward-20-solid" class="inline w-5 h-5 mb-1" />
       </a>
     )
   }

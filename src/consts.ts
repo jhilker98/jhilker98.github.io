@@ -5,10 +5,7 @@ export const NAV_LINKS: Link[] = [
   { href: "/resume/", name: "Resumé" },
   {
     name: "Blog",
-    children: [
-      { name: "Recent Posts", href: "/blog/" },
-      { name: "Blog Archive", href: "/blog/archive/" },
-    ],
+    href: "/blog/"
   },
 ];
 
