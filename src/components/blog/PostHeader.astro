@@ -6,14 +6,11 @@ interface Props {
   tags?: string[];
 }
 
-import { formatPostDate } from "@lib/utils";
+import { formatPostDate, hashtagPostTags, slugifyUrl } from "@lib/utils";
 import { Icon } from "astro-icon";
-const formatter = new Intl.ListFormat("en", {
-  style: "long",
-  type: "conjunction",
-});
+
 const { title, pubDate, lastModDate = pubDate, tags = [] } = Astro.props;
-const postTags = formatter.format(tags);
+const postTags = hashtagPostTags(tags);
 ---
 
 <header class="align-baseline">
@@ -34,4 +31,23 @@ const postTags = formatter.format(tags);
       ""
     )
   }
+
+  <div class="block">
+    <Icon name="heroicons:tag-20-solid" class="h-5 w-5 mr-1 inline mb-1" />
+    <strong class="mr-1">Tags:</strong>
+    {
+      postTags.map((tag, index) => {
+        if (tags[index + 1] !== undefined) {
+          return (
+            <a href={`/blog/tags/${slugifyUrl(tags[index])}`}>{`${tag}`}</a><span>&nbsp;&nbsp;</span>
+
+          ) 
+        } else {
+          return (
+            <a href={`/blog/tags/${slugifyUrl(tags[index])}`}>{`${tag}`}</a>
+          )
+        }
+      })
+    }
+  </div>
 </header>

@@ -25,6 +25,25 @@ export function slugifyPostDate(d: Date) {
   return `${f.year.format(d)}/${f.month.format(d)}`;
 }
 
+export function hashtagPostTags(originalTags: string[]) {
+  const tags: string[] = [];
+  for (const tag of originalTags) {
+    tags.push(`#${tag}`);
+  }
+  return tags;
+}
+
+export function slugifyUrl(text: string) {
+  return text
+    .toString()
+    .toLowerCase()
+    .replace(/\s+/g, "-")
+    .replace(/[^\w-]+/g, "")
+    .replace(/--+/g, "-")
+    .replace(/^-+/, "")
+    .replace(/-+$/, "");
+}
+
 import getReadingTime from "reading-time";
 
 // eslint-disable-next-line @typescript-eslint/no-explicit-any
