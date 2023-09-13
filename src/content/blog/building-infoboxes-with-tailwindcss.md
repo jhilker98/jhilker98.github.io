@@ -3,7 +3,9 @@ title: "Building Infoboxes with TailwindCSS"
 author: ["Jacob Hilker"]
 pubDate: 2021-11-21T12:31:00-05:00
 slug: "building-infoboxes-with-tailwindcss"
-tags: ["TailwindCSS"]
+tags: 
+ - "TailwindCSS"
+ - "Webdev"
 categories: ["WebDev"]
 draft: true
 featured: false

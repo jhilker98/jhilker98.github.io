@@ -3,8 +3,10 @@ title: "Avoiding Tailwind's CDN Limitations"
 pubDate: 2021-10-25T00:00:00-04:00
 slug: "avoiding-tailwinds-cdn-limitations"
 description: "Tailwind's CDN is limited compared to a normal installation. Here's how I work around those limitations."
-tags: ["TailwindCSS"]
-categories: ["TailwindCSS"]
+tags: 
+ - "TailwindCSS"
+categories: 
+ - "TailwindCSS"
 draft: true
 featured: false
 enableToc: false
