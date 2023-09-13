@@ -2,13 +2,24 @@
 import BaseLayout from "@layouts/BaseLayout.astro";
 import PostHeader from "@components/blog/PostHeader.astro";
 const { frontmatter } = Astro.props;
-const { title, pubDate, lastModDate = pubDate, description } = frontmatter;
+const {
+  title,
+  pubDate,
+  lastModDate = pubDate,
+  description,
+  tags,
+} = frontmatter;
 ---
 
 <BaseLayout title={title} description={description}>
   <article
     class="p-2 prose mx-auto max-w-[80ch] prose-headings:font-serif prose-neutral dark:prose-invert">
-    <PostHeader title={title} pubDate={pubDate} lastModDate={lastModDate} />
+    <PostHeader
+      title={title}
+      pubDate={pubDate}
+      lastModDate={lastModDate}
+      tags={tags}
+    />
     <slot />
   </article>
 </BaseLayout>

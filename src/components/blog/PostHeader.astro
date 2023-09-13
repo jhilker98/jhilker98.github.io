@@ -3,11 +3,17 @@ interface Props {
   title: string;
   pubDate: Date;
   lastModDate?: Date;
+  tags?: string[];
 }
 
 import { formatPostDate } from "@lib/utils";
 import { Icon } from "astro-icon";
-const { title, pubDate, lastModDate = pubDate } = Astro.props;
+const formatter = new Intl.ListFormat("en", {
+  style: "long",
+  type: "conjunction",
+});
+const { title, pubDate, lastModDate = pubDate, tags = [] } = Astro.props;
+const postTags = formatter.format(tags);
 ---
 
 <header class="align-baseline">

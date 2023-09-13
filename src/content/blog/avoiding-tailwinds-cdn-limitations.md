@@ -5,6 +5,8 @@ slug: "avoiding-tailwinds-cdn-limitations"
 description: "Tailwind's CDN is limited compared to a normal installation. Here's how I work around those limitations."
 tags: 
  - "TailwindCSS"
+ - "Frontend"
+ - "Webdev"
 categories: 
  - "TailwindCSS"
 draft: true
