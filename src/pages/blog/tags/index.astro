@@ -1,0 +1,20 @@
+---
+import BaseLayout from "@layouts/BaseLayout.astro";
+import { getCollection, type CollectionEntry } from "astro:content";
+const posts: CollectionEntry<"blog">[] = await getCollection("blog");
+const tags = [...new Set(posts.map((post) => post.data.tags).flat())].filter(
+  function (tag) {
+    return tag !== undefined;
+  },
+);
+//console.log(tags);
+---
+
+<BaseLayout title="Tags" description="All the tags listed on the blog.">
+  <div class="p-2 prose prose-neutral dark:prose-invert">
+    <h2>Tags</h2>
+    <ul>
+      {tags.map((tag) => <li>{tag}</li>)}
+    </ul>
+  </div>
+</BaseLayout>
