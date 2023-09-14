@@ -1,31 +1,46 @@
 ---
 //import { type BlogPost } from "@content/config.ts";
 import BaseLayout from "@layouts/BaseLayout.astro";
+import PostInfo from "@components/blog/PostInfo.astro";
+
 //import { type GetStaticPaths } from "astro";
 import { getCollection } from "astro:content";
 import { slugifyUrl } from "@lib/utils";
 
-const { tag } = Astro.params;
-
-export async function getStaticPaths() {
+export async function getStaticPaths({ paginate }) {
   const allPosts = await getCollection("blog");
   const uniqueTags = [
     ...new Set(allPosts.map((post) => post.data?.tags).flat()),
   ].filter((tag) => tag !== undefined);
 
-  return uniqueTags.map((tag) => {
+  return uniqueTags.flatMap((tag) => {
     const filteredPosts = allPosts.filter((post) =>
       post.data.tags?.includes(tag!),
     );
-    return {
+    return paginate(filteredPosts, {
       params: { tag },
-      props: { posts: filteredPosts },
-    };
+      pageSize: 4,
+    });
   });
 }
+import Pagination from "@components/Pagination.astro";
+
+const { tag } = Astro.params;
+const { page } = Astro.props;
 ---
 
 <BaseLayout
   title={`Posts tagged ${tag}`}
-  description={`All blog posts tagged with ${tag}`}
-/>
+  description={`All blog posts tagged with ${tag}`}>
+  <article class="p-2 prose prose-neutral dark:prose-invert prose-h1:mb-4">
+    <h1>{`Posts Tagged #${tag}`}</h1>
+  </article>
+  <section class="min-h-screen text-gray-600">
+    <div class="container mx-auto px-5 h-screen">
+      <div class="divide-y-2 divide-gray-500">
+        {page.data.map((post) => <PostInfo post={post} wordCount={35} />)}
+      </div>
+      <Pagination prevUrl={page.url.prev} nextUrl={page.url.next} />
+    </div>
+  </section>
+</BaseLayout>
