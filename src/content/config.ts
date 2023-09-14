@@ -1,4 +1,4 @@
-import { z, defineCollection } from "astro:content";
+import { z, defineCollection, type CollectionEntry } from "astro:content";
 
 const blogSchema = defineCollection({
   type: "content",
@@ -35,7 +35,9 @@ const blogSchema = defineCollection({
   }),
 });
 
-//export type BlogPost = z.infer<typeof blogSchema>;
+export type BlogPost = CollectionEntry<"blog">;
+
+//export type BlogPost = CollectionEntry<"blog">;
 
 const projectSchema = defineCollection({
   type: "content",
