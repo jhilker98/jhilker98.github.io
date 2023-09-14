@@ -7,6 +7,7 @@ draft: true
 featured: true
 enableToc: false
 description: "Ever wanted to build a site using only org-mode and nothing else? Here's how to start."
+tags: []
 ---
 
 While I love Hugo as a static site generator, I realize that some people might not want to have any Markdown artifacts. Luckily, Emacs allows us to build static websites with org-mode's built in publishing system, `ox-publish`.
