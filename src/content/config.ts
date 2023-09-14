@@ -35,6 +35,8 @@ const blogSchema = defineCollection({
   }),
 });
 
+export type BlogPost = z.infer<typeof blogSchema>;
+
 const projectSchema = defineCollection({
   type: "content",
   schema: z.object({
