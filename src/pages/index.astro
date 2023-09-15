@@ -8,8 +8,10 @@ import { Image } from "astro:assets";
 ---
 
 <BaseLayout title="Home" description={SITE_META.description}>
-  <section class="min-h-screen daisy-hero">
-    <div class="daisy-hero-content flex-col lg:flex-row-reverse">
+  <section
+    class="min-h-screen grid place-items-center [&>*]:col-start-1 [&>*]:row-start-1 bg-cover bg-center">
+    <div
+      class="z-0 flex flex-col lg:flex-row-reverse items-center justify-center">
       <Image
         src={Hero}
         format="webp"
@@ -43,11 +45,11 @@ import { Image } from "astro:assets";
         <div class="space-x-3">
           <a
             href="mailto:jacob.hilker2@gmail.com"
-            class="daisy-btn bg-branding-navy hover:bg-branding-navy-800 dark:hover:bg-branding-navy-500 ease-out text-white p-2 transition duration-200 font-bold h-12 uppercase focus:outline-offset-[3px] focus:outline-branding-navy focus:outline focus:dark:hover:outline-branding-navy-500"
+            class="bg-branding-navy hover:bg-branding-navy-800 dark:hover:bg-branding-navy-500 ease-out text-white p-2 transition duration-200 font-bold h-12 uppercase focus:outline-offset-[3px] focus:outline-branding-navy focus:outline focus:dark:hover:outline-branding-navy-500"
             >Reach Out</a
           >
           <!-- <button -->
-          <!-- class="daisy-btn bg-branding-brown hover:bg-branding-brown-600 ease-out text-white uppercase font-bold h-12 p-2 dark:hover:bg-branding-brown-400 duration-200 transition" -->
+          <!-- class="bg-branding-brown hover:bg-branding-brown-600 ease-out text-white uppercase font-bold h-12 p-2 dark:hover:bg-branding-brown-400 duration-200 transition" -->
           <!-- type="button" -->
           <!-- @click="$refs.about.scrollIntoView()">About Me</button -->
           <!-- > -->
