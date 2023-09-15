@@ -5,50 +5,6 @@ things to add:
  - type: "button" | "submit" | "link"
  */
 import type { HTMLAttributes } from "astro/types";
-import { cva, type VariantProps } from "class-variance-authority";
-
-const button = cva(
-  [
-    "cursor-pointer",
-    "transition",
-    "duration-200",
-    "motion-reduce:duration-0",
-    "font-bold",
-    "disabled:cursor-not-allowed",
-    "focus:outline-offset-3",
-    "focus:outline",
-    "ease-out",
-    "text-white",
-    "rounded-sm",
-  ],
-  {
-    variants: {
-      theme: {
-        primary: [
-          "bg-branding-navy",
-          "hover:bg-branding-navy-800",
-          "dark:hover:bg-branding-navy-400",
-          "disabled:text-branding-navy-200",
-        ],
-        secondary: [
-          "bg-branding-brown",
-          "hover:bg-branding-brown-600",
-          "disabled:text-branding-brown-50/95",
-        ],
-      },
-      size: {
-        small: ["text-sm", "py-1", "px-2"],
-        medium: ["text-base", "py-2", "px-4"],
-        large: ["text-lg", "py-3", "px-6"],
-      },
-      textCase: {
-        upper: ["uppercase"],
-        lower: ["lowercase"],
-      },
-    },
-  },
-);
-
 interface Props extends HTMLAttributes<"button"> {
   theme?: "primary" | "secondary";
   size?: "small" | "medium" | "large";
@@ -59,16 +15,36 @@ const {
   type = "button",
   theme = "primary",
   size = "medium",
-  textCase = "upper",
-  disabled = false,
   ...rest
 } = Astro.props;
 ---
 
 <button
   {type}
-  class:list={button({ theme, size, textCase })}
-  {disabled}
+  class:list={[
+    "cursor-pointer",
+    "transition",
+    "duration-200",
+    "motion-reduce:duration-0",
+    "font-bold",
+    "disabled:cursor-not-allowed",
+    "focus:outline-offset-3",
+    "focus:outline",
+    "ease-out",
+    "text-white",
+    "uppercase",
+    {
+      "bg-branding-navy hover:bg-branding-navy-800 dark:hover:bg-branding-navy-400 disabled:text-branding-navy-200 focus:outline-branding-navy focus:dark:hover:outline-branding-navy-500":
+        theme === "primary",
+    },
+    {
+      "bg-branding-brown hover:bg-branding-brown-600 disabled:text-branding-brown-50/95":
+        theme === "secondary",
+    },
+    { "text-sm py-1 px-2 rounded-sm": size === "small" },
+    { "text-base py-2 px-4 rounded": size === "medium" },
+    { "text-lg py-3 px-6 rounded-lg": size === "large" },
+  ]}
   {...rest}>
   <slot />
 </button>
