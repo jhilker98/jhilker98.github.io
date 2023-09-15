@@ -2,6 +2,7 @@
 /* eslint astro/prefer-class-list-directive: "error" */
 
 import FixedSidebar from "@components/FixedSidebar.astro";
+import MobileSidebar from "@components/MobileSidebar.astro";
 import Header from "@components/Header.astro";
 import SiteSEO from "@components/SiteSEO.astro";
 import "@fontsource/ibm-plex-sans";
@@ -43,7 +44,9 @@ const { title, description } = Astro.props;
       localStorage.removeItem("theme");
     </script>
   </head>
-  <body class="min-h-screen bg-branding-white dark:bg-branding-black">
+  <body
+    class="min-h-screen bg-branding-white dark:bg-branding-black"
+    x-data="{'sidebarOpen': false}">
     <div
       class="h-screen grid grid-cols-layout grid-rows-layout grid-areas-mobile lg:grid-areas-desktop"
       data-role="site-container">
@@ -54,5 +57,6 @@ const { title, description } = Astro.props;
         <slot />
       </main>
     </div>
+    <MobileSidebar />
   </body>
 </html>
