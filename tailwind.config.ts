@@ -163,6 +163,9 @@ export default {
       animation: {
         slideIn: "slideIn 0.15s 0s 1 normal forwards",
       },
+      outlineOffset: {
+        3: "3px",
+      },
     },
   },
 
