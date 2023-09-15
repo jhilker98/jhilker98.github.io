@@ -15,13 +15,13 @@
   },
   "dependencies": {
     "@astrojs/alpinejs": "^0.3.0",
-    "@astrojs/mdx": "^1.0.3",
+    "@astrojs/mdx": "^1.1.0",
     "@astrojs/rss": "^3.0.0",
     "@astrojs/tailwind": "^5.0.0",
-    "@iconify/json": "^2.2.115",
+    "@iconify/json": "^2.2.116",
     "@types/alpinejs": "^3.13.0",
     "alpinejs": "^3.13.0",
-    "astro": "^3.0.13",
+    "astro": "^3.1.0",
     "tailwindcss": "^3.3.3"
   },
   "devDependencies": {
@@ -33,7 +33,7 @@
     "@tailwindcss/typography": "^0.5.10",
     "@types/marked": "^5.0.1",
     "@types/mocha": "^10.0.1",
-    "@types/node": "^20.6.0",
+    "@types/node": "^20.6.1",
     "@typescript-eslint/eslint-plugin": "^6.7.0",
     "@typescript-eslint/parser": "^6.7.0",
     "astro-icon": "https://gitpkg.now.sh/stramel/astro-icon/packages/core?main",
