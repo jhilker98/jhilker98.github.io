@@ -4,7 +4,7 @@ import NavLink from "@components/NavLink.astro";
 import DropDown from "@components/DropDown.astro";
 import { NAV_LINKS } from "@consts";
 import { isNavLinkActive } from "@lib/utils";
-import type { Link } from "@consts";
+import type { Link } from "@types";
 import { Icon } from "astro-icon";
 const pathname = new URL(Astro.request.url).pathname;
 const currentPath = pathname.slice(1); // remove the first "/"
