@@ -18,7 +18,8 @@ export async function getStaticPaths({ paginate }) {
       post.data.tags?.includes(tag!),
     );
     return paginate(filteredPosts, {
-      params: { tag },
+      params: { tag: slugifyUrl(tag) },
+      props: { tag, slug: slugifyUrl(tag) },
       pageSize: 4,
     });
   });
