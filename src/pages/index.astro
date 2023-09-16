@@ -5,7 +5,7 @@ import "@fontsource/ibm-plex-sans/700.css";
 import { SITE_META } from "@consts";
 import Hero from "@assets/Hero.jpeg";
 import { Image } from "astro:assets";
-//import Button from "@components/Button.astro";
+import Button from "@components/Button.astro";
 ---
 
 <BaseLayout title="Home" description={SITE_META.description}>
@@ -22,6 +22,13 @@ import { Image } from "astro:assets";
         alt="Myself leaning on a tree."
       />
       <div class="ml-4 lg:ml-0 text-center lg:text-justify">
+        <h1
+          class="text-5xl font-bold font-serif uppercase text-branding-black dark:text-branding-white">
+          Hi, I'm
+          <span class="text-branding-navy-600 dark:text-branding-navy-400"
+            >Jacob</span
+          >
+        </h1>
         <h2
           class="text-3xl font-bold my-4 lg:my-6 text-branding-text/90 dark:text-branding-white/90">
           Freelance Web Developer
@@ -36,13 +43,22 @@ import { Image } from "astro:assets";
               : ""
           }
         </p>
-        <div class="space-x-3"></div>
+        <div class="space-x-3">
+          <a
+            href="mailto:jacob.hilker2@gmail.com"
+            class="cursor-pointer transition duration-200 motion-reduce:duration-0 font-bold disabled:cursor-not-allowed focus:outline-offset-3 focus:outline ease-out text-white uppercase bg-branding-navy hover:bg-branding-navy-800 dark:hover:bg-branding-navy-400 disabled:text-branding-navy-200 focus:outline-branding-navy focus:dark:hover:outline-branding-navy-500 text-base py-2 px-4 rounded">
+            Reach Out
+          </a>
+          <Button theme="secondary" size="medium" type="button">
+            About Me
+          </Button>
+        </div>
       </div>
     </div>
-    <!-- <section class="min-h-screen" x-ref="about"> -->
-    <!-- <div class="prose ml-4 prose-neutral dark:prose-invert"> -->
-    <!-- <h2>Who Am I?</h2> -->
-    <!-- </div> -->
-    <!-- </section> -->
   </section>
+  <!-- <section class="min-h-screen" x-ref="about"> -->
+  <!-- <div class="prose ml-4 prose-neutral dark:prose-invert"> -->
+  <!-- <h2>Who Am I?</h2> -->
+  <!-- </div> -->
+  <!-- </section> -->
 </BaseLayout>
