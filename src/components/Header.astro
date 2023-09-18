@@ -15,9 +15,9 @@ const currentPath = pathname.slice(1); // remove the first "/"
   x-data="{mobileOpen: false}">
   <div class="flex h-[52px] 2xl:h-[62px]">
     <button
-      class="h-full p-3 hover:bg-blue-300 lg:hidden"
+      class="h-full p-3 hover:backdrop-brightness-75 dark:hover:backdrop-brightness-125 duration-150 lg:hidden text-branding-black dark:text-branding-white"
       x-on:click="mobileOpen = !mobileOpen">
-      <Icon name="heroicons:bars-3" class="h-5 w-5" />
+      <Icon name="heroicons:bars-3-20-solid" class="h-5 w-5" />
     </button>
     <nav class="h-full">
       <ul class="hidden lg:flex h-full items-center space-x-4">
@@ -64,7 +64,7 @@ const currentPath = pathname.slice(1); // remove the first "/"
         @click="sidebarOpen = !sidebarOpen">
         <Icon
           name="heroicons:bars-3-20-solid"
-          class="w-5 h-5 transition duration-150"
+          class="w-5 h-5 transition duration-150 text-branding-black dark:text-branding-white"
           :class="{'rotate-90': sidebarOpen === true}"
         />
       </button>
