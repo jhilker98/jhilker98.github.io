@@ -1,15 +1,17 @@
 ---
+import type { GetStaticPaths } from "astro";
 import BaseLayout from "@layouts/BaseLayout.astro";
 import PostInfo from "@components/blog/PostInfo.astro";
-import { getCollection } from "astro:content";
-import type { CollectionEntry } from "astro:content";
+import { getCollection, type CollectionEntry } from "astro:content";
 import Pagination from "@components/Pagination.astro";
+import { RECENT_POST_COUNT } from "@consts";
 
-export async function getStaticPaths({ paginate }) {
+export const getStaticPaths = (async ({ paginate }) => {
   const posts: CollectionEntry<"blog">[] = await getCollection("blog");
   posts.sort((a, b) => b.data.pubDate.getTime() - a.data.pubDate.getTime());
-  return paginate(posts, { pageSize: 4 });
-}
+  return paginate(posts, { pageSize: RECENT_POST_COUNT });
+}) satisfies GetStaticPaths;
+
 const { page } = Astro.props;
 ---
 
@@ -19,7 +21,7 @@ const { page } = Astro.props;
       <div class="divide-y-2 divide-gray-500">
         {page.data.map((post) => <PostInfo post={post} wordCount={35} />)}
       </div>
-      <Pagination prevUrl={page.url.prev} nextUrl={page.url.next}/>
+      <Pagination prevUrl={page.url.prev} nextUrl={page.url.next} />
     </div>
   </section>
 </BaseLayout>

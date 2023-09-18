@@ -5,7 +5,7 @@ export const NAV_LINKS: Link[] = [
   { href: "/resume/", name: "Resumé" },
   {
     name: "Blog",
-    href: "/blog/"
+    href: "/blog/",
   },
 ];
 
@@ -52,4 +52,4 @@ export const SITE_META: SiteConfig = {
   socialLinks: SOCIAL_LINKS,
 };
 
-export const RECENT_POST_COUNT: number = 5;
+export const RECENT_POST_COUNT: number = 4;
