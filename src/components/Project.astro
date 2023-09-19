@@ -1,8 +1,31 @@
 ---
 import { type CollectionEntry } from "astro:content";
+import "@fontsource/ibm-plex-sans/300.css";
 interface Props {
   project: CollectionEntry<"projects">;
 }
 
 const { project } = Astro.props;
 ---
+
+<article class="py-8 flex flex-wrap md:flex-nowrap">
+  <div class="md:w-72 md:mb-0 mb-6 flex-shrink-0 flex flex-col">
+    <span
+      class="font-semibold title-font uppercase text-branding-gray-700 dark:text-branding-gray-400"
+      >{project.data.category}</span
+    >
+    <span
+      class="mt-1 text-branding-gray-700 dark:text-branding-gray-400 text-sm font-light"
+      >{project.data.tools.join(" • ")}</span
+    >
+  </div>
+  <div class="md:flex-grow">
+    <h2
+      class="text-2xl font-medium font-serif mb-2 text-branding-black dark:text-branding-white">
+      {project.data.title}
+    </h2>
+    <div class="prose prose-neutral dark:prose-invert prose-p:leading-relaxed">
+      {project.data.description}
+    </div>
+  </div>
+</article>

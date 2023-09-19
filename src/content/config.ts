@@ -60,6 +60,10 @@ const projectSchema = defineCollection({
         invalid_type_error: "All tools are a list of strings.",
       }),
     ),
+    category: z.string({
+      required_error: "A project should always have a category.",
+      invalid_type_error: "A category should always be a string.",
+    }),
   }),
 });
 

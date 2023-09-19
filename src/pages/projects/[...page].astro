@@ -3,11 +3,23 @@ import type { GetStaticPaths } from "astro";
 import BaseLayout from "@layouts/BaseLayout.astro";
 import Pagination from "@components/Pagination.astro";
 import Project from "@components/Project.astro";
-import { getCollection, type CollectionEntry } from "astro:content";
+import { getCollection } from "astro:content";
+
 export const getStaticPaths = (async ({ paginate }) => {
   const projects = await getCollection("projects");
   return paginate(projects, { pageSize: 4 });
 }) satisfies GetStaticPaths;
+
+const { page } = Astro.props;
 ---
 
-<BaseLayout title="Portfolio" description="All my projects." />
+<BaseLayout title="Portfolio" description="All my projects.">
+  <section class="min-h-screen text-gray-600">
+    <div class="container mx-auto px-5 h-screen">
+      <div class="divide-y-2 divide-gray-500">
+        {page.data.map((project) => <Project project={project} />)}
+      </div>
+      <Pagination prevUrl={page.url.prev} nextUrl={page.url.next} />
+    </div>
+  </section>
+</BaseLayout>
