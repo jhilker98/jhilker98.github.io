@@ -43,9 +43,23 @@ const projectSchema = defineCollection({
   type: "content",
   schema: z.object({
     title: z.string({ required_error: "A title is required for a project." }),
-    description: z.string({
-      required_error: "A brief description for the project is required.",
-    }),
+    draft: z
+      .boolean({
+        invalid_type_error: "A project page is either a draft or it isn't.",
+      })
+      .default(true),
+    description: z
+      .string({
+        required_error: "A brief description for the project is required.",
+        invalid_type_error: "A description should always be a string.",
+      })
+      .max(120),
+    tools: z.array(
+      z.string({
+        required_error: "All projects must have a list of tools used.",
+        invalid_type_error: "All tools are a list of strings.",
+      }),
+    ),
   }),
 });
 
