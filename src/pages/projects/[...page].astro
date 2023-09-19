@@ -1,5 +1,13 @@
 ---
+import type { GetStaticPaths } from "astro";
 import BaseLayout from "@layouts/BaseLayout.astro";
+import Pagination from "@components/Pagination.astro";
+import Project from "@components/Project.astro";
+import { getCollection, type CollectionEntry } from "astro:content";
+export const getStaticPaths = (async ({ paginate }) => {
+  const projects = await getCollection("projects");
+  return paginate(projects, { pageSize: 4 });
+}) satisfies GetStaticPaths;
 ---
 
 <BaseLayout title="Portfolio" description="All my projects." />
