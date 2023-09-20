@@ -54,3 +54,4 @@ export const SITE_META: SiteConfig = {
 };
 
 export const RECENT_POST_COUNT: number = 4;
+export const FEATURED_PROJECT_COUNT: number = 3;
