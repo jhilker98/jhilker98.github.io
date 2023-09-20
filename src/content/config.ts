@@ -64,6 +64,11 @@ const projectSchema = defineCollection({
       required_error: "A project should always have a category.",
       invalid_type_error: "A category should always be a string.",
     }),
+    featured: z
+      .boolean({
+        invalid_type_error: "All projects are either featured or not.",
+      })
+      .default(false),
   }),
 });
 
