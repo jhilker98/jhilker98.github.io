@@ -3,13 +3,13 @@ import BaseLayout from "@layouts/BaseLayout.astro";
 import "@fontsource/ibm-plex-serif/700.css";
 import "@fontsource/ibm-plex-sans/700.css";
 import { SITE_META } from "@consts";
-import Hero from "@components/Hero.astro";
+import HeroSection from "@components/HeroSection.astro";
 ---
 
 <BaseLayout title="Home" description={SITE_META.description}>
   <section
     class="min-h-screen grid place-items-center bg-cover bg-center [&>*]:col-start-1 [&>*]:row-start-1">
-    <Hero />
+    <HeroSection />
   </section>
   <section class="min-h-screen" x-ref="about">About Me</section>
 </BaseLayout>
