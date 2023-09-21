@@ -32,6 +32,20 @@ const blogSchema = defineCollection({
         invalid_type_error: "A description should always be a string.",
       })
       .max(120),
+    coverImage: z
+      .object({
+        src: z.string({
+          invalid_type_error: "Pass the path to the cover image as a string.",
+          required_error:
+            "If you have a cover image you need to pass the path.",
+        }),
+        alt: z.string({
+          required_error:
+            "When passing a cover image, be sure to provide alternate text for accessability.",
+          invalid_type_error: "Alternate text must be provided as a string.",
+        }),
+      })
+      .optional(),
   }),
 });
 
