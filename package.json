@@ -18,10 +18,10 @@
     "@astrojs/mdx": "^1.1.0",
     "@astrojs/rss": "^3.0.0",
     "@astrojs/tailwind": "^5.0.0",
-    "@iconify/json": "^2.2.118",
+    "@iconify/json": "^2.2.119",
     "@types/alpinejs": "^3.13.1",
     "alpinejs": "^3.13.0",
-    "astro": "^3.1.1",
+    "astro": "^3.1.2",
     "tailwindcss": "^3.3.3"
   },
   "devDependencies": {
