@@ -1,15 +1,32 @@
 ---
 import BaseLayout from "@layouts/BaseLayout.astro";
+const { frontmatter } = Astro.props;
+const { languages, framelibs, techs } = frontmatter.skills;
+//console.log(frontmatter.skills);
 ---
 
 <BaseLayout title="Resumé" description="My Personal Resume">
   <div
-    class="w-full grid grid-cols-5 prose prose-h2:mt-0 max-w-none prose-neutral dark:prose-invert h-full">
-    <article class="col-span-4 p-3 text-justify prose-h2:mb-0">
+    class="w-full grid grid-cols-[3.75fr_1.25fr] prose prose-h2:mt-0 max-w-none prose-neutral dark:prose-invert h-full">
+    <article class="p-3 text-justify prose-h2:mb-0">
       <slot />
     </article>
-    <aside class="hidden lg:block lg:col-span-1">
-      <h2>Skills</h2>
+    <aside class="hidden lg:block prose-ul:leading-tight">
+      <div class="ml-2 mt-2.5">
+        <h2 class="mb-2.5">Skills</h2>
+        <h3>Programming Languages</h3>
+        <ul>
+          {languages.map((language: string) => <li>{language}</li>)}
+        </ul>
+        <h3>Frameworks & Libraries</h3>
+        <ul>
+          {framelibs.map((framelib: string) => <li>{framelib}</li>)}
+        </ul>
+        <h3>Technologies</h3>
+        <ul>
+          {techs.map((tech: string) => <li>{tech}</li>)}
+        </ul>
+      </div>
     </aside>
   </div>
 </BaseLayout>
