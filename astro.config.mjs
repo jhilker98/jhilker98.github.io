@@ -22,7 +22,7 @@ export default defineConfig({
       rehypeAccessibleEmojis
     ],
     shikiConfig: {
-      theme: "material-theme-darker",
+      theme: "one-dark-pro",
     },
   }
 });
