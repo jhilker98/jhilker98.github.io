@@ -1,0 +1,12 @@
+---
+import BaseLayout from "@layouts/BaseLayout.astro";
+import { slugifyUrl } from "@lib/utils";
+import { getCollection, type CollectionEntry } from "astro:content";
+const posts: CollectionEntry<"blog">[] = await getCollection("blog");
+const categories = posts
+  .map((post) => post.data.categories?.map((category) => slugifyUrl(category)))
+  .flat()
+  .filter((category) => category !== undefined);
+---
+
+<BaseLayout title="Categories" description="All post categories" />
