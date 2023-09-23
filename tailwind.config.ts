@@ -138,12 +138,10 @@ export default {
         },
       },
       typography: (theme: PluginAPI["theme"]) => ({
-        site: {
+        "branding-blue": {
           css: {
-            "--tw-prose-body": theme("colors.branding.gray[700]"),
-            "--tw-prose-invert-body": theme("colors.branding.gray[300]"),
-            "--tw-prose-links": theme("colors.branding.navy[600]"),
-            "--tw-prose-invert-links": theme("colors.branding.navy[400]"),
+            "--tw-prose-links": theme("colors.branding.blue[600]"),
+            "--tw-prose-invert-links": theme("colors.branding.blue[400]"),
           },
         },
       }),
