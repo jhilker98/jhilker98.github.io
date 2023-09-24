@@ -86,6 +86,8 @@ const projectSchema = defineCollection({
   }),
 });
 
+export type Project = CollectionEntry<"projects">;
+
 export const collections = {
   blog: blogSchema,
   projects: projectSchema,
