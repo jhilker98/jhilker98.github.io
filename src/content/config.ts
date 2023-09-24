@@ -83,6 +83,11 @@ const projectSchema = defineCollection({
         invalid_type_error: "All projects are either featured or not.",
       })
       .default(false),
+
+    status: z.enum(["Planning", "In Development", "Completed"], {
+      invalid_type_error:
+        "A project is either planning, in development, or completed.",
+    }),
   }),
 });
 
