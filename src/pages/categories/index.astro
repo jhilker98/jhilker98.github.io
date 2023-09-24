@@ -23,7 +23,7 @@ const processedCats = categories.reduce((acc, cat) => {
     <h2>Categories</h2>
     <ul>
       {
-        Object.entries(processedCats).map(([key, val]) => (
+        Object.entries(processedCats).sort(([, a], [, b]) => b - a).map(([key, val]) => (
           <li class="clear-both">
             <a href=`/categories/${slugifyUrl(key)}`>
             {key}
