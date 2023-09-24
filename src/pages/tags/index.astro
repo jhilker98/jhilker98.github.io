@@ -16,7 +16,6 @@ const processedTags = tags.reduce((acc, tag) => {
     [tag]: value + 1,
   };
 }, {});
-//console.log(Object.entries(processedTags));
 ---
 
 <BaseLayout title="Tags" description="All the tags listed on the blog.">
@@ -26,7 +25,7 @@ const processedTags = tags.reduce((acc, tag) => {
       {
         Object.entries(processedTags).map(([key, val]) => (
           <li class="clear-both">
-            <a href=`/categories/${slugifyUrl(key)}`>
+            <a href=`/tags/${slugifyUrl(key)}`>
             {key}
              </a>
              <span class="float-right">

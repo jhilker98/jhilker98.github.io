@@ -4,9 +4,38 @@ import { slugifyUrl } from "@lib/utils";
 import { getCollection, type CollectionEntry } from "astro:content";
 const posts: CollectionEntry<"blog">[] = await getCollection("blog");
 const categories = posts
-  .map((post) => post.data.categories?.map((category) => slugifyUrl(category)))
+  .map((post) => post.data.categories?.map((cat) => cat.toLowerCase()))
   .flat()
   .filter((category) => category !== undefined);
+//console.log(tags);
+
+const processedCats = categories.reduce((acc, cat) => {
+  const value = acc[cat] || 0;
+  return {
+    ...acc,
+    [cat]: value + 1,
+  };
+}, {});
 ---
 
-<BaseLayout title="Categories" description="All post categories" />
+<BaseLayout title="Categories" description="All post categories">
+  <div class="p-2 prose prose-neutral max-w-none dark:prose-invert prose-branding-blue prose-ul:leading-tight">
+    <h2>Categories</h2>
+    <ul>
+      {
+        Object.entries(processedCats).map(([key, val]) => (
+          <li class="clear-both">
+            <a href=`/categories/${slugifyUrl(key)}`>
+            {key}
+             </a>
+             <span class="float-right">
+              {
+                `${val} ${val === 1 ? 'Post' : 'Posts'}`
+              }
+              </span>
+            </li>
+              ))
+            }
+    </ul>
+  </div>
+</BaseLayout>
