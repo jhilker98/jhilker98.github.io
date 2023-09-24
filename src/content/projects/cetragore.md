@@ -8,4 +8,5 @@ tools:
  - Hugo
  - "TailwindCSS"
  - "Github Actions"
+status: "Completed"
 ---
