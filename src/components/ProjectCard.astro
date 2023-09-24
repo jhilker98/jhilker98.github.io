@@ -15,6 +15,10 @@ const { project } = Astro.props;
       >{project.data.category}</span
     >
     <span
+      class="mt-1 text-branding-gray-700 dark:text-branding-gray-400 text-sm"
+      >{project.data.status}</span
+    >
+    <span
       class="mt-1 text-branding-gray-700 dark:text-branding-gray-400 text-sm font-light"
       >{project.data.tools.join(" • ")}</span
     >
