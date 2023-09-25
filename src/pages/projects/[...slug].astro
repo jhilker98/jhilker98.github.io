@@ -1,0 +1,30 @@
+---
+import type {
+  GetStaticPaths,
+  InferGetStaticParamsType,
+  InferGetStaticPropsType,
+} from "astro";
+import { getCollection } from "astro:content";
+import type { Project } from "@content/config.ts";
+import { slugifyUrl } from "@lib/utils";
+import BaseLayout from "@layouts/BaseLayout.astro";
+export const getStaticPaths = (async () => {
+  const projects: Project[] = await getCollection("projects");
+  return projects.map((project: Project) => {
+    return {
+      params: { slug: slugifyUrl(project.slug) },
+      props: { project },
+    };
+  });
+}) satisfies GetStaticPaths;
+
+type Params = InferGetStaticParamsType<typeof getStaticPaths>;
+type Props = InferGetStaticPropsType<typeof getStaticPaths>;
+
+// eslint-disable-next-line
+const { slug } = Astro.params as Params;
+const { project } = Astro.props;
+const { Content } = await project.render();
+---
+
+<BaseLayout title={project.data.title} description={project.data.description} />
