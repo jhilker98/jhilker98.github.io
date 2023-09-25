@@ -35,13 +35,6 @@ const postBody = marked.parse(body, { mangle: false, headerIds: false });
       <Icon name="mdi:clock-outline" class="inline-block w-4 h-4 -mt-1 mr-1" />
       {calcReadingTime(post.body)}
     </span>
-    {
-      post.data.draft && (
-        <div class="block bg-branding-navy text-white mt-2 w-fit px-2 py-1 text-sm ">
-          Draft
-        </div>
-      )
-    }
   </div>
   <div class="md:flex-grow">
     <h2
