@@ -1,8 +1,8 @@
 ---
-import { type CollectionEntry } from "astro:content";
+import type Project from "@content/config.ts";
 import "@fontsource/ibm-plex-sans/300.css";
 interface Props {
-  project: CollectionEntry<"projects">;
+  project: Project;
 }
 
 const { project } = Astro.props;
@@ -30,6 +30,13 @@ const { project } = Astro.props;
     </h2>
     <div class="prose prose-neutral dark:prose-invert prose-p:leading-relaxed">
       {project.data.description}
+    </div>
+    <div class="space-x-3">
+      <a
+        href={`/projects/${project.slug}`}
+        class="block rounded-sm text-sm bg-branding-navy-600 w-fit text-white h-fit px-2 py-1 mt-1 dark:hover:bg-branding-navy-500 duration-100 transition-colors hover:bg-branding-navy-700"
+        >Read More</a
+      >
     </div>
   </div>
 </article>
