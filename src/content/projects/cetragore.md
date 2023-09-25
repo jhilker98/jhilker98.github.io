@@ -9,4 +9,6 @@ tools:
  - "TailwindCSS"
  - "Github Actions"
 status: "Completed"
+links:
+ repo: "https://github.com/jhilker98/cetragore"
 ---

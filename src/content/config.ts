@@ -88,6 +88,18 @@ const projectSchema = defineCollection({
       invalid_type_error:
         "A project is either planning, in development, or completed.",
     }),
+    links: z.object({
+      docs: z
+        .string({
+          invalid_type_error:
+            "The documentation link should be a page to the url.",
+        })
+        .optional(),
+      repo: z.string({
+        invalid_type_error: "Pass the url to the repository as a string.",
+        required_error: "The repository link is required.",
+      }),
+    }),
   }),
 });
 

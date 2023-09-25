@@ -9,4 +9,6 @@ tools:
 description: "A static website to get a quick overview of the weeklies in Destiny 2."
 category: "Static Site"
 status: "Planning"
+links:
+ repo: "https://github.com/jhilker98/this-week-in-destiny"
 ---
