@@ -41,7 +41,7 @@
         },
         {
           "title": "Content preview",
-          "name": "heroImage",
+          "name": "cover",
           "type": "image",
           "isPreviewImage": true
         }
