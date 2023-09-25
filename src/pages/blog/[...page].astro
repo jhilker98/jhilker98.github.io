@@ -7,7 +7,12 @@ import Pagination from "@components/Pagination.astro";
 import { RECENT_POST_COUNT } from "@consts";
 import type { BlogPost } from "@content";
 export const getStaticPaths = (async ({ paginate }) => {
-  const posts: CollectionEntry<"blog">[] = await getCollection("blog");
+  const posts: CollectionEntry<"blog">[] = await getCollection(
+    "blog",
+    ({ data }) => {
+      return import.meta.env.PROD ? data.draft !== true : true;
+    },
+  );
   posts.sort((a, b) => b.data.pubDate.getTime() - a.data.pubDate.getTime());
   return paginate(posts, { pageSize: RECENT_POST_COUNT });
 }) satisfies GetStaticPaths;
