@@ -19,19 +19,7 @@
       },
       "isBackground": true
     },
-    {
-      "type": "npm",
-      "script": "dev:prod",
-      "problemMatcher": [],
-      "label": "npm: dev (production preview)",
-      "detail": "astro dev",
-      "options": {
-        "shell": {
-          "args": ["-i", "-c"]
-        }
-      },
-      "isBackground": true
-    },
+
     {
       "type": "npm",
       "script": "preview",
