@@ -13,6 +13,10 @@ draft: false
 featured: true
 enableToc: false
 description: "Now that we have our notes and templates set up, let's go ahead and build a site with them as our content."
+series:
+  name: "Building Wikis with Hugo and Org-Roam"
+  description: "Are you tired of looking through multiple notebooks for finding your notes for a book, or a campaign? Here's a way to organize it, all for free."
+  weight: 2
 ---
 
 Although the last post in the series assumed you had already set up a hugo site, I wanted to quickly go over setting up a website so that you can quickly get your wiki deployed.

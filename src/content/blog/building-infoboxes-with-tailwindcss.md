@@ -12,7 +12,8 @@ featured: false
 enableToc: false
 series: 
   name: "Building Wikis with Hugo and Org-Roam"
-  weight: 2
+  description: "Are you tired of looking through multiple notebooks for finding your notes for a book, or a campaign? Here's a way to organize it, all for free. Start from nothing or from your old notes."
+  weight: 3
 description: "Ever wondered how you could implement your own Wikipedia-esque infobox with Tailwind? Here's how I did it."
 ---
 

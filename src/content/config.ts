@@ -22,6 +22,7 @@ const blogSchema = defineCollection({
       series: z
         .object({
           name: z.string({ required_error: "Any series must have a name." }),
+          description: z.string({required_error: "All series must have a brief description."}),
           weight: z.number({
             required_error:
               "Any post in a series must have a weight to sort by in that series.",
