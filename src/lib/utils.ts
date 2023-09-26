@@ -51,12 +51,8 @@ export function calcReadingTime(article: string): string {
   return getReadingTime(article.trim()).text;
 }
 
-
 export function toTitleCase(str: string): string {
-        return str.replace(
-            /\w\S*/g,
-            function(txt) {
-                return txt.charAt(0).toUpperCase() + txt.substr(1).toLowerCase();
-            }
-        );
-    }
+  return str.replace(/\w\S*/g, function (txt) {
+    return txt.charAt(0).toUpperCase() + txt.substr(1).toLowerCase();
+  });
+}
