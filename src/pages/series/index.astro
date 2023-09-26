@@ -5,11 +5,6 @@ import BaseLayout from "@layouts/BaseLayout.astro";
 const posts: BlogPost[] = await getCollection("blog", ({ data }) => {
   return import.meta.env.PROD ? data.draft !== true : true;
 });
-
-const allPostsWithSeries = posts.filter(
-  (post: BlogPost) => post.data.series !== undefined,
-);
-console.log(allPostsWithSeries);
 ---
 
 <BaseLayout
