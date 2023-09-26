@@ -1,0 +1,11 @@
+---
+import type { GetStaticPaths } from "astro";
+import BaseLayout from "@layouts/BaseLayout.astro";
+import { getCollection } from "astro:content";
+import type BlogPost from "@content/config.ts";
+import { slugifyUrl } from "@lib/utils.ts";
+import PostInfo from "@components/blog/PostInfo.astro";
+//export const getStaticPaths = (async () => {
+//  const posts = await getCollection("blog", ({ data }) => {});
+//}) satisfies GetStaticPaths;
+---
