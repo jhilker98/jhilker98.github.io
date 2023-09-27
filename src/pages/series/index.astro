@@ -4,6 +4,7 @@ import { getCollection } from "astro:content";
 import { findPostsInSeries } from "@lib/blog.ts";
 import { slugifyUrl } from "@lib/utils.ts";
 import BaseLayout from "@layouts/BaseLayout.astro";
+import { Icon } from "astro-icon";
 
 const posts: BlogPost[] = await getCollection("blog", ({ data }) => {
   return import.meta.env.PROD ? data.draft !== true : true;
@@ -22,7 +23,7 @@ const seriesDescriptions = [
   ),
 ];
 
-const series = seriesNames.reduce(
+const allSeries = seriesNames.reduce(
   (acc, index, cV) => [
     {
       ...acc,
@@ -33,11 +34,35 @@ const series = seriesNames.reduce(
   ],
   {},
 );
-
-//console.log(series[0].posts);
 ---
 
 <BaseLayout
   title="All Series"
-  description="A list of all the series on the blog."
-/>
+  description="A list of all the series on the blog.">
+  <article class="py-4 flex flex-wrap md:flex-nowrap">
+    {
+      allSeries.map((series, index) => {
+        let postLength = `${series.posts.length} ${
+          series.posts.length == 1 ? "Post" : "Posts"
+        }`;
+        return (
+          <>
+            <div class="md:w-72 md:mb-0 -mb-2 align-baseline">
+              <span class="ml-1 font-bold text-sm text-gray-700 dark:text-gray-400">
+                {postLength}
+              </span>
+            </div>
+            <div class="md:flex-grow">
+              <h2 class="text-2xl font-medium text-gray-900 title-font mb-2 font-serif dark:text-white">
+                {series.name}
+              </h2>
+              <div class="prose prose-neutral dark:prose-invert max-w-[80ch] prose-branding-blue">
+                {series.description}
+              </div>
+            </div>
+          </>
+        );
+      })
+    }
+  </article>
+</BaseLayout>
