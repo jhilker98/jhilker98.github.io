@@ -1,3 +1,5 @@
+import type { BlogPost } from "@content/config.ts";
+
 interface LinkProps {
   name: string;
   children?: undefined;
@@ -24,3 +26,9 @@ export interface SiteConfig {
   tagline: string;
   socialLinks?: SocialLink[];
 }
+
+export type Series = {
+  name: string;
+  description: string;
+  posts: BlogPost[];
+};
