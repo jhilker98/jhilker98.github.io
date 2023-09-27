@@ -42,7 +42,7 @@ const postBody = marked.parse(body, { mangle: false, headerIds: false });
       {post.data.title}
     </h2>
     <div
-      class="prose prose-neutral dark:prose-invert max-w-[80ch]"
+      class="prose prose-neutral dark:prose-invert max-w-[80ch] prose-branding-blue"
       set:html={postBody}
     />
     <a
