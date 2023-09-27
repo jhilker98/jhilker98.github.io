@@ -12,8 +12,6 @@ const allPostsWithSeries = posts.filter(
   (post: BlogPost) => post.data.series !== undefined,
 );
 
-const series = [];
-
 const seriesNames = [
   ...new Set(allPostsWithSeries.map((post: BlogPost) => post.data.series.name)),
 ];
@@ -24,7 +22,19 @@ const seriesDescriptions = [
   ),
 ];
 
-console.log(seriesDescriptions);
+const series = seriesNames.reduce(
+  (acc, index, cV) => [
+    {
+      ...acc,
+      name: index,
+      description: seriesDescriptions[cV],
+      posts: findPostsInSeries(index, allPostsWithSeries),
+    },
+  ],
+  {},
+);
+
+//console.log(series[0].posts);
 ---
 
 <BaseLayout
