@@ -12,11 +12,11 @@ const allPostsWithSeries = posts.filter(
   (post: BlogPost) => post.data.series !== undefined,
 );
 
-// const allSeries = allPostsWithSeries.map((post: BlogPost) => {
+const allSeries = [
+  ...new Set(allPostsWithSeries.map((post: BlogPost) => post.data.series.name)),
+];
 
-// })
-
-console.log(allPostsWithSeries);
+console.log(allSeries);
 ---
 
 <BaseLayout
