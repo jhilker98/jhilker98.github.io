@@ -12,7 +12,7 @@ featured: true
 enableToc: true
 series: 
    name: "Building Wikis with Hugo and Org-Roam"
-   description: "Are you tired of looking through multiple notebooks for finding your notes for a book, or a campaign? Here's a way to organize it, all for free."
+   description: "Are you tired of looking through multiple notebooks for finding your notes for a book, or a campaign? Here's a way to organize it, all for free. Start from nothing or from your old notes."
    weight: 1
 description: "Want to be able to quickly capture notes for a Hugo site in Emacs? Here's my approach."
 ---

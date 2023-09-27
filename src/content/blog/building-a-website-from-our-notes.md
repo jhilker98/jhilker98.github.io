@@ -15,7 +15,7 @@ enableToc: false
 description: "Now that we have our notes and templates set up, let's go ahead and build a site with them as our content."
 series:
   name: "Building Wikis with Hugo and Org-Roam"
-  description: "Are you tired of looking through multiple notebooks for finding your notes for a book, or a campaign? Here's a way to organize it, all for free."
+  description: "Are you tired of looking through multiple notebooks for finding your notes for a book, or a campaign? Here's a way to organize it, all for free. Start from nothing or from your old notes."
   weight: 2
 ---
 
