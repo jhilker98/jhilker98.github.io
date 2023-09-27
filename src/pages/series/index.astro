@@ -1,5 +1,6 @@
 ---
 import type BlogPost from "@content/config.ts";
+import type Series from "@types";
 import { getCollection } from "astro:content";
 import { findPostsInSeries } from "@lib/blog.ts";
 import { slugifyUrl } from "@lib/utils.ts";
@@ -9,15 +10,15 @@ import { Icon } from "astro-icon";
 const posts: BlogPost[] = await getCollection("blog", ({ data }) => {
   return import.meta.env.PROD ? data.draft !== true : true;
 });
-const allPostsWithSeries = posts.filter(
+const allPostsWithSeries: BlogPost[] = posts.filter(
   (post: BlogPost) => post.data.series !== undefined,
 );
 
-const seriesNames = [
+const seriesNames: string[] = [
   ...new Set(allPostsWithSeries.map((post: BlogPost) => post.data.series.name)),
 ];
 
-const seriesDescriptions = [
+const seriesDescriptions: string[] = [
   ...new Set(
     allPostsWithSeries.map((post: BlogPost) => post.data.series.description),
   ),
