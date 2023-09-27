@@ -1,9 +1,7 @@
 ---
 import type { GetStaticPaths } from "astro";
 import { getCollection } from "astro:content";
-export const getStaticPaths = (async () => {
-    const posts = await getCollection('blog');
-    
-
-}) satisfies GetStaticPaths;
+export async function getStaticPaths() {
+  const posts = await getCollection("blog");
+}
 ---
