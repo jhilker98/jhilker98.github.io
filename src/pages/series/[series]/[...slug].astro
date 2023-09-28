@@ -1,7 +1,16 @@
 ---
-//import type { GetStaticPaths } from "astro";
+import type { GetStaticPaths } from "astro";
 import { getCollection } from "astro:content";
-export async function getStaticPaths() {
-  const posts = await getCollection("blog");
+export const getStaticPaths = (async () => {
+ const allPosts = await getCollection('blog');
+  const uniqueSeries = [
+    ...new Set(allPosts.map((post) => post.data?.series).flat()),
+  ].filter((series) => series!= undefined);
+
+  return uniqueSeries.flatMap((series) => {
+    const filteredPosts = allPosts.filter((post) =>
+      post.data.series?.name == series!.name,
+    );
+  })
 }
 ---
