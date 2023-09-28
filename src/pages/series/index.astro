@@ -66,6 +66,11 @@ const allSeries = seriesNames.reduce(
               <div class="prose prose-neutral dark:prose-invert max-w-[80ch] prose-branding-blue">
                 {series.description}
               </div>
+              <a
+                href={`/series/${slugifyUrl(series.name)}`}
+                class="block rounded-sm text-sm bg-branding-navy-600 w-fit text-white h-fit px-2 py-1 mt-1 dark:hover:bg-branding-navy-500 duration-100 transition-colors hover:bg-branding-navy-700">
+                Read More
+              </a>
             </div>
           </>
         );
