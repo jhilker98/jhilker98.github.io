@@ -1,16 +1,25 @@
 ---
 import type { GetStaticPaths } from "astro";
 import { getCollection } from "astro:content";
-export const getStaticPaths = (async () => {
- const allPosts = await getCollection('blog');
+import BaseLayout from "@layouts/BaseLayout.astro";
+import { slugifyUrl } from "@lib/utils";
+export const getStaticPaths = async () => {
+  const allPosts = await getCollection("blog");
   const uniqueSeries = [
     ...new Set(allPosts.map((post) => post.data?.series).flat()),
-  ].filter((series) => series!= undefined);
+  ].filter((series) => series != undefined);
 
   return uniqueSeries.flatMap((series) => {
-    const filteredPosts = allPosts.filter((post) =>
-      post.data.series?.name == series!.name,
+    const filteredPosts = allPosts.filter(
+      (post) => post.data.series?.name == series!.name,
     );
-  })
-}
+    return {
+      params: { series: slugifyUrl(series!.name) },
+      props: { series, posts: filteredPosts },
+    };
+  });
+};
+const { series } = Astro.props;
 ---
+
+<BaseLayout title={series.name} description="Series description" />
