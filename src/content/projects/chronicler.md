@@ -8,5 +8,5 @@ category: "CLI App"
 status: "In Development"
 links:
  repo: "https://github.com/jhilker98/chronicler"
-
+featured: true
 ---
