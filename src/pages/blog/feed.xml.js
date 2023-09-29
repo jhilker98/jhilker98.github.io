@@ -7,7 +7,11 @@ import sanitizeHtml from "sanitize-html";
 
 
 export async function GET(context) {
-    const posts = await getCollection("blog");
+    const posts = (await getCollection("blog", ({ data }) => {
+        return import.meta.env.PROD ? data.draft !== true : true;
+    })
+    ).sort((a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf());
+
     return rss({
         title: `Blog - ${SITE_META.title}`,
         description: 'My journey with Emacs and frontend development.',
