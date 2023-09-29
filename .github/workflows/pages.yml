@@ -21,6 +21,8 @@ jobs:
           node-version: 18.x
 
       - run: npm clean-install
+      - run: npm install -D 'https://gitpkg.now.sh/stramel/astro-icon/packages/core?main'
+      - run: npm install @iconify/json
 
       - name: Build
         run: npm run build
