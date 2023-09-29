@@ -1,0 +1,27 @@
+---
+import type { HTMLAttributes } from "astro/types";
+interface Props extends HTMLAttributes<"a"> {
+  active?: boolean;
+  name: string;
+}
+
+const { href, active = false, name, ...attrs } = Astro.props;
+---
+
+<li
+  class:list={[
+    "bg-transparent",
+    "text-branding-black",
+    "dark:text-branding-white",
+    "h-full",
+    "p-3",
+    "duration-150",
+    "border-0",
+    "hover:backdrop-brightness-75",
+    "dark:hover:backdrop-brightness-125",
+    "transition-all",
+    { "border-b-2 border-branding-navy dark:border-branding-navy-500": active },
+  ]}
+  {...attrs}>
+  <a href={href}>{name}</a>
+</li>

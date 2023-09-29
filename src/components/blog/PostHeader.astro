@@ -1,0 +1,53 @@
+---
+interface Props {
+  title: string;
+  pubDate: Date;
+  lastModDate?: Date;
+  tags?: string[];
+}
+
+import { formatPostDate, hashtagPostTags, slugifyUrl } from "@lib/utils";
+import { Icon } from "astro-icon";
+
+const { title, pubDate, lastModDate = pubDate, tags = [] } = Astro.props;
+const postTags = hashtagPostTags(tags);
+---
+
+<header class="align-baseline">
+  <h1 class="mt-1" style="text-wrap: balance;">{title}</h1>
+  <Icon name="mdi:calendar" class="w-5 mb-1 mr-1 inline-block" />
+  <span class="font-bold mr-1">Posted:</span>
+  <time class="inline">
+    {formatPostDate(pubDate)}
+  </time>
+  {
+    lastModDate.getTime() > pubDate.getTime() ? (
+      <div class="inline ml-8">
+        <Icon name="mdi:calendar" class="w-5 mb-1 inline-block" />
+        <span class="font-bold">Last Updated:</span>
+        <time class="inline">{formatPostDate(lastModDate)}</time>
+      </div>
+    ) : (
+      ""
+    )
+  }
+
+  <div class="block">
+    <Icon name="heroicons:tag-20-solid" class="h-5 w-5 mr-1 inline mb-1" />
+    <strong class="mr-1">Tags:</strong>
+    {
+      postTags.map((tag, index) => {
+        if (tags[index + 1] !== undefined) {
+          return (
+            <>
+              <a href={`/tags/${slugifyUrl(tags[index])}`}>{`${tag}`}</a>
+              <span>&nbsp;&nbsp;</span>
+            </>
+          );
+        } else {
+          return <a href={`/tags/${slugifyUrl(tags[index])}`}>{`${tag}`}</a>;
+        }
+      })
+    }
+  </div>
+</header>

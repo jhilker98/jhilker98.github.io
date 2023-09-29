@@ -1,0 +1,76 @@
+---
+import MobileMenu from "@components/navigation/MobileMenu.astro";
+import NavLink from "@components/navigation/NavLink.astro";
+import DropDown from "@components/navigation/DropDown.astro";
+import { NAV_LINKS } from "@consts";
+import { isNavLinkActive } from "@lib/utils";
+import type { Link } from "@types";
+import { Icon } from "astro-icon";
+const pathname = new URL(Astro.request.url).pathname;
+const currentPath = pathname.slice(1); // remove the first "/"
+---
+
+<header
+  class="z-10 items-center grid-in-header bg-branding-gray dark:bg-branding-neutral-800"
+  x-data="{mobileOpen: false}">
+  <div class="flex h-[52px] 2xl:h-[62px]">
+    <button
+      class="h-full p-3 hover:backdrop-brightness-75 dark:hover:backdrop-brightness-125 duration-150 lg:hidden text-branding-black dark:text-branding-white"
+      x-on:click="mobileOpen = !mobileOpen">
+      <Icon name="heroicons:bars-3-20-solid" class="h-5 w-5" />
+    </button>
+    <nav class="h-full">
+      <ul class="hidden lg:flex h-full items-center space-x-4">
+        {
+          NAV_LINKS.map((link: Link) => {
+            if (link.children) {
+              let url = link.children[0].href.split("/")[1];
+              return (
+                <DropDown
+                  name={link.name}
+                  active={isNavLinkActive(url, currentPath.split("/")[0])}
+                  children={link.children}
+                />
+              );
+            } else {
+              let url = link.href.split("/")[1];
+              return (
+                <NavLink
+                  name={link.name}
+                  href={link.href}
+                  active={isNavLinkActive(url, currentPath.split("/")[0])}
+                />
+              );
+            }
+          })
+        }
+      </ul>
+    </nav>
+    <div class="flex items-center h-full my-auto space-x-4 ml-auto">
+      <button
+        class="h-full p-3 duration-75 hover:backdrop-brightness-75 inline-flex place-items-center dark:hover:backdrop-brightness-125"
+        @click="darkMode = !darkMode">
+        <Icon
+          name="heroicons:sun-solid"
+          class="text-branding-white hidden dark:inline-block w-5 h-5"
+        />
+        <Icon
+          name="heroicons:moon-solid"
+          class="text-branding-black dark:hidden inline-block w-5 h-5"
+        />
+      </button>
+      <button
+        class="h-full p-3 duration-75 hover:backdrop-brightness-75 inline-flex place-items-center dark:hover:backdrop-brightness-125 lg:hidden"
+        @click="sidebarOpen = !sidebarOpen">
+        <Icon
+          name="heroicons:bars-3-20-solid"
+          class="w-5 h-5 transition duration-150 text-branding-black dark:text-branding-white"
+          :class="{'rotate-90': sidebarOpen === true}"
+        />
+      </button>
+    </div>
+    <!-- TODO: Add Mobile Menu -->
+  </div>
+  <!-- Mobile Menu -->
+  <MobileMenu />
+</header>

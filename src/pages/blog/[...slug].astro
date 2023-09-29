@@ -1,0 +1,32 @@
+---
+import type {
+  InferGetStaticParamsType,
+  InferGetStaticPropsType,
+  GetStaticPaths,
+} from "astro";
+import { getCollection } from "astro:content";
+import BlogPostLayout from "@layouts/BlogPostLayout.astro";
+import { slugifyPostDate } from "@lib/utils";
+
+export const getStaticPaths = (async () => {
+  const posts = await getCollection("blog");
+  return posts.map((post) => {
+    return {
+      params: { slug: `${slugifyPostDate(post.data.pubDate)}/${post.slug}` },
+      props: { post },
+    };
+  });
+}) satisfies GetStaticPaths;
+
+type Params = InferGetStaticParamsType<typeof getStaticPaths>;
+type Props = InferGetStaticPropsType<typeof getStaticPaths>;
+
+// eslint-disable-next-line
+const { slug } = Astro.params as Params;
+const { post } = Astro.props;
+const { Content } = await post.render();
+---
+
+<BlogPostLayout frontmatter={post.data}>
+  <Content />
+</BlogPostLayout>

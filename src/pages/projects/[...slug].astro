@@ -1,0 +1,46 @@
+---
+import type {
+  GetStaticPaths,
+  InferGetStaticParamsType,
+  InferGetStaticPropsType,
+} from "astro";
+import { getCollection } from "astro:content";
+import type { Project } from "@content/config.ts";
+import { slugifyUrl } from "@lib/utils";
+import BaseLayout from "@layouts/BaseLayout.astro";
+import { Icon } from "astro-icon";
+export const getStaticPaths = (async () => {
+  const projects: Project[] = await getCollection("projects");
+  return projects.map((project: Project) => {
+    return {
+      params: { slug: slugifyUrl(project.slug) },
+      props: { project },
+    };
+  });
+}) satisfies GetStaticPaths;
+
+type Params = InferGetStaticParamsType<typeof getStaticPaths>;
+type Props = InferGetStaticPropsType<typeof getStaticPaths>;
+
+// eslint-disable-next-line
+const { slug } = Astro.params as Params;
+const { project } = Astro.props;
+const { Content } = await project.render();
+---
+
+<BaseLayout title={project.data.title} description={project.data.description}>
+  <article
+    class="p-2 prose mx-auto max-w-[80ch] prose-headings:font-serif prose-neutral dark:prose-invert prose-branding-blue">
+    <header class="align-baseline">
+      <h1 class="mt-1" style="text-wrap: balance;">{project.data.title}</h1>
+      <div>
+        <Icon name="twemoji:hammer-and-wrench" class="inline h-5 w-5 mr-1" />
+        <strong>
+          Built With:
+          <span class="font-normal">{project.data.tools.join(" • ")}</span>
+        </strong>
+      </div>
+    </header>
+    <Content />
+  </article>
+</BaseLayout>

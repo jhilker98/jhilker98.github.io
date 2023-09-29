@@ -1,0 +1,28 @@
+---
+import { SITE_META } from "@consts";
+import { SEO } from "astro-seo";
+
+interface Props {
+  title: string;
+  description: string;
+}
+
+const { title, description } = Astro.props;
+---
+
+<SEO
+  title={title}
+  titleTemplate={`%s | ${SITE_META.author}: Frontend Developer`}
+  charset="utf-8"
+  description={description}
+  extend={{
+    meta: [
+      { name: "generator", content: Astro.generator },
+      { name: "author", content: SITE_META.author },
+      {
+        name: "viewport",
+        content: "width=device-width, initial-scale=1.0",
+      },
+    ],
+  }}
+/>

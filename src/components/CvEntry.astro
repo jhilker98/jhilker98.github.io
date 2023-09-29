@@ -1,0 +1,58 @@
+---
+import "@fontsource/ibm-plex-sans/300.css";
+interface Props {
+  title: string;
+  startDate: string;
+  endDate?: string;
+  employer: string;
+  location: string;
+  isSingle?: boolean;
+}
+
+const {
+  title,
+  startDate,
+  endDate = "Present",
+  employer,
+  location,
+  isSingle = false,
+} = Astro.props;
+---
+
+<div
+  class="my-2.5 pb-2 border-b border-gray-300 dark:border-gray-700 last:border-0">
+  <details
+    class="group container max-w-full mr-12 pl-5 border-l-2 border-gray-300 dark:border-gray-700">
+    <summary class="list-none">
+      <div
+        class="flex items-center after:content-['▸'] after:transform group-open:after:rotate-90 after:transition-all after:ml-1">
+        <h3
+          class="inline m-0 font-serif text-xl font-bold text-branding-black dark:text-branding-white">
+          {title}
+        </h3>
+        <span class="ml-auto dark:text-neutral-300 text-neutral-600">
+          {
+            isSingle === false
+              ? `${new Date(startDate).getFullYear()} — ${
+                  endDate != "Present"
+                    ? new Date(endDate).getFullYear()
+                    : endDate
+                }`
+              : new Date(startDate).getFullYear()
+          }
+        </span>
+      </div>
+      <div class="flex mt-2">
+        <span>{employer}</span>
+        <span class="ml-auto mr-2">{location}</span>
+      </div>
+    </summary>
+    <div
+      class="group-open:animate-slideIn grid grid-rows-0 transition-gridRows duration-500 ease-in-out">
+      <div
+        class="overflow-hidden prose-neutral prose-blue dark:prose-invert max-w-[80ch] prose-sm md:prose-base md:-mt-1.5">
+        <slot />
+      </div>
+    </div>
+  </details>
+</div>

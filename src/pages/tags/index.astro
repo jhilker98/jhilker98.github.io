@@ -1,0 +1,41 @@
+---
+import BaseLayout from "@layouts/BaseLayout.astro";
+import { slugifyUrl } from "@lib/utils";
+import { getCollection, type CollectionEntry } from "astro:content";
+const posts: CollectionEntry<"blog">[] = await getCollection("blog");
+const tags = posts
+  .map((post) => post.data.tags?.map((tag) => tag.toLowerCase()))
+  .flat()
+  .filter((tag) => tag !== undefined);
+//console.log(tags);
+
+const processedTags = tags.reduce((acc, tag) => {
+  const value = acc[tag] || 0;
+  return {
+    ...acc,
+    [tag]: value + 1,
+  };
+}, {});
+---
+
+<BaseLayout title="Tags" description="All the tags listed on the blog.">
+  <div class="p-2 prose prose-neutral max-w-none dark:prose-invert prose-branding-blue prose-ul:leading-tight">
+    <h2>Tags</h2>
+    <ul>
+      {
+        Object.entries(processedTags).sort(([, a], [, b]) => b - a).map(([key, val]) => (
+          <li class="clear-both">
+            <a href=`/tags/${slugifyUrl(key)}`>
+            {key}
+             </a>
+             <span class="float-right">
+              {
+                `${val} ${val === 1 ? 'Post' : 'Posts'}`
+              }
+              </span>
+            </li>
+              ))
+            }
+    </ul>
+  </div>
+</BaseLayout>

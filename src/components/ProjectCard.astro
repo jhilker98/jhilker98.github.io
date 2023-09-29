@@ -1,0 +1,53 @@
+---
+import type Project from "@content/config.ts";
+import { Icon } from "astro-icon";
+import "@fontsource/ibm-plex-sans/300.css";
+interface Props {
+  project: Project;
+}
+
+const { project } = Astro.props;
+---
+
+<article class="py-8 flex flex-wrap md:flex-nowrap">
+  <div class="md:w-72 md:mb-0 mb-6 flex-shrink-0 flex flex-col">
+    <span
+      class="font-semibold title-font uppercase text-branding-gray-700 dark:text-branding-gray-400"
+      >{project.data.category}</span
+    >
+    <span
+      class="mt-1 text-branding-gray-700 dark:text-branding-gray-400 text-sm"
+      >{project.data.status}</span
+    >
+    <span
+      class="mt-1 text-branding-gray-700 dark:text-branding-gray-400 text-sm font-light"
+      >{project.data.tools.join(" • ")}</span
+    >
+  </div>
+  <div class="md:flex-grow">
+    <h2
+      class="text-2xl font-medium font-serif mb-2 text-branding-black dark:text-branding-white">
+      {project.data.title}
+    </h2>
+    <div class="prose prose-neutral dark:prose-invert prose-p:leading-relaxed">
+      {project.data.description}
+    </div>
+    <div class="space-x-3 mt-2 flex">
+      <a
+        href={`/projects/${project.slug}`}
+        class="inline-flex place-items-center rounded-sm text-sm bg-branding-navy-600 w-fit text-white h-fit px-2 py-1 mt-1 dark:hover:bg-branding-navy-500 duration-100 transition-colors hover:bg-branding-navy-700 align-baseline">
+        <span>Read More</span>
+        <Icon
+          name="heroicons:arrow-right-20-solid"
+          class="h-4 w-4 fill-white ml-1 mt-px"
+        />
+      </a>
+      <a
+        href={project.data.links.repo}
+        class="inline-flex place-items-center rounded-sm text-sm bg-branding-brown hover:bg-branding-brown-600 w-fit text-white h-fit px-2 py-1 mt-1 duration-100 transition-colors">
+        <Icon name="mdi:git" class="h-4 w-4 fill-white mr-1 -mb-px" />
+        <span>Repo</span>
+      </a>
+    </div>
+  </div>
+</article>

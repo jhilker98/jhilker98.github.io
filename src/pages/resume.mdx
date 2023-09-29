@@ -1,0 +1,104 @@
+---
+layout: "../layouts/CvLayout.astro"
+skills:
+ languages:
+  - "Python"
+  - "HTML"
+  - "CSS"
+  - "Java"
+  - "SQL (Postgres)"
+  - "JavaScript"
+ framelibs:
+  - "Hugo"
+  - "Astro"
+  - "TailwindCSS"
+  - "Pandas"
+  - "Numpy"
+  - "Matplotlib"
+ techs:
+  - "Git"
+  - "Vim"
+  - "Emacs"
+---
+
+import CvEntry from "@components/CvEntry.astro";
+
+
+## Education
+<div class="my-2.5">
+<CvEntry
+  title="BS, Computer Science"
+  startDate="2017-08-22"
+  endDate="2021-05-09"
+  employer="University of Mary Washington"
+  location="Fredericksburg, VA"
+  >
+  - GPA: 2.99/4.00 
+  - **Relevant Courses:** 
+    - Applications of Databases 
+    - Data Science 
+    - Artificial Neural Networks 
+    - Software Security
+</CvEntry>
+</div>
+
+## Experience
+
+<div class="my-2.5">
+<CvEntry
+  title="Web Developer"
+  startDate="2022-01-28"
+  employer="Freelance"
+  location="Remote (Crozet, VA)"
+  >
+  - Designed static websites for multiple clients using Hugo and Tailwind CSS
+  - Deployed sites to Github using Github Actions for CI/CD
+  </CvEntry>
+</div>
+
+
+## Activities
+<div class="my-2.5">
+<CvEntry
+  title="DataThon"
+  startDate="2021-04-22"
+  isSingle
+  employer="University of Mary Washington"
+  location="Fredericksburg, VA"
+  >
+  - Conducted exploratory analysis of large data sets in a 24-hour period in teams of 3
+  {/* - basically a more formal version of DataFest */}
+</CvEntry>
+
+<CvEntry
+  title="Hackathon"
+  startDate="2021-04-22"
+  isSingle
+  employer="University of Mary Washington"
+  location="Remote"
+  >
+      - Started writing a Python module for assisting developers writing tools for the tabletop role-playing game [Ironsworn](https://ironswornrpg.com)
+</CvEntry>
+
+<CvEntry
+  title="DataFest"
+  startDate="2019-04-22"
+  isSingle
+  employer="University of Mary Washington"
+  location="Fredericksburg, VA"
+  >
+  - Conducted exploratory analysis of large data sets in a 24-hour period in teams of 3
+  - Investigated and plotted any relationships in the data using Matplotlib
+</CvEntry>
+<CvEntry
+  title="Volunteer"
+  startDate="2014-07-14" 
+  endDate="2017-07-17"
+  employer="Crozet Library"
+  location="Crozet, VA"
+  >
+  - Organized and re-shelved books in their proper places
+  - Retrieved books from shelves to fulfill holds
+</CvEntry>
+
+  </div>
