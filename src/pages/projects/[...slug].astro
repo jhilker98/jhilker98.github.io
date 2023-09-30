@@ -8,7 +8,7 @@ import { getCollection } from "astro:content";
 import type { Project } from "@content/config.ts";
 import { slugifyUrl } from "@lib/utils";
 import BaseLayout from "@layouts/BaseLayout.astro";
-import { Icon } from "astro-icon";
+import { Icon } from "astro-iconify";
 export const getStaticPaths = (async () => {
   const projects: Project[] = await getCollection("projects");
   return projects.map((project: Project) => {
