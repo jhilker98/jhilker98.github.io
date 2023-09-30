@@ -1,5 +1,6 @@
 #+title: Personal website
 
-#+HTML: <a href="https://astro.build"><img src="https://astro.badg.es/v2/built-with-astro/small.svg" alt="Built with Astro" width="192" height="32"></a>
+#+HTML: <a href="https://astro.build"><img src="https://astro.badg.es/v2/built-with-astro/tiny.svg" alt="Built with Astro" width="140" height="20"></a>
+#+HTML: <a href="https://github.com/jhilker98/jhilker98.github.io/actions/workflows/pages.yml"><img alt="GitHub Workflow Status (with event)" src="https://img.shields.io/github/actions/workflow/status/jhilker98/jhilker98.github.io/pages.yml?logo=github&label=Github%20Pages"></a>
 
 My personal website, built with ox-hugo, tailwindcss, and Iosevka.
