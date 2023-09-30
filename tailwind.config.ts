@@ -164,6 +164,9 @@ export default {
       outlineOffset: {
         3: "3px",
       },
+      ringOffsetWidth: {
+        3: "3px",
+      },
     },
   },
 

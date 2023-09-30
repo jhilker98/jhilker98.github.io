@@ -28,20 +28,23 @@ const {
     "motion-reduce:duration-0",
     "font-bold",
     "disabled:cursor-not-allowed",
-    "focus:outline-offset-3",
-    "focus:outline",
+    "focus:ring-offset-4",
+    "focus:ring",
     "ease-out",
     "text-white",
     "uppercase",
     "inline-flex",
     "place-items-center",
     "text-center",
+    "focus:outline-none",
+    "focus:ring-offset-branding-white",
+    "dark:focus:ring-offset-branding-black",
     {
-      "bg-branding-navy hover:bg-branding-navy-800 dark:hover:bg-branding-navy-400 disabled:text-branding-navy-200 focus:outline-branding-navy focus:dark:hover:outline-branding-navy-500":
+      "bg-branding-navy hover:bg-branding-navy-800 dark:hover:bg-branding-navy-400 dark:focus:hover:ring-branding-navy-400 focus:hover:ring-branding-navy-800 disabled:text-branding-navy-200 focus:ring-branding-navy dark":
         theme === "primary",
     },
     {
-      "bg-branding-brown hover:bg-branding-brown-600 disabled:text-branding-brown-50/95 focus:outline-branding-brown":
+      "bg-branding-brown hover:bg-branding-brown-600 disabled:text-branding-brown-50/95 focus:ring-branding-brown focus:hover:ring-branding-brown-600":
         theme === "secondary",
     },
     { "text-sm py-1 px-2 rounded-sm": size === "small" },
