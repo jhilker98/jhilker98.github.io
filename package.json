@@ -35,6 +35,7 @@
     "@types/node": "^20.7.1",
     "@typescript-eslint/eslint-plugin": "^6.7.3",
     "@typescript-eslint/parser": "^6.7.3",
+    "astro-icon": "https://gitpkg.now.sh/stramel/astro-icon/packages/core?main",
     "astro-seo": "^0.8.0",
     "eslint": "^8.50.0",
     "eslint-plugin-astro": "^0.29.0",
@@ -51,7 +52,6 @@
     "remark-toc": "^9.0.0",
     "sanitize-html": "^2.11.0",
     "tailwind-config-viewer": "^1.7.2",
-    "tailwind-scrollbar": "^3.0.5",
-    "unplugin-icons": "^0.17.0"
+    "tailwind-scrollbar": "^3.0.5"
   }
 }
