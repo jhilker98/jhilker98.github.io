@@ -7,7 +7,9 @@ import HeroSection from "@components/HeroSection.astro";
 import { type BlogPost, type Project } from "@content";
 import { getCollection } from "astro:content";
 const projects: Project[] = await getCollection("projects", ({ data }) => {
-  return data.featured == true;
+  return import.meta.env.PROD == true
+    ? data.featured == true && data.draft !== true
+    : data.featured == true && true;
 });
 ---
 
