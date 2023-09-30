@@ -2,5 +2,6 @@
 
 #+HTML: <a href="https://astro.build"><img src="https://astro.badg.es/v2/built-with-astro/tiny.svg" alt="Built with Astro" width="140" height="20"></a>
 #+HTML: <a href="https://github.com/jhilker98/jhilker98.github.io/actions/workflows/pages.yml"><img alt="GitHub Workflow Status (with event)" src="https://img.shields.io/github/actions/workflow/status/jhilker98/jhilker98.github.io/pages.yml?logo=github&label=Github%20Pages"></a>
+#+HTML: <a href="https://gitlab.com/jhilker98/jhilker98.gitlab.io/-/pipelines?scope=all&page=1"><img alt="Gitlab pipeline status (self-managed)" src="https://img.shields.io/gitlab/pipeline-status/jhilker98%2Fjhilker98.gitlab.io?gitlab_url=https%3A%2F%2Fgitlab.com&branch=main&logo=gitlab&label=Gitlab%20Pages%20Build"></a>
 
-My personal website, built with ox-hugo, tailwindcss, and Iosevka.
+My personal website, built with Astro, TailwindCSS, and Typescript.
