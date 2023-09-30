@@ -12,32 +12,32 @@ export const NAV_LINKS: Link[] = [
 
 const SOCIAL_LINKS: SocialLink[] = [
   {
-    icon: "fa6-brands:gitlab",
+    icon: "socials/fa6-brands/gitlab",
     name: "GitLab",
     href: "https://gitlab.com/jhilker98/",
   },
   {
-    icon: "fa6-brands:github",
+    icon: "socials/fa6-brands/github",
     name: "GitHub",
     href: "https://github.com/jhilker98/",
   },
   {
-    icon: "fa6-brands:linkedin-in",
+    icon: "socials/fa6-brands/linkedin-in",
     name: "LinkedIn",
     href: "https://linked.com/in/jhilker/",
   },
   {
-    icon: "fa6-brands:dev",
+    icon: "socials/fa6-brands/dev",
     name: "Dev.to",
     href: "https://dev.to/jhilker",
   },
   {
-    icon: "fa6-brands:codepen",
+    icon: "socials/fa6-brands/codepen",
     name: "CodePen",
     href: "https://codepen.io/hilkerj/",
   },
   {
-    icon: "ps:rss",
+    icon: "socials/ps/rss",
     name: "RSS Feed",
     href: "/blog/feed.xml",
   },

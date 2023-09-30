@@ -15,7 +15,7 @@ const postTags = hashtagPostTags(tags);
 
 <header class="align-baseline">
   <h1 class="mt-1" style="text-wrap: balance;">{title}</h1>
-  <Icon name="mdi:calendar" class="w-5 mb-1 mr-1 inline-block" />
+  <Icon name="mdi/calendar" class="w-5 mb-1 mr-1 inline-block" />
   <span class="font-bold mr-1">Posted:</span>
   <time class="inline">
     {formatPostDate(pubDate)}
@@ -23,7 +23,7 @@ const postTags = hashtagPostTags(tags);
   {
     lastModDate.getTime() > pubDate.getTime() ? (
       <div class="inline ml-8">
-        <Icon name="mdi:calendar" class="w-5 mb-1 inline-block" />
+        <Icon name="mdi/calendar" class="w-5 mb-1 inline-block" />
         <span class="font-bold">Last Updated:</span>
         <time class="inline">{formatPostDate(lastModDate)}</time>
       </div>
@@ -33,7 +33,7 @@ const postTags = hashtagPostTags(tags);
   }
 
   <div class="block">
-    <Icon name="heroicons:tag-20-solid" class="h-5 w-5 mr-1 inline mb-1" />
+    <!-- <Icon name="heroicons:tag-20-solid" class="h-5 w-5 mr-1 inline mb-1" /> -->
     <strong class="mr-1">Tags:</strong>
     {
       postTags.map((tag, index) => {
