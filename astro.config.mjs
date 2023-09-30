@@ -3,7 +3,6 @@ import { defineConfig } from "astro/config";
 import mdx from "@astrojs/mdx";
 import tailwind from "@astrojs/tailwind";
 import alpinejs from "@astrojs/alpinejs";
-import Icons from 'unplugin-icons/vite'
 import { rehypeHeadingIds } from '@astrojs/markdown-remark';
 import remarkToc from 'remark-toc';
 import { rehypeAccessibleEmojis } from 'rehype-accessible-emojis';
@@ -26,5 +25,5 @@ export default defineConfig({
     },
   },
 
-  
+
 });
