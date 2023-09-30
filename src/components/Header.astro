@@ -16,6 +16,8 @@ const currentPath = pathname.slice(1); // remove the first "/"
   <div class="flex h-[52px] 2xl:h-[62px]">
     <button
       type="button"
+      aria-label="Toggle mobile menu"
+      aria-hidden="true"
       class="h-full p-3 hover:backdrop-brightness-75 dark:hover:backdrop-brightness-125 duration-150 lg:hidden text-branding-black dark:text-branding-white"
       x-on:click="mobileOpen = !mobileOpen">
       <Icon name="heroicons/bars-3-20-solid" class="h-5 w-5" />

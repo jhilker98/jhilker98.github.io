@@ -6,7 +6,7 @@ const currentPath = pathname.slice(1);
 ---
 
 <nav
-  x-show="open"
+  x-show="mobileOpen"
   :class="{'hidden': mobileOpen == false}"
   class="hidden lg:hidden text-right text-sm shadow-sm"
   x-transition:enter="transition-transform transition-opacity ease-out duration-200"
