@@ -12,6 +12,8 @@ import "@fontsource/ibm-plex-sans/600.css";
   <div class="flex flex-row items-center w-full justify-between">
     <span class="p-2 font-semibold uppercase">{SITE_META.title}</span>
     <button
+      type="button"
+      aria-label="Close mobile sidebar"
       class="p-4 transition hover:backdrop-brightness-75 dark:hover:backdrop-brightness-125 duration-100"
       @click="sidebarOpen = !sidebarOpen">
       <Icon

@@ -51,6 +51,7 @@ const currentPath = pathname.slice(1); // remove the first "/"
       <button
         type="button"
         class="h-full p-3 duration-75 hover:backdrop-brightness-75 inline-flex place-items-center dark:hover:backdrop-brightness-125"
+        aria-label="Toggle Dark Mode"
         @click="darkMode = !darkMode">
         <Icon
           name="heroicons/sun-solid"
@@ -63,6 +64,7 @@ const currentPath = pathname.slice(1); // remove the first "/"
       </button>
       <button
         type="button"
+        aria-label="Toggle Mobile Sidebar"
         class="h-full p-3 duration-75 hover:backdrop-brightness-75 inline-flex place-items-center dark:hover:backdrop-brightness-125 lg:hidden"
         @click="sidebarOpen = !sidebarOpen">
         <Icon
@@ -70,6 +72,7 @@ const currentPath = pathname.slice(1); // remove the first "/"
           class="w-5 h-5 transition duration-150 text-branding-black dark:text-branding-white"
           :class="{'rotate-90': sidebarOpen === true}"
         />
+        <span class="sr-only">Toggle Mobile Sidebar</span>
       </button>
     </div>
     <!-- TODO: Add Mobile Menu -->
