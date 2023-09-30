@@ -21,8 +21,6 @@ jobs:
           node-version: 18.x
 
       - run: npm clean-install
-      - run: npm install -D 'https://gitpkg.now.sh/stramel/astro-icon/packages/core?main'
-      - run: npm install @iconify/json
 
       - name: Build
         run: npm run build
@@ -32,4 +30,4 @@ jobs:
         if: github.ref == 'refs/heads/main'
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
-          publish_dir: ./dist
+          publish_dir: ./public

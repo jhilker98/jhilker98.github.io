@@ -1,45 +1,22 @@
-variables:
-  GIT_SUBMODULE_STRATEGY: recursive
-
-stages:
-  - build
-  - test
-  - deploy
-
-
-build:
-  image: node:latest
-  script:
-    - npm ci --cache .npm --prefer-offline
-  cache:
-    key: $CI_COMMIT_REF_SLUG
-    paths:
-      - .npm/
-
-
-test:
-  image: registry.gitlab.com/pages/hugo/hugo_extended:latest
-  needs: [build]
-  before_script:
-    - apk add --update --no-cache git npm
-  script:
-    # - hugo --enableGitInfo -b "https://jhilker.gitlab.io"
-    - npm ci --cache .npm --prefer-offline
-    - hugo --minify -b "https://jhilker.gitlab.io"
-  except:
-    - main
+# The Docker image that will be used to build your app
+image: node:lts
 
 pages:
-  image: registry.gitlab.com/pages/hugo/hugo_extended:latest
-  needs: [build]
-  before_script:
-    - apk add --update --no-cache git npm
+  cache:
+    paths:
+      - node_modules/
   script:
-    # - hugo --enableGitInfo -b "https://jhilker.gitlab.io"
-    - npm ci --cache .npm --prefer-offline
-    - hugo --minify -b "https://jhilker.gitlab.io"
+    # Specify the steps involved to build your app here
+    - npm install
+    - npm run build
+
   artifacts:
     paths:
+      # The folder that contains the built files to be published.
+      # This must be called "public".
       - public
+
   only:
+    # Trigger a new build and deploy only when there is a push to the
+    # branch(es) below
     - main

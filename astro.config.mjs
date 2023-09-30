@@ -11,6 +11,8 @@ import { rehypeAccessibleEmojis } from 'rehype-accessible-emojis';
 // https://astro.build/config
 export default defineConfig({
   site: "https://jhilker.com",
+  outDir: "public",
+  publicDir: "static",
   integrations: [mdx(), tailwind(), alpinejs()],
 
   markdown: {
