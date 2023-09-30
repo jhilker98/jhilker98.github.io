@@ -54,7 +54,7 @@ This command essentially says "Hey Hugo, I want to make a website in this folder
 
 Why would we do this? The first 2 lines are required for ox-hugo to handle exporting your org-mode files to the markdown that hugo uses. The line `#+hugo_bundle` is used to hold the relevant files for a page (such as the main content, and any relevant images, if needed), and the line `export_file_name` is used for exporting the relevant file to `index.md` in the bundle you set.
 
-After that, you should go to [themes.gohugo.io](https:themes.gohugo.io) and look around for a theme that suits your needs. Later in the series, we will actually be developing our own theme with Tailwind CSS, but for now, just choose a theme you like, and follow its installation instructions.
+After that, you should go to [themes.gohugo.io](https://themes.gohugo.io) and look around for a theme that suits your needs. Later in the series, we will actually be developing our own theme with Tailwind CSS, but for now, just choose a theme you like, and follow its installation instructions.
 
 Finally, just `git commit` your files, and then push them to your repository on Github or Gitlab, or your provider of choice. In the next post, we will be deploying our website with Gitlab Pages and Github Pages, though make sure to read the relevant documentation for your provider of choice.
 
