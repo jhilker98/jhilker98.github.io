@@ -7,7 +7,7 @@ interface Props {
 }
 
 import { formatPostDate, hashtagPostTags, slugifyUrl } from "@lib/utils";
-import { Icon } from "astro-iconify";
+import { Icon } from "astro-icon";
 
 const { title, pubDate, lastModDate = pubDate, tags = [] } = Astro.props;
 const postTags = hashtagPostTags(tags);

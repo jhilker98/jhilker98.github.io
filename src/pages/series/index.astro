@@ -5,7 +5,7 @@ import { getCollection } from "astro:content";
 import { findPostsInSeries } from "@lib/blog.ts";
 import { slugifyUrl } from "@lib/utils.ts";
 import BaseLayout from "@layouts/BaseLayout.astro";
-import { Icon } from "astro-iconify";
+import { Icon } from "astro-icon";
 
 const posts: BlogPost[] = await getCollection("blog", ({ data }) => {
   return import.meta.env.PROD ? data.draft !== true : true;
