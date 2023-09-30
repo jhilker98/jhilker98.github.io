@@ -26,12 +26,5 @@ export default defineConfig({
     },
   },
 
-  vite: {
-    plugins: [
-      Icons({
-        compiler: 'astro',
-        autoInstall: true
-      }),
-    ],
-  }
+  
 });
