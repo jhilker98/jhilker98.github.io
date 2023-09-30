@@ -15,6 +15,7 @@ const currentPath = pathname.slice(1); // remove the first "/"
   x-data="{mobileOpen: false}">
   <div class="flex h-[52px] 2xl:h-[62px]">
     <button
+      type="button"
       class="h-full p-3 hover:backdrop-brightness-75 dark:hover:backdrop-brightness-125 duration-150 lg:hidden text-branding-black dark:text-branding-white"
       x-on:click="mobileOpen = !mobileOpen">
       <Icon name="heroicons/bars-3-20-solid" class="h-5 w-5" />
@@ -48,6 +49,7 @@ const currentPath = pathname.slice(1); // remove the first "/"
     </nav>
     <div class="flex items-center h-full my-auto space-x-4 ml-auto">
       <button
+        type="button"
         class="h-full p-3 duration-75 hover:backdrop-brightness-75 inline-flex place-items-center dark:hover:backdrop-brightness-125"
         @click="darkMode = !darkMode">
         <Icon
@@ -60,6 +62,7 @@ const currentPath = pathname.slice(1); // remove the first "/"
         />
       </button>
       <button
+        type="button"
         class="h-full p-3 duration-75 hover:backdrop-brightness-75 inline-flex place-items-center dark:hover:backdrop-brightness-125 lg:hidden"
         @click="sidebarOpen = !sidebarOpen">
         <Icon
