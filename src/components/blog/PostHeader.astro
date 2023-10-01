@@ -33,8 +33,8 @@ const postTags = hashtagPostTags(tags);
   }
 
   <div class="block">
-    <!-- <Icon name="heroicons:tag-20-solid" class="h-5 w-5 mr-1 inline mb-1" /> -->
-    <strong class="mr-1">Tags:</strong>
+    <Icon name="heroicons/tag-20-solid" class="h-5 w-5 mr-1 inline mb-1" />
+    <strong class="mr-1 dark:text-neutral-300 text-neutral-700">Tags:</strong>
     {
       postTags.map((tag, index) => {
         if (tags[index + 1] !== undefined) {
