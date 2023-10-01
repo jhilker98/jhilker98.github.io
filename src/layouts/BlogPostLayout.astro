@@ -9,7 +9,7 @@ const {
   lastModDate = pubDate,
   description,
   tags,
-  cover = {},
+  cover,
   coverAlt = "",
   coverClasses = [],
 } = frontmatter;
@@ -18,8 +18,8 @@ const {
 <BaseLayout title={title} description={description}>
   <article
     class="p-2 prose mx-auto max-w-[80ch] prose-headings:font-serif prose-neutral dark:prose-invert prose-branding-blue">
-    <!-- {
-      cover && (
+    {
+      cover !== undefined && (
         <Image
           src={cover}
           alt={coverAlt}
@@ -27,7 +27,7 @@ const {
           class:list={["object-cover", "w-full", coverClasses]}
         />
       )
-    } -->
+    }
     <PostHeader
       title={title}
       pubDate={pubDate}
