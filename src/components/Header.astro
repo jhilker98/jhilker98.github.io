@@ -54,25 +54,30 @@ const currentPath = pathname.slice(1); // remove the first "/"
         type="button"
         class="h-full p-3 duration-75 hover:backdrop-brightness-75 inline-flex place-items-center dark:hover:backdrop-brightness-125"
         aria-label="Toggle Dark Mode"
-        @click="darkMode = !darkMode">
+        @click="darkMode = !darkMode"
+        aria-hidden="true">
         <Icon
           name="heroicons/sun-solid"
           class="text-branding-white hidden dark:inline-block w-5 h-5"
+          focusable="false"
         />
         <Icon
           name="heroicons/moon-solid"
           class="text-branding-black dark:hidden inline-block w-5 h-5"
+          focusable="false"
         />
       </button>
       <button
         type="button"
         aria-label="Toggle Mobile Sidebar"
         class="h-full p-3 duration-75 hover:backdrop-brightness-75 inline-flex place-items-center dark:hover:backdrop-brightness-125 lg:hidden"
-        @click="sidebarOpen = !sidebarOpen">
+        @click="sidebarOpen = !sidebarOpen"
+        aria-hidden="true">
         <Icon
           name="heroicons/bars-3-20-solid"
           class="w-5 h-5 transition duration-150 text-branding-black dark:text-branding-white"
           :class="{'rotate-90': sidebarOpen === true}"
+          focusable="false"
         />
         <span class="sr-only">Toggle Mobile Sidebar</span>
       </button>
