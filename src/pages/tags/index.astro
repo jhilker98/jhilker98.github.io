@@ -2,7 +2,9 @@
 import BaseLayout from "@layouts/BaseLayout.astro";
 import { slugifyUrl } from "@lib/utils";
 import { getCollection, type CollectionEntry } from "astro:content";
-const posts: CollectionEntry<"blog">[] = await getCollection("blog");
+const posts: CollectionEntry<"blog">[] = await getCollection("blog", ({data}) => {
+  return import.meta.env.PROD ? data.draft !== true : true
+});
 const tags = posts
   .map((post) => post.data.tags?.map((tag) => tag.toLowerCase()))
   .flat()
