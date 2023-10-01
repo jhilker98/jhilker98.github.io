@@ -1,8 +1,9 @@
 ---
 title: Personal Portfolio
-draft: true
+draft: false
 category: Website
 status: Completed
+featured: true
 tools:
  - Astro
  - TypeScript
