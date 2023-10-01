@@ -1,4 +1,50 @@
-<?xml version="1.0" encoding="UTF-8"?><rss version="2.0" xmlns:content="http://purl.org/rss/1.0/modules/content/"><channel><title>Blog - Jacob&apos;s Website</title><description>My journey with Emacs and frontend development.</description><link>https://jhilker.com/</link><item><title>The Best Tiling Window Managers For Beginners</title><link>https://jhilker.com/blog/2021/12/the-best-tiling-window-managers-for-beginners/</link><guid isPermaLink="true">https://jhilker.com/blog/2021/12/the-best-tiling-window-managers-for-beginners/</guid><description>Tiling window managers have greatly improved my productivity as a dev. Here are a couple I recommend.</description><pubDate>Thu, 23 Dec 2021 15:41:00 GMT</pubDate><content:encoded>&lt;p&gt;Anyone who knows me knows that I like to use a tiling window manager whenever I can. Having the ability to organize my programs into general categories, combined with the fact that none of the windows were overlapping, makes development so much easier compared to using a floating window manager in my opinion. However, the sheer number of choices presented when I was researching which window manager to use made it incredibly overwhelming for me to figure out where to start.&lt;/p&gt;
+<?xml version="1.0" encoding="UTF-8"?><rss version="2.0" xmlns:content="http://purl.org/rss/1.0/modules/content/"><channel><title>Blog - Jacob&apos;s Website</title><description>My journey with Emacs and frontend development.</description><link>https://jhilker.com/</link><item><title>Why I Left Hugo for Astro</title><link>https://jhilker.com/blog/2023/10/leaving-hugo-for-astro/</link><guid isPermaLink="true">https://jhilker.com/blog/2023/10/leaving-hugo-for-astro/</guid><description>While Hugo is great, I wanted to try some new things out with Astro. Here&apos;s what I learned.</description><pubDate>Sun, 01 Oct 2023 00:00:00 GMT</pubDate><content:encoded>&lt;p&gt;Although I&apos;ve been a fan of the Hugo static site generator for quite some time now, I&apos;ve decided to redesign my site and migrate away from Hugo to &lt;a href=&quot;https://astro.build&quot;&gt;Astro&lt;/a&gt;, a relatively new site generator that can handle both server-side rendering and static site generation.&lt;/p&gt;
+&lt;p&gt;I switched away from it for a couple of reasons:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;Easier templating.&lt;/strong&gt; Astro uses a JSX-esque templating language for handling dynamic content, while Hugo uses its own Go-based templating language. For an example of Go-based templating, see &lt;a href=&quot;/blog/2021/02/featuring-content-in-hugo&quot;&gt;this post&lt;/a&gt;. The same code in Astro would look something like this (assuming I am using Astro&apos;s &lt;a href=&quot;https://docs.astro.build/en/guides/content-collections&quot;&gt;content collections&lt;/a&gt; API):&lt;/li&gt;
+&lt;/ul&gt;
+&lt;pre&gt;&lt;code&gt;---
+const posts = await getCollection(&quot;blog&quot;, ({data}) =&amp;gt; {
+    return import.meta.env.PROD ? 
+    data.featured == true &amp;amp;&amp;amp; data.draft !== true
+    : data.featured == true &amp;amp;&amp;amp; true;
+});
+// the rest of your code for the component here
+---
+&amp;lt;ul class=&quot;posts-list&quot;&amp;gt;
+{
+  posts.slice(0, 5).map((post) =&amp;gt; (
+    &amp;lt;li class=&quot;posts-list-item&quot;&amp;gt;
+        &amp;lt;a href=`/blog/${post.slug}` class=&quot;posts-list-item-title&quot;&amp;gt;
+        {post.data.title}
+        &amp;lt;/a&amp;gt;
+        &amp;lt;span class=&quot;posts-list-item-description&quot;&amp;gt;
+            {post.data.date} // normally just the date, but you can write a function to format it
+        &amp;lt;/span&amp;gt;
+    &amp;lt;/li&amp;gt;
+  ))  
+}
+&amp;lt;/ul&amp;gt;
+&lt;/code&gt;&lt;/pre&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;p&gt;&lt;strong&gt;Much better documentation.&lt;/strong&gt; Although this might not seem like a huge issue, since there are a variety of blog posts about Hugo, including on this blog, the actual documentation for Hugo leaves much to be desired, in my opinion.&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;&lt;strong&gt;Easier Tailwind Integration.&lt;/strong&gt;  With Hugo, getting Tailwind integrated was almost a pain in my opinion, requiring you to export a &lt;code&gt;hugo_stats.json&lt;/code&gt; file which had all the classes in your content in order to get the JIT mode of Tailwind working (see &lt;a href=&quot;https://www.brycewray.com/posts/2022/03/making-tailwind-jit-work-hugo-version-3-edition/&quot;&gt;this post&lt;/a&gt; for more information). While Hugo v112.0 fixed the issue, having to go through all those extra steps made it a hassle to work with Tailwind in Hugo, whereas with Astro I just have to do &lt;code&gt;npx astro add tailwind&lt;/code&gt; and follow the prompts and I immediately have access to Tailwind with the JIT mode out of the box.&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;&lt;strong&gt;Type-safe Markdown.&lt;/strong&gt; With the Content Collections API, I am able to create content with a particular schema, and if the frontmatter doesn&apos;t match the schema, then Astro will throw an error (and I am able to define the error message), whereas with Hugo you might have gotten an error, but you&apos;d have to reference whatever code you were using as well as referencing the frontmatter of whatever content you were writing.&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;However, despite my newfound love of Astro, I did find several issues that I had as I converted the site over:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;p&gt;&lt;strong&gt;No Org-mode support.&lt;/strong&gt; Obviously Org-mode was a huge part of what drew me to using Hugo in the first place - while I had started with the native Org-mode parser that Hugo used, I soon swapped to &lt;a href=&quot;https://github.com/kaushalmodi/ox-hugo&quot;&gt;Ox-hugo&lt;/a&gt; in order to do more with Org-mode rather than just Hugo by itself.&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;&lt;strong&gt;No taxonomies or RSS out of the box.&lt;/strong&gt; While it&apos;s important to know how to implement certain things (like taxonomies in this case), having that in Hugo without any additional configuration is much easier than building out functions to simply get each taxonomy set up.&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;&lt;strong&gt;No relative links in content.&lt;/strong&gt; At least with my setup, I still have to remember the URL if I want to link to a particular post, whereas with Hugo, if I linked to a particular file in my Org-mode document, it would automatically export that link as a &lt;code&gt;relref&lt;/code&gt; shortcode, which in turn finds the relevant page based on the slug you pass.&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;Overall, I&apos;ve really enjoyed working with Astro - I&apos;d highly suggest it as a starting point if you want to learn HTML and CSS - the fundamentals will still apply, but being able to just create templates for content and not having to copy-paste the same code like with normal HTML, along with a simple templating syntax, makes it a great place to start.&lt;/p&gt;
+</content:encoded></item><item><title>The Best Tiling Window Managers For Beginners</title><link>https://jhilker.com/blog/2021/12/the-best-tiling-window-managers-for-beginners/</link><guid isPermaLink="true">https://jhilker.com/blog/2021/12/the-best-tiling-window-managers-for-beginners/</guid><description>Tiling window managers have greatly improved my productivity as a dev. Here are a couple I recommend.</description><pubDate>Thu, 23 Dec 2021 15:41:00 GMT</pubDate><content:encoded>&lt;p&gt;Anyone who knows me knows that I like to use a tiling window manager whenever I can. Having the ability to organize my programs into general categories, combined with the fact that none of the windows were overlapping, makes development so much easier compared to using a floating window manager in my opinion. However, the sheer number of choices presented when I was researching which window manager to use made it incredibly overwhelming for me to figure out where to start.&lt;/p&gt;
 &lt;p&gt;For absolute beginners to tiling window managers, I would suggest &lt;a href=&quot;https:regolith-linux.org&quot;&gt;Regolith Linux&lt;/a&gt;, which uses the i3 window manager on top of Ubuntu. I&apos;d also suggest &lt;a href=&quot;https:docs.qtile.org&quot;&gt;Qtile&lt;/a&gt;, for anyone who would rather use a dynamic TWM rather than a manual one like i3. I&apos;ve also heard that &lt;a href=&quot;https://github.com/Baskerville/bspwm&quot;&gt;BSPWM&lt;/a&gt; is good for beginners; however, along with basically being a shell script, BSPWM doesn&apos;t handle keybindings, instead handing that off to an external program by the same author, &lt;a href=&quot;https://github.com/Baskerville/sxhkd&quot;&gt;SXHKD&lt;/a&gt;, or the Simple X HotKey Daemon. I also don&apos;t have that much experience with it, hence why I&apos;m not including as much about it.&lt;/p&gt;
 &lt;p&gt;i3 is nice (and especially the Regolith config), because it gives you everything you need to get started learning (most) tiling window managers along with a way of checking your keybindings while in the window manager. However, i3 is written in its own language and not a traditional programming language, which means you&apos;ll need an extra package or plugin for syntax highlighting in your text editor of choice (whether Vim or Emacs).&lt;/p&gt;
 &lt;p&gt;I also like Qtile because I don&apos;t manually have to set up layouts the way I would with i3, and because it&apos;s written in Python, which means that it&apos;s easy to configure. It also means it&apos;s easy to hack on to, so for instance you could create custom layouts that aren&apos;t already available, or custom modules for the bar, etc. My personal favorite features are the ease of configuration, and the layouts feature like I said.&lt;/p&gt;
