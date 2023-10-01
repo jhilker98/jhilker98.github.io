@@ -5,7 +5,6 @@ import tailwind from "@astrojs/tailwind";
 import alpinejs from "@astrojs/alpinejs";
 import { rehypeHeadingIds } from '@astrojs/markdown-remark';
 import remarkToc from 'remark-toc';
-import { rehypeAccessibleEmojis } from 'rehype-accessible-emojis';
 
 
 // https://astro.build/config
@@ -20,7 +19,6 @@ export default defineConfig({
     rehypePlugins: [
       rehypeHeadingIds,
       remarkToc,
-      rehypeAccessibleEmojis
     ],
     shikiConfig: {
       theme: "one-dark-pro",
