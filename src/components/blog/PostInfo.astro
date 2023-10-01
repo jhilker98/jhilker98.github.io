@@ -34,7 +34,10 @@ const postBody = marked.parse(body);
     >
     <span
       class="block mt-1 text-branding-gray-600 dark:text-branding-gray-400 text-sm font-semibold">
-      <Icon name="mdi/clock-outline" class="inline-block w-4 h-4 -mt-1 mr-1" />
+      <Icon
+        name="mdi/clock-outline"
+        class="inline-block w-4 h-4 -mt-1 mr-1 fill-gray-600 dark:fill-gray-400"
+      />
       {calcReadingTime(post.body)}
     </span>
     {
