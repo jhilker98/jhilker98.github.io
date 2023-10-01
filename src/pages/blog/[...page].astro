@@ -10,8 +10,7 @@ export const getStaticPaths = (async ({ paginate }) => {
   const posts: CollectionEntry<"blog">[] = await getCollection(
     "blog",
     ({ data }) => {
-      //return import.meta.env.PROD ? data.draft !== true : true;
-      return data.draft !== true;
+      return import.meta.env.PROD ? data.draft !== true : true;
     },
   );
   posts.sort((a, b) => b.data.pubDate.getTime() - a.data.pubDate.getTime());
