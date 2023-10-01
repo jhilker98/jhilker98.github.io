@@ -4,6 +4,7 @@ import { Icon } from "astro-icon";
 import { Image } from "astro:assets";
 import { type SocialLink } from "@types";
 import "@fontsource/ibm-plex-sans/600.css";
+import sidebar from "@assets/img/sidebar.svg";
 ---
 
 <aside
@@ -25,12 +26,7 @@ import "@fontsource/ibm-plex-sans/600.css";
   </div>
   <div
     class="mt-3 rounded-full bg-branding-gray-400 w-40 h-40 overflow-hidden mx-auto">
-    <Image
-      src="https://avataaars.io/?avatarStyle=Transparent&topType=ShortHairShortFlat&accessoriesType=Prescription02&hairColor=Black&facialHairType=Blank&clotheType=ShirtCrewNeck&clotheColor=Black&eyeType=Default&eyebrowType=DefaultNatural&mouthType=Smile&skinColor=Light"
-      alt="My personal avatar"
-      width="500"
-      height="550"
-    />
+    <Image src={sidebar} alt="My personal avatar" width="500" height="550" />
   </div>
   <p class="p-2 mx-auto mt-2 text-sm text-center text-branding-white/80">
     {SITE_META.tagline}

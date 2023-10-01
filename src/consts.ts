@@ -53,5 +53,6 @@ export const SITE_META: SiteConfig = {
   socialLinks: SOCIAL_LINKS,
 };
 
+export const SIDEBAR_IMAGE = "/img/sidebar.svg";
 export const RECENT_POST_COUNT: number = 4;
 export const FEATURED_PROJECT_COUNT: number = 3;
