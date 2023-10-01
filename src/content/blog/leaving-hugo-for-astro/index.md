@@ -9,7 +9,8 @@ coverClasses:
  - "h-48"
  - "object-[center_-75px]"
 ---
+Although I've been a fan of the Hugo static site generator for quite some time now, I've decided to redesign my site and migrate away from Hugo to [Astro](https://astro.build), a relatively new site generator that can handle both server-side rendering and static site generation.
 
-Consequat ad sit cillum aliquip nostrud ipsum consectetur incididunt consectetur nisi eu irure. Tempor esse consequat nisi qui duis duis cillum sunt labore consequat ea dolor. Labore occaecat officia qui enim exercitation. Ea labore aute esse veniam pariatur velit ea nisi qui culpa velit irure proident. Labore nisi ipsum ipsum labore incididunt ipsum. Et magna ex culpa nostrud est officia aute.
-
-Sunt ea tempor eu in laboris adipisicing velit fugiat officia labore ut. Est consequat nulla pariatur amet adipisicing. Lorem officia nostrud mollit duis esse et exercitation irure ex mollit qui. Fugiat duis velit laborum laborum nulla nostrud Lorem sunt commodo do ex. Nulla eu nisi deserunt laborum ut. Nisi proident occaecat sunt sit sint sunt enim et velit fugiat eiusmod commodo.
+I switched away from it for a couple of reasons:
+- Easier templating. Astro uses a JSX-esque templating language for handling dynamic content, while Hugo uses its own Go-based templating language.
+- Much better documentation. 
