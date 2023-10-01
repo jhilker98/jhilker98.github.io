@@ -27,13 +27,13 @@
 <p>And so, I decided to set up my first hydra for finding files. I figured I didn’t want to set one up where I could add a file, but finding a file seemed like a good place to start.</p>
 <h2 id="the-base-hydra---finding-files-the-base-hydra-finding-files">The Base Hydra - Finding Files {#the-base-hydra-finding-files}</h2>
 <p>I figured fairly early on that once I had one function and hydra down, I would effectively have all three down, but I would just need to update the function I needed to call (such as <code>org-roam-node-find</code> or <code>org-roam-capture</code>). I started by looking over the code from the excellent blog post on <a href="https://mollermara.com/blog/Fast-refiling-in-org-mode-with-hydras/">refiling Org-mode items with a hydra</a>. Spoilers - I’m not very good at Elisp, so when I saw his macro with all the backticks and commas, I found it fairly hard to follow along, at least until I found a cheatsheet for elisp earlier today. I first overwrote the function with a simple <code>(let*)</code> before I called <code>org-roam-find-file</code> and ran it in a simple scratch buffer. I was using the wiki I have for my alt-history setting <a href="https://brokenthrones.jhilker.com">Broken Thrones</a> as an example, since that has become one of my main passion projects in my off-time, but feel free to use any hugo-site with <a href="https://github.com/kaushalmodi/ox-hugo">Ox-Hugo</a> set up as an example. I am using a directory called <code>content-org</code> in that hugo site, but use whatever you want.</p>
-<pre is:raw="" class="astro-code one-dark-pro" style="background-color: #282c34; overflow-x: auto;" tabindex="0"><code><span class="line"><span style="color: #abb2bf">(defun jh/find-org-roam-file (directory)</span></span>
+<pre is:raw="" class="astro-code one-dark-pro" style="background-color: #282c34; overflow-x: auto; white-space: pre-wrap; word-wrap: break-word;" tabindex="0"><code><span class="line"><span style="color: #abb2bf">(defun jh/find-org-roam-file (directory)</span></span>
 <span class="line"><span style="color: #abb2bf">  "Sets the org-roam directory and database and finds file."</span></span>
 <span class="line"><span style="color: #abb2bf">  (let* ((org-roam-directory (concat directory "content-org/"))</span></span>
 <span class="line"><span style="color: #abb2bf">         (org-roam-db-location (concat directory "org-roam.db")))</span></span>
 <span class="line"><span style="color: #abb2bf">    (org-roam-node-find)))</span></span></code></pre>
 <p>After evaluating that in a scratch buffer, now I knew that I had enough for a basic hydra. Here is my final configuration for this base hydra after I did some UI tweaks for the help menu, but if anything the UI isn’t as important as functionality, at least when first setting it up.</p>
-<pre is:raw="" class="astro-code one-dark-pro" style="background-color: #282c34; overflow-x: auto;" tabindex="0"><code><span class="line"><span style="color: #abb2bf">(defhydra jh/find-org-roam-file-hydra (:hint nil :exit t)</span></span>
+<pre is:raw="" class="astro-code one-dark-pro" style="background-color: #282c34; overflow-x: auto; white-space: pre-wrap; word-wrap: break-word;" tabindex="0"><code><span class="line"><span style="color: #abb2bf">(defhydra jh/find-org-roam-file-hydra (:hint nil :exit t)</span></span>
 <span class="line"><span style="color: #abb2bf">  "</span></span>
 <span class="line"><span style="color: #abb2bf">^Default^            ^Conworlds^             ^Campaigns^</span></span>
 <span class="line"><span style="color: #abb2bf">^^^^^^^^------------------------------------------------------------</span></span>
@@ -49,7 +49,7 @@
 <p>Once I had that, I knew I could just replace <code>org-roam-find-file</code> with <code>org-roam-capture</code> or whatever I needed to call. Although I am reusing a lot of code for this, in time I will try to clean it up. If you need the other hydras I use on a daily basis for roam notes, here they are.</p>
 <p>To actually use the hydra, bind <code>jh/find-org-roam-file-hydra/body</code> to a keybinding (I use <code>SPC n r f</code>) in my configs for both vanilla Emacs and Doom Emacs, and you should be set.</p>
 <h2 id="capturing-hydra-capturing-hydra">Capturing Hydra {#capturing-hydra}</h2>
-<pre is:raw="" class="astro-code one-dark-pro" style="background-color: #282c34; overflow-x: auto;" tabindex="0"><code><span class="line"><span style="color: #abb2bf">(defun jh/org-roam-capture (directory)</span></span>
+<pre is:raw="" class="astro-code one-dark-pro" style="background-color: #282c34; overflow-x: auto; white-space: pre-wrap; word-wrap: break-word;" tabindex="0"><code><span class="line"><span style="color: #abb2bf">(defun jh/org-roam-capture (directory)</span></span>
 <span class="line"><span style="color: #abb2bf">  "Sets the org-roam directory and database and captures to file."</span></span>
 <span class="line"><span style="color: #abb2bf">  (let* ((org-roam-directory (concat directory "content-org/"))</span></span>
 <span class="line"><span style="color: #abb2bf">         (org-roam-db-location (concat directory "org-roam.db")))</span></span>
@@ -69,7 +69,7 @@
 <span class="line"><span style="color: #abb2bf">  ("e" (jh/org-roam-capture "~/Projects/campaigns/mirkwoodCampaign/"))</span></span>
 <span class="line"><span style="color: #abb2bf">  ("q" nil))</span></span></code></pre>
 <h2 id="insertion-hydra-insertion-hydra">Insertion Hydra {#insertion-hydra}</h2>
-<pre is:raw="" class="astro-code one-dark-pro" style="background-color: #282c34; overflow-x: auto;" tabindex="0"><code><span class="line"><span style="color: #abb2bf">(defun jh/org-roam-insert (directory)</span></span>
+<pre is:raw="" class="astro-code one-dark-pro" style="background-color: #282c34; overflow-x: auto; white-space: pre-wrap; word-wrap: break-word;" tabindex="0"><code><span class="line"><span style="color: #abb2bf">(defun jh/org-roam-insert (directory)</span></span>
 <span class="line"><span style="color: #abb2bf">  "Sets the org-roam directory and database and inserts link to file."</span></span>
 <span class="line"><span style="color: #abb2bf">  (let* ((org-roam-directory (concat directory "content-org/"))</span></span>
 <span class="line"><span style="color: #abb2bf">         (org-roam-db-location (concat directory "org-roam.db")))</span></span>
