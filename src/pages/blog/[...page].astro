@@ -10,7 +10,8 @@ export const getStaticPaths = (async ({ paginate }) => {
   const posts: CollectionEntry<"blog">[] = await getCollection(
     "blog",
     ({ data }) => {
-      return import.meta.env.PROD ? data.draft !== true : true;
+      //return import.meta.env.PROD ? data.draft !== true : true;
+      return data.draft !== true;
     },
   );
   posts.sort((a, b) => b.data.pubDate.getTime() - a.data.pubDate.getTime());
@@ -21,16 +22,15 @@ const { page } = Astro.props;
 ---
 
 <BaseLayout title="Blog" description="All the blog posts on my site.">
-  <section class="min-h-screen text-gray-600">
-    <div class="container mx-auto px-5 h-screen">
-      <div class="divide-y-2 divide-gray-500">
-        {
-          page.data.map((post: BlogPost) => (
-            <PostInfo post={post} wordCount={35} />
-          ))
-        }
-      </div>
-      <Pagination prevUrl={page.url.prev} nextUrl={page.url.next} />
+  <section
+    class="min-h-full grid grid-rows-[1fr_auto] container mx-auto px-5 overflow-hidden">
+    <div class="divide-y-2 divide-gray-500">
+      {
+        page.data.map((post: BlogPost) => (
+          <PostInfo post={post} wordCount={33} />
+        ))
+      }
     </div>
+    <Pagination prevUrl={page.url.prev} nextUrl={page.url.next} />
   </section>
 </BaseLayout>

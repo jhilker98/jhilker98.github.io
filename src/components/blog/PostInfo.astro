@@ -18,9 +18,12 @@ const body = `${post.body
 const postBody = marked.parse(body);
 ---
 
-<article class="py-4 flex flex-wrap md:flex-nowrap">
-  <div class="md:w-72 md:mb-0 -mb-2 align-baseline">
-    <Icon name="mdi:calendar" class="inline-block -mt-px text-sm w-4 h-4" />
+<article class="py-3.5 grid md:grid-cols-[18rem_auto]">
+  <aside class="md:row-span-1 md:mb-0 -mb-2 align-baseline md:px-2">
+    <Icon
+      name="mdi/calendar"
+      class="inline-block -mt-px text-sm w-4 h-4 fill-gray-700 dark:fill-gray-400"
+    />
     <span class="ml-1 font-bold text-sm text-gray-700 dark:text-gray-400"
       >Posted:
     </span>
@@ -29,10 +32,9 @@ const postBody = marked.parse(body);
       class="font-semibold text-sm text-gray-700 dark:text-gray-400"
       >{formatPostDate(post.data.pubDate)}</time
     >
-
     <span
       class="block mt-1 text-branding-gray-600 dark:text-branding-gray-400 text-sm font-semibold">
-      <Icon name="mdi:clock-outline" class="inline-block w-4 h-4 -mt-1 mr-1" />
+      <Icon name="mdi/clock-outline" class="inline-block w-4 h-4 -mt-1 mr-1" />
       {calcReadingTime(post.body)}
     </span>
     {
@@ -42,10 +44,10 @@ const postBody = marked.parse(body);
         </div>
       )
     }
-  </div>
-  <div class="md:flex-grow">
+  </aside>
+  <div class="mt-4 md:mt-0 md:ml-4">
     <h2
-      class="text-2xl font-medium text-gray-900 title-font mb-2 font-serif dark:text-white">
+      class="text-2xl font-medium text-gray-900 title-font font-serif dark:text-white md:mb-2">
       {post.data.title}
     </h2>
     <div
