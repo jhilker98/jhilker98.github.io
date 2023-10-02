@@ -1,0 +1,59 @@
+---
+import { Image } from "astro:assets";
+import Button from "../Button.astro";
+import Hero from "@assets/Hero.jpeg";
+import Icon from "astro-icon";
+import { SITE_META } from "@consts";
+---
+
+<div class="z-0 flex flex-col lg:flex-row-reverse items-center justify-center">
+  <Image
+    src={Hero}
+    format="webp"
+    class="aspect-square object-cover rounded-sm"
+    width="300"
+    height="500"
+    alt="Myself leaning on a tree."
+  />
+  <div class="ml-4 lg:ml-0 text-center lg:text-justify">
+    <h1
+      class="text-5xl font-bold font-serif uppercase text-branding-black dark:text-branding-white">
+      Hi, I'm
+      <span class="text-branding-navy-600 dark:text-branding-navy-400"
+        >Jacob</span
+      >
+      <Icon
+        name="twemoji/waving-hand"
+        class="text-5xl inline w-10 h-10 -mt-4 ml-2"
+      />
+    </h1>
+    <h2
+      class="text-3xl font-bold my-4 lg:my-6 text-branding-text/90 dark:text-branding-white/90">
+      Freelance Web Developer
+    </h2>
+    <p
+      class="-mt-4 lg:mt-0 py-3 lg:py-6 max-w-[80ch] text-branding-text/75 mx-auto lg:mr-8 dark:text-branding-white/75">
+      I create accessible, performant, and easy-to-use websites using free and
+      open-source technologies such as TailwindCSS, Hugo, and Astro.
+      {
+        SITE_META.availableForHire
+          ? "I'm currently available for hire, so feel free to reach out using the button below."
+          : ""
+      }
+    </p>
+    <div class="space-x-3">
+      <a
+        href="mailto:jacob.hilker2@gmail.com"
+        class="focus:ring focus:ring-offset-4 focus:ring-offset-branding-white dark:focus:ring-offset-branding-black focus:outline-none cursor-pointer transition duration-200 motion-reduce:duration-0 font-bold disabled:cursor-not-allowed ease-out text-white uppercase bg-branding-navy hover:bg-branding-navy-800 dark:hover:bg-branding-navy-400 disabled:text-branding-navy-200 text-base py-2 px-4 rounded inline-flex place-items-center focus:hover:ring-branding-navy-800 dark:focus:hover:ring-branding-navy-400">
+        Reach Out
+      </a>
+      <Button
+        theme="secondary"
+        size="medium"
+        type="button"
+        @click="$refs.about.scrollIntoView()">
+        About Me
+      </Button>
+    </div>
+  </div>
+</div>
