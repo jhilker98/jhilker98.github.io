@@ -12,8 +12,6 @@ const projects: Project[] = (await getCollection("projects", ({ data }) => {
     ? data.featured == true && data.draft !== true
     : data.featured == true && true;
 })).slice(0, FEATURED_PROJECT_COUNT);
-const projectClass: string = `lg:grid-cols-${FEATURED_PROJECT_COUNT}`;
-console.log(projectClass)
 ---
 
 <BaseLayout title="Home" description={SITE_META.description}>
@@ -78,7 +76,7 @@ console.log(projectClass)
                 <h2 class="text-lg text-gray-900 font-medium title-font mb-4 dark:text-branding-white">
                   {project.data.title}
                 </h2>
-                <div class="prose prose-neutral dark:prose-invert line-clamp-2">
+                <div class="prose prose-neutral dark:prose-invert line-clamp-2 prose-sm md:prose-base">
                   {project.data.description}
                 </div>
                 <div class="flex space-x-3 mt-2">
