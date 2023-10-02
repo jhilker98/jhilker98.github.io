@@ -9,7 +9,7 @@ tools:
  - TypeScript
  - TailwindCSS
  - AlpineJS
-description: "The website you are currently browsing."
+description: "A tech-focused blog, featuring a portfolio with several projects and a resume."
 links:
  repo: "https://github.com/jhilker98/jhilker98.github.io"
 ---
