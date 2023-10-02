@@ -1,6 +1,7 @@
 ---
 import BaseLayout from "@layouts/BaseLayout.astro";
 import PostHeader from "@components/blog/PostHeader.astro";
+import Comments from "@components/blog/Comments.astro";
 import { Image } from "astro:assets";
 const { frontmatter } = Astro.props;
 const {
@@ -35,22 +36,6 @@ const {
       tags={tags}
     />
     <slot />
-    <script
-      src="https://giscus.app/client.js"
-      data-repo="jhilker98/jhilker98.github.io"
-      data-repo-id="R_kgDOHxig_Q"
-      data-category="Comments"
-      data-category-id="DIC_kwDOHxig_c4CSrzq"
-      data-mapping="title"
-      data-strict="0"
-      data-reactions-enabled="1"
-      data-emit-metadata="0"
-      data-input-position="top"
-      data-theme="preferred_color_scheme"
-      data-lang="en"
-      data-loading="lazy"
-      crossorigin="anonymous"
-      async
-    ></script>
+    <Comments />
   </article>
 </BaseLayout>
