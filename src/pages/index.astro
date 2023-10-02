@@ -64,7 +64,7 @@ const projects: Project[] = (await getCollection("projects", ({ data }) => {
         "grid",
         "grid-cols-1",
         "md:grid-cols-2",
-        "lg:grid-cols-3"
+        `lg:grid-cols-${FEATURED_PROJECT_COUNT}`
       ]}>
       {
         projects.map((project: Project) => (
