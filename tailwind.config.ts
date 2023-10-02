@@ -6,12 +6,12 @@ import type { PluginAPI } from "tailwindcss/types/config";
 export default {
   content: ["./src/**/*.{astro,html,js,jsx,md,mdx,svelte,ts,tsx,vue}"],
   darkMode: ["class", "[data-theme='dark']"],
-  safelist: [
-    {
-      pattern: /grid-(cols|rows)-./,
-      variants: ["lg", "md"],
-    },
-  ],
+  //safelist: [
+  //  {
+  //    pattern: /grid-(cols|rows)-./,
+  //    variants: ["lg", "md"],
+  //  },
+  //],
   theme: {
     gridTemplateAreas: {
       mobile: ["header header header", "main main main", "main main main"],
