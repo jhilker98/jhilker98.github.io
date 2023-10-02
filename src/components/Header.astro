@@ -15,14 +15,21 @@ const currentPath = pathname.slice(1); // remove the first "/"
   x-data="{mobileOpen: false}">
   <div class="flex h-[52px] 2xl:h-[62px]">
     <button
-      type="button"
-      aria-label="Toggle mobile menu"
-      aria-hidden="true"
-      class="h-full p-3 hover:backdrop-brightness-75 dark:hover:backdrop-brightness-125 duration-150 lg:hidden text-branding-black dark:text-branding-white"
-      x-on:click="mobileOpen = !mobileOpen">
-      <Icon name="heroicons/bars-3-20-solid" class="h-5 w-5" />
-    </button>
-    <nav class="h-full">
+        type="button"
+        aria-label="Toggle Mobile Sidebar"
+        class="h-full p-3 duration-75 hover:backdrop-brightness-75 inline-flex place-items-center dark:hover:backdrop-brightness-125 lg:hidden"
+        @click="sidebarOpen = !sidebarOpen"
+        aria-hidden="true">
+        <Icon
+          name="heroicons/bars-3-bottom-left-20-solid"
+          class="w-5 h-5 transition duration-150 text-branding-black dark:text-branding-white"
+          :class="{'rotate-90': sidebarOpen === true}"
+          focusable="false"
+        />
+        <span class="sr-only">Toggle Mobile Sidebar</span>
+      </button>
+
+      <nav class="h-full">
       <ul class="hidden lg:flex h-full items-center space-x-4">
         {
           NAV_LINKS.map((link: Link) => {
@@ -68,19 +75,14 @@ const currentPath = pathname.slice(1); // remove the first "/"
         />
       </button>
       <button
-        type="button"
-        aria-label="Toggle Mobile Sidebar"
-        class="h-full p-3 duration-75 hover:backdrop-brightness-75 inline-flex place-items-center dark:hover:backdrop-brightness-125 lg:hidden"
-        @click="sidebarOpen = !sidebarOpen"
-        aria-hidden="true">
-        <Icon
-          name="heroicons/bars-3-20-solid"
-          class="w-5 h-5 transition duration-150 text-branding-black dark:text-branding-white"
-          :class="{'rotate-90': sidebarOpen === true}"
-          focusable="false"
-        />
-        <span class="sr-only">Toggle Mobile Sidebar</span>
-      </button>
+      type="button"
+      aria-label="Toggle mobile menu"
+      aria-hidden="true"
+      class="h-full p-3 hover:backdrop-brightness-75 dark:hover:backdrop-brightness-125 duration-150 lg:hidden text-branding-black dark:text-branding-white"
+      x-on:click="mobileOpen = !mobileOpen">
+      <Icon name="heroicons/bars-3-bottom-right-20-solid" class="h-5 w-5" />
+    </button>
+     
     </div>
     <!-- TODO: Add Mobile Menu -->
   </div>
