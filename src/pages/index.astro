@@ -7,11 +7,11 @@ import HeroSection from "@components/HeroSection.astro";
 import { type BlogPost, type Project } from "@content";
 import { getCollection } from "astro:content";
 import Icon from "astro-icon";
-const projects: Project[] = await getCollection("projects", ({ data }) => {
+const projects: Project[] = (await getCollection("projects", ({ data }) => {
   return import.meta.env.PROD == true
     ? data.featured == true && data.draft !== true
     : data.featured == true && true;
-});
+})).slice(0, FEATURED_PROJECT_COUNT);
 ---
 
 <BaseLayout title="Home" description={SITE_META.description}>
@@ -66,10 +66,11 @@ const projects: Project[] = await getCollection("projects", ({ data }) => {
           "grid-cols-1",
           "md:grid-cols-2",
           `lg:grid-cols-${FEATURED_PROJECT_COUNT}`,
+          "gap-2"
         ]}>
         {
           projects.map((project: Project) => (
-            <div class="p-4 col-span-1">
+            <div class="p-4">
               <div class="bg-gray-100 dark:bg-[#102840] shadow-md p-6 rounded-lg dark:shadow-branding-white/20">
                 <p class="tracking-widest text-branding-blue-500 text-xs font-medium title-font uppercase dark:text-branding-blue-400">
                   {project.data.category}
@@ -96,7 +97,7 @@ const projects: Project[] = await getCollection("projects", ({ data }) => {
               </div>
             </div>
           ))
-        }
+        }        
       </div>
     </div>
   </section>
