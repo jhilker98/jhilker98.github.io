@@ -92,7 +92,9 @@ const projectSchema = defineCollection({
         invalid_type_error: "Pass the url to the repository as a string.",
         required_error: "The repository link is required.",
       }),
-    }),
+      live: z.string({
+        invalid_type_error: "Pass the live url as a string.",
+    }).optional(),
   }),
 });
 
