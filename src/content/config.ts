@@ -22,7 +22,9 @@ const blogSchema = defineCollection({
       series: z
         .object({
           name: z.string({ required_error: "Any series must have a name." }),
-          description: z.string({required_error: "All series must have a brief description."}),
+          description: z.string({
+            required_error: "All series must have a brief description.",
+          }),
           weight: z.number({
             required_error:
               "Any post in a series must have a weight to sort by in that series.",
@@ -92,9 +94,12 @@ const projectSchema = defineCollection({
         invalid_type_error: "Pass the url to the repository as a string.",
         required_error: "The repository link is required.",
       }),
-      live: z.string({
-        invalid_type_error: "Pass the live url as a string.",
-    }).optional(),
+      live: z
+        .string({
+          invalid_type_error: "Pass the url to the live site as a string.",
+        })
+        .optional(),
+    }),
   }),
 });
 
