@@ -2,13 +2,32 @@
 import BaseLayout from "@layouts/BaseLayout.astro";
 const { frontmatter } = Astro.props;
 const { languages, framelibs, techs } = frontmatter.skills;
+import CvSkills from "@components/CvSkills.astro";
 //console.log(frontmatter.skills);
 ---
 
 <BaseLayout title="Resumé" description="My Personal Resume">
   <div
-    class="w-full grid grid-cols-[3.75fr_1.25fr] prose prose-h2:mt-0 max-w-none prose-neutral dark:prose-invert h-full">
+    class="w-full grid grid-cols-[3.75fr_1.25fr] prose prose-h2:mt-0 max-w-none prose-neutral dark:prose-invert h-full prose-sm md:prose-base">
     <article class="col-span-full lg:col-span-1 p-3 text-justify prose-h2:mb-0">
+      <section class="lg:hidden">
+        <h2>Skills</h2>
+        <CvSkills category="Programming Languages">
+          <ul>
+            {languages.map((language: string) => <li>{language}</li>)}
+          </ul>
+        </CvSkills>
+        <CvSkills category="Frameworks & Libraries">
+          <ul>
+            {framelibs.map((framelib: string) => <li>{framelib}</li>)}
+          </ul>
+        </CvSkills>
+        <CvSkills category="Tehnologies">
+          <ul>
+            {techs.map((tech: string) => <li>{tech}</li>)}
+          </ul>
+        </CvSkills>
+      </section>
       <slot />
     </article>
     <aside
