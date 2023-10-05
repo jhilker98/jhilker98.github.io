@@ -2,6 +2,7 @@
 import type { Config } from "tailwindcss";
 import defaultTheme from "tailwindcss/defaultTheme";
 import type { PluginAPI } from "tailwindcss/types/config";
+import  plugin  from "tailwindcss/plugin";
 
 export default {
   content: ["./src/**/*.{astro,html,js,jsx,md,mdx,svelte,ts,tsx,vue}"],
@@ -181,5 +182,12 @@ export default {
     require("@tailwindcss/forms"),
     require("@tailwindcss/typography"),
     require("tailwind-scrollbar"),
+    plugin(function ({ addUtilities }) {
+      addUtilities({
+        ".text-wrap-balance": {
+          "text-wrap": "balance",
+        },
+      });
+    }),
   ],
 } satisfies Config;
