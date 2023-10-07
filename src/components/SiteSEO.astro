@@ -1,7 +1,9 @@
 ---
 import { SITE_META } from "@consts";
 import { SEO } from "astro-seo";
-//import siteSidebar from "@assets/img/site-sidebar.png";
+import { getImage } from "astro:assets";
+const cover = await getImage({ src: "/img/site_sidebar.png", format: "webp" });
+const coverUrl = new URL(cover.src, Astro.site);
 
 interface Props {
   title: string;
@@ -19,14 +21,14 @@ const { title, description } = Astro.props;
   twitter={{
     creator: "@jhilker98",
     site: "@jhilker98",
-    image: "https://jhilker.com/img/site_sidebar.png",
+    image: coverUrl,
     imageAlt: "An svg cartoon of myself.",
     description: description,
   }}
   openGraph={{
     basic: {
       title: title,
-      image: "https://jhilker.com/img/site_sidebar.png",
+      image: coverUrl.toString(),
       type: "Website",
     },
   }}
