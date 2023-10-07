@@ -2,7 +2,12 @@
 import { SITE_META } from "@consts";
 import { SEO } from "astro-seo";
 import { getImage } from "astro:assets";
-const cover = await getImage({ src: "/img/site_sidebar.png", format: "webp" });
+const cover = await getImage({
+  src: "/img/site_sidebar.png",
+  format: "webp",
+  width: 1200,
+  height: 630,
+});
 const coverUrl = new URL(cover.src, Astro.site);
 
 interface Props {
