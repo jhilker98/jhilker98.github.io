@@ -1,7 +1,7 @@
 ---
 import { SITE_META } from "@consts";
 import { SEO } from "astro-seo";
-import sidebar from "@assets/img/sidebar.svg";
+//import siteSidebar from "@assets/img/site-sidebar.png";
 
 interface Props {
   title: string;
@@ -19,14 +19,14 @@ const { title, description } = Astro.props;
   twitter={{
     creator: "@jhilker98",
     site: "@jhilker98",
-    image: "https://jhilker.com/img/sidebar.svg",
+    image: "https://jhilker.com/img/site_sidebar.png",
     imageAlt: "An svg cartoon of myself.",
     description: description,
   }}
   openGraph={{
     basic: {
       title: title,
-      image: "https://jhilker.com/img/sidebar.svg",
+      image: "https://jhilker.com/img/site_sidebar.png",
       type: "Website",
     },
   }}
