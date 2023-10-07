@@ -1,6 +1,7 @@
 ---
 import { SITE_META } from "@consts";
 import { SEO } from "astro-seo";
+import sidebar from "@assets/img/sidebar.svg";
 
 interface Props {
   title: string;
@@ -15,6 +16,13 @@ const { title, description } = Astro.props;
   titleTemplate={`%s | ${SITE_META.author}: Frontend Developer`}
   charset="utf-8"
   description={description}
+  twitter={{
+    creator: "@jhilker98",
+    site: "@jhilker98",
+    image: "/img/sidebar.svg",
+    imageAlt: "An svg cartoon of myself.",
+    description: description,
+  }}
   extend={{
     meta: [
       { name: "generator", content: Astro.generator },
