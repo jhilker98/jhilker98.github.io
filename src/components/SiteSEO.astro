@@ -19,9 +19,16 @@ const { title, description } = Astro.props;
   twitter={{
     creator: "@jhilker98",
     site: "@jhilker98",
-    image: "/img/sidebar.svg",
+    image: "https://jhilker.com/img/sidebar.svg",
     imageAlt: "An svg cartoon of myself.",
     description: description,
+  }}
+  openGraph={{
+    basic: {
+      title: title,
+      image: "https://jhilker.com/img/sidebar.svg",
+      type: "Website",
+    },
   }}
   extend={{
     meta: [
