@@ -39,13 +39,13 @@ import sidebar from "@assets/img/sidebar.svg";
           <a
             href={link.href}
             class="text-branding-white hover:text-blue-400 transition-colors duration-75 group"
-            aria-hidden="true"
             aria-label={link.name}
             title={link.name}>
             <Icon
               name={link.icon}
               class="h-5 w-5 fill-branding-white hover:fill-blue-400"
               focusable="false"
+              aria-hidden="true"
             />
             <span class="sr-only">{link.name}</span>
           </a>
