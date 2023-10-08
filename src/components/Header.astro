@@ -15,21 +15,21 @@ const currentPath = pathname.slice(1); // remove the first "/"
   x-data="{mobileOpen: false}">
   <div class="flex h-[52px] 2xl:h-[62px]">
     <button
-        type="button"
-        aria-label="Toggle Mobile Sidebar"
-        class="h-full p-3 duration-75 hover:backdrop-brightness-75 inline-flex place-items-center dark:hover:backdrop-brightness-125 lg:hidden"
-        @click="sidebarOpen = !sidebarOpen"
-        aria-hidden="true">
-        <Icon
-          name="heroicons/bars-3-bottom-left-20-solid"
-          class="w-5 h-5 transition duration-150 text-branding-black dark:text-branding-white"
-          :class="{'rotate-90': sidebarOpen === true}"
-          focusable="false"
-        />
-        <span class="sr-only">Toggle Mobile Sidebar</span>
-      </button>
+      type="button"
+      aria-label="Toggle Mobile Sidebar"
+      class="h-full p-3 duration-75 hover:backdrop-brightness-75 inline-flex place-items-center dark:hover:backdrop-brightness-125 lg:hidden"
+      @click="sidebarOpen = !sidebarOpen"
+      aria-hidden="true">
+      <Icon
+        name="heroicons/bars-3-bottom-left-20-solid"
+        class="w-5 h-5 transition duration-150 text-branding-black dark:text-branding-white"
+        :class="{'rotate-90': sidebarOpen === true}"
+        focusable="false"
+      />
+      <span class="sr-only">Toggle Mobile Sidebar</span>
+    </button>
 
-      <nav class="h-full">
+    <nav class="h-full">
       <ul class="hidden lg:flex h-full items-center space-x-4">
         {
           NAV_LINKS.map((link: Link) => {
@@ -61,28 +61,32 @@ const currentPath = pathname.slice(1); // remove the first "/"
         type="button"
         class="h-full p-3 duration-75 hover:backdrop-brightness-75 inline-flex place-items-center dark:hover:backdrop-brightness-125"
         aria-label="Toggle Dark Mode"
-        @click="darkMode = !darkMode"
-        aria-hidden="true">
+        @click="darkMode = !darkMode">
         <Icon
           name="heroicons/sun-solid"
           class="text-branding-white hidden dark:inline-block w-5 h-5"
           focusable="false"
+          aria-hidden="true"
         />
         <Icon
           name="heroicons/moon-solid"
           class="text-branding-black dark:hidden inline-block w-5 h-5"
           focusable="false"
+          aria-hidden="true"
         />
       </button>
       <button
-      type="button"
-      aria-label="Toggle mobile menu"
-      aria-hidden="true"
-      class="h-full p-3 hover:backdrop-brightness-75 dark:hover:backdrop-brightness-125 duration-150 lg:hidden text-branding-black dark:text-branding-white"
-      x-on:click="mobileOpen = !mobileOpen">
-      <Icon name="heroicons/bars-3-bottom-right-20-solid" class="h-5 w-5" />
-    </button>
-     
+        type="button"
+        aria-label="Toggle mobile menu"
+        class="h-full p-3 hover:backdrop-brightness-75 dark:hover:backdrop-brightness-125 duration-150 lg:hidden text-branding-black dark:text-branding-white"
+        x-on:click="mobileOpen = !mobileOpen">
+        <Icon
+          name="heroicons/bars-3-bottom-right-20-solid"
+          class="h-5 w-5"
+          focusable="false"
+          aria-hidden="true"
+        />
+      </button>
     </div>
     <!-- TODO: Add Mobile Menu -->
   </div>
