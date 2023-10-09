@@ -81,10 +81,11 @@ const projects: Project[] = (await getCollection("projects", ({ data }) => {
                 <div class="prose prose-neutral dark:prose-invert line-clamp-2 prose-sm md:prose-base">
                   {project.data.description}
                 </div>
-                <div class="flex space-x-3 mt-2">
-                  <a
+                <div class="flex mt-2 w-full">
+                  <div class="flex space-x-4">
+                 <a
                     href={project.data.links.repo}
-                    class="text-sm hover:underline align-baseline text-branding-blue-500 dark:text-branding-blue-400 dark:hover:text-branding-blue-300 hover:text-branding-blue-600 transition-all duration-100 motion-reduce:duration-0 group "
+                    class="text-sm w-fit hover:underline align-baseline text-branding-blue-500 dark:text-branding-blue-400 dark:hover:text-branding-blue-300 hover:text-branding-blue-600 transition-all duration-100 motion-reduce:duration-0 group "
                     aria-label=`${project.data.title} Repo`
                     title=`${project.data.title} Repo`>
                     <Icon
@@ -93,6 +94,30 @@ const projects: Project[] = (await getCollection("projects", ({ data }) => {
                     />
                     <span>Repo</span>
                   </a>
+                  {
+                    project.data.links.docs && (
+                   <a
+                    href={project.data.links.docs}
+                    class="text-sm hover:underline align-baseline text-branding-blue-500 dark:text-branding-blue-400 dark:hover:text-branding-blue-300 hover:text-branding-blue-600 transition-all duration-100 motion-reduce:duration-0 group "
+                    aria-label=`${project.data.title} Docs`
+                    title=`${project.data.title} Docs`>
+                    <Icon
+                      name="mdi/book-open-blank-variant"
+                      class="h-4 w-4 inline mr-1 mb-1 fill-branding-blue-500 dark:fill-branding-blue-400 group-hover:text-branding-blue-600 dark:group-hover:text-branding-blue-300"
+                    />
+                    <span>Docs</span>
+                  </a>   
+                    )
+                  }
+                  </div>
+                  <a href="#" class="text-sm w-fit hover:underline align-baseline text-branding-blue-500 dark:text-branding-blue-400 dark:hover:text-branding-blue-300 hover:text-branding-blue-600 transition-all duration-100 motion-reduce:duration-0 group ml-auto mr-0">
+                    <span>Read More</span>   
+                    <Icon
+                      name="heroicons/arrow-right-20-solid"
+                      class="h-4 w-4 inline mr-1 fill-branding-blue-500 dark:fill-branding-blue-400 group-hover:text-branding-blue-600 dark:group-hover:text-branding-blue-300"
+                    />
+                  </a>
+                  
                 </div>
               </div>
           </div>

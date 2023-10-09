@@ -12,6 +12,7 @@ tools:
 status: "Completed"
 links:
  repo: "https://github.com/jhilker98/cetragore"
+ docs: "https://github.com/jhilker98/cetragore/wiki"
 ---
 
 A friend of mine who plays in a metal band, Cetragore, had approached me last March about helping get his band's website up and running. While originally the band didn't have any really specific ideas for the site (beyond having a green color scheme), that friend eventually came back to me with a sketch of what he had wanted for the site:
