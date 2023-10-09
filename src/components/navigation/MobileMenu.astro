@@ -1,6 +1,7 @@
 ---
 import { NAV_LINKS } from "@consts";
 import { isNavLinkActive } from "@lib/utils";
+import NavLink from "@components/navigation/NavLink.astro";
 const pathname = new URL(Astro.request.url).pathname;
 const currentPath = pathname.slice(1);
 ---
@@ -17,12 +18,14 @@ const currentPath = pathname.slice(1);
   {
     NAV_LINKS.map((link) => {
       if (!link.children) {
+        let url = link.href.split("/")[1];
         return (
-          <a
+          <NavLink
+            name={link.name}
             href={link.href}
-            class="block px-4 py-2 text-sm hover:text-branding-blue-600 dark:hover:text-branding-blue-400 dark:text-branding-white transition-colors duration-75">
-            {link.name}
-          </a>
+            active={isNavLinkActive(url, currentPath.split("/")[0])}
+            isMobile
+          />
         );
       }
     })
