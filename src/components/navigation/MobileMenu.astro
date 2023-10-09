@@ -2,6 +2,7 @@
 import { NAV_LINKS } from "@consts";
 import { isNavLinkActive } from "@lib/utils";
 import NavLink from "@components/navigation/NavLink.astro";
+import DropDown from "@components/navigation/DropDown.astro";
 const pathname = new URL(Astro.request.url).pathname;
 const currentPath = pathname.slice(1);
 ---
@@ -27,6 +28,9 @@ const currentPath = pathname.slice(1);
             isMobile
           />
         );
+      } else {
+        let url = link.children[0].href.split("/")[1];
+        return <DropDown name={link.name} children={link.children} isMobile />;
       }
     })
   }
