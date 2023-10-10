@@ -2,21 +2,16 @@
 import BaseLayout from "@layouts/BaseLayout.astro";
 import "@fontsource/ibm-plex-serif/700.css";
 import "@fontsource/ibm-plex-sans/700.css";
-import { SITE_META, FEATURED_PROJECT_COUNT } from "@consts";
+import { SITE_META } from "@consts";
 import HeroSection from "@components/HeroSection.astro";
-import { type BlogPost, type Project } from "@content";
-import { getCollection } from "astro:content";
-import Icon from "astro-icon";
-const projects: Project[] = (await getCollection("projects", ({ data }) => {
-  return import.meta.env.PROD == true
-    ? data.featured == true && data.draft !== true
-    : data.featured == true && true;
-})).slice(0, FEATURED_PROJECT_COUNT);
+//import { type BlogPost, type Project } from "@content";
+import FeaturedProjectSection from "@components/index/FeaturedProjectSection.astro";
 ---
 
 <BaseLayout title="Home" description={SITE_META.description}>
   <section
-    class="min-h-screen grid place-items-center bg-cover bg-center [&>*]:col-start-1 [&>*]:row-start-1">
+    class="min-h-screen grid place-items-center bg-cover bg-center [&>*]:col-start-1 [&>*]:row-start-1"
+    x-ref="hero">
     <HeroSection />
   </section>
   <section class="min-h-screen" x-ref="about">
@@ -45,85 +40,6 @@ const projects: Project[] = (await getCollection("projects", ({ data }) => {
     </div>
   </section>
   <section class="text-gray-600 body-font min-h-screen" x-ref="projects">
-    <div class="container px-5 py-24 mx-auto">
-      <div class="flex flex-wrap w-full mb-20">
-        <div class="lg:w-1/2 w-full mb-6 lg:mb-0">
-          <h1
-            class="sm:text-3xl text-2xl font-medium title-font mb-2 text-branding-gray-900 dark:text-branding-white uppercase">
-            Featured Projects
-          </h1>
-          <div class="h-1 w-20 bg-branding-blue rounded"></div>
-        </div>
-        <p
-          class="lg:w-1/2 w-full leading-relaxed text-neutral-700 dark:text-neutral-300">
-          These projects are the ones I am most proud of.
-        </p>
-      </div>
-      <div class:list={[
-        "-m-4",
-        "grid",
-        "grid-cols-1",
-        "md:grid-cols-2",
-        "md:grid-rows-3",
-        "lg:grid-cols-3",
-        "lg:grid-rows-2"
-      ]}>
-      {
-        projects.map((project: Project) => (
-          <div class="p-4 col-span-1">
-            <div class="bg-gray-100 dark:bg-[#102840] shadow-md p-6 rounded-lg dark:shadow-branding-white/20">
-                <p class="tracking-widest text-branding-blue-500 text-xs font-medium title-font uppercase dark:text-branding-blue-400">
-                  {project.data.category}
-                </p>
-                <h2 class="text-lg text-gray-900 font-medium title-font mb-4 dark:text-branding-white">
-                  {project.data.title}
-                </h2>
-                <div class="prose prose-neutral dark:prose-invert line-clamp-2 prose-sm md:prose-base">
-                  {project.data.description}
-                </div>
-                <div class="flex mt-2 w-full">
-                  <div class="flex space-x-4">
-                 <a
-                    href={project.data.links.repo}
-                    class="text-sm w-fit hover:underline align-baseline text-branding-blue-500 dark:text-branding-blue-400 dark:hover:text-branding-blue-300 hover:text-branding-blue-600 transition-all duration-100 motion-reduce:duration-0 group "
-                    aria-label=`${project.data.title} Repo`
-                    title=`${project.data.title} Repo`>
-                    <Icon
-                      name="mdi/git"
-                      class="h-4 w-4 inline mr-1 mb-1 fill-branding-blue-500 dark:fill-branding-blue-400 group-hover:text-branding-blue-600 dark:group-hover:text-branding-blue-300"
-                    />
-                    <span>Repo</span>
-                  </a>
-                  {
-                    project.data.links.docs && (
-                   <a
-                    href={project.data.links.docs}
-                    class="text-sm hover:underline align-baseline text-branding-blue-500 dark:text-branding-blue-400 dark:hover:text-branding-blue-300 hover:text-branding-blue-600 transition-all duration-100 motion-reduce:duration-0 group "
-                    aria-label=`${project.data.title} Docs`
-                    title=`${project.data.title} Docs`>
-                    <Icon
-                      name="mdi/book-open-blank-variant"
-                      class="h-4 w-4 inline mr-1 mb-1 fill-branding-blue-500 dark:fill-branding-blue-400 group-hover:text-branding-blue-600 dark:group-hover:text-branding-blue-300"
-                    />
-                    <span>Docs</span>
-                  </a>   
-                    )
-                  }
-                  </div>
-                  <a href="#" class="text-sm w-fit hover:underline align-baseline text-branding-blue-500 dark:text-branding-blue-400 dark:hover:text-branding-blue-300 hover:text-branding-blue-600 transition-all duration-100 motion-reduce:duration-0 group ml-auto mr-0">
-                    <span>Read More</span>   
-                    <Icon
-                      name="heroicons/arrow-right-20-solid"
-                      class="h-4 w-4 inline mr-1 fill-branding-blue-500 dark:fill-branding-blue-400 group-hover:text-branding-blue-600 dark:group-hover:text-branding-blue-300"
-                    />
-                  </a>
-                  
-                </div>
-              </div>
-          </div>
-        ))
-      }
-      </div>
-    </div>
+    <FeaturedProjectSection />
   </section>
 </BaseLayout>
