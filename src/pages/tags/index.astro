@@ -28,7 +28,7 @@ const processedTags = tags.reduce((acc, tag) => {
         Object.entries(processedTags).sort(([, a], [, b]) => b - a).map(([key, val]) => (
           <li class="clear-both">
             <a href=`/tags/${slugifyUrl(key)}`>
-            {key}
+            #{slugifyUrl(key)}
              </a>
              <span class="float-right">
               {
