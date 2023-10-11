@@ -1,0 +1,29 @@
+---
+
+---
+
+<form action="" class="form mt-3" x-ref="search-form">
+  <input
+    type="search"
+    name="search"
+    id="search"
+    class="form-input rounded text-branding-black/60"
+    min="2"
+    max="24"
+    required
+  />
+</form>
+
+<script>
+  import DOMPurify from "dompurify";
+  const form = document.querySelector("form");
+  form?.addEventListener("submit", (e) => {
+    e.preventDefault();
+    const formData = new FormData(form);
+    const searchTerm = DOMPurify.sanitize(formData.get("search")?.toString());
+    if (!searchTerm || searchTerm.length === 0) return;
+    const url = new URL("/search", window.location.origin);
+    url.searchParams.set("q", searchTerm);
+    window.location.assign(url.toString());
+  });
+</script>

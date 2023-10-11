@@ -4,6 +4,7 @@ import type { SocialLink } from "@types";
 import { Icon } from "astro-icon";
 import { Image } from "astro:assets";
 import sidebar from "@assets/img/sidebar.svg";
+import SearchWidget from "@components/SearchWidget.astro";
 ---
 
 <aside class="hidden lg:block bg-branding-navy text-white grid-in-sidebar">
@@ -37,6 +38,7 @@ import sidebar from "@assets/img/sidebar.svg";
         </div>
       )
     }
+    <SearchWidget />
     <p class="absolute bottom-4 before:content-['©'] text-sm">
       {`2021 - ${new Date().getFullYear()} ${SITE_META.author}`}
     </p>
