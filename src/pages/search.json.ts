@@ -12,9 +12,10 @@ async function getPosts() {
     slug: post.slug,
     title: post.data.title,
     description: post.data.description,
-    tags: post.data.tags,
+    tags: post.data.tags?.flat(),
     categories: post.data.categories,
     date: post.data.pubDate,
+    body: post.body,
   }));
 }
 
