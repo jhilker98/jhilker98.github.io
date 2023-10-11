@@ -1,11 +1,13 @@
 ---
+/** eslint-disable jsx-a11y/heading-has-content */
 import BaseLayout from "@layouts/BaseLayout.astro";
 import "@fontsource/ibm-plex-serif/700.css";
 ---
 
 <BaseLayout title="Search results" description="Search results">
   <section class="p-2">
-    <h1 class="font-serif text-4xl font-bold" id="searchReadout"></h1>
+    <!-- // eslint-disable-next-line jsx-a11y/heading-has-content -->
+    <p class="font-serif text-4xl font-bold" id="searchReadout"></p>
     <article id="searchResults"></article>
   </section>
   <script>
