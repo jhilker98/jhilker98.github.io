@@ -165,7 +165,7 @@ import "@fontsource/ibm-plex-serif/500.css";
       resultsList.innerHTML =
         searchResult.length > 0
           ? generateSearchList(searchResult)
-          : "No results found…";
+          : "<div class='mx-auto container max-w-[80ch] prose prose-neutral dark:prose-invert'>No results found…</div>";
     }
 
     // event listeners
