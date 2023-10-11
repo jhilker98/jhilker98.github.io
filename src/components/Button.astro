@@ -6,7 +6,7 @@ things to add:
  */
 import type { HTMLAttributes } from "astro/types";
 interface Props extends HTMLAttributes<"button"> {
-  theme?: "primary" | "secondary";
+  theme?: "primary" | "secondary" | "tertiary";
   size?: "small" | "medium" | "large";
   textCase?: "upper" | "lower";
 }
@@ -46,6 +46,9 @@ const {
     {
       "bg-branding-brown hover:bg-branding-brown-600 disabled:text-branding-brown-50/95 focus:ring-branding-brown focus:hover:ring-branding-brown-600":
         theme === "secondary",
+    },
+    {
+      "bg-neutral-700": theme === "tertiary",
     },
     { "text-sm py-1 px-2 rounded-sm": size === "small" },
     { "text-base py-2 px-4 rounded": size === "medium" },
