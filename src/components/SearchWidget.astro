@@ -2,16 +2,18 @@
 
 ---
 
-<form action="" class="form mt-3" x-ref="search-form">
-  <input
-    type="search"
-    name="search"
-    id="search"
-    class="form-input rounded text-branding-black/60"
-    min="2"
-    max="24"
-    required
-  />
+<form x-ref="search-form" class="mt-3">
+  <label for="search">
+    <span class="sr-only">Search the blog</span>
+    <input
+      type="search"
+      name="search"
+      id="search"
+      class="text-branding-black/80 form-input rounded focus:outline-none focus:ring focus:ring-branding-white/80 focus:ring-offset-4 focus:ring-offset-branding-navy-700 placeholder:text-branding-black/70"
+      required
+      placeholder="Search blog posts... 🔎"
+    />
+  </label>
 </form>
 
 <script>
