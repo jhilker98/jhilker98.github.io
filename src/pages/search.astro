@@ -17,16 +17,7 @@ import "@fontsource/ibm-plex-serif/700.css";
     // imports
     import DOMPurify from "dompurify";
     let SEARCH_DATA;
-    const SPINNER = `<svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" class="mt-3 fill-branding-blue" viewBox="0 0 256 256" id="spinner"><path d="M236,128a108,108,0,0,1-216,0c0-42.52,24.73-81.34,63-98.9A12,12,0,1,1,93,50.91C63.24,64.57,44,94.83,44,128a84,84,0,0,0,168,0c0-33.17-19.24-63.43-49-77.09A12,12,0,1,1,173,29.1C211.27,46.66,236,85.48,236,128Z"></path><style>
-				#spinner {
-					animation: spin 1s linear infinite;
-				}
-				@keyframes spin {
-					100% {
-						transform: rotate(360deg);
-					}
-				}
-				</style></svg>`;
+    const SPINNER = `<svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" class="h-10 w-10 fill-branding-blue"><path d="M12,23a9.63,9.63,0,0,1-8-9.5,9.51,9.51,0,0,1,6.79-9.1A1.66,1.66,0,0,0,12,2.81h0a1.67,1.67,0,0,0-1.94-1.64A11,11,0,0,0,12,23Z"><animateTransform attributeName="transform" dur="0.75s" repeatCount="indefinite" type="rotate" values="0 12 12;360 12 12"/></path></svg>`;
     // selectors
     const search = document.querySelector("#search");
     const searchReadout = document.querySelector("#searchReadout");
