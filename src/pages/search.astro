@@ -21,7 +21,6 @@ import "@fontsource/ibm-plex-serif/500.css";
     // imports
     import DOMPurify from "dompurify";
     import Fuse from "fuse.js";
-    import slugifyPostDate from "@lib/utils";
 
     let SEARCH_DATA;
     let FUSE_INSTANCE;
@@ -76,8 +75,14 @@ import "@fontsource/ibm-plex-serif/500.css";
 
     function slugifyPostDate(d: Date) {
       const f = {
-        year: new Intl.DateTimeFormat("en-US", { year: "numeric" }),
-        month: new Intl.DateTimeFormat("en-US", { month: "2-digit" }),
+        year: new Intl.DateTimeFormat("en-US", {
+          timeZone: "UTC",
+          year: "numeric",
+        }),
+        month: new Intl.DateTimeFormat("en-US", {
+          timeZone: "UTC",
+          month: "2-digit",
+        }),
       };
 
       return `${f.year.format(d)}/${f.month.format(d)}`;
@@ -127,7 +132,9 @@ import "@fontsource/ibm-plex-serif/500.css";
       class="prose prose-neutral dark:prose-invert max-w-[80ch] prose-branding-blue">
       ${description}
       </div>
-       
+      <a href="/blog/${slugifyPostDate(
+        dateAsDate,
+      )}/${slug}" class="block rounded-sm text-sm bg-branding-navy-600 w-fit text-white h-fit px-2 py-1 mt-1 dark:hover:bg-branding-navy-500 duration-100 transition-colors hover:bg-branding-navy-700">Read More</a>
         </article>
         
 				</li>`;
