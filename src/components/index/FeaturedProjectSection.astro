@@ -76,7 +76,9 @@ const projects: Project[] = (await getCollection("projects", ({ data }) => {
                   }
                   </div>
                   <a href={`/projects/${project.slug}`} class="text-sm w-fit hover:underline align-baseline text-branding-blue-500 dark:text-branding-blue-400 dark:hover:text-branding-blue-300 hover:text-branding-blue-600 transition-all duration-100 motion-reduce:duration-0 group ml-auto mr-0">
-                    <span>Read More</span>   
+                    <span>
+                    About {project.data.title}
+                    </span>
                     <Icon
                       name="heroicons/arrow-right-20-solid"
                       class="h-4 w-4 inline mr-1 fill-branding-blue-500 dark:fill-branding-blue-400 group-hover:text-branding-blue-600 dark:group-hover:text-branding-blue-300"
