@@ -7,17 +7,30 @@ import "@fontsource/ibm-plex-serif/700.css";
 <BaseLayout title="Search results" description="Search results">
   <section class="p-2">
     <!-- // eslint-disable-next-line jsx-a11y/heading-has-content -->
-    <p class="font-serif text-4xl font-bold" id="searchReadout"></p>
+    <p
+      class="font-serif text-4xl font-bold text-branding-black dark:text-branding-white"
+      id="searchReadout">
+    </p>
     <article id="searchResults"></article>
   </section>
   <script>
     // imports
     import DOMPurify from "dompurify";
-
+    let SEARCH_DATA;
+    const SPINNER = `<svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" class="mt-3 fill-branding-blue" viewBox="0 0 256 256" id="spinner"><path d="M236,128a108,108,0,0,1-216,0c0-42.52,24.73-81.34,63-98.9A12,12,0,1,1,93,50.91C63.24,64.57,44,94.83,44,128a84,84,0,0,0,168,0c0-33.17-19.24-63.43-49-77.09A12,12,0,1,1,173,29.1C211.27,46.66,236,85.48,236,128Z"></path><style>
+				#spinner {
+					animation: spin 1s linear infinite;
+				}
+				@keyframes spin {
+					100% {
+						transform: rotate(360deg);
+					}
+				}
+				</style></svg>`;
     // selectors
     const search = document.querySelector("#search");
     const searchReadout = document.querySelector("#searchReadout");
-
+    const searchResults = document.querySelector("#searchResults");
     // functions
     function updateDocumentTitle(search) {
       document.title = search
@@ -31,11 +44,29 @@ import "@fontsource/ibm-plex-serif/700.css";
         : "Search the blog";
     }
 
+    async function fetchSearchResults(search) {
+      if (search.length === 0) return;
+      searchResults.innerHTML = SPINNER;
+      if (!SEARCH_DATA) {
+        try {
+          const res = await fetch("/search.json");
+          if (!res.ok) {
+            throw new Error("Something went wrong…please try again");
+          }
+          const data = await res.json();
+          SEARCH_DATA = data;
+        } catch (e) {
+          console.error(e);
+        }
+      }
+    }
+
     // event listeners
     window.addEventListener("DOMContentLoaded", () => {
       const urlParams = DOMPurify.sanitize(
         new URLSearchParams(window.location.search).get("q"),
       );
+      fetchSearchResults(urlParams);
       updateDocumentTitle(urlParams);
       updateSearchReadout(urlParams);
       search.value = urlParams;
@@ -46,6 +77,7 @@ import "@fontsource/ibm-plex-serif/700.css";
       const searchTerm = DOMPurify.sanitize(search.value);
       updateDocumentTitle(searchTerm);
       updateSearchReadout(searchTerm);
+      fetchSearchResults(searchTerm);
     });
   </script>
 </BaseLayout>
