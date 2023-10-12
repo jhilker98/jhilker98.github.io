@@ -5,6 +5,7 @@ import { Image } from "astro:assets";
 import { type SocialLink } from "@types";
 import "@fontsource/ibm-plex-sans/600.css";
 import sidebar from "@assets/img/sidebar.svg";
+import SearchWidget from "@components/SearchWidget.astro";
 ---
 
 <aside
@@ -53,6 +54,7 @@ import sidebar from "@assets/img/sidebar.svg";
       </div>
     )
   }
+  <SearchWidget />
   <p class="absolute bottom-4 before:content-['©'] text-sm">
     {`2021 - ${new Date().getFullYear()} ${SITE_META.author}`}
   </p>
