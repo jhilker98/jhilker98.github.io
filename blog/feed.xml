@@ -1,4 +1,30 @@
-<?xml version="1.0" encoding="UTF-8"?><rss version="2.0" xmlns:content="http://purl.org/rss/1.0/modules/content/"><channel><title>Blog - Jacob&apos;s Website</title><description>My journey with Emacs and frontend development.</description><link>https://jhilker.com/</link><item><title>Why I Left Hugo for Astro</title><link>https://jhilker.com/blog/2023/10/leaving-hugo-for-astro/</link><guid isPermaLink="true">https://jhilker.com/blog/2023/10/leaving-hugo-for-astro/</guid><description>While Hugo is great, I wanted to try some new things out with Astro. Here&apos;s what I learned.</description><pubDate>Sun, 01 Oct 2023 00:00:00 GMT</pubDate><content:encoded>&lt;p&gt;Although I&apos;ve been a fan of the Hugo static site generator for quite some time now, I&apos;ve decided to redesign my site and migrate away from Hugo to &lt;a href=&quot;https://astro.build&quot;&gt;Astro&lt;/a&gt;, a relatively new site generator that can handle both server-side rendering and static site generation.&lt;/p&gt;
+<?xml version="1.0" encoding="UTF-8"?><rss version="2.0" xmlns:content="http://purl.org/rss/1.0/modules/content/"><channel><title>Blog - Jacob&apos;s Website</title><description>My journey with Emacs and frontend development.</description><link>https://jhilker.com/</link><item><title>Writing Literate Configs with Org-mode</title><link>https://jhilker.com/blog/2023/10/writing-literate-configs-with-org-mode/</link><guid isPermaLink="true">https://jhilker.com/blog/2023/10/writing-literate-configs-with-org-mode/</guid><description>Want to write once and generate docs and code? Org-mode can do it - here&apos;s how.</description><pubDate>Fri, 13 Oct 2023 17:35:03 GMT</pubDate><content:encoded>&lt;p&gt;Although you can use org-mode for note-taking, as I talked about in , one of the features I have recently come to love about org-mode is the ability to extract source code to a particular file with &lt;code&gt;org-babel&lt;/code&gt; in Emacs. Simply having the ability to keep my source code and documentation in the same file is incredibly useful, even if I won&apos;t necessarily use it all that often.&lt;/p&gt;
+&lt;p&gt;The most important part of setting up a literate config file is setting the &lt;code&gt;header-args&lt;/code&gt; in your org-mode frontmatter. In short, it looks like this:&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;#+property: header-args{:language} :{option} {value}
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;Those options can be any number of things mentioned in the &lt;a href=&quot;https://orgmode.org/org.html#Using-Header-Arguments&quot;&gt;org-mode documentation&lt;/a&gt;; however, here is what I like to use:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;code&gt;:mkdirp yes&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;:tangle no&lt;/code&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;Now you might be wondering why I don&apos;t set a relevant file to tangle my source code to - after all, that&apos;s the point of keeping everything in one document. I wanted to be able to document everything &lt;strong&gt;AND&lt;/strong&gt; I wanted to keep my source code all in one document, and if that code isn&apos;t getting tangled, then it makes it &lt;em&gt;just a bit&lt;/em&gt; harder to use whatever I&apos;m configuring, whether it&apos;s Emacs itself, something like Polybar, etc.&lt;/p&gt;
+&lt;p&gt;That is because I like to use named blocks for whatever it is I&apos;m configuring. Let&apos;s say I&apos;m using Qtile as an example. Instead of simply having this:&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;#+begin_src python
+from libqtile import layout, bar
+#+end_src python
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;I can name the block and then reference it elsewhere in the code:&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;#+name: qtile-ui-imports
+#+begin_src python
+from libqtile import layout, bar
+#+end_src
+...
+#+begin_src python
+&amp;lt;&amp;lt;qtile-ui-imports&amp;gt;&amp;gt;
+#+end_src
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;And it makes it much easier to reference throughout the file. Once I have it set up, I can hit &lt;code&gt;C-c&lt;/code&gt; on the header-args line at the top of the file, and then run &lt;code&gt;C-c C-v t&lt;/code&gt; and tangle that file and get an updated config file.&lt;/p&gt;
+</content:encoded></item><item><title>Why I Left Hugo for Astro</title><link>https://jhilker.com/blog/2023/10/leaving-hugo-for-astro/</link><guid isPermaLink="true">https://jhilker.com/blog/2023/10/leaving-hugo-for-astro/</guid><description>While Hugo is great, I wanted to try some new things out with Astro. Here&apos;s what I learned.</description><pubDate>Sun, 01 Oct 2023 00:00:00 GMT</pubDate><content:encoded>&lt;p&gt;Although I&apos;ve been a fan of the Hugo static site generator for quite some time now, I&apos;ve decided to redesign my site and migrate away from Hugo to &lt;a href=&quot;https://astro.build&quot;&gt;Astro&lt;/a&gt;, a relatively new site generator that can handle both server-side rendering and static site generation.&lt;/p&gt;
 &lt;p&gt;I switched away from it for a couple of reasons:&lt;/p&gt;
 &lt;ul&gt;
 &lt;li&gt;&lt;strong&gt;Easier templating.&lt;/strong&gt; Astro uses a JSX-esque templating language for handling dynamic content, while Hugo uses its own Go-based templating language. For an example of Go-based templating, see &lt;a href=&quot;/blog/2021/02/featuring-content-in-hugo&quot;&gt;this post&lt;/a&gt;. The same code in Astro would look something like this (assuming I am using Astro&apos;s &lt;a href=&quot;https://docs.astro.build/en/guides/content-collections&quot;&gt;content collections&lt;/a&gt; API):&lt;/li&gt;
