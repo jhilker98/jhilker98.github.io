@@ -40,6 +40,33 @@
           "name": "cover",
           "type": "image",
           "isPreviewImage": true
+        },
+        {
+          "title": "Series",
+          "type": "fields",
+          "name": "series",
+          "fields": [
+            {
+              "title": "Name",
+              "name": "name",
+              "type": "string"
+            },
+            {
+              "title": "Description",
+              "name": "description",
+              "type": "string"
+            }
+          ]
+        },
+        {
+          "title": "draft",
+          "name": "draft",
+          "type": "boolean"
+        },
+        {
+          "title": "tags",
+          "name": "tags",
+          "type": "tags"
         }
       ]
     }
