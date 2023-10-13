@@ -69,12 +69,12 @@ const postTags = hashtagPostTags(tags);
     >
     {
       categories.map((category, index) => {
-        if (categories[index + 1] !== undefined) {
+        if (category[index + 1] !== undefined) {
           return (
             <>
               <a
                 href={`/categories/${slugifyUrl(
-                  category[index],
+                  categories[index],
                 )}`}>{`${category}`}</a>
               <span>&nbsp;&nbsp;</span>
             </>
