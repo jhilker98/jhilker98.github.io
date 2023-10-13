@@ -7,10 +7,6 @@
     {
       "title": "blog",
       "path": "[[workspace]]/src/content/blog"
-    },
-    {
-      "title": "projects",
-      "path": "[[workspace]]/src/content/projects"
     }
   ],
   "frontMatter.taxonomy.contentTypes": [
