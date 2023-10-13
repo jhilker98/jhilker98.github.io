@@ -4,19 +4,31 @@ interface Props {
   pubDate: Date;
   lastModDate?: Date;
   tags?: string[];
+  categories?: string[];
 }
 
 import { formatPostDate, hashtagPostTags, slugifyUrl } from "@lib/utils";
 import { Icon } from "astro-icon";
 
-const { title, pubDate, lastModDate = pubDate, tags = [] } = Astro.props;
+const {
+  title,
+  pubDate,
+  lastModDate = pubDate,
+  tags = [],
+  categories = [],
+} = Astro.props;
 const postTags = hashtagPostTags(tags);
 ---
 
 <header class="align-baseline">
   <h1 class="mt-1 text-wrap-balance">{title}</h1>
-  <Icon name="mdi/calendar" class="w-5 mb-1 mr-1 inline-block dark:fill-neutral-300 fill-neutral-700" />
-  <span class="font-bold mr-1 dark:text-neutral-300 text-neutral-700">Posted:</span>
+  <Icon
+    name="mdi/calendar"
+    class="w-5 mb-1 mr-1 inline-block dark:fill-neutral-300 fill-neutral-700"
+  />
+  <span class="font-bold mr-1 dark:text-neutral-300 text-neutral-700"
+    >Posted:</span
+  >
   <time class="inline">
     {formatPostDate(pubDate)}
   </time>
@@ -46,6 +58,34 @@ const postTags = hashtagPostTags(tags);
           );
         } else {
           return <a href={`/tags/${slugifyUrl(tags[index])}`}>{`${tag}`}</a>;
+        }
+      })
+    }
+  </div>
+  <div class="block">
+    <Icon name="mdi/folder-open" class="h-5 w-5 mr-1 inline mb-1" />
+    <strong class="mr-1 dark:text-neutral-300 text-neutral-700"
+      >Categories:</strong
+    >
+    {
+      categories.map((category, index) => {
+        if (categories[index + 1] !== undefined) {
+          return (
+            <>
+              <a
+                href={`/categories/${slugifyUrl(
+                  category[index],
+                )}`}>{`${category}`}</a>
+              <span>&nbsp;&nbsp;</span>
+            </>
+          );
+        } else {
+          return (
+            <a
+              href={`/categories/${slugifyUrl(
+                categories[index],
+              )}`}>{`${category}`}</a>
+          );
         }
       })
     }
