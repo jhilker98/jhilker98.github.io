@@ -187,6 +187,9 @@ export default {
         ".text-wrap-balance": {
           "text-wrap": "balance",
         },
+        ".text-wrap-pretty": {
+          "text-wrap": "pretty",
+        },
       });
     }),
   ],
