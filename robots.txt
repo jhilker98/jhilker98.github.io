@@ -1,0 +1,3 @@
+User-agent: *
+Allow: /
+Sitemap: https://jhilker.com/sitemap-index.xml
