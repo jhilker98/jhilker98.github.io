@@ -47,6 +47,7 @@ export const SITE_META: SiteConfig = {
   title: "Jacob's Website",
   description: "The personal website and blog of Jacob Hilker.",
   author: "Jacob Hilker",
+  currentPosition: "Freelance Web Developer",
   availableForHire: true,
   tagline:
     "A front-end developer, who enjoys using Emacs, Hugo, Python, and Tailwind.",

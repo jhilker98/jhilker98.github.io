@@ -22,6 +22,7 @@ export interface SiteConfig {
   title: string;
   description: string;
   author: string;
+  currentPosition: string;
   availableForHire: boolean;
   tagline: string;
   socialLinks?: SocialLink[];
