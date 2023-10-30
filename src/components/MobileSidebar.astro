@@ -1,6 +1,5 @@
 ---
 import { SITE_META } from "@consts";
-import { Icon } from "astro-icon";
 import { Image } from "astro:assets";
 import { type SocialLink } from "@types";
 import "@fontsource/ibm-plex-sans/600.css";
@@ -18,11 +17,6 @@ import SearchWidget from "@components/SearchWidget.astro";
       aria-label="Close mobile sidebar"
       class="p-4 transition hover:backdrop-brightness-75 dark:hover:backdrop-brightness-125 duration-100"
       @click="sidebarOpen = !sidebarOpen">
-      <Icon
-        name="heroicons/x-mark-solid"
-        class="text-branding-white [&>path]:fill-branding-white h-5 w-5 duration-150"
-        :class="{'rotate-45': !sidebarOpen}"
-      />
     </button>
   </div>
   <div
@@ -42,12 +36,6 @@ import SearchWidget from "@components/SearchWidget.astro";
             class="text-branding-white hover:text-blue-400 transition-colors duration-75 group"
             aria-label={link.name}
             title={link.name}>
-            <Icon
-              name={link.icon}
-              class="h-5 w-5 fill-branding-white hover:fill-blue-400"
-              focusable="false"
-              aria-hidden="true"
-            />
             <span class="sr-only">{link.name}</span>
           </a>
         ))}

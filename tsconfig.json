@@ -1,5 +1,6 @@
 {
   "extends": "astro/tsconfigs/strict",
+  "types": ["unplugin-icons/types/astro"],
   "compilerOptions": {
     "baseUrl": ".",
     "paths": {
