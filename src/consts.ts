@@ -6,7 +6,10 @@ export const NAV_LINKS: Link[] = [
   { href: "/projects/", name: "Projects" },
   {
     name: "Blog",
-    href: "/blog/",
+    children: [
+      { name: "Archive", href: "/blog/" },
+      { name: "Feed", href: "/blog/feed.xml" },
+    ],
   },
 ];
 

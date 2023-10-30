@@ -7,6 +7,8 @@ import { isNavLinkActive } from "@lib/utils";
 import type { Link } from "@types";
 const pathname = new URL(Astro.request.url).pathname;
 const currentPath = pathname.slice(1); // remove the first "/"
+import MoonSolid from "~icons/heroicons/moon-solid";
+import SunSolid from "~icons/heroicons/sun-solid";
 ---
 
 <header
@@ -53,6 +55,16 @@ const currentPath = pathname.slice(1); // remove the first "/"
         class="h-full p-3 duration-75 hover:backdrop-brightness-75 inline-flex place-items-center dark:hover:backdrop-brightness-125"
         aria-label="Toggle Dark Mode"
         @click="darkMode = !darkMode">
+        <SunSolid
+          class="text-branding-white hidden dark:inline-block w-5 h-5"
+          focusable="false"
+          aria-hidden="true"
+        />
+        <MoonSolid
+          class="text-branding-black dark:hidden inline-block w-5 h-5"
+          focusable="false"
+          aria-hidden="true"
+        />
       </button>
       <button
         type="button"

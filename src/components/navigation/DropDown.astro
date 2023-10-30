@@ -1,6 +1,6 @@
 ---
 import type { Link } from "@types";
-import { ChevronRight } from "~icons/heroicons/chevron-right";
+import ChevronRight20Solid from "~icons/heroicons/chevron-right-20-solid";
 interface Props {
   name: string;
   active?: boolean;
@@ -18,7 +18,7 @@ const { name, active = false, children, isMobile = false } = Astro.props;
         class="text-sm px-3 py-2 text-right hover:text-branding-blue-600 dark:hover:text-branding-blue-400 flex items-center ml-auto mr-0 text-branding-black dark:text-branding-white"
         x-on:click="open = !open">
         <span class="w-full text-right">{name}</span>
-        <ChevronRight />{" "}
+        <ChevronRight20Solid class="h-5 w-5 mt-0.5 transform-transition duration-200" />
       </button>
       <nav
         x-show="open"
