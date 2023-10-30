@@ -9,6 +9,9 @@ const pathname = new URL(Astro.request.url).pathname;
 const currentPath = pathname.slice(1); // remove the first "/"
 import MoonSolid from "~icons/heroicons/moon-solid";
 import SunSolid from "~icons/heroicons/sun-solid";
+import Bars3BottomLeft20Solid from "~icons/heroicons/bars-3-bottom-left-20-solid";
+
+import Bars3BottomRight20Solid from "~icons/heroicons/bars-3-bottom-right-20-solid";
 ---
 
 <header
@@ -21,6 +24,8 @@ import SunSolid from "~icons/heroicons/sun-solid";
       class="h-full p-3 duration-75 hover:backdrop-brightness-75 inline-flex place-items-center dark:hover:backdrop-brightness-125 lg:hidden"
       @click="sidebarOpen = !sidebarOpen">
       <span class="sr-only">Toggle Mobile Sidebar</span>
+      <Bars3BottomLeft20Solid class="w-5 h-5 transition duration-150 text-branding-black dark:text-branding-white"
+        :class="{'rotate-90': sidebarOpen === true}"/>
     </button>
     <nav class="h-full">
       <ul class="hidden lg:flex h-full items-center space-x-4">
@@ -71,6 +76,7 @@ import SunSolid from "~icons/heroicons/sun-solid";
         aria-label="Toggle mobile menu"
         class="h-full p-3 hover:backdrop-brightness-75 dark:hover:backdrop-brightness-125 duration-150 lg:hidden text-branding-black dark:text-branding-white"
         x-on:click="mobileOpen = !mobileOpen">
+        <Bars3BottomRight20Solid />
       </button>
     </div>
   </div>

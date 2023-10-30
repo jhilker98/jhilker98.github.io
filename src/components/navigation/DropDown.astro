@@ -60,6 +60,7 @@ const { name, active = false, children, isMobile = false } = Astro.props;
       x-data="{ open: false }">
       <button @click="open = !open" class="flex items-center">
         <span>{name}</span>
+        <ChevronRight20Solid class="h-5 w-5 mt-0.5 transform-transition duration-200" :class="{'rotate-90': open === true}"/>
       </button>
       <nav
         class="absolute mt-2 bg-gray-200 rounded shadow-xl l-0 dark:bg-gray-800 w-36 duration-75 hover:backdrop-brightness-75 text-branding-black dark:text-branding-white"
