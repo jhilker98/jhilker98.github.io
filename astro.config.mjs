@@ -15,7 +15,6 @@ export default defineConfig({
   publicDir: "static",
   integrations: [mdx(), tailwind(), alpinejs(), sitemap(), robotsTxt()],
   markdown: {
-    drafts: true,
     rehypePlugins: [rehypeHeadingIds, remarkToc],
     shikiConfig: {
       theme: "one-dark-pro",
