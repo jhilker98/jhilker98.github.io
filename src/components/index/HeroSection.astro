@@ -2,7 +2,7 @@
 import { Image } from "astro:assets";
 import Button from "../Button.astro";
 import Hero from "@assets/Hero.jpeg";
-import Icon from "astro-icon";
+import WavingHand from "~icons/twemoji/waving-hand";
 import { SITE_META } from "@consts";
 ---
 
@@ -23,10 +23,7 @@ import { SITE_META } from "@consts";
       <span class="text-branding-navy-600 dark:text-branding-navy-400"
         >Jacob</span
       >
-      <Icon
-        name="twemoji/waving-hand"
-        class="text-5xl inline w-10 h-10 -mt-4 ml-2"
-      />
+      <WavingHand class="text-5xl inline w-10 h-10 -mt-4 ml-2" />
     </h1>
     <h2
       class="text-3xl font-bold my-4 lg:my-6 text-branding-text/90 dark:text-branding-white/90">

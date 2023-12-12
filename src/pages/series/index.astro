@@ -5,7 +5,7 @@ import { getCollection } from "astro:content";
 import { findPostsInSeries } from "@lib/blog.ts";
 import { slugifyUrl } from "@lib/utils.ts";
 import BaseLayout from "@layouts/BaseLayout.astro";
-import { Icon } from "astro-icon";
+import TwemojiBlueBook from "~icons/twemoji/blue-book";
 
 const posts: BlogPost[] = await getCollection("blog", ({ data }) => {
   return import.meta.env.PROD ? data.draft !== true : true;
@@ -50,10 +50,7 @@ const allSeries = seriesNames.reduce(
           <>
             <div class="md:w-72 md:mb-0 -mb-2 align-baseline">
               <div class="px-2 ml-2">
-                <Icon
-                  name="twemoji:blue-book"
-                  class="inline-block -mt-px text-sm w-4 h-4"
-                />
+                <TwemojiBlueBook class="inline-block -mt-px text-sm w-4 h-4" />
                 <span class="ml-1 font-bold text-sm text-gray-700 dark:text-gray-400">
                   {postLength}
                 </span>

@@ -1,6 +1,7 @@
 ---
 import type { BlogPost } from "@content/config.ts";
-import { Icon } from "astro-icon";
+import MdiCalendar from "~icons/mdi/mdi-calendar";
+import MdiClockOutline from "~icons/mdi/mdi-clock-outline";
 import { formatPostDate, calcReadingTime, slugifyPostDate } from "@lib/utils";
 
 interface Props {
@@ -20,8 +21,7 @@ const postBody = marked.parse(body);
 
 <article class="py-3.5 grid md:grid-cols-[18rem_auto]">
   <aside class="md:row-span-1 md:mb-0 -mb-2 align-baseline md:px-2">
-    <Icon
-      name="mdi/calendar"
+    <MdiCalendar
       class="inline-block -mt-px text-sm w-4 h-4 fill-gray-700 dark:fill-gray-400"
     />
     <span class="ml-1 font-bold text-sm text-gray-700 dark:text-gray-400"
@@ -34,8 +34,7 @@ const postBody = marked.parse(body);
     >
     <span
       class="block mt-1 text-branding-gray-600 dark:text-branding-gray-400 text-sm font-semibold">
-      <Icon
-        name="mdi/clock-outline"
+      <MdiClockOutline
         class="inline-block w-4 h-4 -mt-1 mr-1 fill-gray-600 dark:fill-gray-400"
       />
       {calcReadingTime(post.body)}

@@ -8,7 +8,7 @@ import { getCollection } from "astro:content";
 import type { Project } from "@content/config.ts";
 import { slugifyUrl } from "@lib/utils";
 import BaseLayout from "@layouts/BaseLayout.astro";
-import { Icon } from "astro-icon";
+import TwemojiHammerAndWrench from "~icons/twemoji/hammer-and-wrench";
 export const getStaticPaths = (async () => {
   const projects: Project[] = await getCollection("projects");
   return projects.map((project: Project) => {
@@ -34,7 +34,7 @@ const { Content } = await project.render();
     <header class="align-baseline">
       <h1 class="mt-1 text-wrap-balance">{project.data.title}</h1>
       <div>
-        <Icon name="twemoji/hammer-wrench" class="inline h-5 w-5 mr-1" />
+        <TwemojiHammerAndWrench class="inline h-5 w-5 mr-1" />
         <strong>
           Built With:
           <span class="font-normal">{project.data.tools.join(" • ")}</span>

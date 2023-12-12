@@ -1,6 +1,8 @@
 ---
-import Icon from "astro-icon";
 import { type Project } from "@content/config";
+import MdiGit from "~icons/mdi/git";
+import MdiBookOpenBlankVariant from '~icons/mdi/book-open-blank-variant'
+import ArrowRight20Solid from "~icons/heroicons/arrow-right-20-solid"
 import { FEATURED_PROJECT_COUNT } from "@consts";
 import { getCollection } from "astro:content";
 const projects: Project[] = (await getCollection("projects", ({ data }) => {
@@ -53,8 +55,7 @@ const projects: Project[] = (await getCollection("projects", ({ data }) => {
                     class="text-sm w-fit hover:underline align-baseline text-branding-blue-500 dark:text-branding-blue-400 dark:hover:text-branding-blue-300 hover:text-branding-blue-600 transition-all duration-100 motion-reduce:duration-0 group "
                     aria-label=`${project.data.title} Repo`
                     title=`${project.data.title} Repo`>
-                    <Icon
-                      name="mdi/git"
+                    <MdiGit
                       class="h-4 w-4 inline mr-1 mb-1 fill-branding-blue-500 dark:fill-branding-blue-400 group-hover:text-branding-blue-600 dark:group-hover:text-branding-blue-300"
                     />
                     <span>Repo</span>
@@ -66,8 +67,7 @@ const projects: Project[] = (await getCollection("projects", ({ data }) => {
                     class="text-sm hover:underline align-baseline text-branding-blue-500 dark:text-branding-blue-400 dark:hover:text-branding-blue-300 hover:text-branding-blue-600 transition-all duration-100 motion-reduce:duration-0 group "
                     aria-label=`${project.data.title} Docs`
                     title=`${project.data.title} Docs`>
-                    <Icon
-                      name="mdi/book-open-blank-variant"
+                    <MdiBookOpenBlankVariant
                       class="h-4 w-4 inline mr-1 mb-1 fill-branding-blue-500 dark:fill-branding-blue-400 group-hover:text-branding-blue-600 dark:group-hover:text-branding-blue-300"
                     />
                     <span>Docs</span>
@@ -79,8 +79,7 @@ const projects: Project[] = (await getCollection("projects", ({ data }) => {
                     <span>
                     About {project.data.title}
                     </span>
-                    <Icon
-                      name="heroicons/arrow-right-20-solid"
+                    <ArrowRight20Solid
                       class="h-4 w-4 inline mr-1 fill-branding-blue-500 dark:fill-branding-blue-400 group-hover:text-branding-blue-600 dark:group-hover:text-branding-blue-300"
                     />
                   </a>
