@@ -1,7 +1,7 @@
 ---
 import { SITE_META } from "@consts";
 import type { SocialLink } from "@types";
-import { Icon } from "astro-icon";
+//import { Icon } from "astro-icon";
 import { Image } from "astro:assets";
 import sidebar from "@assets/img/sidebar.svg";
 import SearchWidget from "@components/SearchWidget.astro";
@@ -26,12 +26,6 @@ import SearchWidget from "@components/SearchWidget.astro";
               href={link.href}
               class="text-branding-white hover:text-blue-400 transition-colors duration-75 group"
               title={link.name}>
-              <Icon
-                name={link.icon}
-                class="h-5 w-5 fill-branding-white hover:fill-blue-400"
-                aria-hidden="true"
-                focusable="false"
-              />
               <span class="sr-only">{link.name}</span>
             </a>
           ))}
