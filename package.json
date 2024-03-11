@@ -21,6 +21,7 @@
     "@types/alpinejs": "^3.13.5",
     "alpinejs": "^3.13.2",
     "astro": "^4.0.4",
+    "astro-icon": "^1.1.0",
     "astro-robots-txt": "^1.0.0",
     "dompurify": "^3.0.6",
     "fuse.js": "^7.0.0",
