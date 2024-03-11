@@ -5,10 +5,7 @@ import DropDown from "@components/navigation/DropDown.astro";
 import { NAV_LINKS } from "@consts";
 import { isNavLinkActive } from "@lib/utils";
 import type { Link } from "@types";
-import SunSolid from "~icons/heroicons/sun-solid";
-import MoonSolid from "~icons/heroicons/moon-solid";
-import Bars3BottomLeft20Solid from "~icons/heroicons/bars-3-bottom-left-20-solid";
-import Bars3BottomRight20Solid from "~icons/heroicons/bars-3-bottom-right-20-solid";
+import { Icon } from "astro-icon/components";
 const pathname = new URL(Astro.request.url).pathname;
 const currentPath = pathname.slice(1); // remove the first "/"
 ---
@@ -22,7 +19,8 @@ const currentPath = pathname.slice(1); // remove the first "/"
       aria-label="Toggle Mobile Sidebar"
       class="h-full p-3 duration-75 hover:backdrop-brightness-75 inline-flex place-items-center dark:hover:backdrop-brightness-125 lg:hidden"
       @click="sidebarOpen = !sidebarOpen">
-      <Bars3BottomLeft20Solid
+      <Icon
+        name="heroicons:bars-3-bottom-left-20-solid"
         class="w-5 h-5 transition duration-150 text-branding-black dark:text-branding-white"
         :class="{'rotate-90': sidebarOpen === true}"
         focusable="false"
@@ -63,27 +61,13 @@ const currentPath = pathname.slice(1); // remove the first "/"
         class="h-full p-3 duration-75 hover:backdrop-brightness-75 inline-flex place-items-center dark:hover:backdrop-brightness-125"
         aria-label="Toggle Dark Mode"
         @click="darkMode = !darkMode">
-        <SunSolid
-          class="text-branding-white hidden dark:inline-block w-5 h-5"
-          focusable="false"
-          aria-hidden="true"
-        />
-        <MoonSolid
-          class="text-branding-black dark:hidden inline-block w-5 h-5"
-          focusable="false"
-          aria-hidden="true"
-        />
+        
       </button>
       <button
         type="button"
         aria-label="Toggle mobile menu"
         class="h-full p-3 hover:backdrop-brightness-75 dark:hover:backdrop-brightness-125 duration-150 lg:hidden text-branding-black dark:text-branding-white"
         x-on:click="mobileOpen = !mobileOpen">
-        <Bars3BottomRight20Solid
-          class="h-5 w-5"
-          aria-hidden="true"
-          focusable="false"
-        />
       </button>
     </div>
   </div>

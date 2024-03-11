@@ -1,5 +1,6 @@
 ---
 import type { Link } from "@types";
+import { Icon } from "astro-icon/components";
 interface Props {
   name: string;
   active?: boolean;
@@ -8,7 +9,6 @@ interface Props {
 }
 
 const { name, active = false, children, isMobile = false } = Astro.props;
-import ChevronRight20Solid from "~icons/heroicons/chevron-right-20-solid";
 ---
 
 {
@@ -18,7 +18,8 @@ import ChevronRight20Solid from "~icons/heroicons/chevron-right-20-solid";
         class="text-sm px-3 py-2 text-right hover:text-branding-blue-600 dark:hover:text-branding-blue-400 flex items-center ml-auto mr-0 text-branding-black dark:text-branding-white"
         x-on:click="open = !open">
         <span class="w-full text-right">{name}</span>
-        <ChevronRight20Solid
+        <Icon
+        
           class="h-5 w-5 mt-0.5 transform-transition duration-200"
           :class="{'rotate-90': open===true}"
         />
@@ -64,7 +65,6 @@ import ChevronRight20Solid from "~icons/heroicons/chevron-right-20-solid";
       x-data="{ open: false }">
       <button @click="open = !open" class="flex items-center">
         <span>{name}</span>
-        <ChevronRight20Solid class="h-5 w-5 mt-0.5 transform-transition duration-200" :class="{'rotate-90': open}"/>        
       </button>
        <nav
     class="absolute mt-2 bg-gray-200 rounded shadow-xl l-0 dark:bg-gray-800 w-36 duration-75 hover:backdrop-brightness-75 text-branding-black dark:text-branding-white"
