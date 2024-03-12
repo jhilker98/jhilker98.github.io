@@ -34,6 +34,7 @@
     "@iconify-json/fa6-brands": "^1.1.18",
     "@iconify-json/heroicons": "^1.1.20",
     "@iconify-json/mdi": "^1.1.64",
+    "@iconify-json/ps": "^1.1.9",
     "@iconify-json/twemoji": "^1.1.15",
     "@iconify/json": "^2.2.156",
     "@savvywombat/tailwindcss-grid-areas": "^3.1.0",
