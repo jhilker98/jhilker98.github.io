@@ -19,7 +19,7 @@ const { name, active = false, children, isMobile = false } = Astro.props;
         x-on:click="open = !open">
         <span class="w-full text-right">{name}</span>
         <Icon
-        
+          name="heroicons:chevron-right-20-solid" 
           class="h-5 w-5 mt-0.5 transform-transition duration-200"
           :class="{'rotate-90': open===true}"
         />
