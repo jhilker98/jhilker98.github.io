@@ -61,13 +61,25 @@ const currentPath = pathname.slice(1); // remove the first "/"
         class="h-full p-3 duration-75 hover:backdrop-brightness-75 inline-flex place-items-center dark:hover:backdrop-brightness-125"
         aria-label="Toggle Dark Mode"
         @click="darkMode = !darkMode">
-        
+        <Icon
+          name="heroicons:sun-solid"
+          class="text-branding-white hidden dark:inline-block w-5 h-5"
+        />
+        <Icon
+          name="heroicons:moon-solid"
+          class="text-branding-black dark:hidden inline-block w-5 h-5"
+        />
       </button>
       <button
         type="button"
         aria-label="Toggle mobile menu"
         class="h-full p-3 hover:backdrop-brightness-75 dark:hover:backdrop-brightness-125 duration-150 lg:hidden text-branding-black dark:text-branding-white"
         x-on:click="mobileOpen = !mobileOpen">
+        <Icon
+          name="heroicons:bars-3-20-solid"
+          class="w-5 h-5 transition duration-150 text-branding-black dark:text-branding-white"
+          :class="{'rotate-90': mobileOpen === true}"
+        />
       </button>
     </div>
   </div>

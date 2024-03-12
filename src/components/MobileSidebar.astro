@@ -18,6 +18,11 @@ import { Icon } from "astro-icon/components";
       aria-label="Close mobile sidebar"
       class="p-4 transition hover:backdrop-brightness-75 dark:hover:backdrop-brightness-125 duration-100"
       @click="sidebarOpen = !sidebarOpen">
+      <Icon
+        name="heroicons:x-mark-solid"
+        class="fill-branding-white h-5 w-5 duration-150"
+        :class="{'rotate-45': !sidebarOpen}"
+      />
     </button>
   </div>
   <div

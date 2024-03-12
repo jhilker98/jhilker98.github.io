@@ -8,6 +8,8 @@ interface Props {
 }
 
 import { formatPostDate, hashtagPostTags, slugifyUrl } from "@lib/utils";
+import { Icon } from "astro-icon/components";
+
 const {
   title,
   pubDate,
@@ -20,6 +22,7 @@ const postTags = hashtagPostTags(tags);
 
 <header class="align-baseline">
   <h1 class="mt-1 text-wrap-balance">{title}</h1>
+  <Icon name="mdi:calendar" class="w-5 mb-1 mr-1 inline-block" />
   <span class="font-bold mr-1 dark:text-neutral-300 text-neutral-700"
     >Posted:</span
   >
@@ -38,6 +41,7 @@ const postTags = hashtagPostTags(tags);
   }
 
   <div class="block">
+    <Icon name="heroicons:tag-20-solid" class="h-5 w-5 mr-1 inline mb-1" />
     <strong class="mr-1 dark:text-neutral-300 text-neutral-700">Tags:</strong>
     {
       postTags.map((tag, index) => {
@@ -55,7 +59,7 @@ const postTags = hashtagPostTags(tags);
     }
   </div>
   <div class="block">
-    <MdiFolderOpen class="h-5 w-5 mr-1 inline mb-1" />
+    <Icon name="mdi:folder-open" class="h-5 w-5 mr-1 inline mb-1" />
     <strong class="mr-1 dark:text-neutral-300 text-neutral-700"
       >Categories:</strong
     >
