@@ -8,9 +8,6 @@ interface Props {
 }
 
 import { formatPostDate, hashtagPostTags, slugifyUrl } from "@lib/utils";
-import Tag20Solid from "~icons/heroicons/tag-20-solid";
-import MdiCalendar from "~icons/mdi/mdi-calendar";
-import MdiFolderOpen from "~icons/mdi/mdi-folder-open";
 const {
   title,
   pubDate,
@@ -23,9 +20,6 @@ const postTags = hashtagPostTags(tags);
 
 <header class="align-baseline">
   <h1 class="mt-1 text-wrap-balance">{title}</h1>
-  <MdiCalendar
-    class="w-5 mb-1 mr-1 inline-block dark:fill-neutral-300 fill-neutral-700"
-  />
   <span class="font-bold mr-1 dark:text-neutral-300 text-neutral-700"
     >Posted:</span
   >
@@ -35,7 +29,6 @@ const postTags = hashtagPostTags(tags);
   {
     lastModDate.getTime() > pubDate.getTime() ? (
       <div class="inline ml-8">
-        <MdiCalendar class="w-5 mb-1 inline-block" />
         <span class="font-bold">Last Updated:</span>
         <time class="inline">{formatPostDate(lastModDate)}</time>
       </div>
@@ -45,7 +38,6 @@ const postTags = hashtagPostTags(tags);
   }
 
   <div class="block">
-    <Tag20Solid class="h-5 w-5 mr-1 inline mb-1" />
     <strong class="mr-1 dark:text-neutral-300 text-neutral-700">Tags:</strong>
     {
       postTags.map((tag, index) => {
