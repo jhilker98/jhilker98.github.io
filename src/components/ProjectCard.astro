@@ -1,6 +1,6 @@
 ---
 import type Project from "@content/config.ts";
-import MdiGit from "~icons/mdi/git";
+import { Icon } from "astro-icon/components";
 import "@fontsource/ibm-plex-sans/300.css";
 interface Props {
   project: Project;
@@ -32,13 +32,17 @@ const { project } = Astro.props;
     <div class="space-x-3 mt-2 flex">
       <a
         href={`/projects/${project.slug}`}
-        class="block rounded-sm text-sm bg-branding-navy-600 w-fit text-white h-fit px-2 py-1 mt-1 dark:hover:bg-branding-navy-500 duration-100 transition-colors hover:bg-branding-navy-700">
+        class="inline-flex place-items-center rounded-sm text-sm bg-branding-navy-600 w-fit text-white h-fit px-2 py-1 mt-1 dark:hover:bg-branding-navy-500 duration-100 transition-colors hover:bg-branding-navy-700 align-baseline">
         <span>Read More</span>
+        <Icon
+          name="heroicons:arrow-right-20-solid"
+          class="h-4 w-4 fill-white ml-1 mt-px"
+        />
       </a>
       <a
         href={project.data.links.repo}
         class="inline-flex place-items-center rounded-sm text-sm bg-branding-brown hover:bg-branding-brown-600 w-fit text-white h-fit px-2 py-1 mt-1 duration-100 transition-colors">
-        <MdiGit class="h-4 w-4 fill-white mr-1 -mb-px" />
+        <Icon name="mdi/git" class="h-4 w-4 fill-white mr-1 -mb-px" />
         <span>Repo</span>
       </a>
     </div>
