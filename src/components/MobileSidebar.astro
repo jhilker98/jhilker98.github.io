@@ -5,6 +5,7 @@ import { type SocialLink } from "@types";
 import "@fontsource/ibm-plex-sans/600.css";
 import sidebar from "@assets/img/sidebar.svg";
 import SearchWidget from "@components/SearchWidget.astro";
+import { Icon } from "astro-icon/components";
 ---
 
 <aside
@@ -36,6 +37,12 @@ import SearchWidget from "@components/SearchWidget.astro";
             class="text-branding-white hover:text-blue-400 transition-colors duration-75 group"
             aria-label={link.name}
             title={link.name}>
+            <Icon
+              name={link.icon}
+              class="h-5 w-5 fill-branding-white hover:fill-blue-400"
+              aria-hidden="true"
+              focusable="false"
+            />
             <span class="sr-only">{link.name}</span>
           </a>
         ))}
