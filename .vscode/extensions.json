@@ -2,7 +2,8 @@
   "recommendations": [
     "astro-build.astro-vscode",
     "bradlc.vscode-tailwindcss",
-    "naumovs.color-highlight"
+    "naumovs.color-highlight",
+    "unifiedjs.vscode-mdx"
   ],
   "unwantedRecommendations": []
 }
