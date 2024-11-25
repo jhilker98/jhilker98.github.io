@@ -9,12 +9,14 @@ import robotsTxt from "astro-robots-txt";
 
 import icon from "astro-icon";
 
+import react from "@astrojs/react";
+
 // https://astro.build/config
 export default defineConfig({
   site: "https://jhilker.com",
   outDir: "public",
   publicDir: "static",
-  integrations: [mdx(), tailwind(), alpinejs(), sitemap(), robotsTxt(), icon()],
+  integrations: [mdx(), tailwind(), alpinejs(), sitemap(), robotsTxt(), icon(), react()],
   markdown: {
     rehypePlugins: [rehypeHeadingIds, remarkToc],
     shikiConfig: {
