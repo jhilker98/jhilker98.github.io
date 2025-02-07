@@ -1,5 +1,12 @@
 ---
 import BaseLayout from "~/layouts/BaseLayout.astro";
+import { SITE_META } from "~/consts";
+import HeroSection from "~/components/index/HeroSection.astro";
+//import { type BlogPost, type Project } from "~/content";
+import FeaturedProjectSection from "~/components/index/FeaturedProjectSection.astro";
 ---
 
-<BaseLayout title="Hello there" description="Lorem ipsum" />
+<BaseLayout title="Home" description={SITE_META.description}>
+  <HeroSection />
+  <FeaturedProjectSection />
+</BaseLayout>

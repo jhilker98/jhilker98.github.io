@@ -40,12 +40,16 @@ const { title, description } = Astro.props;
       localStorage.removeItem("theme");
     </script>
   </head>
-  <body class="min-h-screen" x-data="{'sidebarOpen': false}">
+  <body
+    class="min-h-screen bg-branding-white dark:bg-branding-black"
+    x-data="{'sidebarOpen': false}">
     <div
-	class="h-screen grid grid-cols-(--grid-cols-layout) grid-rows-(--grid-rows-layout) grid-areas-mobile lg:grid-areas-desktop">
-      <Header/>
-      <main class="grid-in-main">
-	<slot/>
+      class="h-screen grid grid-cols-(--grid-cols-layout) grid-rows-(--grid-rows-layout) grid-areas-mobile lg:grid-areas-desktop">
+      <Header />
+      <FixedSidebar />
+      <main
+        class="grid-area-main overflow-y-scroll scrollbar-thin scroll-smooth motion-reduce:scroll-auto">
+        <slot />
       </main>
     </div>
   </body>
