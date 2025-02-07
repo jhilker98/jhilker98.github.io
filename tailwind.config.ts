@@ -7,12 +7,7 @@ import  plugin  from "tailwindcss/plugin";
 export default {
   content: ["./src/**/*.{astro,html,js,jsx,md,mdx,svelte,ts,tsx,vue}"],
   darkMode: ["class", "[data-theme='dark']"],
-  //safelist: [
-  //  {
-  //    pattern: /grid-(cols|rows)-./,
-  //    variants: ["lg", "md"],
-  //  },
-  //],
+  
   theme: {
     gridTemplateAreas: {
       mobile: ["header header header", "main main main", "main main main"],
