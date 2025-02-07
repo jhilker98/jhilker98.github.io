@@ -6,27 +6,9 @@
       "unplugin-icons/types/astro"
     ],
     "paths": {
-      "@components/*": [
-        "src/components/*"
-      ],
-      "@assets/*": [
-        "src/assets/*"
-      ],
-      "@layouts/*": [
-        "src/layouts/*"
-      ],
-      "@lib/*": [
-        "src/lib/*"
-      ],
-      "@consts": [
-        "src/consts.ts"
-      ],
-      "@types": [
-        "src/types.ts"
-      ],
-      "@content": [
-        "src/content/*"
-      ]
+      "~/*": [
+        "src/*"
+      ]  
     },
     "jsx": "react-jsx",
     "jsxImportSource": "react"

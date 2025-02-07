@@ -1,4 +1,52 @@
 ---
 /* eslint astro/prefer-class-list-directive: "error" */
 import "../styles/global.css";
+import Header from "~/components/Header.astro";
+import FixedSidebar from "~/components/FixedSidebar.astro";
+import SiteSEO from "~/components/SiteSEO.astro";
+
+interface Props {
+  title: string;
+  description: string;
+}
+const { title, description } = Astro.props;
 ---
+
+<html
+  lang="en"
+  x-data="{darkMode: false, sidebarOpen: false}"
+  x-init="darkMode = JSON.parse(localStorage.getItem('darkMode')); $watch('darkMode', value => JSON.stringify(localStorage.setItem('darkMode', value)))"
+  :data-theme="darkMode === true ? 'dark' : 'light'">
+  <head>
+    <SiteSEO title={title} description={description} />
+    <script is:inline>
+      if (
+        localStorage.theme === "dark" ||
+        (!("theme" in localStorage) &&
+          window.matchMedia("(prefers-color-scheme: dark)").matches)
+      ) {
+        document.documentElement.dataset.theme = "dark";
+      } else {
+        document.documentElement.dataset.theme = "light";
+      }
+
+      // Whenever the user explicitly chooses light mode
+      localStorage.theme = "light";
+
+      // Whenever the user explicitly chooses dark mode
+      localStorage.theme = "dark";
+
+      // Whenever the user explicitly chooses to respect the OS preference
+      localStorage.removeItem("theme");
+    </script>
+  </head>
+  <body class="min-h-screen" x-data="{'sidebarOpen': false}">
+    <div
+	class="h-screen grid grid-cols-(--grid-cols-layout) grid-rows-(--grid-rows-layout) grid-areas-mobile lg:grid-areas-desktop">
+      <Header/>
+      <main class="grid-in-main">
+	<slot/>
+      </main>
+    </div>
+  </body>
+</html>

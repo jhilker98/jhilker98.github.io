@@ -1,17 +1,17 @@
 ---
-import MobileMenu from "@components/navigation/MobileMenu.astro";
-import NavLink from "@components/navigation/NavLink.astro";
-import DropDown from "@components/navigation/DropDown.astro";
-import { NAV_LINKS } from "@consts";
-import { isNavLinkActive } from "@lib/utils";
-import type { Link } from "@types";
+import MobileMenu from "~/components/navigation/MobileMenu.astro";
+import NavLink from "~/components/navigation/NavLink.astro";
+import DropDown from "~/components/navigation/DropDown.astro";
+import { NAV_LINKS } from "~/consts";
+import { isNavLinkActive } from "~/lib/utils";
+import type { Link } from "~/types";
 import { Icon } from "astro-icon/components";
 const pathname = new URL(Astro.request.url).pathname;
 const currentPath = pathname.slice(1); // remove the first "/"
 ---
 
 <header
-  class="z-10 items-center grid-in-header bg-branding-gray dark:bg-branding-neutral-800"
+  class="z-10 items-center grid-area-header bg-branding-gray dark:bg-branding-neutral-800"
   x-data="{mobileOpen: false}">
   <div class="flex h-[52px] 2xl:h-[62px]">
     <button
