@@ -5,8 +5,8 @@ import type {
   GetStaticPaths,
 } from "astro";
 import { getCollection } from "astro:content";
-import BlogPostLayout from "@layouts/BlogPostLayout.astro";
-import { slugifyPostDate } from "@lib/utils";
+import BlogPostLayout from "~/layouts/BlogPostLayout.astro";
+import { slugifyPostDate } from "~/lib/utils";
 
 export const getStaticPaths = (async () => {
   const posts = await getCollection("blog");

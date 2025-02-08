@@ -1,10 +1,10 @@
 ---
-import type BlogPost from "@content/config.ts";
-import type Series from "@types";
+import type BlogPost from "~/content/config.ts";
+import type Series from "~/types";
 import { getCollection } from "astro:content";
-import { findPostsInSeries } from "@lib/blog.ts";
-import { slugifyUrl } from "@lib/utils.ts";
-import BaseLayout from "@layouts/BaseLayout.astro";
+import { findPostsInSeries } from "~/lib/blog.ts";
+import { slugifyUrl } from "~/lib/utils.ts";
+import BaseLayout from "~/layouts/BaseLayout.astro";
 import { Icon } from "astro-icon/components";
 
 const posts: BlogPost[] = await getCollection("blog", ({ data }) => {

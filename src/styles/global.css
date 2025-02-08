@@ -3,6 +3,9 @@
 @import "@fontsource/ibm-plex-sans";
 @import "@fontsource/ibm-plex-serif";
 @import "@fontsource/iosevka";
+@plugin "@tailwindcss/typography";
+@plugin "@tailwindcss/forms";
+@custom-variant dark (&:where(.dark, .dark *));
 
 .grid-areas-mobile {
   grid-template-areas: "header header header"
@@ -16,7 +19,6 @@
     "sidebar footer footer";
 }
 
-@variant dark (&:where([data-theme=dark], [data-theme=dark] *));
 
 /* tailwind 4.0 utility function for grid-area */
 @layer utilities {

@@ -16,35 +16,30 @@ const { title, description } = Astro.props;
   lang="en"
   x-data="{darkMode: false, sidebarOpen: false}"
   x-init="darkMode = JSON.parse(localStorage.getItem('darkMode')); $watch('darkMode', value => JSON.stringify(localStorage.setItem('darkMode', value)))"
-  :data-theme="darkMode === true ? 'dark' : 'light'">
+  x-bind:data-theme="darkMode === true ? 'dark' : 'light'"
+  x-bind:class="darkMode === true ? 'dark' ? 'light' ">
   <head>
     <SiteSEO title={title} description={description} />
     <script is:inline>
-      if (
+      document.documentElement.classList.toggle(
+        "dark",
         localStorage.theme === "dark" ||
-        (!("theme" in localStorage) &&
-          window.matchMedia("(prefers-color-scheme: dark)").matches)
-      ) {
-        document.documentElement.dataset.theme = "dark";
-      } else {
-        document.documentElement.dataset.theme = "light";
-      }
-
-      // Whenever the user explicitly chooses light mode
-      localStorage.theme = "light";
-
+          (!("theme" in localStorage) &&
+            window.matchMedia("(prefers-color-scheme: dark)").matches),
+      ); // Whenever the user explicitly chooses light mode
+      localStorage.theme = "light"; //
       // Whenever the user explicitly chooses dark mode
       localStorage.theme = "dark";
-
       // Whenever the user explicitly chooses to respect the OS preference
       localStorage.removeItem("theme");
     </script>
   </head>
+
   <body
     class="min-h-screen bg-branding-white dark:bg-branding-black"
     x-data="{'sidebarOpen': false}">
     <div
-      class="h-screen grid grid-cols-(--grid-cols-layout) grid-rows-(--grid-rows-layout) grid-areas-mobile lg:grid-areas-desktop">
+      class="h-screen grid grid-cols-(--grid-cols-layout) grid-rows-(--grid-rows-layout) grid-areas-mobile lg:grid-areas-desktop bg-branding-white dark:bg-branding-black">
       <Header />
       <FixedSidebar />
       <main
