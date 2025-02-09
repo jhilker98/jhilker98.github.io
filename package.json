@@ -42,7 +42,6 @@
     "@iconify-json/ps": "^1.1.9",
     "@iconify-json/twemoji": "^1.1.15",
     "@iconify/json": "^2.2.156",
-    "@savvywombat/tailwindcss-grid-areas": "^3.1.0",
     "@tailwindcss/forms": "^0.5.7",
     "@tailwindcss/typography": "^0.5.10",
     "@types/marked": "^5.0.2",
@@ -63,8 +62,6 @@
     "reading-time": "^1.5.0",
     "remark-toc": "^9.0.0",
     "sanitize-html": "^2.11.0",
-    "tailwind-config-viewer": "^1.7.3",
-    "tailwind-scrollbar": "^3.0.5",
     "unplugin-icons": "^0.18.1"
   }
 }
