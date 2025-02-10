@@ -46,8 +46,8 @@
   --font-sans: "IBM Plex Sans", sans-serif;
   --font-serif: "IBM Plex Serif", serif;
   --font-mono: "Iosevka", monospace;
-  --color-branding-black: "#091725";
-  --color-branding-white: "#f3f7fc";
+  --color-branding-black: #091725;
+  --color-branding-white: #f3f7fc;
   --color-branding-navy-50: #e2edf8;
   --color-branding-navy-100: #c6dbf1;
   --color-branding-navy-200: #8cb8e3;
