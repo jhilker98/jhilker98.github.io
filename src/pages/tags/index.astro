@@ -1,6 +1,6 @@
 ---
-import BaseLayout from "@layouts/BaseLayout.astro";
-import { slugifyUrl } from "@lib/utils";
+import BaseLayout from "~/layouts/BaseLayout.astro";
+import { slugifyUrl } from "~/lib/utils";
 import { getCollection, type CollectionEntry } from "astro:content";
 const posts: CollectionEntry<"blog">[] = await getCollection("blog", ({data}) => {
   return import.meta.env.PROD ? data.draft !== true : true

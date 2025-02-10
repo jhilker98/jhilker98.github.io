@@ -1,11 +1,11 @@
 ---
-//import { type BlogPost } from "@content/config.ts";
-import BaseLayout from "@layouts/BaseLayout.astro";
-import PostInfo from "@components/blog/PostInfo.astro";
+//import { type BlogPost } from "~/content/config.ts";
+import BaseLayout from "~/layouts/BaseLayout.astro";
+import PostInfo from "~/components/blog/PostInfo.astro";
 
 //import { type GetStaticPaths } from "astro";
 import { getCollection } from "astro:content";
-import { slugifyUrl } from "@lib/utils";
+import { slugifyUrl } from "~/lib/utils";
 
 export async function getStaticPaths({ paginate }) {
   const allPosts = await getCollection("blog");
@@ -24,7 +24,7 @@ export async function getStaticPaths({ paginate }) {
     });
   });
 }
-import Pagination from "@components/Pagination.astro";
+import Pagination from "~/components/Pagination.astro";
 
 const { tag } = Astro.params;
 const { page } = Astro.props;
