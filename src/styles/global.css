@@ -46,6 +46,17 @@
   --font-sans: "IBM Plex Sans", sans-serif;
   --font-serif: "IBM Plex Serif", serif;
   --font-mono: "Iosevka", monospace;
+  --color-neutral-50: #ecf0f4;
+  --color-neutral-100: #dbe4eb;
+  --color-neutral-200: #b8c9d6;
+  --color-neutral-300: #91acc0;
+  --color-neutral-400: #6d91ab;
+  --color-neutral-500: #52768f;
+  --color-neutral-600: #415d71;
+  --color-neutral-700: #304554;
+  --color-neutral-800: #21303a;
+  --color-neutral-900: #11181d;
+  --color-neutral-950: #070b0d;
   --color-branding-black: #091725;
   --color-branding-white: #f3f7fc;
   --color-branding-navy-50: #e2edf8;
@@ -135,26 +146,5 @@
   --color-branding-green: var(--color-branding-green-600);
   --color-branding-yellow: var(--color-branding-yellow-400);
   --color-branding-brown: var(--color-branding-brown-500);
-}
-
-@layer components {
-  .typography {
-    p {
-      font-size: var(--text-base);
-      color: var(--color-gray-700);
-    }
-
-    h1 {
-      font-size: var(--text-2xl--line-height);
-      font-weight: var(--font-weight-semibold);
-      color: var(--color-gray-950);
-    }
-
-    h2 {
-      font-size: var(--text-xl);
-      font-weight: var(--font-weight-semibold);
-      color: var(--color-gray-950);
-    }
-  }
-
+  --color-branding-neutral: var(--color-branding-neutral-500);
 }

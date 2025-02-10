@@ -7,5 +7,37 @@ import FeaturedProjectSection from "~/components/index/FeaturedProjectSection.as
 ---
 
 <BaseLayout title="Home" description={SITE_META.description}>
-  <h1>hi</h1>
+  <section
+    class="min-h-screen grid place-items-center bg-cover bg-center [&>*]:col-start-1 [&>*]:row-start-1"
+    x-ref="hero">
+    <HeroSection />
+  </section>
+  <section class="min-h-screen" x-ref="about">
+    <div class="container px-5 py-24 mx-auto">
+      <div class="flex flex-col text-center w-full mb-20">
+        <h2
+          class="sm:text-3xl text-2xl font-bold mb-4 text-branding-gray-900 dark:text-branding-white">
+          About Me
+        </h2>
+        <div
+          class="lg:w-2/3 mx-auto text-base prose prose-base max-w-none prose-neutral dark:prose-invert leading-relaxed prose-branding-blue">
+          Hi! I'm Jacob, a former student of the University of Mary Washington.
+          I graduated with a major in Computer Science with a minor in
+          cybersecurity. Although I majored in cybersecurity, I found that it
+          really wasn't what I was looking for - my original plan was to minor
+          in political science, but the closest thing the university had was
+          International Relations, which wasn't exactly what I was looking for -
+          this was also around the time the <a
+            href="https://en.wikipedia.org/wiki/Facebook%E2%80%93Cambridge_Analytica_data_scandal"
+            >Facebook-Cambridge Analytica scandal</a
+          >
+           was coming to light, and so I figured that cybersecurity was going to
+          become very quickly involved with political science.
+        </div>
+      </div>
+    </div>
+  </section>
+  <section class="text-gray-600 body-font min-h-screen" x-ref="projects">
+    <FeaturedProjectSection />
+  </section>
 </BaseLayout>

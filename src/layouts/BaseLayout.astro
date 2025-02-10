@@ -41,12 +41,15 @@ const { title, description } = Astro.props;
     </script>
   </head>
 
-  <body class="min-h-screen" x-data="{'sidebarOpen': false}">
+  <body
+    class="min-h-screen bg-branding-white dark:bg-branding-black"
+    x-data="{'sidebarOpen': false}">
     <div
       class="h-screen grid grid-cols-(--grid-cols-layout) grid-areas-layout grid-rows-(--grid-rows-layout)">
       <Header />
+      <FixedSidebar />
       <main
-        class="grid-area-main overflow-y-scroll scrollbar-thin scroll-smooth motion-reduce:scroll-auto bg-branding-white dark:bg-branding-black">
+        class="grid-area-main overflow-y-scroll scrollbar-thin scroll-smooth motion-reduce:scroll-auto">
         <slot />
       </main>
     </div>
