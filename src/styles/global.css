@@ -3,20 +3,21 @@
 @import "@fontsource/ibm-plex-sans";
 @import "@fontsource/ibm-plex-serif";
 @import "@fontsource/iosevka";
+
 @plugin "@tailwindcss/typography";
 @plugin "@tailwindcss/forms";
-@custom-variant dark (&:where(.dark, .dark *));
 
-.grid-areas-mobile {
-  grid-template-areas: "header header header"
-    "main main main"
-    "footer footer footer";
+@custom-variant dark (&:where([data-theme="dark"], [data-theme="dark"] *));
+
+.grid-areas-layout {
+  grid-template-areas: "header header header" "main main main" "footer footer footer";
 }
 
-.lg\:grid-areas-desktop {
-  grid-template-areas: "sidebar header header"
-    "sidebar main main"
-    "sidebar footer footer";
+/* media query for large variant grid template areas */
+@media (min-width: 64rem) {
+  .grid-areas-layout {
+    grid-template-areas: "sidebar header header" "sidebar main main" "sidebar footer footer";
+  }
 }
 
 
@@ -48,7 +49,6 @@
   --font-mono: "Iosevka", monospace;
   --color-branding-black: "#091725";
   --color-branding-white: "#f3f7fc";
-  --color-branding-navy: var(--color-branding-navy-500);
   --color-branding-navy-50: #e2edf8;
   --color-branding-navy-100: #c6dbf1;
   --color-branding-navy-200: #8cb8e3;
@@ -72,7 +72,6 @@
   --color-branding-purple-900: #22033f;
   --color-branding-purple-950: #120222;
 
-  --color-branding-gray: var(--color-branding-gray-500);
   --color-branding-gray-50: #fafafa;
   --color-branding-gray-100: #f7f7f8;
   --color-branding-gray-200: #ecedee;
@@ -84,7 +83,6 @@
   --color-branding-gray-800: #4e525a;
   --color-branding-gray-900: #282a2e;
   --color-branding-gray-950: #131416;
-  --color-branding-blue: var(--color-branding-blue-500);
   --color-branding-blue-50: #e9f1fb;
   --color-branding-blue-100: #cfe1f7;
   --color-branding-blue-200: #9fc3ef;
@@ -96,7 +94,6 @@
   --color-branding-blue-800: #0d2b4f;
   --color-branding-blue-900: #061527;
   --color-branding-blue-950: #040c16;
-  --color-branding-green: var(--color-branding-green-600);
   --color-branding-green-50: #e5f6e5;
   --color-branding-green-100: #caecca;
   --color-branding-green-200: #96da96;
@@ -108,7 +105,6 @@
   --color-branding-green-800: #102d10;
   --color-branding-green-900: #081708;
   --color-branding-green-950: #040b04;
-  --color-branding-yellow: var(--color-branding-yellow-400);
   --color-branding-yellow-50: #fff9eb;
   --color-branding-yellow-100: #fef2d2;
   --color-branding-yellow-200: #fde4a5;
@@ -120,7 +116,6 @@
   --color-branding-yellow-800: #6e5002;
   --color-branding-yellow-900: #372801;
   --color-branding-yellow-950: #1e1601;
-  --color-branding-brown: var(--color-branding-brown-500);
   --color-branding-brown-50: #f4f0eb;
   --color-branding-brown-100: #e9e1d8;
   --color-branding-brown-200: #d3c2b1;
@@ -132,4 +127,13 @@
   --color-branding-brown-800: #34291d;
   --color-branding-brown-900: #1a150f;
   --color-branding-brown-950: #0d0a07;
+}
+
+@theme inline {
+  --color-branding-navy: var(--color-branding-navy-500);
+  --color-branding-gray: var(--color-branding-gray-500);
+  --color-branding-blue: var(--color-branding-blue-500);
+  --color-branding-green: var(--color-branding-green-600);
+  --color-branding-yellow: var(--color-branding-yellow-400);
+  --color-branding-brown: var(--color-branding-brown-500);
 }
