@@ -1,4 +1,3 @@
-@layer theme, base, components, utilities;
 @import "tailwindcss";
 @import "@fontsource/ibm-plex-sans";
 @import "@fontsource/ibm-plex-serif";
@@ -136,4 +135,26 @@
   --color-branding-green: var(--color-branding-green-600);
   --color-branding-yellow: var(--color-branding-yellow-400);
   --color-branding-brown: var(--color-branding-brown-500);
+}
+
+@layer components {
+  .typography {
+    p {
+      font-size: var(--text-base);
+      color: var(--color-gray-700);
+    }
+
+    h1 {
+      font-size: var(--text-2xl--line-height);
+      font-weight: var(--font-weight-semibold);
+      color: var(--color-gray-950);
+    }
+
+    h2 {
+      font-size: var(--text-xl);
+      font-weight: var(--font-weight-semibold);
+      color: var(--color-gray-950);
+    }
+  }
+
 }
