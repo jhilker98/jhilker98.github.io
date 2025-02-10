@@ -1,8 +1,8 @@
 ---
-import { NAV_LINKS } from "@consts";
-import { isNavLinkActive } from "@lib/utils";
-import NavLink from "@components/navigation/NavLink.astro";
-import DropDown from "@components/navigation/DropDown.astro";
+import { NAV_LINKS } from "~/consts";
+import { isNavLinkActive } from "~/lib/utils";
+import NavLink from "~/components/navigation/NavLink.astro";
+import DropDown from "~/components/navigation/DropDown.astro";
 const pathname = new URL(Astro.request.url).pathname;
 const currentPath = pathname.slice(1);
 ---

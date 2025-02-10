@@ -1,6 +1,6 @@
 ---
-import { type Project } from "@content/config";
-import { FEATURED_PROJECT_COUNT } from "@consts";
+import { type Project } from "~/content/config";
+import { FEATURED_PROJECT_COUNT } from "~/consts";
 import { getCollection } from "astro:content";
 const projects: Project[] = (await getCollection("projects", ({ data }) => {
   return import.meta.env.PROD == true

@@ -1,13 +1,9 @@
 ---
 /* eslint astro/prefer-class-list-directive: "error" */
-
-import FixedSidebar from "@components/FixedSidebar.astro";
-import MobileSidebar from "@components/MobileSidebar.astro";
-import Header from "@components/Header.astro";
-import SiteSEO from "@components/SiteSEO.astro";
-import "@fontsource/ibm-plex-sans";
-import "@fontsource/ibm-plex-serif";
-import "@fontsource/iosevka";
+import "../styles/global.css";
+import Header from "~/components/Header.astro";
+import FixedSidebar from "~/components/FixedSidebar.astro";
+import SiteSEO from "~/components/SiteSEO.astro";
 
 interface Props {
   title: string;
@@ -20,7 +16,7 @@ const { title, description } = Astro.props;
   lang="en"
   x-data="{darkMode: false, sidebarOpen: false}"
   x-init="darkMode = JSON.parse(localStorage.getItem('darkMode')); $watch('darkMode', value => JSON.stringify(localStorage.setItem('darkMode', value)))"
-  :data-theme="darkMode === true ? 'dark' : 'light'">
+  x-bind:data-theme="darkMode == true ? 'dark' : 'light'">
   <head>
     <SiteSEO title={title} description={description} />
     <script is:inline>
@@ -44,19 +40,18 @@ const { title, description } = Astro.props;
       localStorage.removeItem("theme");
     </script>
   </head>
+
   <body
     class="min-h-screen bg-branding-white dark:bg-branding-black"
     x-data="{'sidebarOpen': false}">
     <div
-      class="h-screen grid grid-cols-layout grid-rows-layout grid-areas-mobile lg:grid-areas-desktop"
-      data-role="site-container">
+      class="h-screen grid grid-cols-(--grid-cols-layout) grid-areas-layout grid-rows-(--grid-rows-layout)">
       <Header />
       <FixedSidebar />
       <main
-        class="grid-in-main overflow-y-scroll scrollbar-thin scroll-smooth motion-reduce:scroll-auto">
+        class="grid-area-main overflow-y-scroll scrollbar-thin scroll-smooth motion-reduce:scroll-auto">
         <slot />
       </main>
     </div>
-    <MobileSidebar />
   </body>
 </html>

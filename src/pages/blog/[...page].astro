@@ -1,11 +1,11 @@
 ---
 import type { GetStaticPaths } from "astro";
-import BaseLayout from "@layouts/BaseLayout.astro";
-import PostInfo from "@components/blog/PostInfo.astro";
+import BaseLayout from "~/layouts/BaseLayout.astro";
+import PostInfo from "~/components/blog/PostInfo.astro";
 import { getCollection, type CollectionEntry } from "astro:content";
-import Pagination from "@components/Pagination.astro";
-import { RECENT_POST_COUNT } from "@consts";
-import type { BlogPost } from "@content/config.ts";
+import Pagination from "~/components/Pagination.astro";
+import { RECENT_POST_COUNT } from "~/consts";
+import type { BlogPost } from "~/content/config.ts";
 export const getStaticPaths = (async ({ paginate }) => {
   const posts: CollectionEntry<"blog">[] = await getCollection(
     "blog",

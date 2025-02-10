@@ -1,10 +1,10 @@
 ---
-import BaseLayout from "@layouts/BaseLayout.astro";
-import PostInfo from "@components/blog/PostInfo.astro";
+import BaseLayout from "~/layouts/BaseLayout.astro";
+import PostInfo from "~/components/blog/PostInfo.astro";
 
 import { getCollection } from "astro:content";
-import { slugifyUrl, toTitleCase } from "@lib/utils";
-import Pagination from "@components/Pagination.astro";
+import { slugifyUrl, toTitleCase } from "~/lib/utils";
+import Pagination from "~/components/Pagination.astro";
 
 export async function getStaticPaths({ paginate }) {
   const allPosts = await getCollection("blog");
