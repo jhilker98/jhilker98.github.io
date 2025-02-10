@@ -1,7 +1,7 @@
-import rss from '@astrojs/rss';
+import rss from '~/astrojs/rss';
 import { getCollection } from "astro:content";
-import { SITE_META } from "@consts"
-import { slugifyPostDate } from '@lib/utils';
+import { SITE_META } from "~/consts"
+import { slugifyPostDate } from '~/lib/utils';
 import { marked } from "marked";
 import sanitizeHtml from "sanitize-html";
 
