@@ -1,20 +1,17 @@
 ---
-import type { BlogPost } from "~/content/config.ts";
+import type { BlogPost } from "~/content.config";
 import { formatPostDate, calcReadingTime, slugifyPostDate } from "~/lib/utils";
-
+import { marked } from "marked";
+import readingTime from "reading-time";
+import { Icon } from "astro-icon/components";
 interface Props {
   post: BlogPost;
   wordCount: number;
 }
 const { post, wordCount } = Astro.props as Props;
 
-import { marked } from "marked";
-
-const body = `${post.body
-  .split(" ")
-  .slice(0, wordCount + 1)
-  .join(" ")}...`;
-const postBody = marked.parse(body);
+const body = post?.body?.split(" ").slice(0, wordCount).join(" ") || "";
+const content = marked(body);
 ---
 
 <article class="py-3.5 grid md:grid-cols-[18rem_auto]">
@@ -24,13 +21,20 @@ const postBody = marked.parse(body);
     </span>
     <time
       datetime={post.data.pubDate.toISOString()}
-      class="font-semibold text-sm text-gray-700 dark:text-gray-400"
+      class="font-semibold text-sm text-branding-gray-700 dark:text-gray-400"
       >{formatPostDate(post.data.pubDate)}</time
     >
-    <span
-      class="block mt-1 text-branding-gray-600 dark:text-branding-gray-400 text-sm font-semibold">
-      {calcReadingTime(post.body)}
-    </span>
+    {
+      post.body && (
+        <div class="block mt-1 text-branding-gray-600 dark:text-branding-gray-400 text-sm font-semibold ml-1">
+          <div class="inline-flex items-center justify-between">
+            <Icon name="mdi:clock" class="inline" />
+            <span class="ml-1">{readingTime(post.body).text}</span>
+          </div>
+        </div>
+      )
+    }
+
     {
       post.data.series && (
         <div class="text-gray-700 dark:text-gray-400 text-sm mt-1 break-words">
@@ -46,10 +50,10 @@ const postBody = marked.parse(body);
     </h2>
     <div
       class="prose prose-neutral dark:prose-invert max-w-[80ch] prose-branding-blue"
-      set:html={postBody}
+      set:html={content}
     />
     <a
-      href={`/blog/${slugifyPostDate(post.data.pubDate)}/${post.slug}`}
+      href={`/blog/${slugifyPostDate(post.data.pubDate)}/${post.id}`}
       class="block rounded-sm text-sm bg-branding-navy-600 w-fit text-white h-fit px-2 py-1 mt-1 dark:hover:bg-branding-navy-500 duration-100 transition-colors hover:bg-branding-navy-700"
       >Read More</a
     >
