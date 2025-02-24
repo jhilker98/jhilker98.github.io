@@ -1,0 +1,1 @@
+import{p as a}from"./purify.es.CJDByWmJ.js";const e=document.querySelector("form");e?.addEventListener("submit",n=>{n.preventDefault();const o=new FormData(e),t=a.sanitize(o.get("search")?.toString());if(!t||t.length===0)return;const r=new URL("/search",window.location.origin);r.searchParams.set("q",t),window.location.assign(r.toString())});
