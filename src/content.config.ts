@@ -1,7 +1,8 @@
 import { z, defineCollection, type CollectionEntry } from "astro:content";
+import { glob } from "astro/loaders";
 
-const blogSchema = defineCollection({
-  type: "content",
+const blog = defineCollection({
+  loader: glob({ pattern: "**/*.{md,mdx}", base: "src/content/blog" }),
   schema: ({ image }) =>
     z.object({
       title: z.string({
@@ -48,8 +49,8 @@ export type BlogPost = CollectionEntry<"blog">;
 
 //export type BlogPost = CollectionEntry<"blog">;
 
-const projectSchema = defineCollection({
-  type: "content",
+const projects = defineCollection({
+  loader: glob({ pattern: "**/*.{md,mdx}", base: "src/content/projects" }),
   schema: z.object({
     title: z.string({ required_error: "A title is required for a project." }),
     draft: z
@@ -106,6 +107,5 @@ const projectSchema = defineCollection({
 export type Project = CollectionEntry<"projects">;
 
 export const collections = {
-  blog: blogSchema,
-  projects: projectSchema,
+  blog, projects
 };

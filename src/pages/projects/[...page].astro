@@ -3,7 +3,7 @@ import type { GetStaticPaths } from "astro";
 import BaseLayout from "~/layouts/BaseLayout.astro";
 import Pagination from "~/components/Pagination.astro";
 import ProjectCard from "~/components/ProjectCard.astro";
-import { type Project } from "~/content/config.ts";
+import { type Project } from "~/content.config";
 import { getCollection } from "astro:content";
 
 export const getStaticPaths = (async ({ paginate }) => {
