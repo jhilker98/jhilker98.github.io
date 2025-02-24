@@ -9,7 +9,7 @@ async function getPosts() {
     })
   ).sort((a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf());
   return posts.map((post: BlogPost) => ({
-    slug: post.slug,
+    slug: post.id,
     title: post.data.title,
     description: post.data.description,
     tags: post.data.tags?.flat(),
