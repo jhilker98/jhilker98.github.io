@@ -1,10 +1,11 @@
 {
   "editor.formatOnSave": true,
-  "prettier.documentSelectors": ["**/*.astro"],
+  "prettier.documentSelectors": [
+    "**/*.astro"
+  ],
   "[astro]": {
     "editor.defaultFormatter": "astro-build.astro-vscode"
   },
-
   "eslint.validate": [
     "javascript",
     "javascriptreact",
@@ -34,5 +35,12 @@
   "[mdx]": {
     "editor.formatOnSave": false
   },
-  "tailwindCSS.classAttributes": ["class", "className", "ngClass", "class:list"]
+  "tailwindCSS.classAttributes": [
+    "class",
+    "className",
+    "ngClass",
+    "class:list"
+  ],
+  "tailwindCSS.experimental.configFile": "src/styles/global.css",
+  "tailwindCSS.emmetCompletions": true,
 }
