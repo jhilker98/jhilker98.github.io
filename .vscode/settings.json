@@ -24,11 +24,7 @@
     "markdown",
     "astro"
   ],
-  "terminal.integrated.automationProfile.linux": {
-    "shell": {
-      "path": "/home/jhilker/.nix-profile/bin/zsh"
-    }
-  },
+  "terminal.integrated.automationProfile.linux": null,
   "[markdown]": {
     "editor.formatOnSave": false
   },
