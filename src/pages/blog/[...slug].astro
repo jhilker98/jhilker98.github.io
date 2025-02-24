@@ -4,7 +4,7 @@ import type {
   InferGetStaticPropsType,
   GetStaticPaths,
 } from "astro";
-import { getCollection } from "astro:content";
+import { getCollection, render } from "astro:content";
 import BlogPostLayout from "~/layouts/BlogPostLayout.astro";
 import { slugifyPostDate } from "~/lib/utils";
 
@@ -12,7 +12,7 @@ export const getStaticPaths = (async () => {
   const posts = await getCollection("blog");
   return posts.map((post) => {
     return {
-      params: { slug: `${slugifyPostDate(post.data.pubDate)}/${post.slug}` },
+      params: { slug: `${slugifyPostDate(post.data.pubDate)}/${post.id}` },
       props: { post },
     };
   });
@@ -24,7 +24,7 @@ type Props = InferGetStaticPropsType<typeof getStaticPaths>;
 // eslint-disable-next-line
 const { slug } = Astro.params as Params;
 const { post } = Astro.props;
-const { Content } = await post.render();
+const { Content } = await render(post);
 ---
 
 <BlogPostLayout frontmatter={post.data}>

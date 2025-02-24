@@ -1,4 +1,4 @@
-import { type BlogPost } from "../content/config";
+import { type BlogPost } from "~/content.config";
 import { getCollection } from "astro:content";
 import type { APIRoute } from "astro";
 
