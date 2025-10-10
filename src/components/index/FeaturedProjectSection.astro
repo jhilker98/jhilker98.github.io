@@ -55,7 +55,11 @@ const projects: Project[] = (
               <CardTitle>{project.data.title}</CardTitle>
               <CardDescription>{project.data.category}</CardDescription>
             </CardHeader>
-            <CardContent />
+            <CardContent>
+              <div class="prose prose-neutral dark:prose-invert max-w-[80ch] prose-branding-blue">
+                {project.data.description}
+              </div>
+            </CardContent>
           </Card>
         </div>
       ))
