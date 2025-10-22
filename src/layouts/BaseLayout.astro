@@ -2,7 +2,7 @@
 /* eslint astro/prefer-class-list-directive: "error" */
 import "../styles/global.css";
 import SiteSEO from "~/components/SiteSEO.astro";
-import Page from "~/components/site/page"
+import Page from "~/components/site/page";
 interface Props {
   title: string;
   description: string;
@@ -17,32 +17,11 @@ const { title, description } = Astro.props;
   x-bind:data-theme="darkMode == true ? 'dark' : 'light'">
   <head>
     <SiteSEO title={title} description={description} />
-    <script is:inline>
-      if (
-        localStorage.theme === "dark" ||
-        (!("theme" in localStorage) &&
-          window.matchMedia("(prefers-color-scheme: dark)").matches)
-      ) {
-        document.documentElement.dataset.theme = "dark";
-      } else {
-        document.documentElement.dataset.theme = "light";
-      }
-
-      // Whenever the user explicitly chooses light mode
-      localStorage.theme = "light";
-
-      // Whenever the user explicitly chooses dark mode
-      localStorage.theme = "dark";
-
-      // Whenever the user explicitly chooses to respect the OS preference
-      localStorage.removeItem("theme");
-    </script>
   </head>
 
   <body>
     <Page client:load>
-      <slot/>
+      <slot />
     </Page>
-
   </body>
 </html>
