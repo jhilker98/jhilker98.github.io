@@ -8,6 +8,11 @@ import getReadingTime from "reading-time";
  * @return {*}  {BlogPost[]} The array of blog posts in the series, sorted by order in series.
  */
 
+export function isNavLinkActive(p1: string, p2: string): boolean {
+  //let page = new URL(`${Astro.url.origin}/${p1}`).slice(1).slice(1);
+  return p1 === p2;
+}
+
 export function slugifyPostDate(d: Date) {
   const f = {
     year: new Intl.DateTimeFormat("en-US", { year: "numeric" }),
@@ -30,14 +35,14 @@ export function slugifyUrl(text: string) {
 
 export function findPostsInSeries(
   series: string,
-  posts: blogPost[],
+  posts: BlogPost[],
 ): BlogPost[] {
   const filteredPosts = posts.filter(
     (post: BlogPost) =>
       slugifyUrl(post.data.series.name) === slugifyUrl(series),
   );
   return filteredPosts.sort(
-    (a: BlogPost, b: BlogPost) => a.data.series.order - b.data.series.order,
+    (a: BlogPost, b: BlogPost) => a.data.series.weight - b.data.series.weight,
   );
 }
 export function formatPostDate(date: Date) {
