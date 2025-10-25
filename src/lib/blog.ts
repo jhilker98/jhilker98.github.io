@@ -1,4 +1,4 @@
-import type { BlogPost } from "@content";
+import type { BlogPost } from "@/content.config";
 import getReadingTime from "reading-time";
 
 /**
