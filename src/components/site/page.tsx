@@ -28,11 +28,7 @@ export default function Page(props: Props) {
       <SiteSidebar />
       <SidebarInset>
         <header className="flex h-16 shrink-0 items-center gap-2 border-b px-4">
-          <SidebarTrigger className="-ml-1" />
-          <Separator
-            orientation="vertical"
-            className="mr-2 data-[orientation=vertical]:h-4"
-          />
+          
           <Nav />
           <Toggle x-on:click="darkMode = !darkMode">
             <SunIcon className="h-5 w-5 hidden dark:block" />

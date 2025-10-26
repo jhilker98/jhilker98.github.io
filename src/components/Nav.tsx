@@ -15,12 +15,12 @@ import {
 
 export default function Nav() {
     return (
-        <NavigationMenu>
+        <NavigationMenu className="bg-blue-500 h-full w-full">
 
-            <NavigationMenuList>
+            <NavigationMenuList className="space-x-4 bg-red-500 h-full">
 
                 {NAV_LINKS.map((link: Link) => (
-                    <NavigationMenuLink href={link.href} key={link.href}>
+                    <NavigationMenuLink href={link.href} key={link.href} className="h-full">
                         {link.name}
                     </NavigationMenuLink>
                 ))}
