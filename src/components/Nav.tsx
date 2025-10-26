@@ -20,7 +20,7 @@ export default function Nav() {
             <NavigationMenuList>
 
                 {NAV_LINKS.map((link: Link) => (
-                    <NavigationMenuLink href={link.href}>
+                    <NavigationMenuLink href={link.href} key={link.href}>
                         {link.name}
                     </NavigationMenuLink>
                 ))}

@@ -15,6 +15,9 @@ import {
   SidebarTrigger,
 } from "@/components/ui/sidebar"
 
+import { Toggle } from "@/components/ui/toggle"
+import { MoonIcon, SunIcon } from "lucide-react";
+
 interface Props {
   children: React.ReactNode
 }
@@ -31,7 +34,10 @@ export default function Page(props: Props) {
             className="mr-2 data-[orientation=vertical]:h-4"
           />
           <Nav />
-
+          <Toggle x-on:click="darkMode = !darkMode">
+            <SunIcon className="h-5 w-5 hidden dark:block" />
+            <MoonIcon className="h-5 w-5 block dark:hidden" />
+          </Toggle>
         </header>
         <div className="flex flex-1 flex-col gap-4 p-4">
           {props.children}
