@@ -27,7 +27,7 @@ export default function Page(props: Props) {
     <SidebarProvider>
       <SiteSidebar />
       <SidebarInset>
-        <header className="flex h-16 shrink-0 items-center gap-2 border-b px-4">
+        <header className="flex h-16 shrink-0 items-center gap-2 border-b px-4 w-full ">
           
           <Nav />
           <Toggle x-on:click="darkMode = !darkMode">
