@@ -24,7 +24,7 @@ export function SiteSidebar({ ...props }: React.ComponentProps<typeof Sidebar>) 
       <SidebarHeader>
         <div className="flex items-center justify-between">
 
-          <h2 className="uppercase lg:text-center p-2 font-semibold">Jacob's Website</h2>
+          <h2 className="uppercase lg:text-center p-2 font-semibold">{SITE_META.title}</h2>
           <SidebarTrigger className="h-full" />
         </div>
         <SearchForm />
