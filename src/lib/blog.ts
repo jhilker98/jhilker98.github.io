@@ -57,7 +57,7 @@ export function findPostsInSeries(
  * @param {Date} date The publication date of the post.
  * @returns {string} A formatted date string in the format "D Mon. YYYY".
  */
-export function formatPostDate(date: Date): string {
+export function formatPostDate(date: Date) {
   const dateString = new Date(date)
     .toLocaleDateString("en-GB", {
       timeZone: "UTC",
@@ -94,7 +94,7 @@ export function calcReadingTime(article: string): string {
 }
 
 /**
- * converts a string to Title Case.
+ * 
  * @param {string} str The string to be converted to Title Case.
  * @returns {string} The input string converted to Title Case.
  */
