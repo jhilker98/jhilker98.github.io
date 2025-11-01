@@ -10,17 +10,18 @@ import {
     NavigationMenuList,
     NavigationMenuTrigger,
     NavigationMenuViewport,
+    NavigationMenuLinkActive
 } from "@/components/ui/navigation-menu";
 
 
 export default function Nav() {
     return (
-        <NavigationMenu className="bg-blue-500 h-full w-full">
+        <NavigationMenu className="h-16 w-full">
 
-            <NavigationMenuList className="space-x-4 bg-red-500 h-full">
+            <NavigationMenuList className="space-x-4 h-full">
 
                 {NAV_LINKS.map((link: Link) => (
-                    <NavigationMenuLink href={link.href} key={link.href} className="h-full">
+                    <NavigationMenuLink href={link.href} key={link.href} className="h-16 justify-center">
                         {link.name}
                     </NavigationMenuLink>
                 ))}
