@@ -15,13 +15,13 @@ import {
 
 
 export default function Nav() {
+    console.log(window.location.pathname)
     return (
-        <NavigationMenu className="h-16 w-full">
-
-            <NavigationMenuList className="space-x-4 h-full">
+        <NavigationMenu className="h-16 w-full items-stretch">
+            <NavigationMenuList className="space-x-4 h-16">
 
                 {NAV_LINKS.map((link: Link) => (
-                    <NavigationMenuLink href={link.href} key={link.href} className="h-16 justify-center">
+                    <NavigationMenuLink href={link.href} key={link.href} className="justify-center">
                         {link.name}
                     </NavigationMenuLink>
                 ))}
