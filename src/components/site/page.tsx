@@ -1,5 +1,5 @@
 import { SiteSidebar } from "@/components/SiteSidebar"
-import Nav from "@/components/Nav"
+import Nav from "~/components/react/Nav"
 import {
   Breadcrumb,
   BreadcrumbItem,
