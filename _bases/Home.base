@@ -1,0 +1,125 @@
+filters:
+  or:
+    - file.ext == "md"
+    - file.ext == "mdx"
+formulas:
+  Slug: |-
+    if(file.folder == "src/content/posts", "/posts/" + file.name.replace(".md", ""), 
+      if(file.folder == "src/content/pages", "/" + file.name.replace(".md", ""), 
+        if(file.folder == "src/content/special", if(file.name.replace(".md", "") == "home", "/", "/" + file.name.replace(".md", "")), 
+          if(file.folder == "src/content/projects", "/projects/" + file.name.replace(".md", ""), 
+            if(file.folder == "src/content/docs", "/docs/" + file.name.replace(".md", ""), 
+              "/" + file.folder)))))
+  Content Folder: |-
+    if(file.name == "index",
+      if(file.folder != "",
+        if(file.folder.replace("/" + file.folder.replace(/.*\//, ""), "") != "",
+          file.folder.replace("/" + file.folder.replace(/.*\//, ""), ""),
+          file.folder
+        ),
+        "root"
+      ),
+      if(file.folder != "",
+        file.folder,
+        "root"
+      )
+    )
+properties:
+  file.fullname:
+    displayName: Full File Name
+  file.name:
+    displayName: File Name
+  formula.Slug:
+    displayName: Path
+  note.cover:
+    displayName: Cover
+  note.date:
+    displayName: Date
+  note.description:
+    displayName: Description
+  note.draft:
+    displayName: Draft
+  note.pubDate:
+    displayName: Date
+  note.tags:
+    displayName: Tags
+  note.title:
+    displayName: Title
+views:
+  - type: cms
+    name: Blog
+    filters:
+      and:
+        - file.folder.startsWith("src/content/blog")
+    sort:
+      - property: pubDate
+        direction: DESC
+    imageFormat: cover
+    showDate: true
+    customizeNewButton: true
+    newNoteLocation: src/content/blog
+    fallbackToEmbeds: if-empty
+    propertyDisplay1: file.fullname
+    showTextPreview: true
+    propertyLabels: above
+    titleProperty: note.title
+    dateProperty: note.pubDate
+    descriptionProperty: note.description
+    imageProperty: note.cover
+    showTags: true
+    tagsProperty: note.tags
+    showDraftStatus: true
+    draftStatusProperty: note.draft
+    draftStatusReverse: false
+  - type: cms
+    name: Projects
+    filters:
+      and:
+        - file.folder.startsWith("src/content/projects")
+    sort:
+      - property: file.ctime
+        direction: DESC
+    imageFormat: cover
+    showDate: true
+    customizeNewButton: true
+    newNoteLocation: src/content/projects
+    fallbackToEmbeds: if-empty
+    propertyDisplay1: file.fullname
+    showTextPreview: true
+    propertyLabels: above
+    titleProperty: note.title
+    dateProperty: file.ctime
+    descriptionProperty: note.description
+    showTags: false
+    showDraftStatus: true
+    draftStatusProperty: note.draft
+    draftStatusReverse: false
+  - type: cms
+    name: Vault CMS Guide
+    filters:
+      and:
+        - file.folder == ""
+        - file.name.endsWith("GUIDE")
+    order: []
+    sort:
+      - property: file.ctime
+        direction: DESC
+    fallbackToEmbeds: never
+    propertyDisplay1: file.fullname
+    showTextPreview: true
+    imageFormat: none
+    showDate: false
+    showDraftStatus: false
+    propertyLabels: above
+    titleProperty: note.title
+    propertyLayout12SideBySide: false
+    propertyLayout34SideBySide: false
+    showTags: false
+    customizeNewButton: false
+    newNoteLocation: ""
+    cardSize: 250
+    imageAspectRatio: 0.55
+    maxTagsToShow: 2
+    dateIncludeTime: false
+    descriptionProperty: note.description
+    hideQuickEditIcon: true

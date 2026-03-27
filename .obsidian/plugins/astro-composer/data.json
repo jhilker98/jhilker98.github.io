@@ -1,0 +1,56 @@
+{
+  "defaultTemplate": "---\ntitle: \"{{title}}\"\ndate: {{date}}\ndescription: \"\"\ntags: []\nimage: \"\"\nimageAlt: \"\"\nimageOG: false\nhideCoverImage: false\nhideTOC: false\ntargetKeyword: \"\"\ndraft: true\n---",
+  "autoInsertProperties": true,
+  "dateFormat": "YYYY-MM-DD",
+  "enableCopyHeadingLink": true,
+  "copyHeadingLinkFormat": "astro",
+  "addTrailingSlashToLinks": true,
+  "enableOpenTerminalCommand": true,
+  "terminalProjectRootPath": ".",
+  "terminalApplicationName": "",
+  "enableTerminalDebugLogging": false,
+  "enableTerminalRibbonIcon": true,
+  "enableOpenConfigFileCommand": true,
+  "configFilePath": "astro.config.mjs",
+  "enableConfigRibbonIcon": true,
+  "contentTypes": [
+    {
+      "id": "content-type-1773080132580-vbd974wk4",
+      "name": "Blog",
+      "folder": "src/content/blog",
+      "linkBasePath": "/blog/",
+      "template": "---\ntitle: \"{{title}}\"\npubDate: {{date}}\nlastModDate: \"\"\nslug: \"\"\ndraft: true\nfeatured: true\nenableToc: false\ndescription: \"\"\ntags: []\ncategories: \"\"\nseries: \"\"\nauthor: \"\"\nlastmod: \"\"\ntype: \"\"\ncover: \"\"\ncoverAlt: \"\"\ncoverClasses: \"\"\nlastmodDate: \"\"\nkeywords: \"\"\n---\n",
+      "enabled": true,
+      "creationMode": "file",
+      "indexFileName": "index",
+      "ignoreSubfolders": false,
+      "enableUnderscorePrefix": false
+    },
+    {
+      "id": "content-type-1773080132580-3zzosizec",
+      "name": "Projects",
+      "folder": "src/content/projects",
+      "linkBasePath": "/projects/",
+      "template": "---\ntitle: \"{{title}}\"\ndraft: false\nfeatured: true\ncategory: \"\"\ndescription: \"\"\ntools: []\nstatus: \"\"\nlinks: \"\"\nrepo:\ndocs:\n---\n",
+      "enabled": true,
+      "creationMode": "file",
+      "indexFileName": "index",
+      "ignoreSubfolders": false,
+      "enableUnderscorePrefix": false
+    }
+  ],
+  "migrationCompleted": true,
+  "helpButtonReplacement": {
+    "enabled": true,
+    "commandId": "astro-composer:edit-astro-config",
+    "iconId": "rocket"
+  },
+  "showMdxFilesInExplorer": true,
+  "processBackgroundFileChanges": true,
+  "syncDraftDate": false,
+  "draftProperty": "",
+  "draftLogic": "true-is-draft",
+  "publishDateField": "",
+  "updateModifiedDate": false,
+  "modifiedDateField": ""
+}

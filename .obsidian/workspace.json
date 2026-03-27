@@ -1,0 +1,147 @@
+{
+  "main": {
+    "id": "aa0346fb559b95cf",
+    "type": "split",
+    "children": [
+      {
+        "id": "ca95c3909ea64802",
+        "type": "tabs",
+        "children": [
+          {
+            "id": "0d8ba5e90451cacc",
+            "type": "leaf",
+            "pinned": true,
+            "state": {
+              "type": "bases",
+              "state": {
+                "file": "_bases/Home.base",
+                "viewName": "Blog"
+              },
+              "pinned": true,
+              "icon": "lucide-home",
+              "title": "Home"
+            }
+          }
+        ]
+      }
+    ],
+    "direction": "vertical"
+  },
+  "left": {
+    "id": "dbe6e3254924d8d7",
+    "type": "split",
+    "children": [
+      {
+        "id": "ae991c1ee5f438d1",
+        "type": "tabs",
+        "children": [
+          {
+            "id": "3e4787ad7b41a632",
+            "type": "leaf",
+            "state": {
+              "type": "file-explorer",
+              "state": {
+                "sortOrder": "alphabetical",
+                "autoReveal": false
+              },
+              "icon": "lucide-folder-closed",
+              "title": "Files"
+            }
+          },
+          {
+            "id": "5a86cba02928297b",
+            "type": "leaf",
+            "state": {
+              "type": "search",
+              "state": {
+                "query": "",
+                "matchingCase": false,
+                "explainSearch": false,
+                "collapseAll": false,
+                "extraContext": false,
+                "sortOrder": "alphabetical"
+              },
+              "icon": "lucide-search",
+              "title": "Search"
+            }
+          },
+          {
+            "id": "35f03bcf3ee9a86e",
+            "type": "leaf",
+            "state": {
+              "type": "bookmarks",
+              "state": {},
+              "icon": "lucide-bookmark",
+              "title": "Bookmarks"
+            }
+          }
+        ]
+      }
+    ],
+    "direction": "horizontal",
+    "width": 300
+  },
+  "right": {
+    "id": "6469fc003fa6db6d",
+    "type": "split",
+    "children": [
+      {
+        "id": "6910f79fadd9e72e",
+        "type": "tabs",
+        "children": [
+          {
+            "id": "e0495857e280cc20",
+            "type": "leaf",
+            "state": {
+              "type": "tag",
+              "state": {
+                "sortOrder": "frequency",
+                "useHierarchy": true,
+                "showSearch": false,
+                "searchQuery": ""
+              },
+              "icon": "lucide-tags",
+              "title": "Tags"
+            }
+          },
+          {
+            "id": "d3415844809a5ce2",
+            "type": "leaf",
+            "state": {
+              "type": "outline",
+              "state": {
+                "file": "_GUIDE.md",
+                "followCursor": false,
+                "showSearch": false,
+                "searchQuery": ""
+              },
+              "icon": "lucide-list",
+              "title": "Outline of _GUIDE"
+            }
+          }
+        ]
+      }
+    ],
+    "direction": "horizontal",
+    "width": 300,
+    "collapsed": true
+  },
+  "left-ribbon": {
+    "hiddenItems": {
+      "switcher:Open quick switcher": false,
+      "command-palette:Open command palette": false,
+      "bases:Create new base": false,
+      "seo:Open SEO audit panel": false,
+      "astro-composer:Open project terminal": false,
+      "astro-composer:Edit astro config": false,
+      "home-base:Open home base": false,
+      "obsidian-git:Open Git source control": false,
+      "zenmode:Toggle zen mode": false
+    }
+  },
+  "active": "0d8ba5e90451cacc",
+  "lastOpenFiles": [
+    "_bases/Home.base",
+    "_GUIDE.md"
+  ]
+}
