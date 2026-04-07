@@ -1,6 +1,6 @@
 ---
 title: Using a Makefile with My Website
-pubDate: 2021-03-12
+date: 2021-03-12
 draft: false
 featured: false
 slug: makefile-website

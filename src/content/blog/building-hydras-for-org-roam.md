@@ -1,7 +1,7 @@
 ---
 title: "Building Hydras for Org-roam"
 author: ["Jacob Hilker"]
-pubDate: 2021-06-14T22:43:00-04:00
+date: 2021-06-14T22:43:00-04:00
 lastmod: 2022-04-07T17:11:52-04:00
 slug: "building-hydras-for-org-roam"
 tags: ["Org-roam", "Worldbuilding", "Wikis", "Emacs", "Org-mode"]

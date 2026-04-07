@@ -1,6 +1,6 @@
 ---
 title: "Getting Started with Ox-publish"
-pubDate: 2021-10-27T00:00:00-04:00
+date: 2021-10-27T00:00:00-04:00
 lastModDate: 2022-04-07T17:11:55-04:00
 slug: "building-sites-org-publish"
 draft: true

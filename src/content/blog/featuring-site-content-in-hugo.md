@@ -1,7 +1,7 @@
 ---
 title: Featuring Site Content in Hugo
 draft: false
-pubDate: 2021-02-03
+date: 2021-02-03
 slug: featuring-content-in-hugo
 description: 'How I implemented "pinned" content in Hugo for my site.'
 tags: []

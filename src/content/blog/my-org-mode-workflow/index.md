@@ -1,6 +1,6 @@
 ---
 title: "My Org-Mode Workflow"
-pubDate: 2021-06-12T20:46:00-04:00
+date: 2021-06-12T20:46:00-04:00
 lastmod: 2022-04-07T17:11:58-04:00
 draft: false
 featured: true

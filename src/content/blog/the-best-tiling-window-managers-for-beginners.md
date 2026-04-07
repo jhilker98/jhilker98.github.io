@@ -1,6 +1,6 @@
 ---
 title: "The Best Tiling Window Managers For Beginners"
-pubDate: 2021-12-23T10:41:00-05:00
+date: 2021-12-23T10:41:00-05:00
 lastModDate: 2021-12-23T10:41:00-05:00
 slug: "the-best-tiling-window-managers-for-beginners"
 tags: ["tiling-window-managers", "software", "twms"]

@@ -1,7 +1,7 @@
 ---
 title: "Why I Left Hugo for Astro"
 draft: false
-pubDate: 2023-10-01
+date: 2023-10-01
 description: "While Hugo is great, I wanted to try some new things out with Astro. Here's what I learned."
 cover: "./img/cover.png"
 coverAlt: "The distracted boyfriend meme, but with Hugo, Astro, and myself."

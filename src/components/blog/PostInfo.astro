@@ -20,9 +20,9 @@ const content = marked(body);
       >Posted:
     </span>
     <time
-      datetime={post.data.pubDate.toISOString()}
+      datetime={post.data.date.toISOString()}
       class="font-semibold text-sm text-branding-gray-700 dark:text-gray-400"
-      >{formatPostDate(post.data.pubDate)}</time
+      >{formatPostDate(post.data.date)}</time
     >
     {
       post.body && (
@@ -53,7 +53,7 @@ const content = marked(body);
       set:html={content}
     />
     <a
-      href={`/blog/${slugifyPostDate(post.data.pubDate)}/${post.id}`}
+      href={`/blog/${slugifyPostDate(post.data.date)}/${post.id}`}
       class="block rounded-sm text-sm bg-branding-navy-600 w-fit text-white h-fit px-2 py-1 mt-1 dark:hover:bg-branding-navy-500 duration-100 transition-colors hover:bg-branding-navy-700"
       >Read More</a
     >

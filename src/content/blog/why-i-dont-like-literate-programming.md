@@ -1,6 +1,6 @@
 ---
 title: "Why I Don't Like Literate Programming"
-pubDate: 2021-11-28T10:41:00-05:00
+date: 2021-11-28T10:41:00-05:00
 slug: "why-i-dont-like-literate-programming"
 draft: true
 featured: false

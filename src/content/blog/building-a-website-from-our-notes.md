@@ -1,6 +1,6 @@
 ---
 title: "Building A Website From Our Notes"
-pubDate: 2021-09-20T17:21:00-04:00
+date: 2021-09-20T17:21:00-04:00
 slug: "building-a-website-from-our-notes"
 tags: 
  - "Org-roam"

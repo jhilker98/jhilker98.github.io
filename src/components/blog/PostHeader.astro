@@ -1,7 +1,7 @@
 ---
 interface Props {
   title: string;
-  pubDate: Date;
+  date: Date;
   lastModDate?: Date;
   tags?: string[];
   categories?: string[];
@@ -12,8 +12,8 @@ import { Icon } from "astro-icon/components";
 
 const {
   title,
-  pubDate,
-  lastModDate = pubDate,
+  date,
+  lastModDate = date,
   tags = [],
   categories = [],
 } = Astro.props;
@@ -27,10 +27,10 @@ const postTags = hashtagPostTags(tags);
     >Posted:</span
   >
   <time class="inline">
-    {formatPostDate(pubDate)}
+    {formatPostDate(date)}
   </time>
   {
-    lastModDate.getTime() > pubDate.getTime() ? (
+    lastModDate.getTime() > date.getTime() ? (
       <div class="inline ml-8">
         <span class="font-bold">Last Updated:</span>
         <time class="inline">{formatPostDate(lastModDate)}</time>

@@ -1,6 +1,6 @@
 ---
 title: Writing Literate Configs with Org-mode
-pubDate: 2023-10-13T17:35:03.282Z
+date: 2023-10-13T17:35:03.282Z
 description: Want to write once and generate docs and code? Org-mode can do it - here's how.
 tags:
   - Emacs

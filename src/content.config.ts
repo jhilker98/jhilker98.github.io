@@ -11,12 +11,12 @@ const blog = defineCollection({
       draft: z
         .boolean({ required_error: "Every post is either a draft or not." })
         .default(true),
-      pubDate: z.date({
+      date: z.date({
         required_error: "You need to have a date when the post was published.",
       }),
       tags: z.array(z.string()).optional(),
       categories: z.array(z.string()).optional(),
-      lastModDate: z.date().optional(),
+      lastMod: z.date().optional(),
       featured: z
         .boolean({ invalid_type_error: "A post is either featured or not." })
         .default(false),

@@ -13,7 +13,7 @@ export const getStaticPaths = (async ({ paginate }) => {
       return import.meta.env.PROD ? data.draft !== true : true;
     },
   );
-  posts.sort((a, b) => b.data.pubDate.getTime() - a.data.pubDate.getTime());
+  posts.sort((a, b) => b.data.date.getTime() - a.data.date.getTime());
   return paginate(posts, { pageSize: RECENT_POST_COUNT });
 }) satisfies GetStaticPaths;
 
